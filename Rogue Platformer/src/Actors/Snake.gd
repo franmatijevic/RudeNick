@@ -1,5 +1,7 @@
 extends "res://src/Actors/Actor.gd"
 
+var direction = false;
+
 func _ready() -> void:
 	velocity.x = speed.x
 	$EdgeChecker.position.x=$CollisionShape2D.shape.get_extents().x;
@@ -14,7 +16,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() or not $EdgeChecker.is_colliding() and is_on_floor():
 		velocity.x *= -1.0
 		$EdgeChecker.position.x=$CollisionShape2D.shape.get_extents().x*(abs(velocity.x)/velocity.x)
-		get_node("snake").set_flip_h( true )
+		if(direction == true):
+			direction = false
+		else:
+			direction = true
+		get_node("AnimatedSprite").set_flip_h( direction )
 	velocity.y = move_and_slide(velocity, Vector2.UP).y
 
 
