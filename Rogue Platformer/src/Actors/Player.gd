@@ -6,17 +6,17 @@ var direction: = false
 
 onready var animatedSprite = $AnimatedSprite
 
+func _ready() -> void:
+	speed.x=100.0
+	speed.y=225.0
+	stomp_impulse=250.0
+
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	queue_free()
 	return
-
-func _ready() -> void:
-	speed.x=100.0
-	speed.y=225.0
-	stomp_impulse=250.0
 
 func _process(delta: float) -> void:
 	if(is_attacking==false):
@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 	var direction: = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	if($LedgeY.is_colliding()): print("dira")
 
 func get_direction() -> Vector2:
 	return Vector2(

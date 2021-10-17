@@ -5,10 +5,10 @@
 [ext_resource path="res://Assets/SnakeWalking/snake_walk_1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SnakeWalking/snake_walk_3.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.95805, 6.93286 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
@@ -16,10 +16,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.978, 4.96843 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.44524, 3.25689 )
 
 [node name="Snake" type="KinematicBody2D"]
@@ -33,19 +33,19 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damagebox"]
-position = Vector2( 29.0625, 0.840896 )
-shape = SubResource( 4 )
+position = Vector2( -0.25, 0.840896 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 45.7138, 8.10655 )
+position = Vector2( -0.0987015, 8.10655 )
 scale = Vector2( 0.270194, 0.259707 )
 rect = Rect2( -30, -60, 60, 60 )
 
@@ -56,7 +56,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
 position = Vector2( 0, 8.67661 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="EdgeChecker" type="RayCast2D" parent="."]
 position = Vector2( 0, 5 )

@@ -76,5 +76,11 @@ collision_mask = 0
 shape = SubResource( 4 )
 disabled = true
 
+[node name="LedgeY" type="RayCast2D" parent="."]
+position = Vector2( 7, -6 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
