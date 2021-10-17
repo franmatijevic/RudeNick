@@ -7,7 +7,7 @@ func _ready() -> void:
 	$EdgeChecker.position.x=$CollisionShape2D.shape.get_extents().x;
 
 func _on_StompDetector_body_entered(body: PhysicsBody2D) -> void:
-	if body.global_position.y > get_node("StompDetector").global_position.y:
+	if body.global_position.y >= get_node("StompDetector").global_position.y:
 		return
 	get_node("CollisionShape2D").disabled = true
 	queue_free()
@@ -25,3 +25,8 @@ func _physics_process(delta: float) -> void:
 
 
 
+
+
+func _on_damagebox_area_entered(area: Area2D) -> void:
+	get_node("CollisionShape2D").disabled=true
+	queue_free()

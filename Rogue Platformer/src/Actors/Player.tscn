@@ -1,43 +1,80 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Assets/white1x1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/PlayerWalking/player_walk_1.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/PlayerWalking/player_walk_2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/PlayerWhiping/whip4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/PlayerWhiping/whip2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/PlayerWhiping/whip1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/PlayerWhiping/whip5.png" type="Texture" id=7]
+[ext_resource path="res://Assets/PlayerWalking/player.png" type="Texture" id=8]
+[ext_resource path="res://Assets/PlayerWhiping/whip3.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7, 8 )
+extents = Vector2( 5.08896, 7.8405 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6, 8 )
+extents = Vector2( 6, 7.97976 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "whiping",
+"speed": 13.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 6.96768, 5.36925 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
 script = ExtResource( 2 )
-speed = Vector2( 700, 700 )
-
-[node name="white1x1" type="Sprite" parent="."]
-position = Vector2( 0, -28 )
-scale = Vector2( 16, 16 )
-texture = ExtResource( 1 )
+speed = Vector2( 50, 300 )
+stomp_impulse = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -28 )
+position = Vector2( 0, 0.0316391 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 0, -64 )
+position = Vector2( 0.794601, -10.0271 )
 current = true
-zoom = Vector2( 0.2, 0.2 )
+zoom = Vector2( 0.3, 0.3 )
 smoothing_enabled = true
+smoothing_speed = 7.0
 
 [node name="EnemyDetector" type="Area2D" parent="."]
-position = Vector2( 0, -1 )
+position = Vector2( 0, 8.18069 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
-position = Vector2( 0, -27 )
+position = Vector2( 0, -8.16728 )
 shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="whip_node" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+disabled = true
 
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]

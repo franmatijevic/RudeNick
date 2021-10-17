@@ -1,13 +1,33 @@
 extends Actor
 
-export var stomp_impulse: = 1000.0
+export var stomp_impulse: = 100.0
+var is_attacking: = false
+var direction: = false
+
+onready var animatedSprite = $AnimatedSprite
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	queue_free()
+	return
 
+func _ready() -> void:
+	speed.x=100.0
+	speed.y=225.0
+	stomp_impulse=250.0
+
+func _process(delta: float) -> void:
+	if(is_attacking==false):
+		if(velocity.x>0): direction=false
+		elif(velocity.x<0): direction=true
+	get_node("AnimatedSprite").set_flip_h( direction )
+	if(Input.is_action_pressed("action") && is_attacking==false): action()
+	
+	if(velocity.x!=0 and is_attacking==false): animatedSprite.animation="walking"
+	elif(!is_attacking): animatedSprite.animation="default"
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +42,29 @@ func get_direction() -> Vector2:
 		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
 	)
 
+func action()-> void:
+	var k
+	if(direction==false): k=1
+	else: k=-1
+	is_attacking=true
+	animatedSprite.animation="whiping"
+	get_node("Area2D/whip_node").disabled=false
+	#backwhiping
+	get_node("Area2D/whip_node").position.x=-5*k
+	get_node("Area2D/whip_node").position.y=-6
+	var time_in_seconds = 0.2
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	#frontwhiping
+	get_node("Area2D/whip_node").position.y=0
+	get_node("Area2D/whip_node").position.x=9.3*k
+	time_in_seconds = 0.3
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	get_node("Area2D/whip_node").disabled=true
+	get_node("Area2D/whip_node").position.x=0
+	get_node("Area2D/whip_node").position.y=0
+	
+	is_attacking=false
+	animatedSprite.animation="default"
 
 func calculate_move_velocity(
 	linear_velocity: Vector2,
