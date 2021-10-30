@@ -2,7 +2,17 @@ extends Actor
 
 export var stomp_impulse: = 100.0
 var is_attacking: = false
-var direction: = false
+var smjer: = false
+var ledge_grab: = false
+var climbing:=false
+
+var move_up:=false
+var move_down:=false
+var move_left:=false
+var move_right:=false
+
+var move_horizontal:=1
+var climbing_speed: = 50.0
 
 onready var animatedSprite = $AnimatedSprite
 
@@ -19,16 +29,22 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	return
 
 func _process(delta: float) -> void:
-	if(is_attacking==false):
-		if(velocity.x>0): direction=false
-		elif(velocity.x<0): direction=true
-	get_node("AnimatedSprite").set_flip_h( direction )
+	if(Input.is_action_just_pressed("up")): move_up=true
+	if(Input.is_action_just_released("up")): move_up=false
+	if(Input.is_action_just_pressed("down")): move_down=true
+	if(Input.is_action_just_released("down")): move_down=false
+	
+	if(!is_attacking):
+		if(velocity.x>0): smjer=false
+		elif(velocity.x<0): smjer=true
+	get_node("AnimatedSprite").set_flip_h( smjer )
 	if(Input.is_action_pressed("action") && is_attacking==false): action()
 	
-	if(velocity.x!=0 and is_attacking==false): animatedSprite.animation="walking"
-	elif(!is_attacking): animatedSprite.animation="default"
-	
-
+	if(velocity.x!=0 and is_attacking==false and climbing==false): animatedSprite.animation="walking"
+	elif(!is_attacking and climbing==false): animatedSprite.animation="default"
+	elif(climbing and velocity.y!=0 and !is_attacking): animatedSprite.animation="climbing"
+	elif(!is_attacking): animatedSprite.animation="climbing_stop"
+	if(move_up && $ladderCheck.is_colliding()): ladder()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
@@ -36,17 +52,52 @@ func _physics_process(delta: float) -> void:
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	if($LedgeY.is_colliding()): print("dira")
+	if(climbing):
+		if(Input.is_action_just_pressed("move_left") and !is_attacking): smjer=true
+		if(Input.is_action_just_pressed("move_right") and !is_attacking): smjer=false
+		if(!move_up and !move_down): velocity.y=0
+		if(move_down==true and $ladderCheck.is_colliding()): velocity.y=+climbing_speed
+		if(move_up==true and $ladderCheck2.is_colliding()): velocity.y=-climbing_speed
+		if(!$ladderCheck.is_colliding() and velocity.y<0): velocity.y=0
+		if(!$ladderCheck2.is_colliding() and velocity.y>0): velocity.y=0
+		if(!$ladderCheck.is_colliding() and $ladderCheck2.is_colliding() and move_down): velocity.y=climbing_speed
+		if(Input.is_action_just_pressed("jump")): 
+			climbing=false
+			using_gravity=1
+			move_horizontal=1 
+			if(!move_down):
+				velocity.y-=speed.y
+		if(is_on_floor()): 
+			climbing=false
+			using_gravity=1
+			move_horizontal=1
+		
+
+	
+
 
 func get_direction() -> Vector2:
 	return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal,
 		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
 	)
 
+func ladder()->void:
+	climbing=true
+	using_gravity=0
+	move_horizontal=0
+	velocity.y=-climbing_speed
+	set_global_position(Vector2($ladderCheck.get_collider().get_global_position().x, get_global_position().y))
+	
+
+func hold_ledge()->void:
+	if($LedgeX.is_colliding()):
+		ledge_grab=true
+		print("sve istinito")
+
 func action()-> void:
 	var k
-	if(direction==false): k=1
+	if(smjer==false): k=1
 	else: k=-1
 	is_attacking=true
 	animatedSprite.animation="whiping"
@@ -76,7 +127,7 @@ func calculate_move_velocity(
 	) -> Vector2:
 	var out: = linear_velocity
 	out.x = speed.x * direction.x
-	out.y += gravity * get_physics_process_delta_time()
+	out.y += gravity * get_physics_process_delta_time() * using_gravity
 	if direction.y == -1.0:
 		out.y = speed.y * direction.y
 	if is_jump_interrupted:
@@ -87,6 +138,9 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 	var out: = linear_velocity 
 	out.y = -impulse
 	return out
+
+
+
 
 
 

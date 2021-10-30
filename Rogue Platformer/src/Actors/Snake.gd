@@ -1,6 +1,6 @@
 extends "res://src/Actors/Actor.gd"
 
-var direction = false;
+var direction: = false
 
 func _ready() -> void:
 	velocity.x = speed.x
