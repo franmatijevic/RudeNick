@@ -22,6 +22,9 @@ func _ready() -> void:
 	stomp_impulse=250.0
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
+	climbing=false
+	using_gravity=1
+	move_horizontal=1 
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
@@ -44,7 +47,7 @@ func _process(delta: float) -> void:
 	elif(!is_attacking and climbing==false): animatedSprite.animation="default"
 	elif(climbing and velocity.y!=0 and !is_attacking): animatedSprite.animation="climbing"
 	elif(!is_attacking): animatedSprite.animation="climbing_stop"
-	if(move_up && $ladderCheck.is_colliding()): ladder()
+	if(move_up && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
@@ -71,10 +74,18 @@ func _physics_process(delta: float) -> void:
 			climbing=false
 			using_gravity=1
 			move_horizontal=1
-		
-
 	
-
+	#if($LedgeX.is_colliding() && !is_attacking && !climbing): hold_ledge()
+	if(ledge_grab):
+		if(Input.is_action_just_pressed("jump")):
+			if(!move_down): velocity.y-=speed.y
+			move_horizontal=1
+			using_gravity=1
+			ledge_grab=false
+		#if(!$LedgeX.is_colliding() or $LedgeY.is_colliding()):
+			#ledge_grab=0
+			#move_horizontal=1
+			#using_gravity=1
 
 func get_direction() -> Vector2:
 	return Vector2(
@@ -91,9 +102,15 @@ func ladder()->void:
 	
 
 func hold_ledge()->void:
-	if($LedgeX.is_colliding()):
+	print("zid ispred")
+	if(!$LedgeY.is_colliding() and !is_on_floor()):
 		ledge_grab=true
-		print("sve istinito")
+		move_horizontal=0
+		using_gravity=0
+		velocity.y=0.0
+		#set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-16, $LedgeX.get_collider().get_global_position().y))
+		print("rub")
+		print($LedgeX.get_collider().get_global_position())
 
 func action()-> void:
 	var k

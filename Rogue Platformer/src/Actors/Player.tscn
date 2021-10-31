@@ -25,24 +25,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "climbing",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walking",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "climbing_stop",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "whiping",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "climbing_stop",
+"name": "climbing",
 "speed": 5.0
 } ]
 
@@ -90,17 +90,19 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="LedgeY" type="RayCast2D" parent="."]
-position = Vector2( 8, -6 )
+position = Vector2( 6, -9 )
 enabled = true
 exclude_parent = false
 cast_to = Vector2( 0, 1 )
 collision_mask = 8
+collide_with_areas = true
 
 [node name="LedgeX" type="RayCast2D" parent="."]
-position = Vector2( 6, -5 )
+position = Vector2( 6, -2 )
 enabled = true
 cast_to = Vector2( 1, 0 )
 collision_mask = 8
+collide_with_areas = true
 
 [node name="ladderCheck" type="RayCast2D" parent="."]
 position = Vector2( 0, -3 )
