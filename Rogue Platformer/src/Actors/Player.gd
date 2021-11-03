@@ -1,6 +1,10 @@
 extends Actor
 
-export var stomp_impulse: = 100.0
+var climbing_speed: = 50.0
+var stomp_impulse: = 100.0
+var health: = 4
+
+
 var is_attacking: = false
 var smjer: = false
 var ledge_grab: = false
@@ -12,7 +16,6 @@ var move_left:=false
 var move_right:=false
 
 var move_horizontal:=1
-var climbing_speed: = 50.0
 
 onready var animatedSprite = $AnimatedSprite
 
@@ -37,9 +40,15 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("down")): move_down=true
 	if(Input.is_action_just_released("down")): move_down=false
 	
-	if(!is_attacking):
-		if(velocity.x>0): smjer=false
-		elif(velocity.x<0): smjer=true
+	if(!is_attacking and !ledge_grab):
+		if(velocity.x>0): 
+			smjer=false
+			$LedgeY.position.x = 7
+			$LedgeX.position.x = 6
+		elif(velocity.x<0): 
+			smjer=true
+			$LedgeY.position.x = -7
+			$LedgeX.position.x = -6
 	get_node("AnimatedSprite").set_flip_h( smjer )
 	if(Input.is_action_pressed("action") && is_attacking==false): action()
 	
@@ -47,7 +56,7 @@ func _process(delta: float) -> void:
 	elif(!is_attacking and climbing==false): animatedSprite.animation="default"
 	elif(climbing and velocity.y!=0 and !is_attacking): animatedSprite.animation="climbing"
 	elif(!is_attacking): animatedSprite.animation="climbing_stop"
-	if(move_up && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
+	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
@@ -75,23 +84,27 @@ func _physics_process(delta: float) -> void:
 			using_gravity=1
 			move_horizontal=1
 	
-	#if($LedgeX.is_colliding() && !is_attacking && !climbing): hold_ledge()
+	if($LedgeX.is_colliding() && !is_attacking && !climbing): hold_ledge()
 	if(ledge_grab):
 		if(Input.is_action_just_pressed("jump")):
 			if(!move_down): velocity.y-=speed.y
 			move_horizontal=1
 			using_gravity=1
 			ledge_grab=false
-		#if(!$LedgeX.is_colliding() or $LedgeY.is_colliding()):
-			#ledge_grab=0
-			#move_horizontal=1
-			#using_gravity=1
+		if(!$LedgeX.is_colliding() or $LedgeY.is_colliding()):
+			ledge_grab=0
+			move_horizontal=1
+			using_gravity=1
 
 func get_direction() -> Vector2:
 	return Vector2(
 		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal,
 		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
 	)
+
+func damage()->void:
+	pass
+
 
 func ladder()->void:
 	climbing=true
@@ -102,15 +115,15 @@ func ladder()->void:
 	
 
 func hold_ledge()->void:
-	print("zid ispred")
 	if(!$LedgeY.is_colliding() and !is_on_floor()):
-		ledge_grab=true
-		move_horizontal=0
-		using_gravity=0
-		velocity.y=0.0
-		#set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-16, $LedgeX.get_collider().get_global_position().y))
-		print("rub")
-		print($LedgeX.get_collider().get_global_position())
+		if(velocity.y>0 and !move_down or velocity.y<0 and move_down):
+			if(!ledge_grab): 
+				if(!smjer): set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-12, $LedgeX.get_collider().get_global_position().y))
+				else: set_global_position(Vector2($LedgeX.get_collider().get_global_position().x+12, $LedgeX.get_collider().get_global_position().y))
+			ledge_grab=true
+			move_horizontal=0
+			using_gravity=0
+			velocity.y=0.0
 
 func action()-> void:
 	var k

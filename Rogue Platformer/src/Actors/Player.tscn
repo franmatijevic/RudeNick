@@ -25,6 +25,11 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "climbing",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walking",
@@ -39,11 +44,6 @@ animations = [ {
 "loop": false,
 "name": "whiping",
 "speed": 13.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "climbing",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -53,7 +53,6 @@ extents = Vector2( 6.96768, 5.36925 )
 collision_mask = 8
 script = ExtResource( 2 )
 speed = Vector2( 50, 300 )
-stomp_impulse = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.0316391 )
@@ -78,7 +77,6 @@ shape = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-animation = "climbing_stop"
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -90,7 +88,7 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="LedgeY" type="RayCast2D" parent="."]
-position = Vector2( 6, -9 )
+position = Vector2( 7, -9 )
 enabled = true
 exclude_parent = false
 cast_to = Vector2( 0, 1 )

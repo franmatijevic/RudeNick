@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/white1x1.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://src/environment/ladder2.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/environment/ladder_top.tscn" type="PackedScene" id=20]
 [ext_resource path="res://src/Actors/Bat.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/environment/BoneBlock.tscn" type="PackedScene" id=22]
+[ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -381,44 +383,38 @@ position = Vector2( 780, 273 )
 texture = ExtResource( 5 )
 
 [node name="Node2D10" parent="." instance=ExtResource( 20 )]
-position = Vector2( 640, 254 )
-
-[node name="Node2D9" parent="." instance=ExtResource( 20 )]
-position = Vector2( 672, 302 )
+position = Vector2( 662, 249 )
 
 [node name="Node2D3" parent="." instance=ExtResource( 19 )]
-position = Vector2( 672, 334 )
+position = Vector2( 684.728, 289.906 )
 
-[node name="Node2D2" parent="." instance=ExtResource( 18 )]
-position = Vector2( 672, 350 )
-
-[node name="Node2D4" parent="." instance=ExtResource( 18 )]
-position = Vector2( 672, 318 )
+[node name="KinematicBody2D" parent="Node2D3" instance=ExtResource( 23 )]
+position = Vector2( 50.8228, -5.03217 )
 
 [node name="Node2D6" parent="." instance=ExtResource( 18 )]
-position = Vector2( 640, 270 )
+position = Vector2( 662, 264 )
 
 [node name="Node2D8" parent="." instance=ExtResource( 18 )]
-position = Vector2( 640, 302 )
-
-[node name="Node2D" parent="." instance=ExtResource( 19 )]
-position = Vector2( 672, 366 )
+position = Vector2( 662, 296 )
 
 [node name="Node2D5" parent="." instance=ExtResource( 19 )]
-position = Vector2( 640, 318 )
+position = Vector2( 662, 312 )
 
 [node name="Node2D7" parent="." instance=ExtResource( 19 )]
-position = Vector2( 640, 286 )
+position = Vector2( 662, 280 )
 
 [node name="Snake2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 336.418, 243.301 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 696.981, 326.679 )
+position = Vector2( 673.17, 354.459 )
 speed = Vector2( 700, 800 )
 
+[node name="KinematicBody2D" parent="." instance=ExtResource( 23 )]
+position = Vector2( 828.206, 304.154 )
+
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 205.316, 80.9488 )
+position = Vector2( 205, 81 )
 tile_set = SubResource( 16 )
 cell_size = Vector2( 16, 16 )
 cell_quadrant_size = 1
@@ -440,7 +436,7 @@ position = Vector2( 261.005, 295.983 )
 position = Vector2( 352, 340.373 )
 
 [node name="Snake6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 752, 328.75 )
+position = Vector2( 759.342, 356.114 )
 
 [node name="Bat" parent="." instance=ExtResource( 21 )]
 position = Vector2( 567.765, 264.243 )
@@ -453,3 +449,18 @@ position = Vector2( 472.047, 248.402 )
 
 [node name="Bat4" parent="." instance=ExtResource( 21 )]
 position = Vector2( 785.162, 266.658 )
+
+[node name="Node2D11" parent="." instance=ExtResource( 22 )]
+position = Vector2( 629, 329 )
+
+[node name="Node2D12" parent="." instance=ExtResource( 22 )]
+position = Vector2( 621.821, 308.794 )
+
+[node name="Node2D13" parent="." instance=ExtResource( 22 )]
+position = Vector2( 725.55, 361.674 )
+
+[node name="Node2D" parent="." instance=ExtResource( 23 )]
+position = Vector2( 700, 344 )
+
+[node name="KinematicBody2D" parent="Node2D" instance=ExtResource( 23 )]
+position = Vector2( 17.1455, -31.2819 )
