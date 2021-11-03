@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/white1x1.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://src/Actors/Bat.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/environment/BoneBlock.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Actors/Spider.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -385,11 +386,11 @@ texture = ExtResource( 5 )
 [node name="Node2D10" parent="." instance=ExtResource( 20 )]
 position = Vector2( 662, 249 )
 
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 23 )]
+position = Vector2( 735.551, 284.874 )
+
 [node name="Node2D3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 684.728, 289.906 )
-
-[node name="KinematicBody2D" parent="Node2D3" instance=ExtResource( 23 )]
-position = Vector2( 50.8228, -5.03217 )
 
 [node name="Node2D6" parent="." instance=ExtResource( 18 )]
 position = Vector2( 662, 264 )
@@ -459,8 +460,11 @@ position = Vector2( 621.821, 308.794 )
 [node name="Node2D13" parent="." instance=ExtResource( 22 )]
 position = Vector2( 725.55, 361.674 )
 
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 23 )]
+position = Vector2( 717.146, 312.718 )
+
 [node name="Node2D" parent="." instance=ExtResource( 23 )]
 position = Vector2( 700, 344 )
 
-[node name="KinematicBody2D" parent="Node2D" instance=ExtResource( 23 )]
-position = Vector2( 17.1455, -31.2819 )
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 24 )]
+position = Vector2( 709.098, 218.741 )

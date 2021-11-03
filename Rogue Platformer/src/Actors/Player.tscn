@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/PlayerWalking/player_walk_1.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/PlayerWhiping/whip3.png" type="Texture" id=9]
 [ext_resource path="res://Assets/PlayerWalking/player_climb1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/PlayerWalking/player_climb2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/PlayerWalking/player_grab.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.08896, 7.8405 )
@@ -44,6 +45,11 @@ animations = [ {
 "loop": false,
 "name": "whiping",
 "speed": 13.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "hanging",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]

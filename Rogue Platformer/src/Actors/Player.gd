@@ -52,10 +52,12 @@ func _process(delta: float) -> void:
 	get_node("AnimatedSprite").set_flip_h( smjer )
 	if(Input.is_action_pressed("action") && is_attacking==false): action()
 	
-	if(velocity.x!=0 and is_attacking==false and climbing==false): animatedSprite.animation="walking"
-	elif(!is_attacking and climbing==false): animatedSprite.animation="default"
-	elif(climbing and velocity.y!=0 and !is_attacking): animatedSprite.animation="climbing"
-	elif(!is_attacking): animatedSprite.animation="climbing_stop"
+	if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
+	elif(!is_attacking and climbing==false and !ledge_grab): animatedSprite.animation="default"
+	elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
+	elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
+	elif(ledge_grab): animatedSprite.animation="hanging"
+	
 	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
 
 func _physics_process(delta: float) -> void:
