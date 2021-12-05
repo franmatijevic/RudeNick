@@ -2,13 +2,21 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health: = 4
+var health
 
+var walk_speed:=75.0
+var run_speed:=120.0
+var slowed_speed:=50.0
+var normal_jump:=225.0
+var slowed_jump:=150.0
 
+var iframes_on:=false
 var is_attacking: = false
 var smjer: = false
 var ledge_grab: = false
 var climbing:=false
+var is_running:=true
+var spider_web:=false
 
 var move_up:=false
 var move_down:=false
@@ -20,18 +28,34 @@ var move_horizontal:=1
 onready var animatedSprite = $AnimatedSprite
 
 func _ready() -> void:
-	speed.x=100.0
+	speed.x=run_speed
 	speed.y=225.0
 	stomp_impulse=250.0
+	health=40
+
+func _on_webDetect_area_entered(area: Area2D) -> void:
+	spider_web=true
+
+func _on_webDetect_area_exited(area: Area2D) -> void:
+	spider_web=false
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
-	climbing=false
-	using_gravity=1
-	move_horizontal=1 
-	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+	if !is_on_floor():
+		climbing=false
+		using_gravity=1
+		move_horizontal=1 
+		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
-	queue_free()
+	if(!iframes_on):
+		health-=1
+		iframes()
+		treperenje()
+		move_horizontal=0
+		var time_in_seconds = 0.1
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+		move_horizontal=1
+	#queue_free()
 	return
 
 func _process(delta: float) -> void:
@@ -39,6 +63,23 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_released("up")): move_up=false
 	if(Input.is_action_just_pressed("down")): move_down=true
 	if(Input.is_action_just_released("down")): move_down=false
+	if(Input.is_action_just_pressed("run")): is_running=false
+	if(Input.is_action_just_released("run")): is_running=true
+	
+	if(spider_web): 
+		if(Input.is_action_just_pressed("jump")): 
+			velocity.y=-speed.y
+		speed.x=slowed_speed
+		speed.y=slowed_jump
+	elif(is_running):
+		speed.x=run_speed
+		speed.y=normal_jump
+	else:
+		speed.x=walk_speed
+		speed.y=normal_jump
+	
+	if(health==0): queue_free()
+	#print(health)
 	
 	if(!is_attacking and !ledge_grab):
 		if(velocity.x>0): 
@@ -93,7 +134,7 @@ func _physics_process(delta: float) -> void:
 			move_horizontal=1
 			using_gravity=1
 			ledge_grab=false
-		if(!$LedgeX.is_colliding() or $LedgeY.is_colliding()):
+		if(!$LedgeX.is_colliding() or $LedgeY.is_colliding() or is_on_floor()):
 			ledge_grab=0
 			move_horizontal=1
 			using_gravity=1
@@ -106,6 +147,7 @@ func get_direction() -> Vector2:
 
 func damage()->void:
 	pass
+
 
 
 func ladder()->void:
@@ -171,10 +213,20 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 	out.y = -impulse
 	return out
 
+func iframes()->void:
+	iframes_on=true
+	var time_in_seconds = 1.5
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	#modulate.a=1
+	iframes_on=false
 
-
-
-
-
+func treperenje()->void:
+	var time_in_seconds
+	for i in range(10):
+		if(i%2==0): modulate.a=0.2
+		else: modulate.a=1
+		time_in_seconds = 0.15
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+		
 
 
