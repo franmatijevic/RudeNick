@@ -17,6 +17,7 @@ var ledge_grab: = false
 var climbing:=false
 var is_running:=true
 var spider_web:=false
+var collides_w_enemy:=false
 
 var move_up:=false
 var move_down:=false
@@ -43,7 +44,8 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	if !is_on_floor():
 		climbing=false
 		using_gravity=1
-		move_horizontal=1 
+		move_horizontal=1
+		area.get_parent().queue_free() 
 		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
@@ -52,11 +54,9 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		iframes()
 		treperenje()
 		move_horizontal=0
-		var time_in_seconds = 0.1
+		var time_in_seconds = 0.2
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		move_horizontal=1
-	#queue_free()
-	return
 
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("up")): move_up=true
@@ -90,8 +90,13 @@ func _process(delta: float) -> void:
 			smjer=true
 			$LedgeY.position.x = -7
 			$LedgeX.position.x = -6
+	
+	if(Input.is_action_just_pressed("move_left")):
+		smjer=1
+	if(Input.is_action_just_pressed("move_right")):
+		smjer=0
 	get_node("AnimatedSprite").set_flip_h( smjer )
-	if(Input.is_action_pressed("action") && is_attacking==false): action()
+	if(Input.is_action_just_pressed("action") && is_attacking==false): action()
 	
 	if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
 	elif(!is_attacking and climbing==false and !ledge_grab): animatedSprite.animation="default"

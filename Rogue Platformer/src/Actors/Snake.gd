@@ -3,6 +3,7 @@ extends "res://src/Actors/Actor.gd"
 var direction: = false
 var change: = false
 var can_move=1
+var health:=1
 
 func _ready() -> void:
 	velocity.x = speed.x
