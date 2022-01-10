@@ -2,7 +2,7 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health
+var health = 10
 
 var walk_speed:=75.0
 var run_speed:=120.0
@@ -17,7 +17,11 @@ var ledge_grab: = false
 var climbing:=false
 var is_running:=true
 var spider_web:=false
+var exits_level:=false
 var collides_w_enemy:=false
+
+var near_exit:=false
+var stop:=1
 
 var move_up:=false
 var move_down:=false
@@ -27,12 +31,20 @@ var move_right:=false
 var move_horizontal:=1
 
 onready var animatedSprite = $AnimatedSprite
+var spike_boots:=false
+
+
 
 func _ready() -> void:
 	speed.x=run_speed
 	speed.y=225.0
 	stomp_impulse=250.0
-	health=40
+
+func _on_exitDetect_body_entered(body: Node) -> void:
+	near_exit=true
+
+func _on_exitDetect_body_exited(body: Node) -> void:
+	near_exit=false
 
 func _on_webDetect_area_entered(area: Area2D) -> void:
 	spider_web=true
@@ -50,10 +62,13 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	if(!iframes_on):
+		ledge_grab=false
 		health-=1
 		iframes()
 		treperenje()
 		move_horizontal=0
+		if(velocity.y>0.0):
+			velocity.y=0
 		var time_in_seconds = 0.2
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		move_horizontal=1
@@ -91,15 +106,15 @@ func _process(delta: float) -> void:
 			$LedgeY.position.x = -7
 			$LedgeX.position.x = -6
 	
-	if(Input.is_action_just_pressed("move_left")):
+	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking):
 		smjer=1
-	if(Input.is_action_just_pressed("move_right")):
+	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking):
 		smjer=0
 	get_node("AnimatedSprite").set_flip_h( smjer )
-	if(Input.is_action_just_pressed("action") && is_attacking==false): action()
+	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level): action()
 	
 	if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
-	elif(!is_attacking and climbing==false and !ledge_grab): animatedSprite.animation="default"
+	elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
 	elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
 	elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
 	elif(ledge_grab): animatedSprite.animation="hanging"
@@ -110,7 +125,7 @@ func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
 	var direction: = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity*stop, Vector2.UP*stop)
 	
 	if(climbing):
 		if(Input.is_action_just_pressed("move_left") and !is_attacking): smjer=true
@@ -143,11 +158,14 @@ func _physics_process(delta: float) -> void:
 			ledge_grab=0
 			move_horizontal=1
 			using_gravity=1
+	
+	if(near_exit and Input.is_action_just_pressed("buy") and is_on_floor()):
+		exitlevel()
 
 func get_direction() -> Vector2:
 	return Vector2(
 		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal,
-		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
+		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level else 1.0
 	)
 
 func damage()->void:
@@ -189,7 +207,7 @@ func action()-> void:
 	#frontwhiping
 	get_node("Area2D/whip_node").position.y=0
 	get_node("Area2D/whip_node").position.x=9.3*k
-	time_in_seconds = 0.3
+	time_in_seconds = 0.2
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	get_node("Area2D/whip_node").disabled=true
 	get_node("Area2D/whip_node").position.x=0
@@ -232,6 +250,30 @@ func treperenje()->void:
 		else: modulate.a=1
 		time_in_seconds = 0.15
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
-		
 
+func exitlevel()->void:
+	stop=0
+	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
+	pos.y=pos.y+8
+	position=pos
+	exits_level=true
+	climbing=true
+	move_horizontal=0
+	darker_effect()
+	var transition = preload("res://src/Other/TransitionEffect.tscn").instance()
+	transition.choice=true
+	get_parent().add_child(transition)
+	
+	get_node("CollisionShape2D").disabled=true
+	get_node("EnemyDetector").monitoring=false
+	var time_in_seconds = 0.6
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	get_tree().change_scene("res://src/Levels/World.tscn")
 
+func darker_effect()->void:
+	var time_in_seconds
+	for i in range(60):
+		i=i+2
+		$AnimatedSprite.modulate = Color(1.0/i, 1.0/i, 1.0/i)
+		time_in_seconds = 0.05
+		yield(get_tree().create_timer(time_in_seconds), "timeout")

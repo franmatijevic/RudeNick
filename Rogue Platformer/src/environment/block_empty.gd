@@ -17,6 +17,8 @@ func _ready() -> void:
 		if(destroy<chanse):
 			queue_free()
 
+
+
 func _physics_process(delta: float) -> void:
 	var up=false
 	var down=false

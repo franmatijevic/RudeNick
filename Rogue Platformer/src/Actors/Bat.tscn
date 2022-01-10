@@ -25,7 +25,7 @@ extents = Vector2( 5.97187, 3.55206 )
 extents = Vector2( 5.18064, 5.03371 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 50.4499, 30.7171 )
+extents = Vector2( 60, 60 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5.30247, 3.0501 )
@@ -58,6 +58,7 @@ monitorable = false
 shape = SubResource( 3 )
 
 [node name="playerDetect" type="Area2D" parent="."]
+position = Vector2( 0, 38 )
 collision_layer = 0
 monitorable = false
 
@@ -82,7 +83,6 @@ monitorable = false
 shape = SubResource( 6 )
 
 [connection signal="area_entered" from="damageBox" to="." method="_on_damageBox_area_entered"]
-[connection signal="area_entered" from="playerDetect" to="." method="_on_playerDetect_area_entered"]
 [connection signal="body_entered" from="playerDetect" to="." method="_on_playerDetect_body_entered"]
 [connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
 [connection signal="area_entered" from="spiderWeb" to="." method="_on_Area2D_area_entered"]

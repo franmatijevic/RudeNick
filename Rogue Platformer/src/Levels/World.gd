@@ -1,5 +1,11 @@
 extends Node2D
 
+var health
+var level
+
+var playerx
+var playery
+
 var polje = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 var start
 var x
@@ -14,7 +20,11 @@ var array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 #Side tile = 0
 
 func _init()->void:
+	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
+	transition.choice=true
+	#add_child(transition)
 	
+	OS.window_fullscreen = true
 	randomize()
 	start=randi()%4
 	polje[0][start]=4
@@ -32,7 +42,7 @@ func _init()->void:
 		
 		if(direction == 0):
 			if(x==0 or banned_route==0):
-				direction = 2
+				direction = 1
 			else: 
 				x=x-1
 				banned_route=1
@@ -96,12 +106,16 @@ func _init()->void:
 
 func _process(delta: float) -> void:
 	pass
+	if(Input.is_action_just_pressed("ui_cancel")):
+		get_tree().quit()
+	
 	if(Input.is_action_just_pressed("jump") and !has_node("Player")):
 		get_tree().reload_current_scene()
 		pass
 
 func _ready() -> void:
 	pass
+	get_node("BlackScreen").queue_free()
 	#print(polje)
 	add_player()
 
@@ -175,6 +189,6 @@ func create_side_room(i:int, j:int) ->void:
 func add_player()->void:
 	var player = preload("res://src/Actors/Player.tscn").instance()
 	player.position.x=80+start*160
-	player.position.y=50
+	player.position.y=34
 	add_child(player)
 

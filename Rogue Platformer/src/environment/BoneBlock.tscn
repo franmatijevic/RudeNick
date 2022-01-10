@@ -9,7 +9,8 @@ extents = Vector2( 7.98905, 7.98438 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.98438, 7.95313 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="BoneBlock" type="KinematicBody2D"]
+z_index = -9
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 2 )

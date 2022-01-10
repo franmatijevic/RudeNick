@@ -30,7 +30,7 @@ func _on_damagebox_area_entered(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	pass
-	#print(direction)
+	print(direction)
 	if(change==false): 
 		get_node("AnimatedSprite").set_flip_h( direction )
 
@@ -53,4 +53,3 @@ func wait_and_stop() ->void:
 	var time_in_seconds = 0.1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_move=0
-

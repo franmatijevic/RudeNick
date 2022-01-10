@@ -14,6 +14,7 @@ scale = Vector2( 1.00034, 1 )
 
 [node name="Background1" type="Sprite" parent="."]
 position = Vector2( 192, 192 )
+z_index = -10
 texture = ExtResource( 5 )
 
 [node name="Background2" type="Sprite" parent="."]
@@ -21,92 +22,89 @@ position = Vector2( 575, 192 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 141.096, -12.1159 )
+position = Vector2( 238.869, 72.0594 )
 speed = Vector2( 700, 800 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 400, 64 )
+position = Vector2( 409.39, 155.392 )
 
 [node name="Node2D3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 560, 64 )
+position = Vector2( 569.39, 155.392 )
 
 [node name="Node2D" parent="." instance=ExtResource( 7 )]
-position = Vector2( 240, 64 )
+position = Vector2( 249.39, 155.392 )
 
 [node name="Start 1" parent="." instance=ExtResource( 30 )]
-position = Vector2( 80, 64 )
+position = Vector2( 89.3904, 155.392 )
 
 [node name="Snake" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4.65933, -14.8321 )
+position = Vector2( 14.0497, 76.5596 )
 
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 58, -16 )
-
-[node name="Snake3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 149.681, 57.5674 )
+position = Vector2( 67.3904, 75.3917 )
 
 [node name="SpiderWeb" parent="." instance=ExtResource( 4 )]
-position = Vector2( 53.711, 40.7154 )
+position = Vector2( 63.1014, 132.107 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 74, -16 )
+position = Vector2( 83.3904, 75.3917 )
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 74, 0 )
+position = Vector2( 83.3904, 91.3917 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( 90, -16 )
+position = Vector2( 99.3904, 75.3917 )
 
 [node name="KinematicBody2D5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 58, -32 )
+position = Vector2( 67.3904, 59.3917 )
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 74, -32 )
+position = Vector2( 83.3904, 59.3917 )
 
 [node name="KinematicBody2D7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 90, -32 )
+position = Vector2( 99.3904, 59.3917 )
 
 [node name="KinematicBody2D8" parent="." instance=ExtResource( 8 )]
-position = Vector2( 58, -48 )
+position = Vector2( 67.3904, 43.3917 )
 
 [node name="KinematicBody2D9" parent="." instance=ExtResource( 8 )]
-position = Vector2( 74, -48 )
+position = Vector2( 83.3904, 43.3917 )
 
 [node name="KinematicBody2D10" parent="." instance=ExtResource( 8 )]
-position = Vector2( 90, -48 )
+position = Vector2( 99.3904, 43.3917 )
 
 [node name="KinematicBody2D11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 42, -32 )
+position = Vector2( 51.3904, 59.3917 )
 
 [node name="KinematicBody2D12" parent="." instance=ExtResource( 8 )]
-position = Vector2( 106, -32 )
+position = Vector2( 115.39, 59.3917 )
 
 [node name="KinematicBody2D13" parent="." instance=ExtResource( 8 )]
-position = Vector2( 74, -64 )
+position = Vector2( 83.3904, 27.3917 )
 
 [node name="KinematicBody2D14" parent="." instance=ExtResource( 8 )]
-position = Vector2( 170, -32 )
+position = Vector2( 179.39, 59.3917 )
 
 [node name="KinematicBody2D15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 186, -32 )
+position = Vector2( 195.39, 59.3917 )
 
 [node name="KinematicBody2D17" parent="." instance=ExtResource( 8 )]
-position = Vector2( 186, -48 )
+position = Vector2( 195.39, 43.3917 )
 
 [node name="KinematicBody2D18" parent="." instance=ExtResource( 8 )]
-position = Vector2( 170, -48 )
+position = Vector2( 179.39, 43.3917 )
 
 [node name="KinematicBody2D19" parent="." instance=ExtResource( 8 )]
-position = Vector2( 202, -48 )
+position = Vector2( 211.39, 43.3917 )
 
 [node name="KinematicBody2D20" parent="." instance=ExtResource( 8 )]
-position = Vector2( 170, -64 )
+position = Vector2( 179.39, 27.3917 )
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 8 )]
-position = Vector2( 186, -64 )
+position = Vector2( 195.39, 27.3917 )
 
 [node name="KinematicBody2D22" parent="." instance=ExtResource( 8 )]
-position = Vector2( 202, -64 )
+position = Vector2( 211.39, 27.3917 )
 
 [node name="KinematicBody2D16" parent="." instance=ExtResource( 8 )]
-position = Vector2( 202, -32 )
+position = Vector2( 211.39, 59.3917 )
