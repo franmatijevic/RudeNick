@@ -33,6 +33,11 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "whiping",
+"speed": 13.0
+}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "hanging",
@@ -42,18 +47,13 @@ animations = [ {
 "loop": true,
 "name": "climbing_stop",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "whiping",
-"speed": 13.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6.96768, 5.36925 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 8 )
+extents = Vector2( 6, 5 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 8 )
@@ -125,14 +125,14 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="EnemyDetector" type="Area2D" parent="."]
-position = Vector2( 0, 8.18069 )
+position = Vector2( 0, 8 )
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 modulate = Color( 0.00392157, 0.996078, 0.27451, 1 )
-position = Vector2( 0, -8 )
+position = Vector2( 0, -5 )
 shape = SubResource( 2 )
 
 [node name="webDetect" type="Area2D" parent="."]

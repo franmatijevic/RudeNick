@@ -16,7 +16,7 @@ func _on_spiderWeb_area_exited(area: Area2D) -> void:
 	can_move=1
 
 func _on_StompDetector_body_entered(body: PhysicsBody2D) -> void:
-	if body.global_position.y >= get_node("StompDetector").global_position.y:
+	if body.global_position.y >= get_node("StompDetector").global_position.y-5:
 		return
 	get_node("CollisionShape2D").disabled = true
 	queue_free()
@@ -33,7 +33,7 @@ func _on_playerDetect_body_entered(body: PhysicsBody2D) -> void:
 
 func _process(delta: float) -> void:
 	if(get_parent().has_node("Player") and get_parent().get_node("Player").exits_level):
-		speed=0.0
+		speed=1.5
 	if(get_parent().has_node("Player")): player = get_parent().get_node("Player")
 	if(can_move):
 		if(velocity.x>0): get_node("AnimatedSprite").set_flip_h(true)

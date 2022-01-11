@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/SnakeWalking/snake_walk_3.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.95805, 6.93286 )
+extents = Vector2( 7, 6 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -17,7 +17,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 5 )
+extents = Vector2( 7, 5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 2 )
@@ -36,7 +36,6 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damagebox"]
-position = Vector2( -0.25, 0.840896 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -47,18 +46,20 @@ position = Vector2( 0, 3 )
 shape = SubResource( 3 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( -0.0987015, 8.10655 )
+visible = false
+position = Vector2( 0, 8 )
 scale = Vector2( 0.270194, 0.259707 )
 rect = Rect2( -30, -60, 60, 60 )
 
 [node name="StompDetector" type="Area2D" parent="."]
 modulate = Color( 0, 0.0196078, 1, 1 )
-position = Vector2( 0.0441933, -12.2808 )
+position = Vector2( 0, -4 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
-position = Vector2( 0, 8.67661 )
+position = Vector2( 0, -1 )
 shape = SubResource( 4 )
+one_way_collision_margin = 2.0
 
 [node name="EdgeChecker" type="RayCast2D" parent="."]
 position = Vector2( 0, 5 )
@@ -67,6 +68,7 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 8
 
 [node name="spiderWeb" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 64
 monitorable = false

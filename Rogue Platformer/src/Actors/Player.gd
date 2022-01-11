@@ -42,13 +42,11 @@ func _ready() -> void:
 
 func _on_exitDetect_body_entered(body: Node) -> void:
 	near_exit=true
-
 func _on_exitDetect_body_exited(body: Node) -> void:
 	near_exit=false
 
 func _on_webDetect_area_entered(area: Area2D) -> void:
 	spider_web=true
-
 func _on_webDetect_area_exited(area: Area2D) -> void:
 	spider_web=false
 
@@ -64,12 +62,13 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	if(!iframes_on):
 		ledge_grab=false
 		health-=1
+		ledge_grab=false
 		iframes()
 		treperenje()
 		move_horizontal=0
 		if(velocity.y>0.0):
 			velocity.y=0
-		var time_in_seconds = 0.2
+		var time_in_seconds = 0.4
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		move_horizontal=1
 
@@ -106,12 +105,12 @@ func _process(delta: float) -> void:
 			$LedgeY.position.x = -7
 			$LedgeX.position.x = -6
 	
-	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking):
+	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking and move_horizontal==1):
 		smjer=1
-	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking):
+	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking and move_horizontal==1):
 		smjer=0
 	get_node("AnimatedSprite").set_flip_h( smjer )
-	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level): action()
+	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level and !ledge_grab): action()
 	
 	if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
 	elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
@@ -165,7 +164,7 @@ func _physics_process(delta: float) -> void:
 func get_direction() -> Vector2:
 	return Vector2(
 		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal,
-		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level else 1.0
+		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level and move_horizontal==1 else 1.0
 	)
 
 func damage()->void:
