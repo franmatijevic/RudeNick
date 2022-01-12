@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	if((is_on_wall() or not $EdgeChecker.is_colliding()) and is_on_floor()):
 		velocity.x *= -1.0
 		#change=true
-		$EdgeChecker.position.x=$CollisionShape2D.shape.get_extents().x*(abs(velocity.x)/velocity.x)
+		$EdgeChecker.position.x=($CollisionShape2D.shape.get_extents().x+2)*(abs(velocity.x)/velocity.x)
 		if(direction == true):
 			direction = false
 		else:

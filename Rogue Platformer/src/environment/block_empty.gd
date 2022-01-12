@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var blok
+
 export var can_destroy=false
 export var n=2
 export var chanse=1
@@ -10,6 +12,8 @@ export var n_ground=30
 export var skyenemy=1
 export var n_sky=35
 
+export var n_boneblock=100
+
 func _ready() -> void:
 	if(can_destroy==true):
 		randomize()
@@ -17,9 +21,7 @@ func _ready() -> void:
 		if(destroy<chanse):
 			queue_free()
 
-
-
-func _physics_process(delta: float) -> void:
+func build_thig()->void:
 	var up=false
 	var down=false
 	var left=false
@@ -56,96 +58,66 @@ func _physics_process(delta: float) -> void:
 			top.position.y=global_position.y+15
 			get_parent().get_parent().add_child(top)
 	
-	
 	if(up and down and left and right):
-		var blok = preload("res://src/environment/dirt_tile_mid.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dirt_tile_mid.tscn").instance()
 	elif(up and down and left and !right):
-		var blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
 		blok.rotation_degrees=270
-		get_parent().add_child(blok)
 	elif(up and down and !left and right):
-		var blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
 		blok.rotation_degrees=90
-		get_parent().add_child(blok)
 	elif(up and down and !left and !right):
-		var blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
 		blok.rotation_degrees=90
-		get_parent().add_child(blok)
 	elif(up and !down and left and right):
-		var blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
 	elif(up and !down and left and !right): 
-		var blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
 		blok.rotation_degrees=270
-		get_parent().add_child(blok)
 	elif(up and !down and !left and right): 
-		var blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
 	elif(up and !down and !left and !right): 
-		var blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
 		blok.rotation_degrees=270
-		get_parent().add_child(blok)
 	elif(!up and down and left and right): 
-		var blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
 		blok.rotation_degrees=180
-		get_parent().add_child(blok)
 	elif(!up and down and left and !right): 
-		var blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
 		blok.rotation_degrees=180
-		get_parent().add_child(blok)
 	elif(!up and down and !left and right): 
-		var blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
 		blok.rotation_degrees=90
-		get_parent().add_child(blok)
 	elif(!up and down and !left and !right): 
-		var blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
 		blok.rotation_degrees=90
-		get_parent().add_child(blok)
 	elif(!up and !down and left and right): 
-		var blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
 	elif(!up and !down and left and !right): 
-		var blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
+		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
 		blok.rotation_degrees=180
-		get_parent().add_child(blok)
 	elif(!up and !down and !left and right): 
-		var blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
 	else:
-		var blok = preload("res://src/environment/dir_tile_all.tscn").instance()
-		blok.position.x=position.x
-		blok.position.y=position.y
-		get_parent().add_child(blok)
+		blok = preload("res://src/environment/dir_tile_all.tscn").instance()
+	
+	blok.position.x=position.x
+	blok.position.y=position.y
+	get_parent().add_child(blok)
+	
+	
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	build_thig()
+	var what
+	randomize()
+	what=randi()%n_boneblock
+	if(what==0):
+		var bone=preload("res://src/environment/BoneBlock.tscn").instance()
+		bone.position.x=position.x
+		bone.position.y=position.y
+		get_parent().add_child(bone)
+		blok.queue_free()
 	
 	queue_free()
