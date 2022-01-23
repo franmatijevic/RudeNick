@@ -1,46 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://src/environment/dirt_tile_mid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/environment/dirt_tile_bottom.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="KinematicBody2D20" parent="." instance=ExtResource( 3 )]
-position = Vector2( 40, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D19" parent="." instance=ExtResource( 3 )]
-position = Vector2( -40, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D10" parent="." instance=ExtResource( 3 )]
-position = Vector2( -24, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 24, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D45" parent="." instance=ExtResource( 3 )]
-position = Vector2( -40, -8 )
-
-[node name="KinematicBody2D50" parent="." instance=ExtResource( 3 )]
-position = Vector2( 40, -8 )
-
-[node name="KinematicBody2D51" parent="." instance=ExtResource( 3 )]
-position = Vector2( 56, -8 )
-
-[node name="KinematicBody2D54" parent="." instance=ExtResource( 3 )]
-position = Vector2( -56, -8 )
 
 [node name="KinematicBody2D7" parent="." instance=ExtResource( 2 )]
 position = Vector2( -56, 56 )
@@ -68,6 +30,8 @@ position = Vector2( 8, 56 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
 position = Vector2( -72, -8 )
+can_destroy = true
+n = 15
 
 [node name="KinematicBody2D12" parent="." instance=ExtResource( 2 )]
 position = Vector2( -72, -24 )
@@ -95,50 +59,24 @@ position = Vector2( 72, -24 )
 
 [node name="KinematicBody2D34" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -8 )
-
-[node name="KinematicBody2D5" parent="." instance=ExtResource( 3 )]
-position = Vector2( -56, 40 )
-rotation = 3.14159
-
-[node name="KinematicBody2D36" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, -24 )
-rotation = -3.14159
-
-[node name="KinematicBody2D37" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, -40 )
-rotation = -3.14159
-
-[node name="KinematicBody2D38" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, -24 )
-rotation = -3.14159
-
-[node name="KinematicBody2D52" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, -24 )
-rotation = -3.14159
-
-[node name="KinematicBody2D53" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, -40 )
-rotation = -3.14159
-
-[node name="KinematicBody2D55" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, -24 )
-rotation = -3.14159
-
-[node name="KinematicBody2D35" parent="." instance=ExtResource( 3 )]
-position = Vector2( 56, 40 )
-rotation = 3.14159
+can_destroy = true
+n = 15
 
 [node name="KinematicBody2D17" parent="." instance=ExtResource( 2 )]
 position = Vector2( -24, -24 )
 
 [node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 24, -8 )
+can_destroy = true
+n = 15
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 2 )]
 position = Vector2( 24, -24 )
 
 [node name="KinematicBody2D25" parent="." instance=ExtResource( 2 )]
 position = Vector2( -24, -8 )
+can_destroy = true
+n = 15
 
 [node name="KinematicBody2D24" parent="." instance=ExtResource( 2 )]
 position = Vector2( 40, -40 )
@@ -147,13 +85,90 @@ position = Vector2( 40, -40 )
 position = Vector2( -40, -40 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, 40 )
+position = Vector2( -56, 40 )
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 2 )]
 position = Vector2( -72, 56 )
 
 [node name="KinematicBody2D26" parent="." instance=ExtResource( 2 )]
-position = Vector2( 72, 40 )
+position = Vector2( 56, 40 )
 
 [node name="KinematicBody2D27" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 56 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -40 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -24 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -24 )
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -8 )
+can_destroy = true
+n = 15
+
+[node name="KinematicBody2D11" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -8 )
+can_destroy = true
+n = 15
+
+[node name="KinematicBody2D19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -40 )
+
+[node name="KinematicBody2D20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -24 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -24 )
+
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -8 )
+can_destroy = true
+n = 15
+
+[node name="KinematicBody2D35" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -8 )
+can_destroy = true
+n = 15
+
+[node name="KinematicBody2D36" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, 40 )
+
+[node name="KinematicBody2D37" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 40 )
+
+[node name="KinematicBody2D38" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 40 )
+
+[node name="KinematicBody2D39" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 40 )
+
+[node name="KinematicBody2D40" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 40 )
+
+[node name="KinematicBody2D41" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 40 )
+
+[node name="KinematicBody2D42" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 24 )
+can_destroy = true
+n = 20
+chanse = 19
+
+[node name="KinematicBody2D" parent="KinematicBody2D42" instance=ExtResource( 2 )]
+position = Vector2( 64, 0 )
+can_destroy = true
+n = 20
+chanse = 19
+
+[node name="KinematicBody2D" parent="KinematicBody2D42/KinematicBody2D" instance=ExtResource( 2 )]
+position = Vector2( -80, 0 )
+
+[node name="KinematicBody2D2" parent="KinematicBody2D42/KinematicBody2D" instance=ExtResource( 2 )]
+position = Vector2( -16, 0 )
+can_destroy = true
+n = 20
+chanse = 19

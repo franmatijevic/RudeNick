@@ -11,7 +11,7 @@ func set_health()->void:
 
 
 func _ready() -> void:
-	#OS.window_fullscreen = true
+	OS.window_fullscreen = true
 	pass
 
 

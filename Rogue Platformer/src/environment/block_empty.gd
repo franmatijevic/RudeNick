@@ -12,9 +12,9 @@ export var n_ground=30
 export var skyenemy=1
 export var n_sky=30
 
-export var n_boneblock=100
+export var n_boneblock=150
 
-export var spider_web=70
+export var spider_web=100
 
 func _ready() -> void:
 	if(can_destroy==true):

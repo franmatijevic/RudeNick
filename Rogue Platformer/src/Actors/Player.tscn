@@ -34,6 +34,11 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "hanging",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing_stop",
@@ -43,11 +48,6 @@ animations = [ {
 "loop": false,
 "name": "whiping",
 "speed": 13.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "hanging",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -57,7 +57,7 @@ extents = Vector2( 6.96768, 5.36925 )
 extents = Vector2( 6, 5 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 8 )
+extents = Vector2( 6, 6 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 5, 5 )
@@ -69,6 +69,15 @@ speed = Vector2( 50, 300 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -79.9742
+margin_top = -72.7578
+margin_right = -39.9742
+margin_bottom = -56.7578
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 0, -10 )
@@ -153,6 +162,7 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exitDetect"]
 shape = SubResource( 6 )
 
+[connection signal="draw" from="." to="." method="_on_Player_draw"]
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="area_entered" from="webDetect" to="." method="_on_webDetect_area_entered"]

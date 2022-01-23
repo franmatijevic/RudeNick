@@ -14,7 +14,6 @@ func title_animation()->void:
 
 
 func _ready() -> void:
-	OS.window_fullscreen = true
 	title_animation()
 
 
@@ -22,10 +21,3 @@ func _process(delta: float) -> void:
 	pass
 	if(Input.is_action_just_pressed("ui_cancel")):
 		get_tree().quit()
-	
-	if(Input.is_action_just_pressed("jump")):
-		get_tree().get_root().get_node("Game").new_level()
-	
-	#if(get_node("AnimatedSprite").frame=="res://Assets/MainMenuStuff/main_menu_animation9.png"):
-	#	print("yes")
-	

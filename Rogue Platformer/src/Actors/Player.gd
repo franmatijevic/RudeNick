@@ -59,9 +59,11 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
+	_on_Player_draw()
 	if(!iframes_on):
 		ledge_grab=false
 		health-=1
+		_on_Player_draw()
 		ledge_grab=false
 		iframes()
 		treperenje()
@@ -71,6 +73,7 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		var time_in_seconds = 0.4
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		move_horizontal=1
+		_on_Player_draw()
 
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("up")): move_up=true
@@ -279,3 +282,8 @@ func darker_effect()->void:
 		$AnimatedSprite.modulate = Color(1.0/i, 1.0/i, 1.0/i)
 		time_in_seconds = 0.05
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
+
+
+func _on_Player_draw() -> void:
+	$Label.text = str(health)
+	pass

@@ -68,3 +68,30 @@ groundenemy = -1
 position = Vector2( 0, -32 )
 z_index = -9
 texture = ExtResource( 2 )
+
+[node name="KinematicBody2D8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 72, -40 )
+can_destroy = true
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, -56 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 5 )]
+position = Vector2( -72, -56 )
+n = 3
+
+[node name="KinematicBody2D9" parent="." instance=ExtResource( 5 )]
+position = Vector2( -72, -40 )
+can_destroy = true
+
+[node name="KinematicBody2D14" parent="." instance=ExtResource( 5 )]
+position = Vector2( -56, -56 )
+can_destroy = true
+
+[node name="KinematicBody2D7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 72, -56 )
+n = 3
+
+[node name="KinematicBody2D16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 40, -56 )
+can_destroy = true

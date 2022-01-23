@@ -3,7 +3,7 @@ extends "res://src/Actors/Actor.gd"
 var hostile:=false
 var is_jumping:=false
 var first_fall:=false
-var jump=210.0
+var jump=185.0
 var playerx
 var spiderx
 
