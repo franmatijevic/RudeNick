@@ -2,7 +2,7 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health = 10
+var health :int= 10
 
 var walk_speed:=75.0
 var run_speed:=120.0
@@ -251,6 +251,7 @@ func treperenje()->void:
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func exitlevel()->void:
+	get_parent().get_parent().player_health=health
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
@@ -267,7 +268,9 @@ func exitlevel()->void:
 	get_node("EnemyDetector").monitoring=false
 	var time_in_seconds = 0.6
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_tree().change_scene("res://src/Levels/World.tscn")
+	get_parent().get_parent().set_health()
+	
+	get_tree().get_root().get_node("Game").new_complete()
 
 func darker_effect()->void:
 	var time_in_seconds

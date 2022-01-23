@@ -1,0 +1,668 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Blocks/dirt_tile_bottom.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Blocks/dirt_tile_mid.png" type="Texture" id=3]
+[ext_resource path="res://src/Other/WalkingPlayerAnim.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Levels/LevelComplete.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="LevelComplete" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( 24, 120 )
+z_index = -100
+texture = ExtResource( 1 )
+offset = Vector2( 168, 72 )
+
+[node name="BlackScreen" type="Node2D" parent="."]
+z_index = 90
+
+[node name="CanvasLayer" type="CanvasLayer" parent="BlackScreen"]
+
+[node name="ColorRect" type="ColorRect" parent="BlackScreen/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen/CanvasLayer"]
+autoplay = "RESET"
+anims/RESET = SubResource( 1 )
+anims/fade_to_normal = SubResource( 2 )
+
+[node name="DirtTileBottom" type="Sprite" parent="."]
+position = Vector2( 24, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom2" type="Sprite" parent="."]
+position = Vector2( 40, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom3" type="Sprite" parent="."]
+position = Vector2( 8, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom4" type="Sprite" parent="."]
+position = Vector2( 56, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom5" type="Sprite" parent="."]
+position = Vector2( 72, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom6" type="Sprite" parent="."]
+position = Vector2( 88, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileMid" type="Sprite" parent="."]
+position = Vector2( 8, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid2" type="Sprite" parent="."]
+position = Vector2( 24, 56 )
+texture = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 88, 56 )
+current = true
+zoom = Vector2( 0.18, 0.18 )
+limit_left = 0
+limit_top = 0
+limit_right = 100000
+
+[node name="DirtTileBottom7" type="Sprite" parent="."]
+position = Vector2( 104, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom8" type="Sprite" parent="."]
+position = Vector2( 120, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom9" type="Sprite" parent="."]
+position = Vector2( 136, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom10" type="Sprite" parent="."]
+position = Vector2( 152, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom11" type="Sprite" parent="."]
+position = Vector2( 168, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom12" type="Sprite" parent="."]
+position = Vector2( 184, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom13" type="Sprite" parent="."]
+position = Vector2( 200, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom14" type="Sprite" parent="."]
+position = Vector2( 216, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom15" type="Sprite" parent="."]
+position = Vector2( 232, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom16" type="Sprite" parent="."]
+position = Vector2( 248, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom17" type="Sprite" parent="."]
+position = Vector2( 264, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom18" type="Sprite" parent="."]
+position = Vector2( 280, 72 )
+texture = ExtResource( 2 )
+
+[node name="DirtTileMid3" type="Sprite" parent="."]
+position = Vector2( 40, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid4" type="Sprite" parent="."]
+position = Vector2( 8, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid5" type="Sprite" parent="."]
+position = Vector2( 8, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid6" type="Sprite" parent="."]
+position = Vector2( 24, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid7" type="Sprite" parent="."]
+position = Vector2( 24, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid8" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid9" type="Sprite" parent="."]
+position = Vector2( 24, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid10" type="Sprite" parent="."]
+position = Vector2( 40, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid11" type="Sprite" parent="."]
+position = Vector2( 40, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid12" type="Sprite" parent="."]
+position = Vector2( 40, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid13" type="Sprite" parent="."]
+position = Vector2( 56, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid14" type="Sprite" parent="."]
+position = Vector2( 56, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid15" type="Sprite" parent="."]
+position = Vector2( 56, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid16" type="Sprite" parent="."]
+position = Vector2( 56, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid17" type="Sprite" parent="."]
+position = Vector2( 72, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid18" type="Sprite" parent="."]
+position = Vector2( 72, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid19" type="Sprite" parent="."]
+position = Vector2( 72, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid20" type="Sprite" parent="."]
+position = Vector2( 72, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid21" type="Sprite" parent="."]
+position = Vector2( 88, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid22" type="Sprite" parent="."]
+position = Vector2( 88, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid23" type="Sprite" parent="."]
+position = Vector2( 88, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid24" type="Sprite" parent="."]
+position = Vector2( 88, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid25" type="Sprite" parent="."]
+position = Vector2( 104, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid26" type="Sprite" parent="."]
+position = Vector2( 104, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid27" type="Sprite" parent="."]
+position = Vector2( 104, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid28" type="Sprite" parent="."]
+position = Vector2( 104, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid29" type="Sprite" parent="."]
+position = Vector2( 120, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid30" type="Sprite" parent="."]
+position = Vector2( 120, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid31" type="Sprite" parent="."]
+position = Vector2( 120, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid32" type="Sprite" parent="."]
+position = Vector2( 120, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid33" type="Sprite" parent="."]
+position = Vector2( 136, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid34" type="Sprite" parent="."]
+position = Vector2( 152, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid35" type="Sprite" parent="."]
+position = Vector2( 168, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid36" type="Sprite" parent="."]
+position = Vector2( 184, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid37" type="Sprite" parent="."]
+position = Vector2( 200, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid38" type="Sprite" parent="."]
+position = Vector2( 168, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid39" type="Sprite" parent="."]
+position = Vector2( 168, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid40" type="Sprite" parent="."]
+position = Vector2( 184, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid41" type="Sprite" parent="."]
+position = Vector2( 184, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid42" type="Sprite" parent="."]
+position = Vector2( 168, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid43" type="Sprite" parent="."]
+position = Vector2( 184, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid44" type="Sprite" parent="."]
+position = Vector2( 200, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid45" type="Sprite" parent="."]
+position = Vector2( 200, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid46" type="Sprite" parent="."]
+position = Vector2( 200, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid47" type="Sprite" parent="."]
+position = Vector2( 216, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid48" type="Sprite" parent="."]
+position = Vector2( 216, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid49" type="Sprite" parent="."]
+position = Vector2( 216, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid50" type="Sprite" parent="."]
+position = Vector2( 216, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid51" type="Sprite" parent="."]
+position = Vector2( 232, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid52" type="Sprite" parent="."]
+position = Vector2( 232, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid53" type="Sprite" parent="."]
+position = Vector2( 232, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid54" type="Sprite" parent="."]
+position = Vector2( 232, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid55" type="Sprite" parent="."]
+position = Vector2( 248, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid56" type="Sprite" parent="."]
+position = Vector2( 248, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid57" type="Sprite" parent="."]
+position = Vector2( 248, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid58" type="Sprite" parent="."]
+position = Vector2( 248, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid59" type="Sprite" parent="."]
+position = Vector2( 264, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid60" type="Sprite" parent="."]
+position = Vector2( 264, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid61" type="Sprite" parent="."]
+position = Vector2( 264, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid62" type="Sprite" parent="."]
+position = Vector2( 264, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid63" type="Sprite" parent="."]
+position = Vector2( 280, 56 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid64" type="Sprite" parent="."]
+position = Vector2( 280, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid65" type="Sprite" parent="."]
+position = Vector2( 280, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid66" type="Sprite" parent="."]
+position = Vector2( 280, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid67" type="Sprite" parent="."]
+position = Vector2( 136, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid68" type="Sprite" parent="."]
+position = Vector2( 152, 40 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid69" type="Sprite" parent="."]
+position = Vector2( 136, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid70" type="Sprite" parent="."]
+position = Vector2( 152, 24 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid71" type="Sprite" parent="."]
+position = Vector2( 136, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid72" type="Sprite" parent="."]
+position = Vector2( 152, 8 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileBottom19" type="Sprite" parent="."]
+position = Vector2( 8, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom20" type="Sprite" parent="."]
+position = Vector2( 24, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom21" type="Sprite" parent="."]
+position = Vector2( 40, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom22" type="Sprite" parent="."]
+position = Vector2( 56, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom23" type="Sprite" parent="."]
+position = Vector2( 72, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom24" type="Sprite" parent="."]
+position = Vector2( 88, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom25" type="Sprite" parent="."]
+position = Vector2( 104, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom26" type="Sprite" parent="."]
+position = Vector2( 120, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom27" type="Sprite" parent="."]
+position = Vector2( 136, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom28" type="Sprite" parent="."]
+position = Vector2( 152, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom29" type="Sprite" parent="."]
+position = Vector2( 168, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom30" type="Sprite" parent="."]
+position = Vector2( 184, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom31" type="Sprite" parent="."]
+position = Vector2( 200, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom32" type="Sprite" parent="."]
+position = Vector2( 216, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom33" type="Sprite" parent="."]
+position = Vector2( 232, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom34" type="Sprite" parent="."]
+position = Vector2( 248, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom35" type="Sprite" parent="."]
+position = Vector2( 264, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileBottom36" type="Sprite" parent="."]
+position = Vector2( 280, 120 )
+rotation = 3.14159
+texture = ExtResource( 2 )
+
+[node name="DirtTileMid73" type="Sprite" parent="."]
+position = Vector2( 8, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid74" type="Sprite" parent="."]
+position = Vector2( 24, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid75" type="Sprite" parent="."]
+position = Vector2( 40, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid76" type="Sprite" parent="."]
+position = Vector2( 56, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid77" type="Sprite" parent="."]
+position = Vector2( 72, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid78" type="Sprite" parent="."]
+position = Vector2( 88, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid79" type="Sprite" parent="."]
+position = Vector2( 104, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid80" type="Sprite" parent="."]
+position = Vector2( 120, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid81" type="Sprite" parent="."]
+position = Vector2( 168, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid82" type="Sprite" parent="."]
+position = Vector2( 184, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid83" type="Sprite" parent="."]
+position = Vector2( 200, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid84" type="Sprite" parent="."]
+position = Vector2( 216, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid85" type="Sprite" parent="."]
+position = Vector2( 232, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid86" type="Sprite" parent="."]
+position = Vector2( 248, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid87" type="Sprite" parent="."]
+position = Vector2( 264, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid88" type="Sprite" parent="."]
+position = Vector2( 280, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid89" type="Sprite" parent="."]
+position = Vector2( 136, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid90" type="Sprite" parent="."]
+position = Vector2( 152, 136 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid91" type="Sprite" parent="."]
+position = Vector2( 8, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid92" type="Sprite" parent="."]
+position = Vector2( 24, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid93" type="Sprite" parent="."]
+position = Vector2( 40, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid94" type="Sprite" parent="."]
+position = Vector2( 56, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid95" type="Sprite" parent="."]
+position = Vector2( 72, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid96" type="Sprite" parent="."]
+position = Vector2( 88, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid97" type="Sprite" parent="."]
+position = Vector2( 104, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid98" type="Sprite" parent="."]
+position = Vector2( 120, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid99" type="Sprite" parent="."]
+position = Vector2( 168, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid100" type="Sprite" parent="."]
+position = Vector2( 184, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid101" type="Sprite" parent="."]
+position = Vector2( 200, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid102" type="Sprite" parent="."]
+position = Vector2( 216, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid103" type="Sprite" parent="."]
+position = Vector2( 232, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid104" type="Sprite" parent="."]
+position = Vector2( 248, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid105" type="Sprite" parent="."]
+position = Vector2( 264, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid106" type="Sprite" parent="."]
+position = Vector2( 280, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid107" type="Sprite" parent="."]
+position = Vector2( 136, 152 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid108" type="Sprite" parent="."]
+position = Vector2( 152, 152 )
+texture = ExtResource( 3 )
+
+[node name="WalkingPlayerAnim" parent="." instance=ExtResource( 4 )]
+position = Vector2( -8, 104 )

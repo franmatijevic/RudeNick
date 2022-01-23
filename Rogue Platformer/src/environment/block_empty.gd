@@ -10,9 +10,11 @@ export var groundenemy=1
 export var n_ground=30
 
 export var skyenemy=1
-export var n_sky=35
+export var n_sky=30
 
 export var n_boneblock=100
+
+export var spider_web=70
 
 func _ready() -> void:
 	if(can_destroy==true):
@@ -20,6 +22,23 @@ func _ready() -> void:
 		var destroy=randi()%n
 		if(destroy<chanse):
 			queue_free()
+
+func add_web(direction: int)->void:
+	var web = preload("res://src/environment/SpiderWeb.tscn").instance()
+	match direction:
+		0: #up
+			web.global_position.x=global_position.x
+			web.global_position.y=global_position.y-16
+		1: #down
+			web.global_position.x=global_position.x
+			web.global_position.y=global_position.y+16
+		2: #left
+			web.global_position.x=global_position.x-16
+			web.global_position.y=global_position.y
+		3: #right
+			web.global_position.x=global_position.x+16
+			web.global_position.y=global_position.y
+	get_parent().get_parent().add_child(web)
 
 func build_thig()->void:
 	var up=false
@@ -49,14 +68,43 @@ func build_thig()->void:
 			groundenemy.position.x=global_position.x
 			groundenemy.position.y=global_position.y-16
 			get_parent().get_parent().add_child(groundenemy)
+		else:
+			enemy=randi()%spider_web*3
+			if(enemy==0):
+				add_web(0)
+	
+	if(!left):
+		var addweb=randi()%spider_web
+		if(addweb==0):
+			add_web(2)
+	
+	if(!right):
+		var addweb=randi()%spider_web
+		if(addweb==0):
+			add_web(3)
+	
 	if(down==false):
 		randomize()
 		var enemy=randi()%n_sky
 		if(enemy<skyenemy):
-			var top=preload("res://src/Actors/Bat.tscn").instance()
-			top.position.x=global_position.x
-			top.position.y=global_position.y+15
-			get_parent().get_parent().add_child(top)
+			randomize()
+			enemy=randi()%2
+			if(enemy==0):
+				var top=preload("res://src/Actors/Bat.tscn").instance()
+				top.global_position.x=global_position.x
+				top.global_position.y=global_position.y+15
+				get_parent().get_parent().add_child(top)
+			else:
+				var top=preload("res://src/Actors/Spider.tscn").instance()
+				top.global_position.x=global_position.x
+				top.global_position.y=global_position.y+13
+				get_parent().get_parent().add_child(top)
+		else:
+			enemy=randi()%spider_web
+			if(enemy==0):
+				add_web(1)
+	
+	
 	
 	if(up and down and left and right):
 		blok = preload("res://src/environment/dirt_tile_mid.tscn").instance()

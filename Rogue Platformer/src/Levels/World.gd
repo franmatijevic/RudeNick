@@ -24,7 +24,6 @@ func _init()->void:
 	transition.choice=true
 	#add_child(transition)
 	
-	OS.window_fullscreen = true
 	randomize()
 	start=randi()%4
 	polje[0][start]=4
@@ -86,20 +85,20 @@ func _init()->void:
 					create_dropdown(i,j)
 				4:
 					array[i][j]=preload("res://src/levelPieces/start1.tscn").instance()
-					array[i][j].position.x=80 + j * 160
-					array[i][j].position.y=64 + i * 128
+					array[i][j].global_position.x=80 + j * 160
+					array[i][j].global_position.y=64 + i * 128
 					add_child(array[i][j])
 				5:
 					create_startdropdown(i,j)
 				6: 
 					array[i][j]=preload("res://src/levelPieces/hallwaydrop2.tscn").instance()
-					array[i][j].position.x=80 + j * 160
-					array[i][j].position.y=64 + i * 128
+					array[i][j].global_position.x=80 + j * 160
+					array[i][j].global_position.y=64 + i * 128
 					add_child(array[i][j])
 				9:
 					array[i][j]=preload("res://src/levelPieces/exit1.tscn").instance()
-					array[i][j].position.x=80 + j * 160
-					array[i][j].position.y=64 + i * 128
+					array[i][j].global_position.x=80 + j * 160
+					array[i][j].global_position.y=64 + i * 128
 					add_child(array[i][j])
 				0:
 					create_side_room(i,j)
@@ -116,7 +115,6 @@ func _process(delta: float) -> void:
 func _ready() -> void:
 	pass
 	get_node("BlackScreen").queue_free()
-	#print(polje)
 	add_player()
 
 func create_startdropdown(i:int, j:int)->void:
@@ -127,8 +125,8 @@ func create_startdropdown(i:int, j:int)->void:
 				array[i][j]=preload("res://src/levelPieces/startdropdown1.tscn").instance()
 		1:
 				array[i][j]=preload("res://src/levelPieces/startdropdown2.tscn").instance()
-	array[i][j].position.x=80 + j * 160
-	array[i][j].position.y=64 + i * 128
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
 
 func create_dropdown(i:int, j:int)->void:
@@ -140,8 +138,8 @@ func create_dropdown(i:int, j:int)->void:
 		1:
 			array[i][j]=preload("res://src/levelPieces/dropdown2.tscn").instance()
 		
-	array[i][j].position.x=80 + j * 160
-	array[i][j].position.y=64 + i * 128
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
 
 func create_hallway(i:int, j:int) ->void:
@@ -162,8 +160,8 @@ func create_hallway(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/hallway3.tscn").instance()
 		6:
 			array[i][j]=preload("res://src/levelPieces/hallway4.tscn").instance()
-	array[i][j].position.x=80 + j * 160
-	array[i][j].position.y=64 + i * 128
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
 
 func create_side_room(i:int, j:int) ->void:
@@ -182,13 +180,13 @@ func create_side_room(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/sideroom2.tscn").instance()
 		5:
 			array[i][j]=preload("res://src/levelPieces/sideroom3.tscn").instance()
-	array[i][j].position.x=80 + j * 160
-	array[i][j].position.y=64 + i * 128
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
 
 func add_player()->void:
 	var player = preload("res://src/Actors/Player.tscn").instance()
-	player.position.x=80+start*160
-	player.position.y=34
+	player.global_position.x=80+start*160
+	player.global_position.y=34
 	add_child(player)
 
