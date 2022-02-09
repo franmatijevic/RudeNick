@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Blocks/gold_nugget_1.png" type="Texture" id=1]
+[ext_resource path="res://src/Collectable/Gold.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Blocks/gold_nugget_2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Blocks/gold_nugget_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Blocks/gold_nugget_3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Blocks/gold_nugget_5.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 3 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 3 )
+
+[node name="Gold1" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DetectPlayer" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
+shape = SubResource( 2 )
+
+[node name="Gold1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="Gold2" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="Gold3" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Gold4" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="Gold5" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="Whip" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
+shape = SubResource( 3 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0.0702419, 0.00049305 )
+scale = Vector2( 0.400774, 0.306201 )
+freeze_bodies = false
+
+[connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
+[connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]

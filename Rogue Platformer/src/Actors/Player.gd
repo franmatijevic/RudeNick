@@ -3,6 +3,7 @@ extends Actor
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
 var health :int= 10
+var money:int=0
 
 var walk_speed:=75.0
 var run_speed:=120.0
@@ -76,6 +77,8 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		_on_Player_draw()
 
 func _process(delta: float) -> void:
+	_on_Player_draw()
+	
 	if(Input.is_action_just_pressed("up")): move_up=true
 	if(Input.is_action_just_released("up")): move_up=false
 	if(Input.is_action_just_pressed("down")): move_down=true
@@ -255,6 +258,7 @@ func treperenje()->void:
 
 func exitlevel()->void:
 	get_parent().get_parent().player_health=health
+	get_parent().get_parent().player_money=money
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
@@ -286,4 +290,5 @@ func darker_effect()->void:
 
 func _on_Player_draw() -> void:
 	$Label.text = str(health)
+	$Label2.text = str(money*100)
 	pass

@@ -7,6 +7,8 @@ var jump=185.0
 var playerx
 var spiderx
 
+var player:=true
+
 func _on_damageBox_area_entered(area: Area2D) -> void:
 	get_node("CollisionShape2D").disabled=true
 	queue_free()
@@ -24,7 +26,8 @@ func jump()->void:
 
 func wait()->void:
 	if(is_on_floor()):
-		playerx=get_parent().get_node("Player").global_position.x
+		if(player and get_parent().has_node("Player")):
+			playerx=get_parent().get_node("Player").global_position.x
 		spiderx=global_position.x
 		var time_in_seconds = 2
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
@@ -33,6 +36,7 @@ func wait()->void:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if(!$BlockAbove.is_colliding()):
 		hostile=true
 		$BlockAbove.enabled=false
@@ -60,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.animation="jumping"
 		
 		
-		if(first_fall and !is_on_floor()):
+		if(first_fall and !is_on_floor() and player):
 			if(playerx>=spiderx):
 				velocity.x=speed.x
 				get_node("AnimatedSprite").set_flip_h(true)

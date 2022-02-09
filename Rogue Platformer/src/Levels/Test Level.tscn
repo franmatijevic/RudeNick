@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Actors/Spider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=5]
+[ext_resource path="res://src/Collectable/Gold2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Collectable/Gold1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Collectable/Emerald.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Collectable/Ruby.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Collectable/Sapphire.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Other/Feather.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/levelPieces/start1.tscn" type="PackedScene" id=30]
 
 [node name="Test Level" type="Node2D"]
@@ -20,7 +26,7 @@ position = Vector2( 575, 192 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 112.836, 143.573 )
+position = Vector2( 263.91, 160 )
 speed = Vector2( 700, 800 )
 
 [node name="Start 1" parent="." instance=ExtResource( 30 )]
@@ -101,6 +107,30 @@ position = Vector2( 359.878, 152 )
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 3 )]
 position = Vector2( 311.894, 152 )
 
+[node name="Gold2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 319.891, 128 )
+
+[node name="Gold1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 303.897, 128 )
+
 [node name="KinematicBody2D25" parent="." instance=ExtResource( 4 )]
 position = Vector2( 199.932, 96 )
 speed = Vector2( 50, 200 )
+
+[node name="Gold3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 311.894, 120 )
+
+[node name="Gold4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 287.902, 120 )
+
+[node name="Emerald" parent="." instance=ExtResource( 8 )]
+position = Vector2( 335.886, 128 )
+
+[node name="Ruby" parent="." instance=ExtResource( 9 )]
+position = Vector2( 351.88, 128 )
+
+[node name="Sapphire" parent="." instance=ExtResource( 10 )]
+position = Vector2( 367.875, 128 )
+
+[node name="Feather" parent="." instance=ExtResource( 11 )]
+position = Vector2( 407.861, 160 )

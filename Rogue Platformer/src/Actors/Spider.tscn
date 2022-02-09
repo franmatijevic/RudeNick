@@ -21,18 +21,19 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "jumping",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "dance",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 5.0
 } ]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+z_index = 6
 collision_layer = 2
 collision_mask = 8
 script = ExtResource( 2 )
@@ -70,6 +71,12 @@ cast_to = Vector2( 0, 128 )
 enabled = true
 cast_to = Vector2( 0, -8 )
 collision_mask = 8
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0.15625, -0.96875 )
+scale = Vector2( 0.634375, 0.528125 )
+freeze_bodies = false
+pause_particles = false
 
 [connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
 [connection signal="area_entered" from="damageBox" to="." method="_on_damageBox_area_entered"]

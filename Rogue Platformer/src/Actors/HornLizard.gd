@@ -30,7 +30,7 @@ func _on_damagebox_area_entered(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	pass
-	print(direction)
+	#print(direction)
 	if(change==false): 
 		get_node("AnimatedSprite").set_flip_h( direction )
 

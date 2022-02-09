@@ -15,6 +15,8 @@ export var n_sky=30
 export var n_boneblock=150
 
 export var spider_web=100
+export var money=200
+export var bonus_money=0
 
 func _ready() -> void:
 	if(can_destroy==true):
@@ -40,7 +42,7 @@ func add_web(direction: int)->void:
 			web.global_position.y=global_position.y
 	get_parent().get_parent().add_child(web)
 
-func build_thig()->void:
+func build_thing()->void:
 	var up=false
 	var down=false
 	var left=false
@@ -69,19 +71,40 @@ func build_thig()->void:
 			groundenemy.position.y=global_position.y-16
 			get_parent().get_parent().add_child(groundenemy)
 		else:
-			enemy=randi()%spider_web*3
-			if(enemy==0):
-				add_web(0)
+			var generate_gold=randi()%money
+			if(generate_gold<27):
+				var value=randi()%1000
+				if(value<350):
+					var gold=preload("res://src/Collectable/Gold1.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<600):
+					var gold=preload("res://src/Collectable/Gold2.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<700):
+					var gold=preload("res://src/Collectable/Emerald.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<800):
+					var gold=preload("res://src/Collectable/Sapphire.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<900):
+					var gold=preload("res://src/Collectable/Ruby.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				else:
+					var gold=preload("res://src/Collectable/Chest.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
 	
-	if(!left):
-		var addweb=randi()%spider_web
-		if(addweb==0):
-			add_web(2)
-	
-	if(!right):
-		var addweb=randi()%spider_web
-		if(addweb==0):
-			add_web(3)
 	
 	if(down==false):
 		randomize()
@@ -95,14 +118,18 @@ func build_thig()->void:
 				top.global_position.y=global_position.y+15
 				get_parent().get_parent().add_child(top)
 			else:
+				var set = preload("res://src/environment/SpiderWeb.tscn").instance()
+				var web=randi()%8
+				set.global_position.x=global_position.x
+				set.global_position.y=global_position.y+16
 				var top=preload("res://src/Actors/Spider.tscn").instance()
 				top.global_position.x=global_position.x
 				top.global_position.y=global_position.y+13
+				if(web==0):
+					set.global_position=top.global_position
+					set.global_position.y=global_position.y+16
+					get_parent().get_parent().add_child(set)
 				get_parent().get_parent().add_child(top)
-		else:
-			enemy=randi()%spider_web
-			if(enemy==0):
-				add_web(1)
 	
 	
 	
@@ -157,7 +184,7 @@ func build_thig()->void:
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	build_thig()
+	build_thing()
 	var what
 	randomize()
 	what=randi()%n_boneblock

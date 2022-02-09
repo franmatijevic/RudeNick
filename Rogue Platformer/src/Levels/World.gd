@@ -101,13 +101,13 @@ func _init()->void:
 					create_side_room(i,j)
 
 func _process(delta: float) -> void:
-	pass
+	
 	if(Input.is_action_just_pressed("ui_cancel")):
 		get_tree().quit()
 	
-	if(Input.is_action_just_pressed("jump") and !has_node("Player")):
-		get_tree().reload_current_scene()
-		pass
+	#if(Input.is_action_just_pressed("jump") and !has_node("Player")):
+	#	get_tree().reload_current_scene()
+	#	pass
 
 func _ready() -> void:
 	pass
