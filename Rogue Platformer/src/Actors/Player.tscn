@@ -34,6 +34,11 @@ animations = [ {
 "name": "hanging",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "walking",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing_stop",
@@ -43,11 +48,6 @@ animations = [ {
 "loop": false,
 "name": "whiping",
 "speed": 13.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "walking",
-"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -84,7 +84,7 @@ smoothing_speed = 7.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
-frame = 1
+animation = "death"
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -145,26 +145,6 @@ monitorable = false
 
 [node name="web" type="CollisionShape2D" parent="webDetect"]
 shape = SubResource( 5 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = -79.9742
-margin_top = -72.7578
-margin_right = -39.9742
-margin_bottom = -56.7578
-text = "drek"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="."]
-margin_left = 40.0
-margin_top = -73.0
-margin_right = 101.0
-margin_bottom = -57.0
-text = "drek"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="exitDetect" type="Area2D" parent="."]
 collision_layer = 0

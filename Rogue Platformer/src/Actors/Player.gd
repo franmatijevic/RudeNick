@@ -40,6 +40,7 @@ func _ready() -> void:
 	speed.x=run_speed
 	speed.y=225.0
 	stomp_impulse=250.0
+	
 
 func _on_exitDetect_body_entered(body: Node) -> void:
 	near_exit=true
@@ -52,7 +53,7 @@ func _on_webDetect_area_exited(area: Area2D) -> void:
 	spider_web=false
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
-	if !is_on_floor():
+	#if !is_on_floor():
 		climbing=false
 		using_gravity=1
 		move_horizontal=1
@@ -62,6 +63,12 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	_on_Player_draw()
 	if(!iframes_on):
+		if(health<2):
+			var knock:=true
+			if(body.global_position.x>global_position.x):
+				knock=false
+			death(knock)
+		velocity.x=0.0
 		ledge_grab=false
 		health-=1
 		_on_Player_draw()
@@ -77,7 +84,9 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		_on_Player_draw()
 
 func _process(delta: float) -> void:
-	_on_Player_draw()
+	var ui = get_parent().get_node("Kanvas").get_node("UI")
+	ui.get_node("health").text=str(health)
+	ui.get_node("money").text=str(money*100)
 	
 	if(Input.is_action_just_pressed("up")): move_up=true
 	if(Input.is_action_just_released("up")): move_up=false
@@ -98,8 +107,6 @@ func _process(delta: float) -> void:
 		speed.x=walk_speed
 		speed.y=normal_jump
 	
-	if(health==0): queue_free()
-	#print(health)
 	
 	if(!is_attacking and !ledge_grab):
 		if(velocity.x>0): 
@@ -111,18 +118,25 @@ func _process(delta: float) -> void:
 			$LedgeY.position.x = -7
 			$LedgeX.position.x = -6
 	
+	
 	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking and move_horizontal==1):
 		smjer=1
+		$LedgeX.global_position.x=position.x-6
+		$LedgeY.global_position.x=position.x-7
+		print($LedgeX.global_position)
 	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking and move_horizontal==1):
 		smjer=0
+		$LedgeX.global_position.x=position.x+12
+		$LedgeY.global_position.x=position.x+7
 	get_node("AnimatedSprite").set_flip_h( smjer )
 	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level and !ledge_grab): action()
 	
-	if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
-	elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
-	elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
-	elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
-	elif(ledge_grab): animatedSprite.animation="hanging"
+	if(health>0):
+		if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
+		elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
+		elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
+		elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
+		elif(ledge_grab): animatedSprite.animation="hanging"
 	
 	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
 
@@ -187,6 +201,7 @@ func ladder()->void:
 	
 
 func hold_ledge()->void:
+	print($LedgeX.get_collider().get_global_position())
 	if(!$LedgeY.is_colliding() and !is_on_floor()):
 		if(velocity.y>0 and !move_down or velocity.y<0 and move_down):
 			if(!ledge_grab): 
@@ -218,6 +233,8 @@ func action()-> void:
 	get_node("Area2D/whip_node").position.x=0
 	get_node("Area2D/whip_node").position.y=0
 	
+	#if(!smjer): set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-12, $LedgeX.get_collider().get_global_position().y))
+	#else: set_global_position(Vector2($LedgeX.get_collider().get_global_position().x+12, $LedgeX.get_collider().get_global_position().y))
 	is_attacking=false
 	animatedSprite.animation="default"
 
@@ -287,8 +304,19 @@ func darker_effect()->void:
 		time_in_seconds = 0.05
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
+func death(direciton: bool)->void:
+	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
+	if(direciton):
+		corpse.knock=false
+	else:
+		corpse.knock=true
+	corpse.position=position
+	get_parent().add_child(corpse)
+	queue_free()
 
 func _on_Player_draw() -> void:
-	$Label.text = str(health)
-	$Label2.text = str(money*100)
 	pass
+	#get_node("Kanvas").get_node("Label").text = str(health)
+	#get_node("Kanvas").get_node("Label2").text = str(money*100)
+	#get_parent().get_node("UI").get_node("Label").text = str(health)
+	#get_parent().get_node("UI").get_node("Label2").text = str(money*100)

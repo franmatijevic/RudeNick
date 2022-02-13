@@ -2,6 +2,7 @@ extends Node2D
 
 var player_health:int=4
 var player_money:int=0
+var level:=0
 
 func set_health()->void:
 	get_node("World").get_node("Player").health=player_health
@@ -23,6 +24,8 @@ func new_complete()->void:
 func new_level()->void:
 	var world = preload("res://src/Levels/World.tscn").instance()
 	world.global_position=global_position
+	level=level+1
+	world.get_node("Kanvas/UI").get_node("LevelNumber").text=str(level)
 	add_child(world)
 	if(has_node("LevelComplete")):
 		get_node("LevelComplete").queue_free()
