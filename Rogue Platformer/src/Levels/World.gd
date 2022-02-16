@@ -100,17 +100,8 @@ func _init()->void:
 				0:
 					create_side_room(i,j)
 
-func _process(delta: float) -> void:
-	
-	if(Input.is_action_just_pressed("ui_cancel")):
-		get_tree().quit()
-	
-	#if(Input.is_action_just_pressed("jump") and !has_node("Player")):
-	#	get_tree().reload_current_scene()
-	#	pass
 
 func _ready() -> void:
-	pass
 	get_node("BlackScreen").queue_free()
 	add_player()
 

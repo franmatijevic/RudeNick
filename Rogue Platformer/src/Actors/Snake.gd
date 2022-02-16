@@ -29,9 +29,7 @@ func _on_damagebox_area_entered(area: Area2D) -> void:
 	queue_free()
 
 func _process(delta: float) -> void:
-	pass
-	#print(direction)
-	if(change==false): 
+	if(change==false and just_rotated==0): 
 		get_node("AnimatedSprite").set_flip_h( direction )
 
 func _physics_process(delta: float) -> void:
@@ -39,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	if((is_on_wall() or not $EdgeChecker.is_colliding()) and is_on_floor()):
 		velocity.x *= -1.0
 		#change=true
+		just_rotated=5
 		$EdgeChecker.position.x=($CollisionShape2D.shape.get_extents().x+2)*(abs(velocity.x)/velocity.x)
 		if(direction == true):
 			direction = false
@@ -47,6 +46,8 @@ func _physics_process(delta: float) -> void:
 		#change=true
 	else: 
 		change=false
+		if(just_rotated>0):
+			just_rotated=just_rotated-1
 	velocity.y = move_and_slide(velocity * can_move, Vector2.UP).y
 
 func wait_and_stop() ->void:

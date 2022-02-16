@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Other/PauseScreen.gd" type="Script" id=10]
+[ext_resource path="res://Assets/heart_1.png" type="Texture" id=14]
+
+[node name="PauseScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 8.0
+margin_bottom = 8.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -68.0
+margin_top = -124.0
+margin_right = 60.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="ColorRect/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 22.0
+icon = ExtResource( 14 )
+flat = true
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

@@ -123,7 +123,6 @@ func _process(delta: float) -> void:
 		smjer=1
 		$LedgeX.global_position.x=position.x-6
 		$LedgeY.global_position.x=position.x-7
-		print($LedgeX.global_position)
 	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking and move_horizontal==1):
 		smjer=0
 		$LedgeX.global_position.x=position.x+12
@@ -201,7 +200,6 @@ func ladder()->void:
 	
 
 func hold_ledge()->void:
-	print($LedgeX.get_collider().get_global_position())
 	if(!$LedgeY.is_colliding() and !is_on_floor()):
 		if(velocity.y>0 and !move_down or velocity.y<0 and move_down):
 			if(!ledge_grab): 

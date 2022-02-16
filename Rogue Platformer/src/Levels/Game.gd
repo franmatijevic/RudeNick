@@ -4,12 +4,36 @@ var player_health:int=4
 var player_money:int=0
 var level:=0
 
+var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
+
 func set_health()->void:
 	get_node("World").get_node("Player").health=player_health
 	get_node("World").get_node("Player").money=player_money
 
 func _ready() -> void:
 	OS.window_fullscreen = true
+
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
+		if(get_tree().paused == false):
+			get_tree().paused = true
+			pause_menu(true)
+		else:
+			pause_menu(false)
+			get_tree().paused = false
+
+func _get_viewport_center() -> Vector2:
+	var transform : Transform2D = get_viewport_transform()
+	var scale : Vector2 = transform.get_scale()
+	return -transform.origin / scale + get_viewport_rect().size / scale / 2
+
+func pause_menu(on: bool)->void:
+	if(on):
+		get_node("World/Kanvas/UI").visible=false
+		var time_in_seconds = 0.5
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+	else:
+		get_node("World/Kanvas/UI").visible=true
 
 func new_complete()->void:
 	var comp = preload("res://src/Levels/LevelComplete.tscn").instance()
