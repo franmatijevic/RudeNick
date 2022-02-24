@@ -119,6 +119,10 @@ func create_hallwaywithdrop(i:int, j:int)->void:
 			array[i][j]=preload("res://src/levelPieces/hallwaywithdrop4.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	var flip=randi()%2
+	if(flip==0):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 
@@ -132,6 +136,10 @@ func create_startdropdown(i:int, j:int)->void:
 				array[i][j]=preload("res://src/levelPieces/startdropdown2.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	var flip=randi()%2
+	if(flip==0):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func create_dropdown(i:int, j:int)->void:
@@ -146,6 +154,10 @@ func create_dropdown(i:int, j:int)->void:
 			array[i][j]=preload("res://src/levelPieces/dropdown3.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	var flip=randi()%2
+	if(flip==0):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func create_hallway(i:int, j:int) ->void:
@@ -174,6 +186,10 @@ func create_hallway(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/hallwaydrop3.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	var flip=randi()%2
+	if(flip==0):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func create_side_room(i:int, j:int) ->void:
@@ -196,6 +212,10 @@ func create_side_room(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/sideroom4.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	var flip=randi()%2
+	if(flip==0):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func add_player()->void:

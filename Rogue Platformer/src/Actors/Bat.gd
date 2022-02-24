@@ -18,12 +18,10 @@ func _on_spiderWeb_area_exited(area: Area2D) -> void:
 func _on_StompDetector_body_entered(body: PhysicsBody2D) -> void:
 	if body.global_position.y >= get_node("StompDetector").global_position.y-5:
 		return
-	get_node("CollisionShape2D").disabled = true
-	queue_free()
+	death()
 
 func _on_damageBox_area_entered(area: Area2D) -> void:
-	get_node("CollisionShape2D").disabled=true
-	queue_free()
+	death()
 
 func _on_playerDetect_body_entered(body: PhysicsBody2D) -> void:
 	hostile=true
@@ -52,3 +50,9 @@ func wait_and_stop() ->void:
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_move=0
 
+func death()->void:
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.global_position=global_position
+	get_parent().add_child(blood)
+	get_node("CollisionShape2D").disabled=true
+	queue_free()

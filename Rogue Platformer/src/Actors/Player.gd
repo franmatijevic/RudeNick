@@ -4,6 +4,7 @@ var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
 var health :int= 10
 var money:int=0
+var rope:int=4
 
 var walk_speed:=75.0
 var run_speed:=120.0
@@ -57,12 +58,18 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 		climbing=false
 		using_gravity=1
 		move_horizontal=1
-		area.get_parent().queue_free() 
+		area.get_parent().death()
+		var blood=preload("res://src/Other/Blood.tscn").instance()
+		blood.global_position=area.global_position
+		area.get_parent().add_child(blood) 
 		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	_on_Player_draw()
 	if(!iframes_on):
+		var blood=preload("res://src/Other/Blood.tscn").instance()
+		blood.global_position=global_position
+		get_parent().add_child(blood)
 		if(health<2):
 			var knock:=true
 			if(body.global_position.x>global_position.x):
@@ -87,6 +94,7 @@ func _process(delta: float) -> void:
 	var ui = get_parent().get_node("Kanvas").get_node("UI")
 	ui.get_node("health").text=str(health)
 	ui.get_node("money").text=str(money*100)
+	ui.get_node("Ropes").text=str(rope)
 	
 	if(Input.is_action_just_pressed("up")): move_up=true
 	if(Input.is_action_just_released("up")): move_up=false
@@ -94,6 +102,12 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_released("down")): move_down=false
 	if(Input.is_action_just_pressed("run")): is_running=false
 	if(Input.is_action_just_released("run")): is_running=true
+	
+	if(Input.is_action_just_pressed("rope") and rope>0):
+		rope=rope-1
+		var rope=preload("res://src/Other/RopeTop.tscn").instance()
+		rope.global_position=global_position
+		get_parent().add_child(rope)
 	
 	if(spider_web): 
 		if(Input.is_action_just_pressed("jump")): 
@@ -274,6 +288,7 @@ func treperenje()->void:
 func exitlevel()->void:
 	get_parent().get_parent().player_health=health
 	get_parent().get_parent().player_money=money
+	get_parent().get_parent().player_rope=rope
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8

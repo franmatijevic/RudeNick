@@ -49,21 +49,39 @@ __meta__ = {
 }
 
 [node name="Level" type="Label" parent="."]
-margin_left = 1688.0
-margin_top = 56.0
-margin_right = 1728.0
-margin_bottom = 70.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -208.0
+margin_top = 64.0
+margin_right = -168.0
+margin_bottom = 95.0
 text = "Level:
 "
 
 [node name="LevelNumber" type="Label" parent="."]
-margin_left = 1688.0
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -192.0
 margin_top = 88.0
-margin_right = 1728.0
+margin_right = -152.0
 margin_bottom = 102.0
 text = "1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RopesTag" type="Label" parent="."]
+margin_left = 320.0
+margin_top = 72.0
+margin_right = 360.0
+margin_bottom = 86.0
+text = "ROPES:"
+
+[node name="Ropes" type="Label" parent="."]
+margin_left = 328.0
+margin_top = 96.0
+margin_right = 368.0
+margin_bottom = 110.0
+text = "rope n"
 
 [connection signal="draw" from="." to="." method="_on_UI_draw"]
