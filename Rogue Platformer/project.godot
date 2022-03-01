@@ -100,6 +100,7 @@ rope={
 2d_physics/layer_6="ladder"
 2d_physics/layer_7="spider_web"
 2d_physics/layer_8="exit"
+2d_physics/layer_9="bush"
 
 [physics]
 

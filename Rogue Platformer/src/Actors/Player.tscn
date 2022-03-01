@@ -39,15 +39,15 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "climbing_stop",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 1 ) ],
 "loop": false,
 "name": "whiping",
 "speed": 13.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "climbing_stop",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -84,7 +84,6 @@ smoothing_speed = 7.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
-animation = "death"
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

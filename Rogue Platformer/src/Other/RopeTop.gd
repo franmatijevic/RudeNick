@@ -31,7 +31,7 @@ func crash()->void:
 	newy = newy * 16 + 8
 	#speed=-back_speed
 	speed=0.0
-	var ladder=preload("res://src/environment/ladder_top.tscn").instance()
+	var ladder=preload("res://src/environment/RopeTopPart.tscn").instance()
 	ladder.global_position=global_position
 	get_parent().add_child(ladder)
 
@@ -46,9 +46,9 @@ func create_rest():
 				i=1
 			global_position.y=end+i*16
 			if(i==maks-1 or $Floor.is_colliding()):
-				array[i] = preload("res://src/environment/ladder1.tscn").instance()
+				array[i] = preload("res://src/environment/RopeBot.tscn").instance()
 			else:
-				array[i] = preload("res://src/environment/ladder2.tscn").instance()
+				array[i] = preload("res://src/environment/RopeMid.tscn").instance()
 			yield(get_tree().create_timer(time_in_seconds), "timeout")
 			array[i].global_position.x=newx
 			array[i].global_position.y=end

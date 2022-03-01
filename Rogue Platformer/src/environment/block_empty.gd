@@ -105,7 +105,6 @@ func build_thing()->void:
 					gold.position.y=position.y-16
 					get_parent().add_child(gold)
 	
-	
 	if(down==false):
 		randomize()
 		var enemy=randi()%n_sky
@@ -178,10 +177,36 @@ func build_thing()->void:
 	
 	blok.position.x=position.x
 	blok.position.y=position.y
+	
+	if(!up):
+		var grass=randi()%20
+		if(grass==0):
+			var trava=preload("res://src/Other/Grass.tscn").instance()
+			trava.position=position
+			trava.position.y-=16
+			randomize()
+			grass=randi()%5 #je li trava velika
+			if(grass==0):
+				trava.position.y=trava.position.y+1
+				grass=randi()%2
+				if(grass==0):
+					trava.get_node("AnimatedSprite").animation="an3"
+				else:
+					trava.get_node("AnimatedSprite").animation="an4"
+			else:
+				grass=randi()%2
+				if(grass==0):
+					trava.get_node("AnimatedSprite").animation="an1"
+				else:
+					trava.get_node("AnimatedSprite").animation="an2"
+			get_parent().add_child(trava)
+	
+	
 	get_parent().add_child(blok)
-	
-	
 	queue_free()
+
+
+
 
 func _physics_process(delta: float) -> void:
 	build_thing()

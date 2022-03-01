@@ -319,6 +319,8 @@ func darker_effect()->void:
 
 func death(direciton: bool)->void:
 	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
+	#get_node("World/Kanvas/UI").visible=false
+	#get_node("World/Kanvas/Death").visible=true
 	if(direciton):
 		corpse.knock=false
 	else:
