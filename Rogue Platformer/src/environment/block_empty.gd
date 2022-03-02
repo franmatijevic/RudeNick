@@ -18,6 +18,7 @@ export var spider_web=100
 export var money=200
 export var bonus_money=0
 
+
 func _ready() -> void:
 	if(can_destroy==true):
 		randomize()
@@ -219,5 +220,4 @@ func _physics_process(delta: float) -> void:
 		bone.position.y=position.y
 		get_parent().add_child(bone)
 		blok.queue_free()
-	
 	queue_free()

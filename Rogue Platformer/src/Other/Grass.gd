@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if($Bone.is_colliding()):
+		queue_free()

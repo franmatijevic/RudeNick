@@ -102,6 +102,7 @@ func _init()->void:
 
 
 func _ready() -> void:
+	create_decorations()
 	get_node("BlackScreen").queue_free()
 	add_player()
 
@@ -223,4 +224,30 @@ func add_player()->void:
 	player.global_position.x=80+start*160
 	player.global_position.y=34
 	add_child(player)
+
+func create_decorations()->void:
+	var r
+	var polje = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+	for i in range(4):
+		for j in range(4):
+			r=randi()%3
+			if(r==0):
+				polje[i][j]=preload("res://src/Other/Fossil.tscn").instance()
+				r=randi()%128
+				polje[i][j].global_position.x=float(r)+i*160 + 16
+				r=randi()%96
+				polje[i][j].global_position.y=float(r)+j*128 + 16
+				r=randi()%2
+				if(r==0):
+					polje[i][j].get_node("AnimatedSprite").set_flip_h(true)
+				r=randi()%3
+				match r:
+					0:
+						polje[i][j].get_node("AnimatedSprite").animation="an1"
+					1:
+						polje[i][j].get_node("AnimatedSprite").animation="an2"
+					2:
+						polje[i][j].get_node("AnimatedSprite").animation="an3"
+				add_child(polje[i][j])
+
 

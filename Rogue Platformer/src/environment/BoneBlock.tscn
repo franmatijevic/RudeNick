@@ -12,7 +12,7 @@ extents = Vector2( 7.98438, 7.95313 )
 
 [node name="BoneBlock" type="KinematicBody2D"]
 z_index = 10
-collision_layer = 8
+collision_layer = 520
 collision_mask = 0
 script = ExtResource( 2 )
 
