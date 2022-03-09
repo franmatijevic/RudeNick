@@ -30,6 +30,7 @@ animations = [ {
 } ]
 
 [node name="MainMenu" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -51,6 +52,7 @@ frames = SubResource( 1 )
 playing = true
 
 [node name="HelpButton" parent="." instance=ExtResource( 14 )]
+pause_mode = 2
 visible = false
 position = Vector2( 192, 98 )
 z_index = 200

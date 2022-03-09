@@ -5,6 +5,7 @@ var stomp_impulse: = 100.0
 var health :int= 10
 var money:int=0
 var rope:int=4
+var bomb:int=4
 
 var walk_speed:=75.0
 var run_speed:=120.0
@@ -21,6 +22,8 @@ var is_running:=true
 var spider_web:=false
 var exits_level:=false
 var collides_w_enemy:=false
+var bomb_in_hands:=false
+var burned_death:=false
 
 var near_exit:=false
 var stop:=1
@@ -95,6 +98,7 @@ func _process(delta: float) -> void:
 	ui.get_node("health").text=str(health)
 	ui.get_node("money").text=str(money*100)
 	ui.get_node("Ropes").text=str(rope)
+	ui.get_node("bomb_n").text=str(bomb)
 	
 	if(Input.is_action_just_pressed("up")): move_up=true
 	if(Input.is_action_just_released("up")): move_up=false
@@ -108,6 +112,16 @@ func _process(delta: float) -> void:
 		var rope=preload("res://src/Other/RopeTop.tscn").instance()
 		rope.global_position=global_position
 		get_parent().add_child(rope)
+	
+	if(Input.is_action_just_pressed("bomb")):
+		if(!bomb_in_hands and bomb>0):
+			bomb_in_hands=true
+			bomb=bomb-1
+			var bomba=preload("res://src/Other/Bomb.tscn").instance()
+			bomba.position=position
+			get_parent().add_child(bomba)
+		elif(bomb_in_hands):
+			bomb_in_hands=false
 	
 	if(spider_web): 
 		if(Input.is_action_just_pressed("jump")): 
@@ -289,6 +303,7 @@ func exitlevel()->void:
 	get_parent().get_parent().player_health=health
 	get_parent().get_parent().player_money=money
 	get_parent().get_parent().player_rope=rope
+	get_parent().get_parent().player_bomb=bomb
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
@@ -319,8 +334,14 @@ func darker_effect()->void:
 
 func death(direciton: bool)->void:
 	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
-	#get_node("World/Kanvas/UI").visible=false
-	#get_node("World/Kanvas/Death").visible=true
+	get_parent().get_node("Kanvas/UI").draw=false
+	get_parent().get_node("Kanvas/UI/Heart1").queue_free()
+	get_parent().get_node("Kanvas/UI/health").queue_free()
+	get_parent().get_node("Kanvas/UI/HeartBroken").visible=true
+	if(burned_death):
+		corpse.get_node("Sprite").modulate.r=0.26
+		corpse.get_node("Sprite").modulate.g=0.19
+		corpse.get_node("Sprite").modulate.b=0.19
 	if(direciton):
 		corpse.knock=false
 	else:

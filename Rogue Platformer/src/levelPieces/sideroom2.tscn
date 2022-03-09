@@ -134,9 +134,13 @@ n_ground = 20
 position = Vector2( -40, -24 )
 n_ground = 10
 n_sky = 20
+money = 150
+high_drop = 1
 
 [node name="KinematicBody2D39" parent="." instance=ExtResource( 2 )]
 position = Vector2( -56, -24 )
+money = 100
+high_drop = 1
 
 [node name="KinematicBody2D40" parent="." instance=ExtResource( 2 )]
 position = Vector2( -72, -24 )

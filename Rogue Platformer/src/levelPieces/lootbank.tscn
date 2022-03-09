@@ -1,8 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/environment/stone_tile_mid.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Backgrounds/stone_tile_background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dungeon/Sprite-0017.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Dungeon/Sprite-0019.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Dungeon/Sprite-0020.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Dungeon/Sprite-0024.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Dungeon/Sprite-0016.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Dungeon/Sprite-0023.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Dungeon/Sprite-0022.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Dungeon/Sprite-0018.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Dungeon/Sprite-0021.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Dungeon/Sprite-0015.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Dungeon/dungeon_1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Dungeon/dungeon_4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Dungeon/dungeon_2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Dungeon/dungeon_3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Dungeon/Sprite-0012.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Dungeon/Sprite-0013.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Dungeon/Sprite-0014.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Dungeon/dungeonbackground.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Dungeon/Sprite-0009.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Dungeon/Sprite-0010.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Dungeon/Sprite-0011.png" type="Texture" id=22]
+[ext_resource path="res://src/environment/NoSpriteBlock.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Dungeon/Sprite-0005.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Dungeon/Sprite-0006.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Dungeon/Sprite-0007.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Dungeon/Sprite-0008.png" type="Texture" id=27]
+[ext_resource path="res://src/Other/Fire.tscn" type="PackedScene" id=28]
 
 [node name="Node2D" type="Node2D"]
 
@@ -102,214 +127,156 @@ position = Vector2( -40, -56 )
 [node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, -56 )
 
-[node name="KinematicBody2D34" parent="." instance=ExtResource( 1 )]
-position = Vector2( -8, 40 )
+[node name="Dungeonbackground" type="Sprite" parent="."]
+z_index = -8
+texture = ExtResource( 19 )
 
-[node name="KinematicBody2D35" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8, 40 )
-
-[node name="KinematicBody2D36" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, -8 )
-
-[node name="KinematicBody2D37" parent="." instance=ExtResource( 1 )]
-position = Vector2( 24, 40 )
-
-[node name="KinematicBody2D38" parent="." instance=ExtResource( 1 )]
-position = Vector2( -24, 40 )
-
-[node name="KinematicBody2D39" parent="." instance=ExtResource( 1 )]
-position = Vector2( -24, -40 )
-
-[node name="KinematicBody2D40" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, -8 )
-
-[node name="KinematicBody2D41" parent="." instance=ExtResource( 1 )]
-position = Vector2( -8, -40 )
-
-[node name="KinematicBody2D42" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 24 )
-
-[node name="KinematicBody2D44" parent="." instance=ExtResource( 2 )]
-position = Vector2( -8, 24 )
-
-[node name="KinematicBody2D45" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, 24 )
-
-[node name="KinematicBody2D46" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 24 )
-
-[node name="KinematicBody2D47" parent="." instance=ExtResource( 2 )]
-position = Vector2( -24, 24 )
-
-[node name="KinematicBody2D48" parent="." instance=ExtResource( 2 )]
-position = Vector2( -24, 8 )
-
-[node name="KinematicBody2D49" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, 8 )
-
-[node name="KinematicBody2D50" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, -8 )
-
-[node name="KinematicBody2D51" parent="." instance=ExtResource( 2 )]
-position = Vector2( -24, -8 )
-
-[node name="KinematicBody2D53" parent="." instance=ExtResource( 2 )]
-position = Vector2( -24, -24 )
-
-[node name="KinematicBody2D54" parent="." instance=ExtResource( 2 )]
-position = Vector2( -8, -24 )
-
-[node name="KinematicBody2D55" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, -24 )
-
-[node name="KinematicBody2D56" parent="." instance=ExtResource( 2 )]
-position = Vector2( 24, -24 )
-
-[node name="KinematicBody2D43" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8, -40 )
-
-[node name="KinematicBody2D52" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, -24 )
-
-[node name="KinematicBody2D33" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, 8 )
-
-[node name="KinematicBody2D66" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 8 )
-
-[node name="KinematicBody2D67" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 8 )
-
-[node name="KinematicBody2D57" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, -40 )
-
-[node name="KinematicBody2D58" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, -40 )
-
-[node name="KinematicBody2D59" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, -24 )
-
-[node name="KinematicBody2D60" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, -24 )
-
-[node name="KinematicBody2D61" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, -8 )
-
-[node name="KinematicBody2D62" parent="." instance=ExtResource( 1 )]
-position = Vector2( -56, 8 )
-
-[node name="KinematicBody2D63" parent="." instance=ExtResource( 1 )]
+[node name="NoSpriteBlock" parent="." instance=ExtResource( 23 )]
 position = Vector2( -56, 40 )
 
-[node name="KinematicBody2D64" parent="." instance=ExtResource( 1 )]
+[node name="Sprite-0020" type="Sprite" parent="NoSpriteBlock"]
+texture = ExtResource( 4 )
+
+[node name="NoSpriteBlock2" parent="." instance=ExtResource( 23 )]
 position = Vector2( -56, 24 )
 
-[node name="KinematicBody2D65" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, 24 )
+[node name="Sprite-0021" type="Sprite" parent="NoSpriteBlock2"]
+texture = ExtResource( 10 )
 
-[node name="KinematicBody2D68" parent="." instance=ExtResource( 1 )]
-position = Vector2( -40, 40 )
+[node name="NoSpriteBlock3" parent="." instance=ExtResource( 23 )]
+position = Vector2( -56, 8 )
 
-[node name="KinematicBody2D69" parent="." instance=ExtResource( 1 )]
-position = Vector2( 40, 40 )
+[node name="Sprite-0022" type="Sprite" parent="NoSpriteBlock3"]
+texture = ExtResource( 8 )
 
-[node name="KinematicBody2D70" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 40 )
+[node name="NoSpriteBlock4" parent="." instance=ExtResource( 23 )]
+position = Vector2( -56, -8 )
 
-[node name="KinematicBody2D71" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, 24 )
+[node name="Sprite-0023" type="Sprite" parent="NoSpriteBlock4"]
+texture = ExtResource( 7 )
 
-[node name="KinematicBody2D72" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, -8 )
+[node name="NoSpriteBlock5" parent="." instance=ExtResource( 23 )]
+position = Vector2( -56, -24 )
 
-[node name="KinematicBody2D73" parent="." instance=ExtResource( 1 )]
+[node name="Sprite-0024" type="Sprite" parent="NoSpriteBlock5"]
+texture = ExtResource( 5 )
+
+[node name="NoSpriteBlock6" parent="." instance=ExtResource( 23 )]
+position = Vector2( -56, -40 )
+
+[node name="Dungeon1" type="Sprite" parent="NoSpriteBlock6"]
+texture = ExtResource( 12 )
+
+[node name="NoSpriteBlock7" parent="." instance=ExtResource( 23 )]
+position = Vector2( -40, -40 )
+
+[node name="Dungeon2" type="Sprite" parent="NoSpriteBlock7"]
+texture = ExtResource( 14 )
+
+[node name="NoSpriteBlock8" parent="." instance=ExtResource( 23 )]
+position = Vector2( -24, -40 )
+
+[node name="Dungeon3" type="Sprite" parent="NoSpriteBlock8"]
+texture = ExtResource( 15 )
+
+[node name="NoSpriteBlock9" parent="." instance=ExtResource( 23 )]
+position = Vector2( -8, -40 )
+
+[node name="Dungeon4" type="Sprite" parent="NoSpriteBlock9"]
+texture = ExtResource( 13 )
+
+[node name="NoSpriteBlock10" parent="." instance=ExtResource( 23 )]
+position = Vector2( 8, -40 )
+
+[node name="Sprite-0005" type="Sprite" parent="NoSpriteBlock10"]
+texture = ExtResource( 24 )
+
+[node name="NoSpriteBlock11" parent="." instance=ExtResource( 23 )]
 position = Vector2( 24, -40 )
 
-[node name="KinematicBody2D74" parent="." instance=ExtResource( 1 )]
+[node name="Sprite-0006" type="Sprite" parent="NoSpriteBlock11"]
+texture = ExtResource( 25 )
+
+[node name="NoSpriteBlock12" parent="." instance=ExtResource( 23 )]
 position = Vector2( 40, -40 )
 
-[node name="KinematicBody2D75" parent="." instance=ExtResource( 1 )]
-position = Vector2( 56, -24 )
+[node name="Sprite-0007" type="Sprite" parent="NoSpriteBlock12"]
+texture = ExtResource( 26 )
 
-[node name="KinematicBody2D76" parent="." instance=ExtResource( 1 )]
+[node name="NoSpriteBlock13" parent="." instance=ExtResource( 23 )]
 position = Vector2( 56, -40 )
 
-[node name="StoneTileBackground" type="Sprite" parent="."]
-position = Vector2( -8, -8 )
-z_index = -8
+[node name="Sprite-0008" type="Sprite" parent="NoSpriteBlock13"]
+texture = ExtResource( 27 )
+
+[node name="NoSpriteBlock14" parent="." instance=ExtResource( 23 )]
+position = Vector2( 56, -24 )
+
+[node name="Sprite-0009" type="Sprite" parent="NoSpriteBlock14"]
+texture = ExtResource( 20 )
+
+[node name="NoSpriteBlock15" parent="." instance=ExtResource( 23 )]
+position = Vector2( 56, -8 )
+
+[node name="Sprite-0010" type="Sprite" parent="NoSpriteBlock15"]
+texture = ExtResource( 21 )
+
+[node name="NoSpriteBlock16" parent="." instance=ExtResource( 23 )]
+position = Vector2( 56, 8 )
+
+[node name="Sprite-0011" type="Sprite" parent="NoSpriteBlock16"]
+texture = ExtResource( 22 )
+
+[node name="NoSpriteBlock17" parent="." instance=ExtResource( 23 )]
+position = Vector2( -40, 40 )
+
+[node name="Sprite-0019" type="Sprite" parent="NoSpriteBlock17"]
 texture = ExtResource( 3 )
 
-[node name="StoneTileBackground2" type="Sprite" parent="."]
-position = Vector2( 8, -8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock18" parent="." instance=ExtResource( 23 )]
+position = Vector2( -24, 40 )
 
-[node name="StoneTileBackground3" type="Sprite" parent="."]
-position = Vector2( -8, 8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0018" type="Sprite" parent="NoSpriteBlock18"]
+texture = ExtResource( 9 )
 
-[node name="StoneTileBackground4" type="Sprite" parent="."]
-position = Vector2( 8, 8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock19" parent="." instance=ExtResource( 23 )]
+position = Vector2( -8, 40 )
 
-[node name="StoneTileBackground5" type="Sprite" parent="."]
-position = Vector2( -24, -24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0017" type="Sprite" parent="NoSpriteBlock19"]
+texture = ExtResource( 2 )
 
-[node name="StoneTileBackground6" type="Sprite" parent="."]
-position = Vector2( -8, -24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock20" parent="." instance=ExtResource( 23 )]
+position = Vector2( 8, 40 )
 
-[node name="StoneTileBackground7" type="Sprite" parent="."]
-position = Vector2( 8, -24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0016" type="Sprite" parent="NoSpriteBlock20"]
+texture = ExtResource( 6 )
 
-[node name="StoneTileBackground8" type="Sprite" parent="."]
-position = Vector2( -24, -8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock21" parent="." instance=ExtResource( 23 )]
+position = Vector2( 24, 40 )
 
-[node name="StoneTileBackground9" type="Sprite" parent="."]
-position = Vector2( -24, 8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0015" type="Sprite" parent="NoSpriteBlock21"]
+texture = ExtResource( 11 )
 
-[node name="StoneTileBackground10" type="Sprite" parent="."]
-position = Vector2( -24, 24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock22" parent="." instance=ExtResource( 23 )]
+position = Vector2( 40, 40 )
 
-[node name="StoneTileBackground11" type="Sprite" parent="."]
-position = Vector2( -8, 24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0014" type="Sprite" parent="NoSpriteBlock22"]
+texture = ExtResource( 18 )
 
-[node name="StoneTileBackground12" type="Sprite" parent="."]
-position = Vector2( 8, 24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock23" parent="." instance=ExtResource( 23 )]
+position = Vector2( 56, 40 )
 
-[node name="StoneTileBackground13" type="Sprite" parent="."]
-position = Vector2( 24, 24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0013" type="Sprite" parent="NoSpriteBlock23"]
+texture = ExtResource( 17 )
 
-[node name="StoneTileBackground14" type="Sprite" parent="."]
-position = Vector2( 24, 8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="NoSpriteBlock24" parent="." instance=ExtResource( 23 )]
+position = Vector2( 56, 24 )
 
-[node name="StoneTileBackground15" type="Sprite" parent="."]
-position = Vector2( 24, -8 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Sprite-0012" type="Sprite" parent="NoSpriteBlock24"]
+texture = ExtResource( 16 )
 
-[node name="StoneTileBackground16" type="Sprite" parent="."]
-position = Vector2( 24, -24 )
-z_index = -8
-texture = ExtResource( 3 )
+[node name="Fire" parent="." instance=ExtResource( 28 )]
+position = Vector2( -19.8007, -2.03293 )
+
+[node name="Fire2" parent="." instance=ExtResource( 28 )]
+position = Vector2( 20.2877, -1.94454 )

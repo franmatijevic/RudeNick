@@ -23,6 +23,13 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 	else:
 		velocity.x+=push
 
+func wait()->void:
+	var time_in_seconds = 1
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	$DetectPlayer.monitoring=true
+
+func _ready() -> void:
+	wait()
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta

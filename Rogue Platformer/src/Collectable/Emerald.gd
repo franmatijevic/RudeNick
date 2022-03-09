@@ -23,6 +23,8 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 	else:
 		velocity.x+=push
 
+func _ready() -> void:
+	wait()
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
@@ -39,3 +41,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x-=friction
 	if(velocity.x<0.0 and !velocity.y<0.0):
 		velocity.x+=friction
+
+func wait()->void:
+	var time_in_seconds = 1
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	$DetectPlayer.monitoring=true

@@ -18,6 +18,8 @@ position = Vector2( 72, 56 )
 
 [node name="KinematicBody2D5" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, 56 )
+add = 500
+high_drop = 1
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, 56 )
@@ -107,12 +109,14 @@ n_sky = 15
 
 [node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 8 )
+high_drop = 1
 
 [node name="KinematicBody2D33" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 24 )
 
 [node name="KinematicBody2D34" parent="." instance=ExtResource( 1 )]
 position = Vector2( 40, 8 )
+high_drop = 1
 
 [node name="KinematicBody2D35" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, 24 )

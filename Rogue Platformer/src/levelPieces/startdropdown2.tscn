@@ -14,6 +14,7 @@ skyenemy = -1
 
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 72, -56 )
+skyenemy = -1
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 1 )]
 position = Vector2( -72, 56 )

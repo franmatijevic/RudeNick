@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/environment/RopeBot.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/RopeTopPart.tscn" type="PackedScene" id=2]
+
+[node name="Rope2" type="Node2D"]
+
+[node name="RopeTopPart" parent="." instance=ExtResource( 2 )]
+
+[node name="RopeBot" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 16 )

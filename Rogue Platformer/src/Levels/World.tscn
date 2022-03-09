@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Other/BlackScreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/heart_broken.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Backgrounds/cobbletone.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -105,12 +105,133 @@ anims/fade_to_normal = SubResource( 2 )
 
 [node name="UI" parent="Kanvas" instance=ExtResource( 6 )]
 
-[node name="Death" type="Control" parent="Kanvas"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Cobblestone" type="Node2D" parent="."]
+position = Vector2( 0, 8 )
 
-[node name="HeartBroken" type="Sprite" parent="Kanvas/Death"]
-position = Vector2( 160, 112 )
-scale = Vector2( 10, 10 )
+[node name="Cobbletone2" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 24 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone5" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 72 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone4" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 56 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone3" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 40 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 8 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone12" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 184 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone11" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 168 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone10" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 152 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone9" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 136 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone8" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 120 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone7" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 104 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone6" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 88 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone13" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 200 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone14" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 216 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone15" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 232 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone16" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 248 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone17" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 264 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone18" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 280 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone19" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 296 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone20" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 312 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone21" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 328 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone22" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 344 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone23" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 360 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone24" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 376 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone25" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 392 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone26" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 408 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone27" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 424 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone28" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 440 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone29" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 456 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone30" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 472 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone31" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 488 )
+texture = ExtResource( 7 )
+
+[node name="Cobbletone32" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 504 )
 texture = ExtResource( 7 )

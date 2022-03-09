@@ -34,11 +34,6 @@ animations = [ {
 "name": "hanging",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 1 ) ],
-"loop": false,
-"name": "whiping",
-"speed": 13.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "walking",
@@ -48,6 +43,11 @@ animations = [ {
 "loop": true,
 "name": "climbing_stop",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "whiping",
+"speed": 13.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]

@@ -96,9 +96,13 @@ position = Vector2( -40, 56 )
 [node name="KinematicBody2D31" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, -24 )
 can_destroy = true
+add = 300
+high_drop = 1
 
 [node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, -24 )
+money = 100
+high_drop = 1
 
 [node name="KinematicBody2D33" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, -24 )
@@ -107,12 +111,17 @@ can_destroy = true
 [node name="KinematicBody2D34" parent="." instance=ExtResource( 1 )]
 position = Vector2( 8, -24 )
 can_destroy = true
+add = 300
+high_drop = 1
 
 [node name="KinematicBody2D30" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, 56 )
 
 [node name="KinematicBody2D35" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 8 )
+money = 150
+add = 500
+high_drop = 1
 
 [node name="KinematicBody2D36" parent="." instance=ExtResource( 1 )]
 position = Vector2( 40, 8 )
@@ -125,12 +134,17 @@ position = Vector2( -56, 40 )
 
 [node name="KinematicBody2D39" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, 8 )
+money = 150
+add = 500
+high_drop = 1
 
 [node name="KinematicBody2D40" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, 8 )
 
 [node name="KinematicBody2D41" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, -24 )
+money = 100
+high_drop = 1
 
 [node name="KinematicBody2D42" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, -24 )

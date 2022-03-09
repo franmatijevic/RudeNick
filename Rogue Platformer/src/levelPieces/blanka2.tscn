@@ -83,21 +83,26 @@ position = Vector2( -40, 56 )
 [node name="KinematicBody2D26" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, 56 )
 can_destroy = true
+add = 500
+high_drop = 1
 
 [node name="KinematicBody2D27" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, 56 )
+high_drop = 1
 
 [node name="KinematicBody2D28" parent="." instance=ExtResource( 1 )]
 position = Vector2( 8, 56 )
 
 [node name="KinematicBody2D29" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, 56 )
+high_drop = 1
 
 [node name="KinematicBody2D30" parent="." instance=ExtResource( 1 )]
 position = Vector2( 40, 56 )
 
 [node name="KinematicBody2D31" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 56 )
+high_drop = 1
 
 [node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, -24 )

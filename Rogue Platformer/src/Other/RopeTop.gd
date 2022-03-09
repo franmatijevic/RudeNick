@@ -40,6 +40,7 @@ func create_rest():
 		start_creating=true
 		var time_in_seconds = 0.01
 		var array = [0,0,0,0,0,0]
+		var n:=0
 		maks=6
 		for i in range(maks):
 			if(i==0):
@@ -54,8 +55,25 @@ func create_rest():
 			array[i].global_position.y=end
 			array[i].global_position.y+=i*16
 			get_parent().add_child(array[i])
+			n=n+1
 			if($Floor.is_colliding()):
-				break
+				queue_free()
+		var rope
+		match n:
+			1:
+				rope=preload("res://src/environment/RopeTopPart.tscn").instance()
+			2:
+				rope=preload("res://src/Ropes/Rope2.tscn").instance()
+			3:
+				rope=preload("res://src/Ropes/Rope3.tscn").instance()
+			4:
+				rope=preload("res://src/Ropes/Rope4.tscn").instance()
+			5:
+				rope=preload("res://src/Ropes/Rope5.tscn").instance()
+			6:
+				rope=preload("res://src/Ropes/Rope6.tscn").instance()
+		#rope.global_position=global_position
+		#get_parent().add_child(rope)
 		queue_free()
 
 func _physics_process(delta: float) -> void:

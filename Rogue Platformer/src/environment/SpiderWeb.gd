@@ -20,7 +20,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if(collide):
-		
 		if(player.velocity.x!=0 or player.velocity.y<0):
 			lenght-=1
 	if(lenght<=5): 

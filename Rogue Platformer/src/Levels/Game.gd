@@ -3,6 +3,7 @@ extends Node2D
 var player_health:int=4
 var player_money:int=0
 var player_rope:int=4
+var player_bomb:int=4
 var level:=0
 
 var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
@@ -11,6 +12,7 @@ func set_health()->void:
 	get_node("World").get_node("Player").health=player_health
 	get_node("World").get_node("Player").money=player_money
 	get_node("World").get_node("Player").rope=player_rope
+	get_node("World").get_node("Player").bomb=player_bomb
 
 func _ready() -> void:
 	OS.window_fullscreen = true
@@ -33,13 +35,13 @@ func pause_menu(on: bool)->void:
 	if(on):
 		get_node("World/Kanvas/UI").visible=false
 		get_node("PauseScreen").visible=true
-		get_node("World").visible=false
+		#get_node("World").visible=false
 		#var time_in_seconds = 0.5
 		#yield(get_tree().create_timer(time_in_seconds), "timeout")
 	else:
 		get_node("World/Kanvas/UI").visible=true
 		get_node("PauseScreen").visible=false
-		get_node("World").visible=true
+		#get_node("World").visible=true
 
 func new_complete()->void:
 	var comp = preload("res://src/Levels/LevelComplete.tscn").instance()

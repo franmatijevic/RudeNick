@@ -1,31 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Decoration/fossil_1.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Decoration/fossil_2.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Decoration/fossil_3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Decoration/fossil_1 (1).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Decoration/fossil_2 (1).png" type="Texture" id=2]
+[ext_resource path="res://Assets/Decoration/fossil_3 (1).png" type="Texture" id=3]
+[ext_resource path="res://Assets/Decoration/fossil_4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Decoration/fossil_6.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Decoration/fossil_5.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "an3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "an2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "an4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "an1",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "an3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "an6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "an5",
+"speed": 5.0
 } ]
 
 [node name="Fossil" type="Node2D"]
+z_index = -9
+z_as_relative = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.490196 )
 z_index = -9
 frames = SubResource( 1 )
-animation = "an1"
+animation = "an6"

@@ -19,6 +19,8 @@ var array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 #End of level = 9
 #Side tile = 0
 
+var dungeon:=false
+
 func _init()->void:
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
@@ -200,7 +202,11 @@ func create_side_room(i:int, j:int) ->void:
 		0:
 			array[i][j]=preload("res://src/levelPieces/sideroom1.tscn").instance()
 		1:
-			array[i][j]=preload("res://src/levelPieces/lootbank.tscn").instance()
+			if(!dungeon):
+				dungeon=true
+				array[i][j]=preload("res://src/levelPieces/lootbank.tscn").instance()
+			else:
+				array[i][j]=preload("res://src/levelPieces/sideroom5.tscn").instance()
 		2:
 			array[i][j]=preload("res://src/levelPieces/blanka1.tscn").instance()
 		3:
@@ -240,7 +246,7 @@ func create_decorations()->void:
 				r=randi()%2
 				if(r==0):
 					polje[i][j].get_node("AnimatedSprite").set_flip_h(true)
-				r=randi()%3
+				r=randi()%6
 				match r:
 					0:
 						polje[i][j].get_node("AnimatedSprite").animation="an1"
@@ -248,6 +254,12 @@ func create_decorations()->void:
 						polje[i][j].get_node("AnimatedSprite").animation="an2"
 					2:
 						polje[i][j].get_node("AnimatedSprite").animation="an3"
+					3:
+						polje[i][j].get_node("AnimatedSprite").animation="an4"
+					4:
+						polje[i][j].get_node("AnimatedSprite").animation="an5"
+					5:
+						polje[i][j].get_node("AnimatedSprite").animation="an6"
 				add_child(polje[i][j])
 
 

@@ -82,6 +82,7 @@ can_destroy = true
 
 [node name="KinematicBody2D24" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, -24 )
+high_drop = 1
 
 [node name="KinematicBody2D26" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, -24 )

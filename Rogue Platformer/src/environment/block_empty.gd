@@ -18,6 +18,8 @@ export var spider_web=100
 export var money=200
 export var bonus_money=0
 
+export var add:int=700
+export var high_drop:int=0
 
 func _ready() -> void:
 	if(can_destroy==true):
@@ -74,7 +76,7 @@ func build_thing()->void:
 		else:
 			var generate_gold=randi()%money
 			if(generate_gold<27):
-				var value=randi()%1000
+				var value=randi()%879 + add*high_drop
 				if(value<350):
 					var gold=preload("res://src/Collectable/Gold1.tscn").instance()
 					gold.position.x=position.x
@@ -95,13 +97,18 @@ func build_thing()->void:
 					gold.position.x=position.x
 					gold.position.y=position.y-16
 					get_parent().add_child(gold)
-				elif(value<900):
+				elif(value<880):
 					var gold=preload("res://src/Collectable/Ruby.tscn").instance()
 					gold.position.x=position.x
 					gold.position.y=position.y-16
 					get_parent().add_child(gold)
-				else:
+				elif(value<1150):
 					var gold=preload("res://src/Collectable/Chest.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				else:
+					var gold=preload("res://src/Collectable/Crate.tscn").instance()
 					gold.position.x=position.x
 					gold.position.y=position.y-16
 					get_parent().add_child(gold)
