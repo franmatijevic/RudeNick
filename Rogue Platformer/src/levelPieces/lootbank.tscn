@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Dungeon/Sprite-0017.png" type="Texture" id=2]
@@ -28,8 +28,21 @@
 [ext_resource path="res://Assets/Dungeon/Sprite-0007.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Dungeon/Sprite-0008.png" type="Texture" id=27]
 [ext_resource path="res://src/Other/Fire.tscn" type="PackedScene" id=28]
+[ext_resource path="res://src/Actors/Troll.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/Blocks/dirt_tile_mid.png" type="Texture" id=30]
+[ext_resource path="res://src/levelPieces/Dungeon.gd" type="Script" id=31]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 48 )
+
+[node name="Dungeon" type="Node2D"]
+script = ExtResource( 31 )
+
+[node name="DetectBomb" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBomb"]
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -72, -24 )
@@ -131,152 +144,233 @@ position = Vector2( -56, -56 )
 z_index = -8
 texture = ExtResource( 19 )
 
-[node name="NoSpriteBlock" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, 40 )
-
-[node name="Sprite-0020" type="Sprite" parent="NoSpriteBlock"]
-texture = ExtResource( 4 )
-
-[node name="NoSpriteBlock2" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, 24 )
-
-[node name="Sprite-0021" type="Sprite" parent="NoSpriteBlock2"]
-texture = ExtResource( 10 )
-
-[node name="NoSpriteBlock3" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, 8 )
-
-[node name="Sprite-0022" type="Sprite" parent="NoSpriteBlock3"]
-texture = ExtResource( 8 )
-
-[node name="NoSpriteBlock4" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, -8 )
-
-[node name="Sprite-0023" type="Sprite" parent="NoSpriteBlock4"]
-texture = ExtResource( 7 )
-
-[node name="NoSpriteBlock5" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, -24 )
-
-[node name="Sprite-0024" type="Sprite" parent="NoSpriteBlock5"]
-texture = ExtResource( 5 )
-
-[node name="NoSpriteBlock6" parent="." instance=ExtResource( 23 )]
-position = Vector2( -56, -40 )
-
-[node name="Dungeon1" type="Sprite" parent="NoSpriteBlock6"]
-texture = ExtResource( 12 )
-
-[node name="NoSpriteBlock7" parent="." instance=ExtResource( 23 )]
-position = Vector2( -40, -40 )
-
-[node name="Dungeon2" type="Sprite" parent="NoSpriteBlock7"]
-texture = ExtResource( 14 )
-
-[node name="NoSpriteBlock8" parent="." instance=ExtResource( 23 )]
-position = Vector2( -24, -40 )
-
-[node name="Dungeon3" type="Sprite" parent="NoSpriteBlock8"]
-texture = ExtResource( 15 )
-
-[node name="NoSpriteBlock9" parent="." instance=ExtResource( 23 )]
-position = Vector2( -8, -40 )
-
-[node name="Dungeon4" type="Sprite" parent="NoSpriteBlock9"]
-texture = ExtResource( 13 )
-
-[node name="NoSpriteBlock10" parent="." instance=ExtResource( 23 )]
-position = Vector2( 8, -40 )
-
-[node name="Sprite-0005" type="Sprite" parent="NoSpriteBlock10"]
-texture = ExtResource( 24 )
-
-[node name="NoSpriteBlock11" parent="." instance=ExtResource( 23 )]
-position = Vector2( 24, -40 )
-
-[node name="Sprite-0006" type="Sprite" parent="NoSpriteBlock11"]
-texture = ExtResource( 25 )
-
-[node name="NoSpriteBlock12" parent="." instance=ExtResource( 23 )]
-position = Vector2( 40, -40 )
-
-[node name="Sprite-0007" type="Sprite" parent="NoSpriteBlock12"]
-texture = ExtResource( 26 )
-
-[node name="NoSpriteBlock13" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, -40 )
-
-[node name="Sprite-0008" type="Sprite" parent="NoSpriteBlock13"]
-texture = ExtResource( 27 )
-
-[node name="NoSpriteBlock14" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, -24 )
-
-[node name="Sprite-0009" type="Sprite" parent="NoSpriteBlock14"]
-texture = ExtResource( 20 )
-
-[node name="NoSpriteBlock15" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, -8 )
-
-[node name="Sprite-0010" type="Sprite" parent="NoSpriteBlock15"]
-texture = ExtResource( 21 )
-
-[node name="NoSpriteBlock16" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, 8 )
-
-[node name="Sprite-0011" type="Sprite" parent="NoSpriteBlock16"]
-texture = ExtResource( 22 )
-
-[node name="NoSpriteBlock17" parent="." instance=ExtResource( 23 )]
-position = Vector2( -40, 40 )
-
-[node name="Sprite-0019" type="Sprite" parent="NoSpriteBlock17"]
-texture = ExtResource( 3 )
-
-[node name="NoSpriteBlock18" parent="." instance=ExtResource( 23 )]
-position = Vector2( -24, 40 )
-
-[node name="Sprite-0018" type="Sprite" parent="NoSpriteBlock18"]
-texture = ExtResource( 9 )
-
-[node name="NoSpriteBlock19" parent="." instance=ExtResource( 23 )]
-position = Vector2( -8, 40 )
-
-[node name="Sprite-0017" type="Sprite" parent="NoSpriteBlock19"]
-texture = ExtResource( 2 )
-
-[node name="NoSpriteBlock20" parent="." instance=ExtResource( 23 )]
-position = Vector2( 8, 40 )
-
-[node name="Sprite-0016" type="Sprite" parent="NoSpriteBlock20"]
-texture = ExtResource( 6 )
-
-[node name="NoSpriteBlock21" parent="." instance=ExtResource( 23 )]
-position = Vector2( 24, 40 )
-
-[node name="Sprite-0015" type="Sprite" parent="NoSpriteBlock21"]
-texture = ExtResource( 11 )
-
-[node name="NoSpriteBlock22" parent="." instance=ExtResource( 23 )]
-position = Vector2( 40, 40 )
-
-[node name="Sprite-0014" type="Sprite" parent="NoSpriteBlock22"]
-texture = ExtResource( 18 )
-
-[node name="NoSpriteBlock23" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, 40 )
-
-[node name="Sprite-0013" type="Sprite" parent="NoSpriteBlock23"]
-texture = ExtResource( 17 )
-
-[node name="NoSpriteBlock24" parent="." instance=ExtResource( 23 )]
-position = Vector2( 56, 24 )
-
-[node name="Sprite-0012" type="Sprite" parent="NoSpriteBlock24"]
-texture = ExtResource( 16 )
-
 [node name="Fire" parent="." instance=ExtResource( 28 )]
 position = Vector2( -19.8007, -2.03293 )
 
 [node name="Fire2" parent="." instance=ExtResource( 28 )]
 position = Vector2( 20.2877, -1.94454 )
+
+[node name="Troll" parent="." instance=ExtResource( 29 )]
+position = Vector2( 2, -13 )
+
+[node name="TrollHouse" type="Node2D" parent="."]
+
+[node name="NoSpriteBlock" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0020" type="Sprite" parent="TrollHouse/NoSpriteBlock"]
+texture = ExtResource( 4 )
+
+[node name="NoSpriteBlock2" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, 24 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock2"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0021" type="Sprite" parent="TrollHouse/NoSpriteBlock2"]
+texture = ExtResource( 10 )
+
+[node name="NoSpriteBlock3" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, 8 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock3"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0022" type="Sprite" parent="TrollHouse/NoSpriteBlock3"]
+texture = ExtResource( 8 )
+
+[node name="NoSpriteBlock4" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, -8 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock4"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0023" type="Sprite" parent="TrollHouse/NoSpriteBlock4"]
+texture = ExtResource( 7 )
+
+[node name="NoSpriteBlock5" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, -24 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock5"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0024" type="Sprite" parent="TrollHouse/NoSpriteBlock5"]
+texture = ExtResource( 5 )
+
+[node name="NoSpriteBlock6" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -56, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock6"]
+texture = ExtResource( 30 )
+
+[node name="Dungeon1" type="Sprite" parent="TrollHouse/NoSpriteBlock6"]
+texture = ExtResource( 12 )
+
+[node name="NoSpriteBlock7" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -40, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock7"]
+texture = ExtResource( 30 )
+
+[node name="Dungeon2" type="Sprite" parent="TrollHouse/NoSpriteBlock7"]
+texture = ExtResource( 14 )
+
+[node name="NoSpriteBlock8" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -24, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock8"]
+texture = ExtResource( 30 )
+
+[node name="Dungeon3" type="Sprite" parent="TrollHouse/NoSpriteBlock8"]
+texture = ExtResource( 15 )
+
+[node name="NoSpriteBlock9" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -8, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock9"]
+texture = ExtResource( 30 )
+
+[node name="Dungeon4" type="Sprite" parent="TrollHouse/NoSpriteBlock9"]
+texture = ExtResource( 13 )
+
+[node name="NoSpriteBlock10" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 8, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock10"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0005" type="Sprite" parent="TrollHouse/NoSpriteBlock10"]
+texture = ExtResource( 24 )
+
+[node name="NoSpriteBlock11" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 24, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock11"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0006" type="Sprite" parent="TrollHouse/NoSpriteBlock11"]
+texture = ExtResource( 25 )
+
+[node name="NoSpriteBlock12" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 40, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock12"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0007" type="Sprite" parent="TrollHouse/NoSpriteBlock12"]
+texture = ExtResource( 26 )
+
+[node name="NoSpriteBlock13" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, -40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock13"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0008" type="Sprite" parent="TrollHouse/NoSpriteBlock13"]
+texture = ExtResource( 27 )
+
+[node name="NoSpriteBlock14" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, -24 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock14"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0009" type="Sprite" parent="TrollHouse/NoSpriteBlock14"]
+texture = ExtResource( 20 )
+
+[node name="NoSpriteBlock15" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, -8 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock15"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0010" type="Sprite" parent="TrollHouse/NoSpriteBlock15"]
+texture = ExtResource( 21 )
+
+[node name="NoSpriteBlock16" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, 8 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock16"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0011" type="Sprite" parent="TrollHouse/NoSpriteBlock16"]
+texture = ExtResource( 22 )
+
+[node name="NoSpriteBlock17" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -40, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock17"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0019" type="Sprite" parent="TrollHouse/NoSpriteBlock17"]
+texture = ExtResource( 3 )
+
+[node name="NoSpriteBlock18" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -24, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock18"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0018" type="Sprite" parent="TrollHouse/NoSpriteBlock18"]
+texture = ExtResource( 9 )
+
+[node name="NoSpriteBlock19" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( -8, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock19"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0017" type="Sprite" parent="TrollHouse/NoSpriteBlock19"]
+texture = ExtResource( 2 )
+
+[node name="NoSpriteBlock20" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 8, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock20"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0016" type="Sprite" parent="TrollHouse/NoSpriteBlock20"]
+texture = ExtResource( 6 )
+
+[node name="NoSpriteBlock21" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 24, 40 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock21"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0015" type="Sprite" parent="TrollHouse/NoSpriteBlock21"]
+texture = ExtResource( 11 )
+
+[node name="NoSpriteBlock22" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 40, 40 )
+
+[node name="Sprite-0014" type="Sprite" parent="TrollHouse/NoSpriteBlock22"]
+z_index = 1000
+texture = ExtResource( 18 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock22"]
+texture = ExtResource( 30 )
+
+[node name="NoSpriteBlock23" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, 40 )
+
+[node name="Sprite-0013" type="Sprite" parent="TrollHouse/NoSpriteBlock23"]
+z_index = 1000
+texture = ExtResource( 17 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock23"]
+texture = ExtResource( 30 )
+
+[node name="NoSpriteBlock24" parent="TrollHouse" instance=ExtResource( 23 )]
+position = Vector2( 56, 24 )
+
+[node name="DirtTileMid" type="Sprite" parent="TrollHouse/NoSpriteBlock24"]
+texture = ExtResource( 30 )
+
+[node name="Sprite-0012" type="Sprite" parent="TrollHouse/NoSpriteBlock24"]
+texture = ExtResource( 16 )
+
+[connection signal="area_entered" from="DetectBomb" to="." method="_on_DetectBomb_area_entered"]

@@ -6,25 +6,31 @@
 [ext_resource path="res://src/Actors/Spider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=5]
 [ext_resource path="res://src/Actors/Snake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Actors/Troll.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/environment/BoneBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/environment/SpiderWeb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levelPieces/start1.tscn" type="PackedScene" id=30]
 
 [node name="Test Level" type="Node2D"]
 scale = Vector2( 1.00034, 1 )
 
+[node name="KinematicBody2D30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 359.878, 120 )
+
+[node name="KinematicBody2D31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 343.883, 120 )
+
 [node name="Background1" type="Sprite" parent="."]
 position = Vector2( 192, 192 )
 z_index = -10
 texture = ExtResource( 5 )
 
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 96 )
+
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 575, 192 )
 texture = ExtResource( 5 )
-
-[node name="KinematicBody2D" parent="Background2" instance=ExtResource( 3 )]
-position = Vector2( -279.101, -96 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 263.91, 160 )
@@ -112,9 +118,6 @@ position = Vector2( 311.894, 152 )
 position = Vector2( 199.932, 96 )
 speed = Vector2( 50, 200 )
 
-[node name="KinematicBody2D27" parent="." instance=ExtResource( 3 )]
-position = Vector2( 328, 120 )
-
 [node name="KinematicBody2D28" parent="." instance=ExtResource( 3 )]
 position = Vector2( 247.916, 96 )
 
@@ -132,8 +135,8 @@ margin_top = 263.981
 margin_right = 2053.22
 margin_bottom = 1159.94
 
-[node name="BoneBlock" parent="." instance=ExtResource( 9 )]
-position = Vector2( 375.872, 120 )
+[node name="Troll" parent="." instance=ExtResource( 7 )]
+position = Vector2( 295.899, 120 )
 
-[node name="BoneBlock2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 359.878, 120 )
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 375.872, 120 )
