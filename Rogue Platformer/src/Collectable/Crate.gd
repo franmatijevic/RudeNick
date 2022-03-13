@@ -1,10 +1,16 @@
 extends KinematicBody2D
 
 var gravity:=295.0
-var speed:=Vector2(150.0, 100.0)
+var speed:=Vector2(150.0, 300.0)
 var velocity:=Vector2.ZERO
 
+func _on_Boom_area_entered(area: Area2D) -> void:
+	destroy()
+
 func _on_Whip_area_entered(area: Area2D) -> void:
+	destroy()
+
+func destroy()->void:
 	var drop=randi()%2
 	var item
 	match drop:
@@ -19,12 +25,8 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 	get_parent().add_child(item)
 	queue_free()
 
-
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
 	move_and_slide(velocity)
 	if(velocity.y>speed.y):
 		velocity.y=speed.y
-
-
-

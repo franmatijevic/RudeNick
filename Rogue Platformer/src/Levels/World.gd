@@ -18,6 +18,9 @@ var array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
 #Critical path > 0
 #End of level = 9
 #Side tile = 0
+#shop = 7
+
+var current_time:=0.0
 
 var dungeon:=false
 
@@ -77,8 +80,51 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
+	var shop=randi()%1
+	var number_of_skips=randi()%15
+	var shop_direction:=false
+	var number_of_siderooms:int=0
+	print(number_of_skips)
+	
+	if(shop):
+		for i in range(4):
+			for j in range(4):
+				if(polje[i][j]==0):
+					number_of_siderooms=number_of_siderooms+1
+		for k in range(number_of_skips):
+			for i in range(4):
+				for j in range(4):
+					if(polje[i][j]==0):
+						if(i>0):
+							pass
+						if(i<4):
+							pass
+	
+	if(shop==0):
+		for k in range(15):
+			for i in range(4):
+				for j in range(4):
+					if(polje[i][j]==0):
+						if(number_of_skips==1):
+							pass
+							#if(i>0 and polje[i-1][j]!=0):
+							#	shop_direction=false
+							#	polje[i][j]=7
+							#elif(i<4 and polje[i+1][j]!=0):
+							#	shop_direction=true
+							#	polje[i][j]=7
+							#else:
+								#number_of_skips=number_of_skips+1
+						number_of_skips=number_of_skips-1
+					if(number_of_skips==0):
+						break
+				if(number_of_skips==0):
+					break
+			if(number_of_skips==0):
+				break
 	
 	for i in range(4):
+		print(polje[i])
 		for j in range(4):
 			match polje[i][j]:
 				1:
@@ -107,6 +153,15 @@ func _ready() -> void:
 	create_decorations()
 	get_node("BlackScreen").queue_free()
 	add_player()
+
+func _process(delta: float) -> void:
+	current_time=current_time+delta
+	var minutes=floor(current_time/60.0)
+	var seconds=int(current_time)%60
+	if(seconds>9):
+		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
+	else:
+		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
 
 func create_hallwaywithdrop(i:int, j:int)->void:
 	randomize()

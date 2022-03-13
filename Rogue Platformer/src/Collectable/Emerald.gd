@@ -11,6 +11,8 @@ var friction:=5.0
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	body.money+=value
+	body.get_node("Money").emitting=false
+	body.get_node("Money").emitting=true
 	queue_free()
 
 func _on_DetectWhip_area_entered(area: Area2D) -> void:
@@ -43,6 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x+=friction
 
 func wait()->void:
-	var time_in_seconds = 1
+	var time_in_seconds = 0.5
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	$DetectPlayer.monitoring=true

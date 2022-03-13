@@ -10,6 +10,7 @@ func title_animation()->void:
 	get_node("PlayButton").visible=true
 	get_node("HelpButton").visible=true
 	get_node("QuitButton").visible=true
+	get_node("GameMusic").play()
 	get_node("AnimatedSprite").queue_free()
 
 

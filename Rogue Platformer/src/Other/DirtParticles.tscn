@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+spread = 130.0
+gravity = Vector3( 0, 120, 0 )
+initial_velocity = 35.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_random = 1.0
+color = Color( 0.439216, 0.309804, 0.0392157, 1 )
+
+[node name="DirtParticles" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -0.0589905, -0.0589924 )
+emitting = false
+amount = 10
+lifetime = 2.0
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource( 1 )

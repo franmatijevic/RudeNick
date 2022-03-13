@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/c a f e ♫ ROYALTY FREE CHIPTUNE LOOP.ogg-56c3763856229defe51c7e9c4c15c9e1.oggstr"
+
+[deps]
+
+source_file="res://Music/c a f e ♫ ROYALTY FREE CHIPTUNE LOOP.ogg"
+dest_files=[ "res://.import/c a f e ♫ ROYALTY FREE CHIPTUNE LOOP.ogg-56c3763856229defe51c7e9c4c15c9e1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

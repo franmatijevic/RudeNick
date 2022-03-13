@@ -10,6 +10,7 @@ var has_stopped:int=1
 var old_coords:float
 var newx
 
+var last_damage="snake"
 
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
@@ -28,8 +29,8 @@ func _on_spiderWeb_area_exited(area: Area2D) -> void:
 func _on_StompDetector_body_entered(body: PhysicsBody2D) -> void:
 	if body.global_position.y >= get_node("StompDetector").global_position.y:
 		return
-	#get_node("CollisionShape2D").disabled = true
-	#queue_free()
+	get_node("CollisionShape2D").disabled = true
+	queue_free()
 
 func _on_damagebox_area_entered(area: Area2D) -> void:
 	death()

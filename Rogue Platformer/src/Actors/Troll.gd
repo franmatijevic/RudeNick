@@ -5,6 +5,8 @@ var change: = false
 var can_move=1
 var health:=1
 
+var last_damage:String="troll"
+
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
 	velocity.x = speed.x
@@ -47,5 +49,5 @@ func death()->void:
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position
 	get_parent().add_child(blood)
-	get_node("CollisionShape2D").disabled=true
-	queue_free()
+	#get_node("CollisionShape2D").disabled=true
+	#queue_free()

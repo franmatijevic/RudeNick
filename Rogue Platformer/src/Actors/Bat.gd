@@ -4,7 +4,11 @@ var speed: = 50.0
 var velocity: = Vector2.ZERO
 var hostile=false
 
+var begin:=false
+
 var can_move=1
+
+var last_damage:String="bat"
 
 var player: Object= null
 onready var dir:= Vector2.ZERO
@@ -28,6 +32,8 @@ func _on_playerDetect_body_entered(body: PhysicsBody2D) -> void:
 	get_node("AnimatedSprite").animation="flying"
 	get_node("playerDetect/playerD").disabled=true
 
+func _ready() -> void:
+	start_level()
 
 func _process(delta: float) -> void:
 	if(get_parent().has_node("Player") and get_parent().get_node("Player").exits_level):
@@ -39,11 +45,16 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
-	if(hostile and get_parent().has_node("Player")):
+	if(hostile and get_parent().has_node("Player") and begin):
 		#dir = Vector2( player.get_global_position() - get_global_position()).normalized()
 		dir = Vector2(player.global_position-global_position).normalized()
 		velocity=dir*speed
 		move_and_slide(dir * speed * can_move)
+
+func start_level()->void:
+	var time_in_seconds = 0.6
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	begin=true
 
 func wait_and_stop() ->void:
 	var time_in_seconds = 0.1

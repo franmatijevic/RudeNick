@@ -7,6 +7,7 @@ var jump=185.0
 var playerx
 var spiderx
 
+var last_damage:String="spider"
 var player:=true
 
 func _on_damageBox_area_entered(area: Area2D) -> void:

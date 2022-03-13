@@ -11,8 +11,12 @@ var maks=6
 
 var crash:=false
 var start_creating:=false
+var look_down:=false
+
 
 func _ready() -> void:
+	if(look_down):
+		distance=0.0
 	newx = int(round(global_position.x))/16
 	newx = newx * 16 + 8
 	var newy = int(round(global_position.y))/16

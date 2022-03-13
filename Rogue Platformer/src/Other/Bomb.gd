@@ -15,7 +15,8 @@ func _physics_process(delta: float) -> void:
 
 func follow_player()->void:
 	if(get_parent().has_node("Player")):
-		position=get_parent().get_node("Player").position
+		position.x=get_parent().get_node("Player").position.x
+		position.y=get_parent().get_node("Player").position.y+3
 
 func wait()->void:
 	var time_in_seconds = 3

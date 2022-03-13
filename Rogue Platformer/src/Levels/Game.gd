@@ -6,6 +6,15 @@ var player_rope:int=4
 var player_bomb:int=4
 var level:=0
 
+var old_health:int=0
+var old_money:int=0
+var old_rope:int=0
+var old_bomb:int=0
+
+var total_time:=0.0
+
+var last_damage:String=" "
+
 var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
 
 func set_health()->void:
@@ -48,6 +57,7 @@ func new_complete()->void:
 	comp.position.x=0
 	comp.position.y=0
 	add_child(comp)
+	comp.level=level
 	if(has_node("World")):
 		get_node("World").queue_free()
 	if(has_node("MainMenu")):
@@ -57,6 +67,10 @@ func new_level()->void:
 	var world = preload("res://src/Levels/World.tscn").instance()
 	world.global_position=global_position
 	level=level+1
+	old_health=player_health
+	old_bomb=player_bomb
+	old_money=player_money
+	old_rope=player_rope
 	world.get_node("Kanvas/UI").get_node("LevelNumber").text=str(level)
 	add_child(world)
 	if(has_node("LevelComplete")):

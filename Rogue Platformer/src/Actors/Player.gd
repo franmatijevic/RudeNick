@@ -24,6 +24,7 @@ var exits_level:=false
 var collides_w_enemy:=false
 var bomb_in_hands:=false
 var burned_death:=false
+var look_down:=false
 
 var near_exit:=false
 var stop:=1
@@ -38,7 +39,7 @@ var move_horizontal:=1
 onready var animatedSprite = $AnimatedSprite
 var spike_boots:=false
 
-
+var last_damage:String=" "
 
 func _ready() -> void:
 	speed.x=run_speed
@@ -70,6 +71,7 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	_on_Player_draw()
 	if(!iframes_on):
+		last_damage=body.last_damage
 		var blood=preload("res://src/Other/Blood.tscn").instance()
 		blood.global_position=global_position
 		get_parent().add_child(blood)
@@ -111,6 +113,12 @@ func _process(delta: float) -> void:
 		rope=rope-1
 		var rope=preload("res://src/Other/RopeTop.tscn").instance()
 		rope.global_position=global_position
+		if(look_down):
+			rope.look_down=true
+			if(smjer):
+				rope.global_position.x=rope.global_position.x-16
+			else:
+				rope.global_position.x=rope.global_position.x+16
 		get_parent().add_child(rope)
 	
 	if(Input.is_action_just_pressed("bomb")):
@@ -173,6 +181,17 @@ func _physics_process(delta: float) -> void:
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity*stop, Vector2.UP*stop)
 	
+	
+	if(velocity.x==0 and move_up and is_on_floor() and !move_left and !move_right):
+		get_node("Camera2D").position.y=-55
+		look_down=false
+	elif(velocity.x==0 and move_down and is_on_floor() and !move_left and !move_right):
+		get_node("Camera2D").position.y=45
+		look_down=true
+	else:
+		get_node("Camera2D").position.y=-10
+		look_down=false
+	
 	if(climbing):
 		if(Input.is_action_just_pressed("move_left") and !is_attacking): smjer=true
 		if(Input.is_action_just_pressed("move_right") and !is_attacking): smjer=false
@@ -216,7 +235,6 @@ func get_direction() -> Vector2:
 
 func damage()->void:
 	pass
-
 
 
 func ladder()->void:
@@ -304,6 +322,7 @@ func exitlevel()->void:
 	get_parent().get_parent().player_money=money
 	get_parent().get_parent().player_rope=rope
 	get_parent().get_parent().player_bomb=bomb
+	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
@@ -333,6 +352,7 @@ func darker_effect()->void:
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func death(direciton: bool)->void:
+	print(last_damage)
 	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
 	get_parent().get_node("Kanvas/UI").draw=false
 	get_parent().get_node("Kanvas/UI/Heart1").queue_free()
@@ -342,6 +362,8 @@ func death(direciton: bool)->void:
 		corpse.get_node("Sprite").modulate.r=0.26
 		corpse.get_node("Sprite").modulate.g=0.19
 		corpse.get_node("Sprite").modulate.b=0.19
+		corpse.push=200.0
+		corpse.friction=2.0
 	if(direciton):
 		corpse.knock=false
 	else:

@@ -8,6 +8,9 @@ func _ready() -> void:
 		get_node("BoneBlock1").queue_free()
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
+	destroy()
+
+func destroy()->void:
 	var blood=preload("res://src/Other/Bones.tscn").instance()
 	blood.global_position=global_position
 	get_parent().get_parent().add_child(blood)

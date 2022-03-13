@@ -56,12 +56,12 @@ playing = true
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walking"
-frame = 1
 playing = true
 flip_h = true
 
@@ -72,7 +72,6 @@ shape = SubResource( 4 )
 [node name="BlockDestroy" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 8
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDestroy"]
 position = Vector2( 0, -7 )
