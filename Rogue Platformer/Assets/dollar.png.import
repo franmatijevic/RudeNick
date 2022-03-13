@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wooden_tile.png-e805e3c998ac1ab63708b2440e25a4d4.stex"
+path="res://.import/dollar.png-d26b6091b009246aff53060a4e88d20b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blocks/wooden_tile.png"
-dest_files=[ "res://.import/wooden_tile.png-e805e3c998ac1ab63708b2440e25a4d4.stex" ]
+source_file="res://Assets/dollar.png"
+dest_files=[ "res://.import/dollar.png-d26b6091b009246aff53060a4e88d20b.stex" ]
 
 [params]
 

@@ -16,13 +16,12 @@ animations = [ {
 extents = Vector2( 4, 4 )
 
 [node name="Bomb" type="KinematicBody2D"]
-collision_layer = 0
+collision_layer = 2048
 collision_mask = 8
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

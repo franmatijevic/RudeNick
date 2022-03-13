@@ -45,7 +45,10 @@ func _physics_process(delta: float) -> void:
 	if(!$BlockAbove.is_colliding()):
 		hostile=true
 		$BlockAbove.enabled=false
+		$PlayerDetect.enabled=false
 	if($PlayerDetect.is_colliding()):
+		$PlayerDetect.enabled=false
+		$BlockAbove.enabled=false
 		hostile=true
 	if(is_on_floor()): 
 		first_fall=true

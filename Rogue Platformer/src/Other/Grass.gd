@@ -6,5 +6,8 @@ func remove()->void:
 	if($Bone.is_colliding()):
 		queue_free()
 
+func destroy()->void:
+	queue_free()
+
 func _ready() -> void:
 	remove()

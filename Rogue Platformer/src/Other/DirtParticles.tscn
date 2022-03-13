@@ -9,7 +9,7 @@ initial_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 angle_random = 1.0
-color = Color( 0.439216, 0.309804, 0.0392157, 1 )
+color = Color( 0.270588, 0.137255, 0.137255, 1 )
 
 [node name="DirtParticles" type="Node2D"]
 

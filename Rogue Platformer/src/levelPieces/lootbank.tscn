@@ -39,6 +39,8 @@ extents = Vector2( 64, 48 )
 script = ExtResource( 31 )
 
 [node name="DetectBomb" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1025
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBomb"]
@@ -151,7 +153,7 @@ position = Vector2( -19.8007, -2.03293 )
 position = Vector2( 20.2877, -1.94454 )
 
 [node name="Troll" parent="." instance=ExtResource( 29 )]
-position = Vector2( 2, -13 )
+position = Vector2( -3.35243, 14.4373 )
 
 [node name="TrollHouse" type="Node2D" parent="."]
 

@@ -8,7 +8,7 @@ var rope:int=4
 var bomb:int=4
 
 var walk_speed:=75.0
-var run_speed:=120.0
+var run_speed:=105.0
 var slowed_speed:=50.0
 var normal_jump:=225.0
 var slowed_jump:=150.0
@@ -322,6 +322,7 @@ func exitlevel()->void:
 	get_parent().get_parent().player_money=money
 	get_parent().get_parent().player_rope=rope
 	get_parent().get_parent().player_bomb=bomb
+	get_parent().get_parent().current_time=get_parent().current_time
 	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position

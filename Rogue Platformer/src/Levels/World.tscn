@@ -105,7 +105,7 @@ anims/fade_to_normal = SubResource( 2 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -40.0
+volume_db = -20.0
 autoplay = true
 
 [node name="Wall" type="Node2D" parent="."]

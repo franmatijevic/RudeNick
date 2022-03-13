@@ -16,12 +16,28 @@ func _ready() -> void:
 	bomb=get_parent().player_bomb-get_parent().old_bomb
 	money=get_parent().player_money-get_parent().old_money
 	total_time=get_parent().total_time
+	current_time=get_parent().current_time
 	
 	get_node("Kanvas/nice").text="Level " + str(level) + " Completed!"
 	get_node("Kanvas/health").text=str(health)
 	get_node("Kanvas/bombs").text=str(bomb)
 	get_node("Kanvas/ropes").text=str(ropes)
 	get_node("Kanvas/money").text=str(money*100)
+	
+	var minutes=floor(current_time/60.0)
+	var seconds=int(current_time)%60
+	if(seconds>9):
+		get_node("Kanvas/time_n").text=str(minutes)+":"+str(seconds)
+	else:
+		get_node("Kanvas/time_n").text=str(minutes)+":0"+str(seconds)
+	
+	minutes=floor(total_time/60.0)
+	seconds=int(total_time)%60
+	if(seconds>9):
+		get_node("Kanvas/total_n").text=str(minutes)+":"+str(seconds)
+	else:
+		get_node("Kanvas/total_n").text=str(minutes)+":0"+str(seconds)
+
 
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("buy")):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Blocks/dirt_tile_bottom.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/heart_1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Bomb/bomba.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Rope/rope_unfolded.png" type="Texture" id=9]
+[ext_resource path="res://Assets/dollar.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -747,10 +748,10 @@ custom_fonts/font = SubResource( 5 )
 text = "bombs"
 
 [node name="money" type="Label" parent="Kanvas"]
-margin_left = 1448.0
-margin_top = 320.0
-margin_right = 1531.0
-margin_bottom = 356.0
+margin_left = 1424.0
+margin_top = 304.0
+margin_right = 1547.0
+margin_bottom = 340.0
 custom_fonts/font = SubResource( 5 )
 text = "money"
 
@@ -790,3 +791,8 @@ text = "drek"
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 6 )
+
+[node name="Dollar" type="Sprite" parent="Kanvas"]
+position = Vector2( 1392, 320 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 10 )

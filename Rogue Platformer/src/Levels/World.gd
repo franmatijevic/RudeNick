@@ -80,51 +80,32 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
-	var shop=randi()%1
-	var number_of_skips=randi()%15
-	var shop_direction:=false
-	var number_of_siderooms:int=0
-	print(number_of_skips)
+	var shop=randi()%10
 	
-	if(shop):
+	var all_shops_i=[0,0,0,0,0,0,0,0]
+	var all_shops_j=[0,0,0,0,0,0,0,0]
+	var dir_shops=[false,false,false,false,false,false,false,false]
+	var n_of_shops:int=0
+	var where_shop
+	
+	if(shop==0):
 		for i in range(4):
 			for j in range(4):
 				if(polje[i][j]==0):
-					number_of_siderooms=number_of_siderooms+1
-		for k in range(number_of_skips):
-			for i in range(4):
-				for j in range(4):
-					if(polje[i][j]==0):
-						if(i>0):
-							pass
-						if(i<4):
-							pass
+					if(j<3 and polje[i][j+1]!=0):
+						all_shops_i[n_of_shops]=i
+						all_shops_j[n_of_shops]=j
+						n_of_shops=n_of_shops+1
+					elif(j>0 and polje[i][j-1]>0):
+						all_shops_i[n_of_shops]=i
+						all_shops_j[n_of_shops]=j
+						dir_shops[n_of_shops]=true
+						n_of_shops=n_of_shops+1
+		where_shop=randi()%n_of_shops
+		polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
 	
-	if(shop==0):
-		for k in range(15):
-			for i in range(4):
-				for j in range(4):
-					if(polje[i][j]==0):
-						if(number_of_skips==1):
-							pass
-							#if(i>0 and polje[i-1][j]!=0):
-							#	shop_direction=false
-							#	polje[i][j]=7
-							#elif(i<4 and polje[i+1][j]!=0):
-							#	shop_direction=true
-							#	polje[i][j]=7
-							#else:
-								#number_of_skips=number_of_skips+1
-						number_of_skips=number_of_skips-1
-					if(number_of_skips==0):
-						break
-				if(number_of_skips==0):
-					break
-			if(number_of_skips==0):
-				break
 	
 	for i in range(4):
-		print(polje[i])
 		for j in range(4):
 			match polje[i][j]:
 				1:
@@ -140,6 +121,8 @@ func _init()->void:
 					create_startdropdown(i,j)
 				6: 
 					create_hallwaywithdrop(i,j)
+				7:
+					create_shop(i,j,dir_shops[where_shop])
 				9:
 					array[i][j]=preload("res://src/levelPieces/exit1.tscn").instance()
 					array[i][j].global_position.x=80 + j * 160
@@ -162,6 +145,15 @@ func _process(delta: float) -> void:
 		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
 	else:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
+
+func create_shop(i:int, j:int, dir:bool)->void:
+	array[i][j]=preload("res://src/levelPieces/Shop.tscn").instance()
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
+	if(!dir):
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
+	add_child(array[i][j])
 
 func create_hallwaywithdrop(i:int, j:int)->void:
 	randomize()

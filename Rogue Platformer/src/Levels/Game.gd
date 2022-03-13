@@ -12,6 +12,7 @@ var old_rope:int=0
 var old_bomb:int=0
 
 var total_time:=0.0
+var current_time:=0.0
 
 var last_damage:String=" "
 

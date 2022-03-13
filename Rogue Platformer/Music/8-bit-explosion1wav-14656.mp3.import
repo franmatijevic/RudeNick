@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8-bit-explosion1wav-14656.mp3-120c276fb5956c14f5545e0f966339b4.mp3str"
+
+[deps]
+
+source_file="res://Music/8-bit-explosion1wav-14656.mp3"
+dest_files=[ "res://.import/8-bit-explosion1wav-14656.mp3-120c276fb5956c14f5545e0f966339b4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

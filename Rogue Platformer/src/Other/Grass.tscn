@@ -13,14 +13,14 @@ animations = [ {
 "name": "an1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": false,
-"name": "an3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "an4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "an3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],

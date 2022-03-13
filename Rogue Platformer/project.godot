@@ -108,6 +108,9 @@ bomb={
 2d_physics/layer_9="bush"
 2d_physics/layer_10="boneblock"
 2d_physics/layer_11="boom"
+2d_physics/layer_12="bomb"
+2d_physics/layer_13="pure_dmg"
+2d_physics/layer_14="boss"
 
 [physics]
 

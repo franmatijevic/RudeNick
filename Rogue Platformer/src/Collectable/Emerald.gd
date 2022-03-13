@@ -11,8 +11,11 @@ var friction:=5.0
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	body.money+=value
-	body.get_node("Money").emitting=false
-	body.get_node("Money").emitting=true
+	var color=preload("res://src/Other/MoneyParticle.tscn").instance()
+	color.get_node("Money").process_material.color=Color(0.2,0.69,0.44)
+	color.get_node("Money").emitting=true
+	color.position=position
+	get_parent().add_child(color)
 	queue_free()
 
 func _on_DetectWhip_area_entered(area: Area2D) -> void:
