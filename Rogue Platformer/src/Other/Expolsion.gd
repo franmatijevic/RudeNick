@@ -3,16 +3,19 @@ extends Node2D
 func _on_KillBeings_body_entered(body: Node) -> void:
 	if(body.name=="Player"):
 		body.last_damage="explosion"
-		if(body.health<12):
+		if(body.health<6):
 			body.burned_death=true
 			if(body.global_position.x>global_position.x):
 				body.death(true)
 			else:
 				body.death(false)
 		else:
-			body.health=body.health-11
+			body.health=body.health-5
 	else:
 		body.death()
+
+func _on_DetectBoss_area_entered(area: Area2D) -> void:
+	area.get_parent().health-=5
 
 func _on_BlockDMG_body_entered(body: Node) -> void:
 	if(body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):

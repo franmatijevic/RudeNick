@@ -40,6 +40,9 @@ func death()->void:
 	get_node("CollisionShape2D").disabled=true
 	queue_free()
 
+func destroy()->void:
+	death()
+
 func _physics_process(delta: float) -> void:
 	
 	if(!$BlockAbove.is_colliding()):

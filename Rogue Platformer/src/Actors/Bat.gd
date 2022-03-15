@@ -61,6 +61,9 @@ func wait_and_stop() ->void:
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_move=0
 
+func destroy()->void:
+	death()
+
 func death()->void:
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position

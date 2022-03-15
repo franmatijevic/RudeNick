@@ -73,6 +73,9 @@ func death()->void:
 	get_node("CollisionShape2D").disabled=true
 	queue_free()
 
+func destroy()->void:
+	death()
+
 func wait_and_stop() ->void:
 	has_stopped=0
 	var time_in_seconds = 0.1

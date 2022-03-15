@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/troll3.wav-d3ac91a16fe931fc6de06c8c6306342e.sample"
+
+[deps]
+
+source_file="res://Music/troll3.wav"
+dest_files=[ "res://.import/troll3.wav-d3ac91a16fe931fc6de06c8c6306342e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

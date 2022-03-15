@@ -23,7 +23,10 @@ var spider_web:=false
 var exits_level:=false
 var collides_w_enemy:=false
 var bomb_in_hands:=false
+
 var burned_death:=false
+var club_death:=false
+
 var look_down:=false
 
 var near_exit:=false
@@ -40,6 +43,12 @@ onready var animatedSprite = $AnimatedSprite
 var spike_boots:=false
 
 var last_damage:String=" "
+var if_stunned:bool=false
+var stunned_mod:int=1
+var side_stunned:bool=false
+var knock_h:float=0.0
+var knock_v:float=0.0
+var friction:float=20.0
 
 func _ready() -> void:
 	speed.x=run_speed
@@ -59,14 +68,11 @@ func _on_webDetect_area_exited(area: Area2D) -> void:
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 	#if !is_on_floor():
-		climbing=false
-		using_gravity=1
-		move_horizontal=1
 		area.get_parent().death()
 		var blood=preload("res://src/Other/Blood.tscn").instance()
 		blood.global_position=area.global_position
 		area.get_parent().add_child(blood) 
-		velocity = calculate_stomp_velocity(velocity, stomp_impulse)
+		enemy_jump()
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	_on_Player_draw()
@@ -95,6 +101,31 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		move_horizontal=1
 		_on_Player_draw()
 
+func _on_Boss_area_entered(area: Area2D) -> void:
+	if(!iframes_on):
+		last_damage=area.get_parent().last_damage
+		var blood=preload("res://src/Other/Blood.tscn").instance()
+		blood.global_position=global_position
+		get_parent().add_child(blood)
+		if(health<3):
+			var knock:=true
+			if(area.get_parent().global_position.x>global_position.x):
+				knock=false
+			death(knock)
+		velocity.x=0.0
+		ledge_grab=false
+		health-=2
+		_on_Player_draw()
+		ledge_grab=false
+		iframes()
+		treperenje()
+		move_horizontal=0
+		if(velocity.y>0.0):
+			velocity.y=0
+		var time_in_seconds = 0.4
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+		move_horizontal=1
+
 func _process(delta: float) -> void:
 	var ui = get_parent().get_node("Kanvas").get_node("UI")
 	ui.get_node("health").text=str(health)
@@ -109,7 +140,7 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("run")): is_running=false
 	if(Input.is_action_just_released("run")): is_running=true
 	
-	if(Input.is_action_just_pressed("rope") and rope>0):
+	if(Input.is_action_just_pressed("rope") and rope>0 and !if_stunned):
 		rope=rope-1
 		var rope=preload("res://src/Other/RopeTop.tscn").instance()
 		rope.global_position=global_position
@@ -121,7 +152,7 @@ func _process(delta: float) -> void:
 				rope.global_position.x=rope.global_position.x+16
 		get_parent().add_child(rope)
 	
-	if(Input.is_action_just_pressed("bomb")):
+	if(Input.is_action_just_pressed("bomb") and !if_stunned):
 		if(!bomb_in_hands and bomb>0):
 			bomb_in_hands=true
 			bomb=bomb-1
@@ -155,25 +186,28 @@ func _process(delta: float) -> void:
 			$LedgeX.position.x = -6
 	
 	
-	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking and move_horizontal==1):
+	if(Input.is_action_just_pressed("move_left") and !ledge_grab and !is_attacking and move_horizontal==1 and !if_stunned):
 		smjer=1
 		$LedgeX.global_position.x=position.x-6
 		$LedgeY.global_position.x=position.x-7
-	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking and move_horizontal==1):
+	if(Input.is_action_just_pressed("move_right") and !ledge_grab and !is_attacking and move_horizontal==1 and !if_stunned):
 		smjer=0
 		$LedgeX.global_position.x=position.x+12
 		$LedgeY.global_position.x=position.x+7
 	get_node("AnimatedSprite").set_flip_h( smjer )
-	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level and !ledge_grab): action()
+	if(Input.is_action_just_pressed("action") && is_attacking==false and !exits_level and !ledge_grab and !if_stunned): action()
 	
 	if(health>0):
-		if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
-		elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
-		elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
-		elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
-		elif(ledge_grab): animatedSprite.animation="hanging"
+		if(!if_stunned):
+			if(velocity.x!=0 and is_attacking==false and climbing==false and !ledge_grab): animatedSprite.animation="walking"
+			elif(!is_attacking and climbing==false and !ledge_grab and !exits_level): animatedSprite.animation="default"
+			elif(climbing and velocity.y!=0 and !is_attacking and !ledge_grab): animatedSprite.animation="climbing"
+			elif(!is_attacking and !ledge_grab): animatedSprite.animation="climbing_stop"
+			elif(ledge_grab): animatedSprite.animation="hanging"
+		else:
+			animatedSprite.animation="stunned"
 	
-	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab): ladder()
+	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab and !if_stunned): ladder()
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
@@ -181,11 +215,34 @@ func _physics_process(delta: float) -> void:
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity*stop, Vector2.UP*stop)
 	
+	if(if_stunned):
+		var vel=Vector2.ZERO
+		var k:=false
+		if(!k):
+			vel.x=knock_h
+			vel.y=-knock_v
+		if(is_on_wall() or spider_web):
+			knock_h=0.0
+			knock_v=0.0
+		move_and_slide(vel)
+		if(vel.x>0.0 and !vel.y<0.0):
+			vel.x-=friction
+			if(is_on_floor()):
+				vel.x=0.0
+		if(vel.x<0.0 and !vel.y<0.0):
+			vel.x+=friction
+			if(is_on_floor()):
+				vel.x=0.0
+		
+		if(is_on_wall()):
+			vel.x=0.0
+		if(is_on_ceiling() and vel.y<0.0):
+			vel.y=0.0
 	
-	if(velocity.x==0 and move_up and is_on_floor() and !move_left and !move_right):
+	if(velocity.x==0 and move_up and !move_left and !move_right and (is_on_floor() or ledge_grab)):
 		get_node("Camera2D").position.y=-55
 		look_down=false
-	elif(velocity.x==0 and move_down and is_on_floor() and !move_left and !move_right):
+	elif(velocity.x==0 and move_down and !move_left and !move_right and (is_on_floor() or ledge_grab) ):
 		get_node("Camera2D").position.y=45
 		look_down=true
 	else:
@@ -224,18 +281,27 @@ func _physics_process(delta: float) -> void:
 			move_horizontal=1
 			using_gravity=1
 	
-	if(near_exit and Input.is_action_just_pressed("buy") and is_on_floor()):
+	if(near_exit and Input.is_action_just_pressed("buy") and is_on_floor() and !if_stunned):
 		exitlevel()
 
 func get_direction() -> Vector2:
 	return Vector2(
-		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal,
-		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level and move_horizontal==1 else 1.0
+		(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))*move_horizontal*stunned_mod,
+		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level and move_horizontal==1 and !if_stunned else 1.0
 	)
 
 func damage()->void:
 	pass
 
+func stunned()->void:
+	if_stunned=true
+	stunned_mod=0
+	ledge_grab=false
+	climbing=false
+	var time_in_seconds = 5
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	if_stunned=false
+	stunned_mod=1
 
 func ladder()->void:
 	climbing=true
@@ -359,6 +425,11 @@ func death(direciton: bool)->void:
 	get_parent().get_node("Kanvas/UI/Heart1").queue_free()
 	get_parent().get_node("Kanvas/UI/health").queue_free()
 	get_parent().get_node("Kanvas/UI/HeartBroken").visible=true
+	if(club_death):
+		corpse.push=300.0
+		corpse.push_v=100.0
+		corpse.friction=2.0
+	
 	if(burned_death):
 		corpse.get_node("Sprite").modulate.r=0.26
 		corpse.get_node("Sprite").modulate.g=0.19
@@ -372,6 +443,12 @@ func death(direciton: bool)->void:
 	corpse.position=position
 	get_parent().add_child(corpse)
 	queue_free()
+
+func enemy_jump()->void:
+	climbing=false
+	using_gravity=1
+	move_horizontal=1
+	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
 func _on_Player_draw() -> void:
 	pass

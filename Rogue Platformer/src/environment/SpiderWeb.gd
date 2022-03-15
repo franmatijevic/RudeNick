@@ -29,7 +29,8 @@ func _process(delta: float) -> void:
 func remove()->void:
 	queue_free()
 
-
+func destroy()->void:
+	queue_free()
 
 
 
