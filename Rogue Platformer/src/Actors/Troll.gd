@@ -46,12 +46,13 @@ func _on_BlockDestroy_area_entered(area: Area2D) -> void:
 	area.get_parent().destroy()
 
 func _on_Head_body_entered(body: Node) -> void:
+	pass
 	body.enemy_jump()
-	health=health-1
-	var blood=preload("res://src/Other/Blood.tscn").instance()
-	blood.position=position
-	blood.position.y=blood.position.y-10
-	get_parent().add_child(blood)
+	#health=health-1
+	#var blood=preload("res://src/Other/Blood.tscn").instance()
+	#blood.position=position
+	#blood.position.y=blood.position.y-10
+	#get_parent().add_child(blood)
 
 func _on_DetectWhip_area_entered(area: Area2D) -> void:
 	health=health-1
@@ -60,9 +61,28 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 	blood.position.y=blood.position.y-10
 	get_parent().add_child(blood)
 
+func _on_ClubUp_body_entered(body: Node) -> void:
+	pass
+	if(!body.iframes_on):
+		body.iframes()
+		body.ledge_grab=false
+		body.climbing=false
+		if(body.health<3):
+			body.club_death=true
+			if(body.global_position.x>global_position.x):
+				body.death(true)
+			else:
+				body.death(false)
+		body.health=body.health-2
+		body.stunned()
+		body.stunned_up=true
+		body.knock_v=knock_back_v
+
 func _on_ClubDamage_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
 		body.iframes()
+		body.ledge_grab=false
+		body.climbing=false
 		if(body.health<3):
 			body.club_death=true
 			if(body.global_position.x>global_position.x):
@@ -94,13 +114,13 @@ func _process(delta: float) -> void:
 	if(velocity.x>0.0):
 		direction=true
 		get_node("BlockDestroy").position.x=14
-		get_node("ClubDetect").position.x=15
-		get_node("ClubDamage").position.x=15
+		get_node("ClubDetect").position.x=10
+		get_node("ClubDamage").position.x=10
 	else:
 		direction=false
 		get_node("BlockDestroy").position.x=-14
-		get_node("ClubDetect").position.x=-15
-		get_node("ClubDamage").position.x=-15
+		get_node("ClubDetect").position.x=-10
+		get_node("ClubDamage").position.x=-10
 	if(can_move!=0 and !try_to_attack):
 		get_node("AnimatedSprite").set_flip_h( direction )
 		get_node("AnimatedSprite2").set_flip_h( direction )
@@ -143,16 +163,18 @@ func attack()->void:
 			get_node("ClubDamage").position.x=15
 		else:
 			get_node("ClubDamage").position.x=-15
-		get_node("AnimatedSprite").play()
 		get_node("AnimatedSprite").visible=true
 		get_node("TrollStand").visible=false
 		get_node("ClubDamage").monitoring=true
+		get_node("ClubUp").monitoring=true
+		get_node("AnimatedSprite").frame=0
 		
 		time_in_seconds = 0.1
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		get_node("ClubDamage").monitoring=false
+		get_node("ClubUp").monitoring=false
 		
-		time_in_seconds = 0.2
+		time_in_seconds = 1
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		
 		get_node("AnimatedSprite").visible=false

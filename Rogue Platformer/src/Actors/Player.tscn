@@ -31,6 +31,11 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "stunned",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing",
@@ -49,11 +54,6 @@ animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "hanging",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "stunned",
 "speed": 5.0
 } ]
 
@@ -95,6 +95,7 @@ smoothing_speed = 7.0
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
 animation = "stunned"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

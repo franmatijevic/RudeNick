@@ -46,6 +46,8 @@ var last_damage:String=" "
 var if_stunned:bool=false
 var stunned_mod:int=1
 var side_stunned:bool=false
+var stunned_up:bool=false
+var stun_time:float=3.0
 var knock_h:float=0.0
 var knock_v:float=0.0
 var friction:float=20.0
@@ -219,11 +221,13 @@ func _physics_process(delta: float) -> void:
 		var vel=Vector2.ZERO
 		var k:=false
 		if(!k):
-			vel.x=knock_h
+			if(!stunned_up):
+				vel.x=knock_h
 			vel.y=-knock_v
 		if(is_on_wall() or spider_web):
 			knock_h=0.0
 			knock_v=0.0
+		vel.y-=delta*gravity*4
 		move_and_slide(vel)
 		if(vel.x>0.0 and !vel.y<0.0):
 			vel.x-=friction
@@ -233,11 +237,12 @@ func _physics_process(delta: float) -> void:
 			vel.x+=friction
 			if(is_on_floor()):
 				vel.x=0.0
+				vel.y=0.0
 		
 		if(is_on_wall()):
 			vel.x=0.0
-		if(is_on_ceiling() and vel.y<0.0):
-			vel.y=0.0
+		#if(is_on_ceiling() and vel.y<0.0):
+		#	vel.y=0.0
 	
 	if(velocity.x==0 and move_up and !move_left and !move_right and (is_on_floor() or ledge_grab)):
 		get_node("Camera2D").position.y=-55
@@ -298,10 +303,11 @@ func stunned()->void:
 	stunned_mod=0
 	ledge_grab=false
 	climbing=false
-	var time_in_seconds = 5
+	var time_in_seconds = stun_time
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	if_stunned=false
 	stunned_mod=1
+	stunned_up=false
 
 func ladder()->void:
 	climbing=true

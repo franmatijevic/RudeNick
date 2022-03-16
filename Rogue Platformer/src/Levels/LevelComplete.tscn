@@ -796,3 +796,75 @@ custom_fonts/font = SubResource( 6 )
 position = Vector2( 1392, 320 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 10 )
+
+[node name="DirtTileMid109" type="Sprite" parent="."]
+position = Vector2( 8, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid110" type="Sprite" parent="."]
+position = Vector2( 24, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid111" type="Sprite" parent="."]
+position = Vector2( 40, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid112" type="Sprite" parent="."]
+position = Vector2( 56, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid113" type="Sprite" parent="."]
+position = Vector2( 72, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid114" type="Sprite" parent="."]
+position = Vector2( 88, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid115" type="Sprite" parent="."]
+position = Vector2( 104, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid116" type="Sprite" parent="."]
+position = Vector2( 120, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid117" type="Sprite" parent="."]
+position = Vector2( 168, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid118" type="Sprite" parent="."]
+position = Vector2( 184, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid119" type="Sprite" parent="."]
+position = Vector2( 200, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid120" type="Sprite" parent="."]
+position = Vector2( 216, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid121" type="Sprite" parent="."]
+position = Vector2( 232, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid122" type="Sprite" parent="."]
+position = Vector2( 248, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid123" type="Sprite" parent="."]
+position = Vector2( 264, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid124" type="Sprite" parent="."]
+position = Vector2( 280, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid125" type="Sprite" parent="."]
+position = Vector2( 136, 168 )
+texture = ExtResource( 3 )
+
+[node name="DirtTileMid126" type="Sprite" parent="."]
+position = Vector2( 152, 168 )
+texture = ExtResource( 3 )
