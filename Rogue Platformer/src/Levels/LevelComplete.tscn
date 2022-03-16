@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Blocks/dirt_tile_bottom.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Bomb/bomba.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Rope/rope_unfolded.png" type="Texture" id=9]
 [ext_resource path="res://Assets/dollar.png" type="Texture" id=10]
+[ext_resource path="res://Assets/MainMenuStuff/level_completed_1.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -45,7 +46,7 @@ size = 30
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 70
+size = 50
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -705,13 +706,20 @@ text = "change"
 [node name="nice" type="Label" parent="Kanvas"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -350.5
+margin_left = -457.5
 margin_top = 96.0
-margin_right = 350.5
+margin_right = 292.5
 margin_bottom = 265.0
 custom_fonts/font = SubResource( 4 )
 text = "Level Completed
 "
+
+[node name="LevelCompleted1" type="Sprite" parent="Kanvas/nice"]
+visible = false
+position = Vector2( 405.5, 27 )
+scale = Vector2( 7, 7 )
+z_index = -1
+texture = ExtResource( 11 )
 
 [node name="RopeUnfolded" type="Sprite" parent="Kanvas"]
 position = Vector2( 752, 328 )
