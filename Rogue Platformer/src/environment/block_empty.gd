@@ -21,7 +21,12 @@ export var bonus_money=0
 export var add:int=700
 export var high_drop:int=0
 
+var outside:bool=false
+
 func _ready() -> void:
+	#if(global_position.x<0 or global_position.y<0 or global_position.x>616 or global_position.y>604):
+	#	outside=true
+	
 	if(can_destroy==true):
 		randomize()
 		var destroy=randi()%n
@@ -213,7 +218,10 @@ func build_thing()->void:
 	get_parent().add_child(blok)
 	queue_free()
 
-
+func wait()->void:
+	var time_in_seconds = 1
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	queue_free()
 
 
 func _physics_process(delta: float) -> void:
@@ -227,4 +235,9 @@ func _physics_process(delta: float) -> void:
 		bone.position.y=position.y
 		get_parent().add_child(bone)
 		blok.queue_free()
+	
 	queue_free()
+	#if(!outside):
+	#	queue_free()
+	#else:
+	#	wait()

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+func _ready() -> void:
+	z_index=5
 
 func destroy()->void:
 	get_node("CollisionShape2D").free()

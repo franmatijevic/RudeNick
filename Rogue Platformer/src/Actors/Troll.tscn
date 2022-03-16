@@ -11,6 +11,7 @@
 [ext_resource path="res://Music/troll1.wav" type="AudioStream" id=9]
 [ext_resource path="res://Music/troll3.wav" type="AudioStream" id=10]
 [ext_resource path="res://Music/troll2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Music/troll4.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,16 +50,13 @@ extents = Vector2( 12, 10 )
 extents = Vector2( 14, 4 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 20, 18 )
+extents = Vector2( 15, 15 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 15, 15 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 20, 15 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 14, 8 )
+extents = Vector2( 14, 15 )
 
 [node name="Troll" type="KinematicBody2D"]
 collision_layer = 0
@@ -81,13 +79,11 @@ playing = true
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walking"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -123,7 +119,7 @@ monitorable = false
 shape = SubResource( 9 )
 
 [node name="ClubDetect" type="Area2D" parent="."]
-position = Vector2( -10, -2 )
+position = Vector2( -14, 1 )
 collision_layer = 0
 monitorable = false
 
@@ -139,7 +135,7 @@ monitorable = false
 shape = SubResource( 11 )
 
 [node name="ClubDamage" type="Area2D" parent="."]
-position = Vector2( -10, 1 )
+position = Vector2( -15, 1 )
 collision_layer = 0
 monitoring = false
 monitorable = false
@@ -159,14 +155,9 @@ volume_db = -20.0
 stream = ExtResource( 10 )
 volume_db = -20.0
 
-[node name="ClubUp" type="Area2D" parent="."]
-position = Vector2( 0, -15 )
-collision_layer = 0
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClubUp"]
-shape = SubResource( 13 )
+[node name="Sound4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -20.0
 
 [connection signal="area_entered" from="BlockDestroy" to="." method="_on_BlockDestroy_area_entered"]
 [connection signal="body_entered" from="BlockDestroy" to="." method="_on_BlockDestroy_body_entered"]
@@ -174,4 +165,3 @@ shape = SubResource( 13 )
 [connection signal="body_entered" from="ClubDetect" to="." method="_on_ClubDetect_body_entered"]
 [connection signal="area_entered" from="DetectWhip" to="." method="_on_DetectWhip_area_entered"]
 [connection signal="body_entered" from="ClubDamage" to="." method="_on_ClubDamage_body_entered"]
-[connection signal="body_entered" from="ClubUp" to="." method="_on_ClubUp_body_entered"]

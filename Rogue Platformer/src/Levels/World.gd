@@ -103,8 +103,9 @@ func _init()->void:
 						n_of_shops=n_of_shops+1
 		where_shop=randi()%n_of_shops
 		polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
-	
-	
+	var frame=preload("res://src/environment/Frame.tscn").instance()
+	frame.position.x=0
+	frame.position.y=0
 	for i in range(4):
 		for j in range(4):
 			match polje[i][j]:
@@ -130,6 +131,7 @@ func _init()->void:
 					add_child(array[i][j])
 				0:
 					create_side_room(i,j)
+	add_child(frame)
 
 
 func _ready() -> void:
@@ -269,7 +271,8 @@ func create_side_room(i:int, j:int) ->void:
 	var flip=randi()%2
 	if(flip==0):
 		for _i in array[i][j].get_children():
-			_i.position.x=-_i.position.x
+			if(_i.name!="TrollDeath"):
+				_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func add_player()->void:

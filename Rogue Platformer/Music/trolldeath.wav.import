@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/trolldeath.wav-4a709b9740950a075e337521b7a82e0c.sample"
+
+[deps]
+
+source_file="res://Music/trolldeath.wav"
+dest_files=[ "res://.import/trolldeath.wav-4a709b9740950a075e337521b7a82e0c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
