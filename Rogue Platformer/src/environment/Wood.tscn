@@ -7,6 +7,7 @@
 extents = Vector2( 8, 8 )
 
 [node name="Wood" type="KinematicBody2D"]
+z_index = 1
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 2 )

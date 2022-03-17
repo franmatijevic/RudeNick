@@ -1,22 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/environment/Wood.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Mole.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/Items/BuyBomb.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/Items/BuyRope.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Items/BuyBeans.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/levelPieces/Shop.gd" type="Script" id=4]
+[ext_resource path="res://src/Items/ItemInShop.tscn" type="PackedScene" id=5]
 
 [node name="Shop" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Wood" parent="." instance=ExtResource( 1 )]
 position = Vector2( -56, 56 )
 
 [node name="Wood2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, 56 )
-
-[node name="Wood3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -72, 56 )
 
 [node name="Wood4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, 56 )
@@ -50,9 +47,6 @@ position = Vector2( 72, 40 )
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -56 )
-
-[node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, -56 )
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -8 )
@@ -90,17 +84,11 @@ position = Vector2( 8, -56 )
 [node name="KinematicBody2D17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56, -40 )
 
-[node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, -40 )
-
 [node name="KinematicBody2D19" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, -8 )
-
-[node name="KinematicBody2D20" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, -24 )
+position = Vector2( -40, -8 )
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 2 )]
-position = Vector2( -72, 8 )
+position = Vector2( -56, 8 )
 skyenemy = -1
 n_sky = -1
 
@@ -160,14 +148,17 @@ skyenemy = -1
 [node name="Mole" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 40 )
 
-[node name="BuyBomb" parent="." instance=ExtResource( 4 )]
-position = Vector2( -24, 40 )
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, 56 )
 
-[node name="BuyBomb2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 16, 40 )
+[node name="ItemInShop" parent="." instance=ExtResource( 5 )]
+position = Vector2( 32, 32 )
 
-[node name="BuyRope" parent="." instance=ExtResource( 5 )]
-position = Vector2( -48, 40 )
+[node name="ItemInShop2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8, 32 )
 
-[node name="BuyBeans" parent="." instance=ExtResource( 6 )]
-position = Vector2( 0, 32 )
+[node name="ItemInShop3" parent="." instance=ExtResource( 5 )]
+position = Vector2( -8, 32 )
+
+[node name="ItemInShop4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -32, 32 )
