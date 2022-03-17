@@ -6,10 +6,10 @@
 [ext_resource path="res://src/Other/WalkingPlayerAnim.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Levels/LevelComplete.gd" type="Script" id=5]
 [ext_resource path="res://pcsenior.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/MainMenuStuff/heart_1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/heart_1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Bomb/bomba.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Rope/rope_unfolded.png" type="Texture" id=9]
-[ext_resource path="res://Assets/MainMenuStuff/dollar.png" type="Texture" id=10]
+[ext_resource path="res://Assets/dollar.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MainMenuStuff/level_completed_1.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
