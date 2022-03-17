@@ -10,6 +10,9 @@ func _ready() -> void:
 		item=preload("res://src/Items/BuyBomb.tscn").instance()
 	else:
 		item=preload("res://src/Items/BuyBeans.tscn").instance()
-	item.position=position
-	get_parent().add_child(item)
+	item.global_position.x=global_position.x
+	item.global_position.y=global_position.y
+	#print("x",position.x-item.position.x)
+	#print("y",position.y-item.position.y)
+	#get_parent().add_child(item)
 

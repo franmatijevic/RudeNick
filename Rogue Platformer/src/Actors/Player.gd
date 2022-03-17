@@ -217,6 +217,11 @@ func _physics_process(delta: float) -> void:
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity*stop, Vector2.UP*stop)
 	
+	if(Input.is_action_just_pressed("buy")):
+		if($BuyIt.is_colliding()):
+			print("penis")
+			$BuyIt.get_collider().buy()
+	
 	if(if_stunned):
 		var vel=Vector2.ZERO
 		var k:=false

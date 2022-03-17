@@ -101,8 +101,9 @@ func _init()->void:
 						all_shops_j[n_of_shops]=j
 						dir_shops[n_of_shops]=true
 						n_of_shops=n_of_shops+1
-		where_shop=randi()%n_of_shops
-		polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
+		if(n_of_shops!=0):
+			where_shop=randi()%n_of_shops
+			polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
 	var frame=preload("res://src/environment/Frame.tscn").instance()
 	frame.position.x=0
 	frame.position.y=0
@@ -153,6 +154,7 @@ func create_shop(i:int, j:int, dir:bool)->void:
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	if(!dir):
+		array[i][j].dir=true
 		for _i in array[i][j].get_children():
 			_i.position.x=-_i.position.x
 			if(_i.name=="Mole"):

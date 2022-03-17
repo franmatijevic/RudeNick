@@ -5,7 +5,8 @@ var item2
 var item3
 var item4
 
-# Called when the node enters the scene tree for the first time.
+var dir:=false
+
 func _ready() -> void:
 	create_items()
 
@@ -17,8 +18,8 @@ func create_items()->void:
 		item1=preload("res://src/Items/BuyBomb.tscn").instance()
 	else:
 		item1=preload("res://src/Items/BuyBeans.tscn").instance()
-	item1.position=position
-	item1.position.x=position.x-32
+	item1.position.y=0.0
+	item1.position.x=16
 	add_child(item1)
 	chance=randi()%5
 	if(chance<2):
@@ -27,8 +28,8 @@ func create_items()->void:
 		item2=preload("res://src/Items/BuyBomb.tscn").instance()
 	else:
 		item2=preload("res://src/Items/BuyBeans.tscn").instance()
-	item2.position=position
-	item2.position.x=position.x-8
+	item2.position.y=0.0
+	item2.position.x=0
 	add_child(item2)
 	chance=randi()%5
 	if(chance<2):
@@ -37,7 +38,8 @@ func create_items()->void:
 		item3=preload("res://src/Items/BuyBomb.tscn").instance()
 	else:
 		item3=preload("res://src/Items/BuyBeans.tscn").instance()
-	item3.position=position
+	item3.position.x=-16
+	item3.position.y=0.0
 	print(item3.global_position)
 	add_child(item3)
 	chance=randi()%5
@@ -47,10 +49,9 @@ func create_items()->void:
 		item4=preload("res://src/Items/BuyBomb.tscn").instance()
 	else:
 		item4=preload("res://src/Items/BuyBeans.tscn").instance()
-	item4.position=position
-	item4.position.x=position.x+8
+	item4.position.y=0.0
+	if(!dir):
+		item4.position.x=32
+	else:
+		item4.position.x=-32
 	add_child(item4)
-
-func _process(delta: float) -> void:
-	pass
-	#print(item3.global_position)

@@ -111,6 +111,7 @@ bomb={
 2d_physics/layer_12="bomb"
 2d_physics/layer_13="pure_dmg"
 2d_physics/layer_14="boss"
+2d_physics/layer_15="item_shop"
 
 [physics]
 

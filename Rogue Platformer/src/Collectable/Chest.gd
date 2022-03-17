@@ -36,23 +36,6 @@ func drop_money()->void:
 	money[2].velocity.x-=20.0
 	get_parent().add_child(money[2])
 
-func _on_DetectWhip_area_entered(area: Area2D) -> void:
-	if(!dropped):
-		dropped=true
-		drop_money()
-	if(!opened):
-		get_node("Closed").visible=false
-		get_node("Opened").visible=true
-	
-	if(velocity.x!=0.0):
-		return
-	if(!velocity.y<0.0):
-		velocity.y-=jump
-	if(area.global_position.x>global_position.x):
-		velocity.x-=push
-	else:
-		velocity.x+=push
-
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
@@ -69,3 +52,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x-=friction
 	if(velocity.x<0.0 and !velocity.y<0.0):
 		velocity.x+=friction
+
+func buy()->void:
+	drop_money()
+	get_node("Closed").visible=false
+	get_node("Opened").visible=true
+
