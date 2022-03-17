@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/environment/Wood.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Actors/Mole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Items/BuyBomb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Items/BuyRope.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Items/BuyBeans.tscn" type="PackedScene" id=6]
 
 [node name="Shop" type="Node2D"]
 
@@ -58,3 +62,112 @@ position = Vector2( 72, -24 )
 
 [node name="KinematicBody2D8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -40 )
+
+[node name="KinematicBody2D9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -56 )
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -56 )
+
+[node name="KinematicBody2D11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -56 )
+
+[node name="KinematicBody2D12" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -56 )
+
+[node name="KinematicBody2D13" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -56 )
+
+[node name="KinematicBody2D14" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, -56 )
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, -56 )
+
+[node name="KinematicBody2D16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, -56 )
+
+[node name="KinematicBody2D17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -40 )
+
+[node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, -40 )
+
+[node name="KinematicBody2D19" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, -8 )
+
+[node name="KinematicBody2D20" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, -24 )
+
+[node name="KinematicBody2D21" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, 8 )
+skyenemy = -1
+n_sky = -1
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -40 )
+
+[node name="KinematicBody2D23" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -40 )
+
+[node name="KinematicBody2D24" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, -40 )
+
+[node name="KinematicBody2D25" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, -40 )
+skyenemy = -1
+
+[node name="KinematicBody2D26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, -40 )
+skyenemy = -1
+
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -40 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -40 )
+
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -24 )
+
+[node name="KinematicBody2D30" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -24 )
+skyenemy = -1
+
+[node name="KinematicBody2D31" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -8 )
+skyenemy = -1
+
+[node name="KinematicBody2D32" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -24 )
+
+[node name="KinematicBody2D33" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -8 )
+skyenemy = -1
+
+[node name="KinematicBody2D34" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -24 )
+skyenemy = -1
+
+[node name="KinematicBody2D35" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, -24 )
+skyenemy = -1
+
+[node name="KinematicBody2D36" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -24 )
+skyenemy = -1
+
+[node name="Mole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, 40 )
+
+[node name="BuyBomb" parent="." instance=ExtResource( 4 )]
+position = Vector2( -24, 40 )
+
+[node name="BuyBomb2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 16, 40 )
+
+[node name="BuyRope" parent="." instance=ExtResource( 5 )]
+position = Vector2( -48, 40 )
+
+[node name="BuyBeans" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 32 )

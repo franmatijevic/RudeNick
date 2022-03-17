@@ -80,7 +80,7 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
-	var shop=randi()%10
+	var shop=randi()%1
 	
 	var all_shops_i=[0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0]
@@ -155,6 +155,8 @@ func create_shop(i:int, j:int, dir:bool)->void:
 	if(!dir):
 		for _i in array[i][j].get_children():
 			_i.position.x=-_i.position.x
+			if(_i.name=="Mole"):
+				_i.get_node("AnimatedSprite").set_flip_h(false)
 	add_child(array[i][j])
 
 func create_hallwaywithdrop(i:int, j:int)->void:
