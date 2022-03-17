@@ -1,21 +1,21 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/heart_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/MainMenuStuff/heart_1.png" type="Texture" id=1]
 [ext_resource path="res://src/Other/UI.gd" type="Script" id=2]
-[ext_resource path="res://Assets/money_sing.png" type="Texture" id=3]
 [ext_resource path="res://pcsenior.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Rope/rope_unfolded.png" type="Texture" id=5]
-[ext_resource path="res://Assets/heart_broken.png" type="Texture" id=6]
+[ext_resource path="res://Assets/MainMenuStuff/heart_broken.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Bomb/bomba.png" type="Texture" id=7]
-[ext_resource path="res://Assets/heart_sign_1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/test.png" type="Texture" id=9]
-[ext_resource path="res://Assets/test_1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/MainMenuStuff/test.png" type="Texture" id=9]
 [ext_resource path="res://Assets/MainMenuStuff/item_sign.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 35
 outline_color = Color( 0.00392157, 0, 0, 1 )
 font_data = ExtResource( 4 )
+
+[sub_resource type="StreamTexture" id=9]
+load_path = "res://.import/money_sing.png-15c6f8012df1f548ff7cf29323858051.stex"
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -24,6 +24,9 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=3]
 size = 25
 font_data = ExtResource( 4 )
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/heart_sign_1.png-744e7c812e51a1fafeb95cb71d3842c6.stex"
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
@@ -40,6 +43,9 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=8]
 size = 30
 font_data = ExtResource( 4 )
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/test_1.png-7a5a368334978ad4165b3cffc0fcf7ee.stex"
 
 [node name="UI" type="Control"]
 anchor_left = -0.183
@@ -70,7 +76,7 @@ text = "drek"
 visible = false
 position = Vector2( 1439, 90 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 3 )
+texture = SubResource( 9 )
 
 [node name="money" type="Label" parent="."]
 margin_left = 1669.0
@@ -97,7 +103,7 @@ align = 2
 visible = false
 position = Vector2( 79.9998, 132 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 8 )
+texture = SubResource( 10 )
 
 [node name="LevelNumber" type="Label" parent="."]
 anchor_left = 1.0
@@ -126,8 +132,8 @@ texture = ExtResource( 5 )
 
 [node name="HeartBroken" type="Sprite" parent="."]
 visible = false
-position = Vector2( 160, 112 )
-scale = Vector2( 10, 10 )
+position = Vector2( 219, 94 )
+scale = Vector2( 8, 8 )
 texture = ExtResource( 6 )
 
 [node name="Bomba" type="Sprite" parent="."]
@@ -164,7 +170,7 @@ texture = ExtResource( 9 )
 visible = false
 position = Vector2( 1716, 163 )
 scale = Vector2( 5, 5 )
-texture = ExtResource( 10 )
+texture = SubResource( 11 )
 
 [node name="ItemSign" type="Sprite" parent="."]
 position = Vector2( 42, 173 )
