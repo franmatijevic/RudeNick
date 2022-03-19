@@ -30,9 +30,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+	
+	
+	if(get_tree().paused):
+		if(Input.is_action_just_pressed("ui_accept")):
+			print("nesto ako bas mora")
+	
 	if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
 		if(get_tree().paused == false):
-			print("probaj")
 			pause_menu(true)
 		else:
 			pause_menu(false)
@@ -46,8 +51,10 @@ func pause_menu(on: bool)->void:
 	if(on):
 		#get_node("World/Kanvas/UI").visible=false
 		get_tree().paused = true
+		#get_node("PauseNode/Pause/PauseMenu").visible=true
 	else:
 		#get_node("World/Kanvas/UI").visible=true
+		#get_node("PauseNode/Pause/PauseMenu").visible=false
 		get_tree().paused = false
 
 func new_complete()->void:
@@ -76,7 +83,6 @@ func new_level()->void:
 	if(has_node("MainMenu")):
 		get_node("MainMenu").queue_free()
 	set_health()
-
 
 
 func _on_Quit_button_down() -> void:

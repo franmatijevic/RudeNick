@@ -34,6 +34,16 @@ animations = [ {
 pause_mode = 2
 script = ExtResource( 2 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 160.0
+margin_top = 64.0
+margin_right = 286.0
+margin_bottom = 84.0
+action_mode = 0
+text = "ovo je sada epsko"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 192, 56 )
 current = true
@@ -64,7 +74,6 @@ position = Vector2( 192, 122 )
 z_index = 200
 
 [node name="PlayButton" parent="." instance=ExtResource( 13 )]
-visible = false
 position = Vector2( 192, 67 )
 z_index = 200
 
@@ -75,4 +84,6 @@ texture = ExtResource( 12 )
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -25.0
+volume_db = -80.0
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

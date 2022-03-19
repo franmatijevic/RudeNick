@@ -16,3 +16,8 @@ func title_animation()->void:
 
 func _ready() -> void:
 	title_animation()
+
+
+func _on_Button_pressed() -> void:
+	get_parent().level=0
+	get_parent().new_level()
