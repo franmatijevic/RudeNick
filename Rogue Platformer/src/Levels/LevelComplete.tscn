@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Blocks/dirt_tile_bottom.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Rope/rope_unfolded.png" type="Texture" id=9]
 [ext_resource path="res://Assets/dollar.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MainMenuStuff/level_completed_1.png" type="Texture" id=11]
+[ext_resource path="res://src/Other/MobileControlls.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 tracks/0/type = "value"
@@ -876,3 +877,5 @@ texture = ExtResource( 3 )
 [node name="DirtTileMid126" type="Sprite" parent="."]
 position = Vector2( 152, 168 )
 texture = ExtResource( 3 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 12 )]
