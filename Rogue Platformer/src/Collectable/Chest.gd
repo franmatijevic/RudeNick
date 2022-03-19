@@ -10,7 +10,10 @@ var opened:=false
 
 var dropped:=false
 
+var e:=false
+
 func drop_money()->void:
+	opened=true
 	var gold=randi()%10
 	var money=[0,0,0]
 	if(gold<3):
@@ -36,6 +39,17 @@ func drop_money()->void:
 	money[2].velocity.x-=20.0
 	get_parent().add_child(money[2])
 
+func e()->void:
+	e=true
+	var time_in_seconds = 0.1
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	e=false
+
+func _process(delta: float) -> void:
+	if(e and !opened):
+		get_node("E").visible=true
+	else:
+		get_node("E").visible=false
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta

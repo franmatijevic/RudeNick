@@ -25,16 +25,17 @@ func set_health()->void:
 	get_node("World").get_node("Player").bomb=player_bomb
 
 func _ready() -> void:
+	#get_node("PauseLayer/Pause").visible=false
 	OS.window_fullscreen = true
 
 func _process(delta: float) -> void:
+	pass
 	if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
 		if(get_tree().paused == false):
-			get_tree().paused = true
+			print("probaj")
 			pause_menu(true)
 		else:
 			pause_menu(false)
-			get_tree().paused = false
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()
@@ -43,15 +44,11 @@ func _get_viewport_center() -> Vector2:
 
 func pause_menu(on: bool)->void:
 	if(on):
-		get_node("World/Kanvas/UI").visible=false
-		get_node("PauseScreen").visible=true
-		#get_node("World").visible=false
-		#var time_in_seconds = 0.5
-		#yield(get_tree().create_timer(time_in_seconds), "timeout")
+		#get_node("World/Kanvas/UI").visible=false
+		get_tree().paused = true
 	else:
-		get_node("World/Kanvas/UI").visible=true
-		get_node("PauseScreen").visible=false
-		#get_node("World").visible=true
+		#get_node("World/Kanvas/UI").visible=true
+		get_tree().paused = false
 
 func new_complete()->void:
 	var comp = preload("res://src/Levels/LevelComplete.tscn").instance()
@@ -80,3 +77,11 @@ func new_level()->void:
 		get_node("MainMenu").queue_free()
 	set_health()
 
+
+
+func _on_Quit_button_down() -> void:
+	get_tree().quit()
+
+
+func _on_Quit_pressed() -> void:
+	print("uuf")

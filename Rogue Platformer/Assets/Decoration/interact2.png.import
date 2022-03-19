@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt_tile_right_left.png-56d6a3ffab4d3d1894e601273be1923b.stex"
+path="res://.import/interact2.png-f66bfd147e5b9aca0ef68dd64b072ab2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blocks/dirt_tile_right_left.png"
-dest_files=[ "res://.import/dirt_tile_right_left.png-56d6a3ffab4d3d1894e601273be1923b.stex" ]
+source_file="res://Assets/Decoration/interact2.png"
+dest_files=[ "res://.import/interact2.png-f66bfd147e5b9aca0ef68dd64b072ab2.stex" ]
 
 [params]
 

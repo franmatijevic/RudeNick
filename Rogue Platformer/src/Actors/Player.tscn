@@ -26,6 +26,11 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "stunned",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing",
@@ -36,24 +41,19 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "stunned",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 1 ) ],
 "loop": false,
 "name": "whiping",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "climbing_stop",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "hanging",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "climbing_stop",
 "speed": 5.0
 } ]
 
@@ -95,6 +95,7 @@ smoothing_speed = 7.0
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
 animation = "stunned"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -175,6 +176,7 @@ shape = SubResource( 7 )
 
 [node name="BuyIt" type="RayCast2D" parent="."]
 enabled = true
+cast_to = Vector2( 0, 5 )
 collision_mask = 16384
 
 [connection signal="draw" from="." to="." method="_on_Player_draw"]

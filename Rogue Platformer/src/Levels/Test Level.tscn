@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://src/Actors/Spider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=5]
 [ext_resource path="res://src/Actors/Snake.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Actors/Troll.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/environment/SpiderWeb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levelPieces/start1.tscn" type="PackedScene" id=30]
@@ -15,18 +14,15 @@
 scale = Vector2( 1.00034, 1 )
 
 [node name="KinematicBody2D30" parent="." instance=ExtResource( 3 )]
-position = Vector2( 359.878, 120 )
+position = Vector2( 311.894, 96 )
 
 [node name="KinematicBody2D31" parent="." instance=ExtResource( 3 )]
-position = Vector2( 343.883, 120 )
+position = Vector2( 311.894, 80 )
 
 [node name="Background1" type="Sprite" parent="."]
-position = Vector2( 192, 192 )
+position = Vector2( 191.935, 184 )
 z_index = -10
 texture = ExtResource( 5 )
-
-[node name="KinematicBody2D27" parent="." instance=ExtResource( 3 )]
-position = Vector2( 295.899, 96 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 575, 192 )
@@ -38,9 +34,6 @@ speed = Vector2( 700, 800 )
 
 [node name="Start 1" parent="." instance=ExtResource( 30 )]
 position = Vector2( 89.3904, 155.392 )
-
-[node name="KinematicBody2D26" parent="." instance=ExtResource( 3 )]
-position = Vector2( 375.872, 152 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 183.937, 184 )
@@ -96,30 +89,9 @@ position = Vector2( 375.872, 184 )
 [node name="KinematicBody2D14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 247.916, 168 )
 
-[node name="KinematicBody2D15" parent="." instance=ExtResource( 2 )]
-position = Vector2( 247.916, 152 )
-
-[node name="KinematicBody2D20" parent="." instance=ExtResource( 3 )]
-position = Vector2( 295.899, 152 )
-
-[node name="KinematicBody2D22" parent="." instance=ExtResource( 3 )]
-position = Vector2( 327.889, 152 )
-
-[node name="KinematicBody2D23" parent="." instance=ExtResource( 3 )]
-position = Vector2( 343.883, 152 )
-
-[node name="KinematicBody2D24" parent="." instance=ExtResource( 3 )]
-position = Vector2( 359.878, 152 )
-
-[node name="KinematicBody2D21" parent="." instance=ExtResource( 3 )]
-position = Vector2( 311.894, 152 )
-
 [node name="KinematicBody2D25" parent="." instance=ExtResource( 4 )]
-position = Vector2( 199.932, 96 )
+position = Vector2( 199.932, 112 )
 speed = Vector2( 50, 200 )
-
-[node name="KinematicBody2D28" parent="." instance=ExtResource( 3 )]
-position = Vector2( 247.916, 96 )
 
 [node name="SpiderWeb" parent="." instance=ExtResource( 10 )]
 position = Vector2( 423.856, 168 )
@@ -135,8 +107,125 @@ margin_top = 263.981
 margin_right = 2053.22
 margin_bottom = 1159.94
 
-[node name="Troll" parent="." instance=ExtResource( 7 )]
-position = Vector2( 295.899, 120 )
+[node name="KinematicBody2D20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 247.916, 80 )
+
+[node name="KinematicBody2D21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.921, 80 )
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.921, 64 )
+
+[node name="KinematicBody2D23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.921, 96 )
+
+[node name="KinematicBody2D24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.921, 112 )
+
+[node name="KinematicBody2D26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 247.916, 112 )
+
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 247.916, 96 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 263.91, 112 )
 
 [node name="KinematicBody2D29" parent="." instance=ExtResource( 3 )]
-position = Vector2( 375.872, 120 )
+position = Vector2( 279.905, 112 )
+
+[node name="KinematicBody2D32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 112 )
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 96 )
+
+[node name="KinematicBody2D33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 263.91, 96 )
+
+[node name="KinematicBody2D34" parent="." instance=ExtResource( 3 )]
+position = Vector2( 263.91, 80 )
+
+[node name="KinematicBody2D35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 96 )
+
+[node name="KinematicBody2D36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 80 )
+
+[node name="KinematicBody2D37" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 80 )
+
+[node name="KinematicBody2D38" parent="." instance=ExtResource( 3 )]
+position = Vector2( 247.916, 64 )
+
+[node name="KinematicBody2D39" parent="." instance=ExtResource( 3 )]
+position = Vector2( 263.91, 64 )
+
+[node name="KinematicBody2D40" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 64 )
+
+[node name="KinematicBody2D41" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 64 )
+
+[node name="KinematicBody2D42" parent="." instance=ExtResource( 3 )]
+position = Vector2( 311.894, 112 )
+
+[node name="KinematicBody2D43" parent="." instance=ExtResource( 3 )]
+position = Vector2( 311.894, 64 )
+
+[node name="KinematicBody2D44" parent="." instance=ExtResource( 3 )]
+position = Vector2( 231.921, 48 )
+
+[node name="KinematicBody2D45" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 128 )
+
+[node name="KinematicBody2D46" parent="." instance=ExtResource( 3 )]
+position = Vector2( 327.889, 112 )
+
+[node name="KinematicBody2D47" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 144 )
+
+[node name="KinematicBody2D48" parent="." instance=ExtResource( 3 )]
+position = Vector2( 327.889, 96 )
+
+[node name="KinematicBody2D49" parent="." instance=ExtResource( 3 )]
+position = Vector2( 327.889, 80 )
+
+[node name="KinematicBody2D50" parent="." instance=ExtResource( 3 )]
+position = Vector2( 327.889, 48 )
+
+[node name="KinematicBody2D51" parent="." instance=ExtResource( 3 )]
+position = Vector2( 311.894, 48 )
+
+[node name="KinematicBody2D52" parent="." instance=ExtResource( 3 )]
+position = Vector2( 327.889, 64 )
+
+[node name="KinematicBody2D53" parent="." instance=ExtResource( 3 )]
+position = Vector2( 343.883, 80 )
+
+[node name="KinematicBody2D54" parent="." instance=ExtResource( 3 )]
+position = Vector2( 359.878, 80 )
+
+[node name="KinematicBody2D55" parent="." instance=ExtResource( 3 )]
+position = Vector2( 215.927, 80 )
+
+[node name="KinematicBody2D56" parent="." instance=ExtResource( 3 )]
+position = Vector2( 199.932, 80 )
+
+[node name="KinematicBody2D57" parent="." instance=ExtResource( 3 )]
+position = Vector2( 247.916, 48 )
+
+[node name="KinematicBody2D58" parent="." instance=ExtResource( 3 )]
+position = Vector2( 263.91, 48 )
+
+[node name="KinematicBody2D59" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 48 )
+
+[node name="KinematicBody2D60" parent="." instance=ExtResource( 3 )]
+position = Vector2( 295.899, 48 )
+
+[node name="KinematicBody2D61" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 32 )
+
+[node name="KinematicBody2D62" parent="." instance=ExtResource( 3 )]
+position = Vector2( 279.905, 16 )

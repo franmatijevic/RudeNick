@@ -29,9 +29,6 @@ position = Vector2( 40, 56 )
 [node name="Wood9" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56, 56 )
 
-[node name="Wood10" parent="." instance=ExtResource( 1 )]
-position = Vector2( 72, 56 )
-
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 8 )
 
@@ -148,3 +145,6 @@ position = Vector2( 56, 40 )
 
 [node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
 position = Vector2( -72, 56 )
+
+[node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 56 )

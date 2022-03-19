@@ -9,7 +9,7 @@ var bomb:int=4
 
 var walk_speed:=75.0
 var run_speed:=105.0
-var slowed_speed:=50.0
+var slowed_speed:=30.0
 var normal_jump:=225.0
 var slowed_jump:=150.0
 
@@ -217,10 +217,11 @@ func _physics_process(delta: float) -> void:
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
 	velocity = move_and_slide(velocity*stop, Vector2.UP*stop)
 	
-	if(Input.is_action_just_pressed("buy")):
-		if($BuyIt.is_colliding()):
-			print("penis")
+	if($BuyIt.is_colliding()):
+		$BuyIt.get_collider().e()
+		if(Input.is_action_just_pressed("buy")):
 			$BuyIt.get_collider().buy()
+	
 	
 	if(if_stunned):
 		var vel=Vector2.ZERO

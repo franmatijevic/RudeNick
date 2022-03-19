@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt_tile_right_left.png-56d6a3ffab4d3d1894e601273be1923b.stex"
+path="res://.import/dirt_tile_all_except_top.png-d8fea62c29fdda54d2657c2f637bd986.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Blocks/dirt_tile_right_left.png"
-dest_files=[ "res://.import/dirt_tile_right_left.png-56d6a3ffab4d3d1894e601273be1923b.stex" ]
+source_file="res://Assets/Blocks/dirt_tile_all_except_top.png"
+dest_files=[ "res://.import/dirt_tile_all_except_top.png-d8fea62c29fdda54d2657c2f637bd986.stex" ]
 
 [params]
 

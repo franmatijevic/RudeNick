@@ -148,41 +148,31 @@ func build_thing()->void:
 	if(up and down and left and right):
 		blok = preload("res://src/environment/dirt_tile_mid.tscn").instance()
 	elif(up and down and left and !right):
-		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.rotation_degrees=270
+		blok = preload("res://src/environment/dirt_tile_right.tscn").instance()
 	elif(up and down and !left and right):
-		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.rotation_degrees=90
+		blok = preload("res://src/environment/dirt_tile_left.tscn").instance()
 	elif(up and down and !left and !right):
-		blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
-		blok.rotation_degrees=90
+		blok = preload("res://src/environment/dirt_tile_left_right.tscn").instance()
 	elif(up and !down and left and right):
 		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
 	elif(up and !down and left and !right): 
-		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.rotation_degrees=270
+		blok = preload("res://src/environment/dirt_tile_bottom_right.tscn").instance()
 	elif(up and !down and !left and right): 
 		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
 	elif(up and !down and !left and !right): 
-		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.rotation_degrees=270
+		blok = preload("res://src/environment/dirt_tile_all_except_top.tscn").instance()
 	elif(!up and down and left and right): 
-		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
-		blok.rotation_degrees=180
+		blok = preload("res://src/environment/dirt_tile_top.tscn").instance()
 	elif(!up and down and left and !right): 
-		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.rotation_degrees=180
+		blok = preload("res://src/environment/dirt_tile_top_right.tscn").instance()
 	elif(!up and down and !left and right): 
-		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
-		blok.rotation_degrees=90
+		blok = preload("res://src/environment/dirt_tile_top_left.tscn").instance()
 	elif(!up and down and !left and !right): 
-		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.rotation_degrees=90
+		blok = preload("res://src/environment/dirt_tile_all_except_bottom.tscn").instance()
 	elif(!up and !down and left and right): 
 		blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
 	elif(!up and !down and left and !right): 
-		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
-		blok.rotation_degrees=180
+		blok = preload("res://src/environment/dirt_tile_all_except_left.tscn").instance()
 	elif(!up and !down and !left and right): 
 		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
 	else:

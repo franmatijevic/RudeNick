@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Blocks/dirt_tile_top_bottom.png" type="Texture" id=1]
-[ext_resource path="res://src/Other/DirtParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Other/DirtParticles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Blocks/dirt_tile_top.png" type="Texture" id=2]
 [ext_resource path="res://src/environment/dirtblock.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -16,8 +16,8 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="DirtParticles" parent="." instance=ExtResource( 2 )]
-position = Vector2( -0.0531521, -0.0442238 )
+[node name="DirtParticles" parent="." instance=ExtResource( 1 )]
+position = Vector2( -0.00565177, -0.164225 )
 
 [node name="Dirt" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
