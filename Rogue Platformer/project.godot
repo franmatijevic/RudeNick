@@ -20,9 +20,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Spelunky"
+config/name="Rude Nick"
 run/main_scene="res://src/Levels/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PauseScreen="*res://src/Other/PauseScreen.tscn"
 
 [display]
 

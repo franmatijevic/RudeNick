@@ -24,6 +24,7 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 
 [node name="Left" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 1451, 766 )
 scale = Vector2( 10, 10 )
@@ -32,6 +33,7 @@ pressed = ExtResource( 11 )
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 1708, 766 )
 scale = Vector2( 10, 10 )
@@ -40,6 +42,7 @@ pressed = ExtResource( 12 )
 action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 387, 684 )
 scale = Vector2( 10, 10 )
@@ -48,6 +51,7 @@ pressed = ExtResource( 14 )
 action = "jump"
 
 [node name="Attack" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 222, 783 )
 scale = Vector2( 10, 10 )
@@ -56,6 +60,7 @@ pressed = ExtResource( 19 )
 action = "action"
 
 [node name="Rope" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 54, 684 )
 scale = Vector2( 10, 10 )
@@ -64,6 +69,7 @@ pressed = ExtResource( 17 )
 action = "rope"
 
 [node name="Bomb" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 54, 886 )
 scale = Vector2( 10, 10 )
@@ -72,6 +78,7 @@ pressed = ExtResource( 13 )
 action = "bomb"
 
 [node name="Up" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 1577, 643 )
 scale = Vector2( 10, 10 )
@@ -80,6 +87,7 @@ pressed = ExtResource( 15 )
 action = "up"
 
 [node name="Down" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 1577, 886 )
 scale = Vector2( 10, 10 )
@@ -88,6 +96,7 @@ pressed = ExtResource( 18 )
 action = "down"
 
 [node name="Interact" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 576, 684 )
 scale = Vector2( 10, 10 )
@@ -96,6 +105,7 @@ pressed = ExtResource( 20 )
 action = "buy"
 
 [node name="LedgeGrab" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 387, 887 )
 scale = Vector2( 10, 10 )

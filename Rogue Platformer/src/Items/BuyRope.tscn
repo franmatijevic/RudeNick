@@ -18,7 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=3]
-size = 35
+size = 30
 font_data = ExtResource( 5 )
 
 [node name="BuyRope" type="KinematicBody2D"]
@@ -36,17 +36,19 @@ shape = SubResource( 1 )
 [node name="E" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -10 )
-z_index = -1
+z_index = 1
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
-[node name="price" type="Label" parent="."]
+[node name="Text" type="Node2D" parent="."]
+scale = Vector2( 0.2, 0.2 )
+
+[node name="price" type="Label" parent="Text"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 24.0
-margin_bottom = -2.0
+margin_left = -80.0
+margin_top = -120.0
+margin_right = 60.0
+margin_bottom = -84.0
 custom_fonts/font = SubResource( 3 )
 text = "text"

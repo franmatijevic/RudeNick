@@ -8,7 +8,7 @@ var price:=30
 var e:=false
 
 func _ready() -> void:
-	get_node("price").text=str(price*100)
+	get_node("Text/price").text=str(price*100)
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
@@ -19,10 +19,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if(e):
 		get_node("E").visible=true
-		get_node("price").visible=true
+		get_node("Text/price").visible=true
 	else:
 		get_node("E").visible=false
-		get_node("price").visible=false
+		get_node("Text/price").visible=false
 
 func e()->void:
 	e=true

@@ -1,5 +1,7 @@
 extends Node2D
 
+var can_pause:=false
+
 var player_health:int=4
 var player_money:int=0
 var player_rope:int=4
@@ -36,11 +38,11 @@ func _process(delta: float) -> void:
 		if(Input.is_action_just_pressed("ui_accept")):
 			print("nesto ako bas mora")
 	
-	if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
-		if(get_tree().paused == false):
-			pause_menu(true)
-		else:
-			pause_menu(false)
+	#if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
+	#	if(get_tree().paused == false):
+	#		pause_menu(true)
+	#	else:
+	#		pause_menu(false)
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()
@@ -78,16 +80,15 @@ func new_level()->void:
 	old_rope=player_rope
 	world.get_node("Kanvas/UI").get_node("LevelNumber").text=str(level)
 	add_child(world)
+	#get_tree().change_scene("res://src/Levels/World.tscn")
 	if(has_node("LevelComplete")):
 		get_node("LevelComplete").queue_free()
 	if(has_node("MainMenu")):
 		get_node("MainMenu").queue_free()
 	set_health()
 
-
-func _on_Quit_button_down() -> void:
-	get_tree().quit()
-
-
-func _on_Quit_pressed() -> void:
-	print("uuf")
+func game_over()->void:
+	can_pause=false
+	var time_in_seconds = 3
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	get_tree().reload_current_scene()

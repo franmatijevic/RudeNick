@@ -91,6 +91,7 @@ position = Vector2( 320, 520 )
 scale = Vector2( 40, 1 )
 
 [node name="BlackScreen" type="Node2D" parent="."]
+process_priority = 1
 z_index = 90
 
 [node name="CanvasLayer" type="CanvasLayer" parent="BlackScreen"]

@@ -431,9 +431,10 @@ func darker_effect()->void:
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func death(direciton: bool)->void:
+	get_parent().get_parent().game_over()
 	print(last_damage)
 	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
-	get_parent().get_node("Kanvas/UI").draw=false
+	#get_parent().get_node("Kanvas/UI").draw=false
 	get_parent().get_node("Kanvas/UI/Heart1").queue_free()
 	get_parent().get_node("Kanvas/UI/health").queue_free()
 	get_parent().get_node("Kanvas/UI/HeartBroken").visible=true

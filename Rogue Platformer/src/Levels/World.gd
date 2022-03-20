@@ -317,3 +317,5 @@ func create_decorations()->void:
 				add_child(polje[i][j])
 
 
+
+
