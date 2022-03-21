@@ -66,6 +66,7 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 func _on_ClubDamage_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
 		body.iframes()
+		body.treperenje()
 		body.ledge_grab=false
 		body.climbing=false
 		if(body.health<3):

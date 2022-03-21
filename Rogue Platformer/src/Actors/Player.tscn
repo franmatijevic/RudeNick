@@ -46,14 +46,14 @@ animations = [ {
 "name": "whiping",
 "speed": 13.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "hanging",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing_stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "hanging",
 "speed": 5.0
 } ]
 
@@ -95,7 +95,6 @@ smoothing_speed = 7.0
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
 animation = "stunned"
-frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]

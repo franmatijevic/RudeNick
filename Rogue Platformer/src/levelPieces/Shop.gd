@@ -20,6 +20,7 @@ func create_items()->void:
 		item1=preload("res://src/Items/BuyBeans.tscn").instance()
 	item1.position.y=0.0
 	item1.position.x=16
+	item1.name="item1"
 	add_child(item1)
 	chance=randi()%5
 	if(chance<2):
@@ -30,6 +31,7 @@ func create_items()->void:
 		item2=preload("res://src/Items/BuyBeans.tscn").instance()
 	item2.position.y=0.0
 	item2.position.x=0
+	item2.name="item2"
 	add_child(item2)
 	chance=randi()%5
 	if(chance<2):
@@ -40,6 +42,7 @@ func create_items()->void:
 		item3=preload("res://src/Items/BuyBeans.tscn").instance()
 	item3.position.x=-16
 	item3.position.y=0.0
+	item3.name="item3"
 	add_child(item3)
 	chance=randi()%5
 	if(chance<2):
@@ -53,20 +56,27 @@ func create_items()->void:
 		item4.position.x=32
 	else:
 		item4.position.x=-32
+	item4.name="item4"
 	add_child(item4)
 
 func get_mad()->void:
-	print("opasno")
 	get_node("Mole").angry=true
 	$DetectDanger.queue_free()
-	if(item1):
+	if(has_node("item1")):
 		item1.free=true
-	if(item2):
+	if(has_node("item2")):
 		item2.free=true
-	if(item3):
+	if(has_node("item3")):
 		item3.free=true
-	if(item4):
+	if(has_node("item4")):
 		item4.free=true
+	get_node("Mole/AnimatedSprite").animation="walking"
+	get_node("Mole/Shotgun").visible=true
+	get_node("Mole").velocity.x=get_node("Mole").speed.x
+	get_node("Mole/DetectPlayer").monitoring=true
+	get_node("Mole/DamagePlayer").monitoring=true
+	get_node("Mole/GunSight").enabled=true
+
 
 func _on_DetectDanger_area_entered(area: Area2D) -> void:
 	get_mad()

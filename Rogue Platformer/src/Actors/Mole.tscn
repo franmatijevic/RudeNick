@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Mole/mole_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Mole/mole.png" type="Texture" id=2]
@@ -47,8 +47,8 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 4 ), ExtResource( 2 ) ],
-"loop": false,
+"frames": [ SubResource( 5 ), SubResource( 4 ) ],
+"loop": true,
 "name": "walking",
 "speed": 5.0
 } ]
@@ -60,29 +60,9 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "hat8",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "hat6",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "hat2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "hat3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "hat7",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -90,26 +70,54 @@ animations = [ {
 "name": "hat0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hat9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "hat6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hat8",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "hat1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "hat9",
+"name": "hat3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "hat4",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "hat7",
+"speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 7, 3 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7, 4 )
+
 [node name="Mole" type="KinematicBody2D"]
-collision_layer = 0
+collision_layer = 32768
 collision_mask = 8
 script = ExtResource( 3 )
+speed = Vector2( 95, 600 )
+gravity = 400.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
@@ -127,6 +135,31 @@ animation = "hat9"
 playing = true
 
 [node name="Shotgun" type="Sprite" parent="."]
-position = Vector2( -2.7363, 3.46152 )
+position = Vector2( -2.95902, 1.79109 )
 texture = ExtResource( 14 )
 flip_h = true
+
+[node name="DetectPlayer" type="Area2D" parent="."]
+position = Vector2( 0, -5 )
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
+modulate = Color( 0.109804, 0.227451, 0.764706, 1 )
+shape = SubResource( 8 )
+
+[node name="DamagePlayer" type="Area2D" parent="."]
+modulate = Color( 0.384314, 0.835294, 0.0784314, 1 )
+position = Vector2( 0, 2 )
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamagePlayer"]
+shape = SubResource( 9 )
+
+[node name="GunSight" type="RayCast2D" parent="."]
+cast_to = Vector2( -88, 0 )
+
+[connection signal="body_entered" from="DamagePlayer" to="." method="_on_DamagePlayer_body_entered"]

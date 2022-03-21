@@ -56,7 +56,6 @@ func _ready() -> void:
 	speed.x=run_speed
 	speed.y=225.0
 	stomp_impulse=250.0
-	
 
 func _on_exitDetect_body_entered(body: Node) -> void:
 	near_exit=true
@@ -88,45 +87,17 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 			if(body.global_position.x>global_position.x):
 				knock=false
 			death(knock)
-		velocity.x=0.0
-		ledge_grab=false
-		health-=1
-		_on_Player_draw()
-		ledge_grab=false
-		iframes()
-		treperenje()
-		move_horizontal=0
-		if(velocity.y>0.0):
-			velocity.y=0
-		var time_in_seconds = 0.4
-		yield(get_tree().create_timer(time_in_seconds), "timeout")
-		move_horizontal=1
-		_on_Player_draw()
+		damage(1)
 
 func _on_Boss_area_entered(area: Area2D) -> void:
 	if(!iframes_on):
 		last_damage=area.get_parent().last_damage
-		var blood=preload("res://src/Other/Blood.tscn").instance()
-		blood.global_position=global_position
-		get_parent().add_child(blood)
 		if(health<3):
 			var knock:=true
 			if(area.get_parent().global_position.x>global_position.x):
 				knock=false
 			death(knock)
-		velocity.x=0.0
-		ledge_grab=false
-		health-=2
-		_on_Player_draw()
-		ledge_grab=false
-		iframes()
-		treperenje()
-		move_horizontal=0
-		if(velocity.y>0.0):
-			velocity.y=0
-		var time_in_seconds = 0.4
-		yield(get_tree().create_timer(time_in_seconds), "timeout")
-		move_horizontal=1
+		damage(2)
 
 func _process(delta: float) -> void:
 	var ui = get_parent().get_node("Kanvas").get_node("UI")
@@ -301,8 +272,23 @@ func get_direction() -> Vector2:
 		-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() and !exits_level and move_horizontal==1 and !if_stunned else 1.0
 	)
 
-func damage()->void:
-	pass
+func damage(value:int)->void:
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.global_position=global_position
+	get_parent().add_child(blood)
+	velocity.x=0.0
+	ledge_grab=false
+	health-=1
+	_on_Player_draw()
+	ledge_grab=false
+	iframes()
+	treperenje()
+	move_horizontal=0
+	if(velocity.y>0.0):
+		velocity.y=0
+	var time_in_seconds = 0.4
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	move_horizontal=1
 
 func stunned()->void:
 	if_stunned=true
