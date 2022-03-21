@@ -1,12 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/environment/Wood.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Mole.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levelPieces/Shop.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Backgrounds/wooden_background.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 48 )
 
 [node name="Shop" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="DetectDanger" type="Area2D" parent="."]
+position = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 3072
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectDanger"]
+shape = SubResource( 1 )
 
 [node name="Wood2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -40, 56 )
@@ -31,21 +44,26 @@ position = Vector2( 56, 56 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 8 )
+n_boneblock = -1
 
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 24 )
+n_boneblock = -1
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 40 )
+n_boneblock = -1
 
 [node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -56 )
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -8 )
+n_boneblock = -1
 
 [node name="KinematicBody2D7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -24 )
+n_boneblock = -1
 
 [node name="KinematicBody2D8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, -40 )
@@ -79,15 +97,18 @@ position = Vector2( 56, -40 )
 
 [node name="KinematicBody2D19" parent="." instance=ExtResource( 2 )]
 position = Vector2( -40, -8 )
+n_boneblock = -1
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 2 )]
 position = Vector2( -40, 8 )
 skyenemy = -1
 n_sky = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D22" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, -24 )
 skyenemy = 0
+n_boneblock = -1
 
 [node name="KinematicBody2D23" parent="." instance=ExtResource( 2 )]
 position = Vector2( -40, -40 )
@@ -112,33 +133,41 @@ position = Vector2( 40, -40 )
 [node name="KinematicBody2D29" parent="." instance=ExtResource( 2 )]
 position = Vector2( -8, -24 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D30" parent="." instance=ExtResource( 2 )]
 position = Vector2( -40, -24 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D31" parent="." instance=ExtResource( 2 )]
 position = Vector2( -24, -8 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D32" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56, -24 )
+n_boneblock = -1
 
 [node name="KinematicBody2D33" parent="." instance=ExtResource( 2 )]
 position = Vector2( 56, -8 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D34" parent="." instance=ExtResource( 2 )]
 position = Vector2( 40, -24 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D35" parent="." instance=ExtResource( 2 )]
 position = Vector2( -24, -24 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="KinematicBody2D36" parent="." instance=ExtResource( 2 )]
 position = Vector2( 24, -24 )
 skyenemy = -1
+n_boneblock = -1
 
 [node name="Mole" parent="." instance=ExtResource( 3 )]
 position = Vector2( 56, 40 )
@@ -148,3 +177,156 @@ position = Vector2( -72, 56 )
 
 [node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72, 56 )
+n_boneblock = -1
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2( 16, 16 )
+z_index = -2
+
+[node name="WoodBackground" type="Sprite" parent="Background"]
+position = Vector2( -56, 40 )
+z_index = -2
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground" type="Sprite" parent="Background"]
+position = Vector2( -40, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground2" type="Sprite" parent="Background"]
+position = Vector2( -56, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground3" type="Sprite" parent="Background"]
+position = Vector2( -56, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground4" type="Sprite" parent="Background"]
+position = Vector2( -40, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground5" type="Sprite" parent="Background"]
+position = Vector2( -40, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground6" type="Sprite" parent="Background"]
+position = Vector2( -40, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground7" type="Sprite" parent="Background"]
+position = Vector2( -40, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground8" type="Sprite" parent="Background"]
+position = Vector2( -56, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground9" type="Sprite" parent="Background"]
+position = Vector2( -24, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground10" type="Sprite" parent="Background"]
+position = Vector2( -8, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground11" type="Sprite" parent="Background"]
+position = Vector2( 8, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground12" type="Sprite" parent="Background"]
+position = Vector2( 24, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground13" type="Sprite" parent="Background"]
+position = Vector2( 40, 40 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground14" type="Sprite" parent="Background"]
+position = Vector2( 40, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground15" type="Sprite" parent="Background"]
+position = Vector2( 40, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground16" type="Sprite" parent="Background"]
+position = Vector2( 40, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground17" type="Sprite" parent="Background"]
+position = Vector2( 24, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground18" type="Sprite" parent="Background"]
+position = Vector2( 8, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground19" type="Sprite" parent="Background"]
+position = Vector2( -8, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground20" type="Sprite" parent="Background"]
+position = Vector2( -24, 24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground21" type="Sprite" parent="Background"]
+position = Vector2( -56, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground22" type="Sprite" parent="Background"]
+position = Vector2( -24, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground23" type="Sprite" parent="Background"]
+position = Vector2( -40, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground24" type="Sprite" parent="Background"]
+position = Vector2( -24, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground25" type="Sprite" parent="Background"]
+position = Vector2( -24, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground26" type="Sprite" parent="Background"]
+position = Vector2( -8, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground27" type="Sprite" parent="Background"]
+position = Vector2( -8, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground28" type="Sprite" parent="Background"]
+position = Vector2( -8, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground29" type="Sprite" parent="Background"]
+position = Vector2( 8, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground30" type="Sprite" parent="Background"]
+position = Vector2( 8, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground31" type="Sprite" parent="Background"]
+position = Vector2( 8, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground32" type="Sprite" parent="Background"]
+position = Vector2( 24, -24 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground33" type="Sprite" parent="Background"]
+position = Vector2( 24, -8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground34" type="Sprite" parent="Background"]
+position = Vector2( 24, 8 )
+texture = ExtResource( 5 )
+
+[node name="WoodenBackground35" type="Sprite" parent="Background"]
+position = Vector2( 40, -24 )
+texture = ExtResource( 5 )
+
+[connection signal="area_entered" from="DetectDanger" to="." method="_on_DetectDanger_area_entered"]
+[connection signal="body_entered" from="DetectDanger" to="." method="_on_DetectDanger_body_entered"]

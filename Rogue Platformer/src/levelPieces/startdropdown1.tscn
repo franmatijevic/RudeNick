@@ -40,11 +40,6 @@ can_destroy = true
 [node name="KinematicBody2D11" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, 40 )
 
-[node name="KinematicBody2D12" parent="." instance=ExtResource( 5 )]
-position = Vector2( -8, -8 )
-groundenemy = -1
-n_ground = 1
-
 [node name="KinematicBody2D13" parent="." instance=ExtResource( 5 )]
 position = Vector2( 56, 40 )
 
@@ -59,10 +54,6 @@ position = Vector2( -24, 40 )
 
 [node name="KinematicBody2D5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 40 )
-
-[node name="KinematicBody2D10" parent="." instance=ExtResource( 5 )]
-position = Vector2( 8, -8 )
-groundenemy = -1
 
 [node name="Exit" type="Sprite" parent="."]
 position = Vector2( 0, -32 )
@@ -95,3 +86,9 @@ n = 3
 [node name="KinematicBody2D16" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, -56 )
 can_destroy = true
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 5 )]
+position = Vector2( -8, -8 )
+
+[node name="KinematicBody2D12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8, -8 )

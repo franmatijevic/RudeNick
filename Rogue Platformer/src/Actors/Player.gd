@@ -292,7 +292,7 @@ func _physics_process(delta: float) -> void:
 			move_horizontal=1
 			using_gravity=1
 	
-	if(near_exit and Input.is_action_just_pressed("buy") and is_on_floor() and !if_stunned):
+	if(near_exit and Input.is_action_just_pressed("buy") and !if_stunned):
 		exitlevel()
 
 func get_direction() -> Vector2:

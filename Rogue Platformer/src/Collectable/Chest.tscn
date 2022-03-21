@@ -40,8 +40,7 @@ freeze_bodies = false
 
 [node name="E" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 0, -10 )
-z_index = 2
+position = Vector2( 0, -15 )
+z_index = 6
 frames = SubResource( 2 )
-frame = 1
 playing = true

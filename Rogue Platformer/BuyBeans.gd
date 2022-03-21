@@ -5,11 +5,12 @@ var speed:=Vector2(150.0, 100.0)
 var velocity:=Vector2.ZERO
 
 
-var price:=50
+var price:int=100
 var e:=false
+var free:=false
 
 func _ready() -> void:
-	get_node("Text/price").text=str(price*100)
+	get_node("Text/price").text="$"+str(price*100)
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
@@ -26,14 +27,18 @@ func _process(delta: float) -> void:
 		get_node("Text/price").visible=false
 
 func e()->void:
+	if(free):
+		get_parent().get_parent().get_node("Player").health+=2
+		queue_free()
 	e=true
 	var time_in_seconds = 0.1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	e=false
 
+
 func buy()->void:
 	var player=get_parent().get_parent().get_node("Player")
 	if(player.money>price-1):
 		player.money-=price
-		player.health+=1
+		player.health+=2
 		queue_free()

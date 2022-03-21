@@ -219,6 +219,8 @@ func _physics_process(delta: float) -> void:
 	var what
 	randomize()
 	what=randi()%n_boneblock
+	if(n_boneblock==-1):
+		what=10
 	if(what==0):
 		var bone=preload("res://src/environment/BoneBlock.tscn").instance()
 		bone.position.x=position.x
@@ -227,7 +229,3 @@ func _physics_process(delta: float) -> void:
 		blok.queue_free()
 	
 	queue_free()
-	#if(!outside):
-	#	queue_free()
-	#else:
-	#	wait()

@@ -40,7 +40,6 @@ func create_items()->void:
 		item3=preload("res://src/Items/BuyBeans.tscn").instance()
 	item3.position.x=-16
 	item3.position.y=0.0
-	print(item3.global_position)
 	add_child(item3)
 	chance=randi()%5
 	if(chance<2):
@@ -55,3 +54,22 @@ func create_items()->void:
 	else:
 		item4.position.x=-32
 	add_child(item4)
+
+func get_mad()->void:
+	print("opasno")
+	get_node("Mole").angry=true
+	$DetectDanger.queue_free()
+	if(item1):
+		item1.free=true
+	if(item2):
+		item2.free=true
+	if(item3):
+		item3.free=true
+	if(item4):
+		item4.free=true
+
+func _on_DetectDanger_area_entered(area: Area2D) -> void:
+	get_mad()
+
+func _on_DetectDanger_body_entered(body: Node) -> void:
+	get_mad()

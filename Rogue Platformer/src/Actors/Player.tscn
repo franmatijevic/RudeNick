@@ -26,20 +26,20 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
 "loop": true,
-"name": "stunned",
-"speed": 5.0
+"name": "walking",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "climbing",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "walking",
-"speed": 10.0
+"name": "stunned",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 1 ) ],
 "loop": false,

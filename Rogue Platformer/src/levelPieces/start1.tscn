@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Doors/exit.png" type="Texture" id=1]
+[ext_resource path="res://src/environment/dirt_tile_top.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=5]
 
 [node name="Start 1" type="Node2D"]
@@ -67,12 +68,6 @@ position = Vector2( -40, 24 )
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 5 )]
 position = Vector2( -24, 8 )
 
-[node name="KinematicBody2D4" parent="." instance=ExtResource( 5 )]
-position = Vector2( -8, 8 )
-
-[node name="KinematicBody2D5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 8, 8 )
-
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 8 )
 
@@ -105,3 +100,9 @@ position = Vector2( 8, 40 )
 
 [node name="KinematicBody2D18" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 40 )
+
+[node name="Bedrock1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 8 )
+
+[node name="Bedrock2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 8 )
