@@ -278,7 +278,7 @@ func damage(value:int)->void:
 	get_parent().add_child(blood)
 	velocity.x=0.0
 	ledge_grab=false
-	health-=1
+	health-=value
 	_on_Player_draw()
 	ledge_grab=false
 	iframes()

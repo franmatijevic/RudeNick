@@ -7,14 +7,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide(speed*Vector2.RIGHT, Vector2.ZERO)
 
 func _on_CollideWall_body_entered(body: Node) -> void:
-	if(body.name=="Player"):
+	if(body.name=="Player" and !body.iframes_on):
 		body.last_damage="Mole-shotgun"
 		if(body.health<3):
-			if(body.global_position.x>global_position.x):
+			if(speed>0.0):
 				body.death(true)
 			else:
 				body.death(false)
 		else:
+			body.stunned()
 			body.damage(2)
 	queue_free()
 

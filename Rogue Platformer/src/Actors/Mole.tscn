@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Mole/mole_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Mole/mole.png" type="Texture" id=2]
@@ -60,14 +60,19 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "hat1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hat8",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "hat2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "hat0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -80,21 +85,6 @@ animations = [ {
 "name": "hat6",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "hat8",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "hat1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "hat3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "hat4",
@@ -104,13 +94,26 @@ animations = [ {
 "loop": true,
 "name": "hat7",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hat0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "hat3",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 7, 3 )
+extents = Vector2( 8, 4 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 4 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8, 8 )
 
 [node name="Mole" type="KinematicBody2D"]
 collision_layer = 32768
@@ -125,6 +128,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 
@@ -135,12 +139,13 @@ animation = "hat9"
 playing = true
 
 [node name="Shotgun" type="Sprite" parent="."]
+visible = false
 position = Vector2( -2.95902, 1.79109 )
 texture = ExtResource( 14 )
 flip_h = true
 
 [node name="DetectPlayer" type="Area2D" parent="."]
-position = Vector2( 0, -5 )
+position = Vector2( 0, -4 )
 collision_layer = 0
 monitoring = false
 monitorable = false
@@ -162,4 +167,14 @@ shape = SubResource( 9 )
 [node name="GunSight" type="RayCast2D" parent="."]
 cast_to = Vector2( -88, 0 )
 
+[node name="Whip" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
+shape = SubResource( 10 )
+
+[connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
 [connection signal="body_entered" from="DamagePlayer" to="." method="_on_DamagePlayer_body_entered"]
+[connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]

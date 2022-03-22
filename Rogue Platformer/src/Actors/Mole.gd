@@ -5,9 +5,46 @@ export var max_jump:=200
 var angry:=false
 var haty_down:=0.0
 var haty_up:=0.0
+var health:int=5
 
 var turn_to_player:bool=false
 var can_shoot:bool=true
+
+func _on_DetectPlayer_body_entered(body: Node) -> void:
+	if(velocity.y<0):
+		velocity.y=-velocity.y
+	flash_damage()
+	if(health>1):
+		health=health-1
+		body.enemy_jump()
+		var blood=preload("res://src/Other/Blood.tscn").instance()
+		blood.global_position=global_position
+		blood.get_node("Particles2D").amount=int(25)
+		add_child(blood)
+	else:
+		death()
+
+func _on_DamagePlayer_body_entered(body: Node) -> void:
+	if(!body.iframes_on):
+		body.last_damage="Mole"
+		if(body.health<2):
+			if(body.global_position.x>global_position.x):
+				body.death(true)
+			else:
+				body.death(false)
+		else:
+			if(!body.iframes_on):
+				body.damage(1)
+
+func _on_Whip_area_entered(area: Area2D) -> void:
+	if(!angry):
+		get_parent().get_mad()
+	health=health-1
+	flash_damage()
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.global_position=global_position
+	blood.get_node("Particles2D").amount=int(25)
+	add_child(blood)
 
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
@@ -134,17 +171,16 @@ func death()->void:
 	blood.global_position=global_position
 	blood.get_node("Particles2D").amount=int(25)
 	get_parent().add_child(blood)
+	var gun = preload("res://src/Items/Shotgun.tscn").instance()
+	gun.position=position
+	get_parent().add_child(gun)
 	queue_free()
 
-
-func _on_DamagePlayer_body_entered(body: Node) -> void:
-	if(!body.iframes_on):
-		body.last_damage="Mole"
-		if(body.health<2):
-			if(body.global_position.x>global_position.x):
-				body.death(true)
-			else:
-				body.death(false)
-		else:
-			if(!body.iframes_on):
-				body.damage(1)
+func flash_damage()->void:
+	var time_in_seconds
+	for i in range(5):
+		if(i%2==0): modulate.a=0.5
+		else: modulate.a=1
+		time_in_seconds = 0.1
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+	modulate.a=1

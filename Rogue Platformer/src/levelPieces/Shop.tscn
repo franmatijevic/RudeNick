@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/environment/Wood.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/levelPieces/Shop.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Backgrounds/wooden_background.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Mole/mole_hole.png" type="Texture" id=6]
+[ext_resource path="res://src/Items/ItemInShop.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 48 )
@@ -27,6 +28,9 @@ position = Vector2( -40, 56 )
 
 [node name="Wood4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, 56 )
+
+[node name="ItemInShop" parent="Wood4" instance=ExtResource( 7 )]
+position = Vector2( -6, -16 )
 
 [node name="Wood5" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, 56 )

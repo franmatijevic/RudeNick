@@ -1,18 +1,16 @@
 extends Node2D
 
-var item
 
-func _ready() -> void:
-	var chance=randi()%5
-	if(chance<2):
-		item=preload("res://src/Items/BuyRope.tscn").instance()
-	elif(chance<4):
-		item=preload("res://src/Items/BuyBomb.tscn").instance()
-	else:
-		item=preload("res://src/Items/BuyBeans.tscn").instance()
-	item.global_position.x=global_position.x
-	item.global_position.y=global_position.y
-	#print("x",position.x-item.position.x)
-	#print("y",position.y-item.position.y)
-	#get_parent().add_child(item)
+func _on_DetectPlayer_body_exited(body: Node) -> void:
+	get_node("E").visible=false
+	get_node("Text").visible=false
 
+func _on_DetectPlayer_body_entered(body: Node) -> void:
+	get_node("E").visible=true
+	get_node("Text").visible=true
+
+func _physics_process(delta: float) -> void:
+	if(get_node("E").visible==true):
+		if(Input.is_action_just_pressed("buy")):
+			get_parent().get_parent().get_mad()
+			queue_free()

@@ -8,6 +8,8 @@ var item4
 var dir:=false
 
 func _ready() -> void:
+	if(dir):
+		get_node("Wood4/ItemInShop").position.x*=-1
 	create_items()
 
 func create_items()->void:
@@ -76,6 +78,16 @@ func get_mad()->void:
 	get_node("Mole/DetectPlayer").monitoring=true
 	get_node("Mole/DamagePlayer").monitoring=true
 	get_node("Mole/GunSight").enabled=true
+
+func steal_all()->void:
+	if(has_node("item1")):
+		item1.free=true
+	if(has_node("item2")):
+		item2.free=true
+	if(has_node("item3")):
+		item3.free=true
+	if(has_node("item4")):
+		item4.free=true
 
 
 func _on_DetectDanger_area_entered(area: Area2D) -> void:
