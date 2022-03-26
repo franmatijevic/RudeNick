@@ -13,6 +13,7 @@ extents = Vector2( 4, 5 )
 extents = Vector2( 3, 3 )
 
 [node name="Ruby" type="KinematicBody2D"]
+z_index = 2
 collision_layer = 4
 collision_mask = 8
 script = ExtResource( 1 )

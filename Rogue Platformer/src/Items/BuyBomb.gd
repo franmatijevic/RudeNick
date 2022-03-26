@@ -4,7 +4,7 @@ var gravity:=295.0
 var speed:=Vector2(150.0, 100.0)
 var velocity:=Vector2.ZERO
 
-var price:int=30
+var price:int=50
 var e:=false
 var free:=false
 
@@ -39,4 +39,10 @@ func buy()->void:
 	if(player.money>price-1):
 		player.money-=price
 		player.bomb+=3
+		get_parent().count_items()
 		queue_free()
+
+
+func get_for_free()->void:
+	get_parent().get_parent().get_node("Player").bomb+=3
+	queue_free()

@@ -41,4 +41,9 @@ func buy()->void:
 	if(player.money>price-1):
 		player.money-=price
 		player.health+=2
+		get_parent().count_items()
 		queue_free()
+
+func get_for_free()->void:
+	get_parent().get_parent().get_node("Player").health+=2
+	queue_free()

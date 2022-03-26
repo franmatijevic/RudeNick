@@ -74,10 +74,17 @@ func build_thing()->void:
 		randomize()
 		var enemy=randi()%n_ground
 		if(enemy<groundenemy):
-			var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
-			groundenemy.position.x=global_position.x
-			groundenemy.position.y=global_position.y-16
-			get_parent().get_parent().add_child(groundenemy)
+			enemy=randi()%2
+			if(enemy==0):
+				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
+				groundenemy.position.x=global_position.x
+				groundenemy.position.y=global_position.y-16
+				get_parent().get_parent().add_child(groundenemy)
+			else:
+				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
+				groundenemy.position.x=global_position.x
+				groundenemy.position.y=global_position.y-16
+				get_parent().get_parent().add_child(groundenemy)
 		else:
 			var generate_gold=randi()%money
 			if(generate_gold<27):

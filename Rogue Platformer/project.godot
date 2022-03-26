@@ -133,6 +133,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_14="boss"
 2d_physics/layer_15="item_shop"
 2d_physics/layer_16="mole"
+2d_physics/layer_17="bullet"
 
 [physics]
 

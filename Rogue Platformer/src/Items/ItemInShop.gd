@@ -13,4 +13,5 @@ func _physics_process(delta: float) -> void:
 	if(get_node("E").visible==true):
 		if(Input.is_action_just_pressed("buy")):
 			get_parent().get_parent().get_mad()
+			get_parent().get_parent().steal_all()
 			queue_free()

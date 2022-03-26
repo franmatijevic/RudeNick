@@ -30,3 +30,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide(velocity)
 	if(velocity.y>speed.y):
 		velocity.y=speed.y
+
+
+func _on_Whip_body_entered(body: Node) -> void:
+	destroy()

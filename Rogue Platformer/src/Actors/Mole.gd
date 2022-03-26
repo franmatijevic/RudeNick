@@ -5,28 +5,33 @@ export var max_jump:=200
 var angry:=false
 var haty_down:=0.0
 var haty_up:=0.0
+var haty_down_later=0.0
+var hat_n:bool=false
 var health:int=5
+
+var last_damage="Mole"
 
 var turn_to_player:bool=false
 var can_shoot:bool=true
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
-	if(velocity.y<0):
-		velocity.y=-velocity.y
-	flash_damage()
-	if(health>1):
-		health=health-1
+	if(body.global_position.y<global_position.y and !body.if_stunned):
+		if(velocity.y<0):
+			velocity.y=-velocity.y
+		flash_damage()
 		body.enemy_jump()
-		var blood=preload("res://src/Other/Blood.tscn").instance()
-		blood.global_position=global_position
-		blood.get_node("Particles2D").amount=int(25)
-		add_child(blood)
-	else:
-		death()
+		if(health>1):
+			health=health-1
+			var blood=preload("res://src/Other/Blood.tscn").instance()
+			blood.global_position=global_position
+			blood.get_node("Particles2D").amount=int(25)
+			add_child(blood)
+		else:
+			death()
 
 func _on_DamagePlayer_body_entered(body: Node) -> void:
-	if(!body.iframes_on):
-		body.last_damage="Mole"
+	if(!body.iframes_on and body.global_position.y>global_position.y):
+		body.last_damage=last_damage
 		if(body.health<2):
 			if(body.global_position.x>global_position.x):
 				body.death(true)
@@ -49,18 +54,23 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
 	get_node("Shotgun").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
-	var pickhat=randi()%10
+	var pickhat=randi()%2
 	var hat = get_node("AnimatedSprite/Hats")
 	match pickhat:
 		0:
 			hat.animation="hat0"
 			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-4.5
+			haty_down=haty_up+1
+			haty_down_later=-5.5
+			hat_n=false
 		1:
 			hat.animation="hat1"
-			hat.set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
-			hat.position.x=1
+			hat.position.x=-0.5
+			haty_up=-0.5
+			haty_down=haty_up+1
+			haty_down_later=-1.5
+			hat_n=true
 		2:
 			get_node("AnimatedSprite/Hats").animation="hat2"
 			hat.position.x=-0.5
@@ -104,6 +114,11 @@ func _ready() -> void:
 	haty_down=haty_up+1
 
 func _process(delta: float) -> void:
+	if(hat_n):
+		get_node("AnimatedSprite/Hats").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
+	else:
+		get_node("AnimatedSprite/Hats").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
+	
 	if(!angry):
 		if(get_node("AnimatedSprite").frame==0):
 			get_node("AnimatedSprite/Hats").position.y=haty_up
@@ -133,6 +148,16 @@ func _physics_process(delta: float) -> void:
 			shoot()
 	velocity.y = move_and_slide(velocity, Vector2.UP*gravity*delta).y
 
+
+func damage(value: int)->void:
+	if(health<=value):
+		death()
+	flash_damage()
+	health=health-value
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.global_position=global_position
+	blood.get_node("Particles2D").amount=int(25)
+	add_child(blood)
 
 func jump()->void:
 	if(is_on_floor()):

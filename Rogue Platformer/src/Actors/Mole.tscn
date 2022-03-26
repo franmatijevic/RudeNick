@@ -16,9 +16,6 @@
 [ext_resource path="res://Assets/Mole/shotgun.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Mole/mole_animations.png" type="Texture" id=15]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 6 )
-
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 15 )
 region = Rect2( 0, 0, 16, 16 )
@@ -60,14 +57,9 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "hat1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "hat8",
+"name": "hat9",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -75,14 +67,29 @@ animations = [ {
 "name": "hat2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "hat9",
+"name": "hat1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "hat3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hat0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "hat6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hat8",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -94,17 +101,10 @@ animations = [ {
 "loop": true,
 "name": "hat7",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "hat0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "hat3",
-"speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 6 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 4 )
@@ -122,14 +122,17 @@ script = ExtResource( 3 )
 speed = Vector2( 95, 600 )
 gravity = 400.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
 frame = 1
-playing = true
+flip_h = true
+
+[node name="MoleHat4" type="Sprite" parent="AnimatedSprite"]
+visible = false
+position = Vector2( 0.5, -1.5 )
+z_index = 9
+texture = ExtResource( 5 )
 flip_h = true
 
 [node name="Hats" type="AnimatedSprite" parent="AnimatedSprite"]
@@ -137,6 +140,14 @@ position = Vector2( 0, -8 )
 frames = SubResource( 3 )
 animation = "hat9"
 playing = true
+
+[node name="Mole" type="Sprite" parent="AnimatedSprite"]
+visible = false
+position = Vector2( -18, 0 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="Shotgun" type="Sprite" parent="."]
 visible = false

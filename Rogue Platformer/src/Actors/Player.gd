@@ -6,6 +6,7 @@ var health :int= 10
 var money:int=0
 var rope:int=4
 var bomb:int=4
+var shotgun:int=0
 
 var walk_speed:=75.0
 var run_speed:=105.0
@@ -106,6 +107,12 @@ func _process(delta: float) -> void:
 	ui.get_node("Ropes").text=str(rope)
 	ui.get_node("bomb_n").text=str(bomb)
 	
+	get_node("Shotgun").set_flip_h($AnimatedSprite.is_flipped_h())
+	if(shotgun>0 and !if_stunned):
+		get_node("Shotgun").visible=true
+	else:
+		get_node("Shotgun").visible=false
+	
 	if(Input.is_action_just_pressed("up")): move_up=true
 	if(Input.is_action_just_released("up")): move_up=false
 	if(Input.is_action_just_pressed("down")): move_down=true
@@ -183,6 +190,29 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("up") && $ladderCheck.is_colliding() and !is_attacking and !ledge_grab and !if_stunned): ladder()
 
 func _physics_process(delta: float) -> void:
+	if(if_stunned):
+		var vel=Vector2.ZERO
+		var k:=false
+		if(!k):
+			vel.x+=knock_h
+			velocity.y-=knock_v
+			k=true
+		#vel.y+=gravity*delta#*100
+		move_and_slide(vel)
+		if(vel.x>0.0 and !vel.y<0.0):
+			vel.x-=friction
+		if(vel.x<0.0 and !vel.y<0.0):
+			vel.x+=friction
+		if(is_on_wall()):
+			vel.x=0.0
+			vel.y=vel.y/3
+		if(is_on_ceiling() and vel.y<0.0):
+			pass
+			#vel.y=-vel.y
+		if(is_on_floor()):
+			vel.x=0.0
+			vel.y=0.0
+			velocity.x=0.0
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0
 	var direction: = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
@@ -194,32 +224,6 @@ func _physics_process(delta: float) -> void:
 			$BuyIt.get_collider().buy()
 	
 	
-	if(if_stunned):
-		var vel=Vector2.ZERO
-		var k:=false
-		if(!k):
-			if(!stunned_up):
-				vel.x=knock_h
-			vel.y=-knock_v
-		if(is_on_wall() or spider_web):
-			knock_h=0.0
-			knock_v=0.0
-		vel.y-=delta*gravity*4
-		move_and_slide(vel)
-		if(vel.x>0.0 and !vel.y<0.0):
-			vel.x-=friction
-			if(is_on_floor()):
-				vel.x=0.0
-		if(vel.x<0.0 and !vel.y<0.0):
-			vel.x+=friction
-			if(is_on_floor()):
-				vel.x=0.0
-				vel.y=0.0
-		
-		if(is_on_wall()):
-			vel.x=0.0
-		#if(is_on_ceiling() and vel.y<0.0):
-		#	vel.y=0.0
 	
 	if(velocity.x==0 and move_up and !move_left and !move_right and (is_on_floor() or ledge_grab)):
 		get_node("Camera2D").position.y=-55
@@ -283,6 +287,8 @@ func damage(value:int)->void:
 	ledge_grab=false
 	iframes()
 	treperenje()
+	if(last_damage=="BlackSnake"):
+		poison()
 	move_horizontal=0
 	if(velocity.y>0.0):
 		velocity.y=0
@@ -300,6 +306,12 @@ func stunned()->void:
 	if_stunned=false
 	stunned_mod=1
 	stunned_up=false
+	knock_h=0
+	knock_v=0
+
+func poison()->void:
+	print("poison")
+
 
 func ladder()->void:
 	climbing=true
@@ -324,22 +336,31 @@ func action()-> void:
 	var k
 	if(smjer==false): k=1
 	else: k=-1
-	is_attacking=true
-	animatedSprite.animation="whiping"
-	get_node("Area2D/whip_node").disabled=false
-	#backwhiping
-	get_node("Area2D/whip_node").position.x=-5*k
-	get_node("Area2D/whip_node").position.y=-6
-	var time_in_seconds = 0.2
-	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	#frontwhiping
-	get_node("Area2D/whip_node").position.y=0
-	get_node("Area2D/whip_node").position.x=9.3*k
-	time_in_seconds = 0.2
-	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	get_node("Area2D/whip_node").disabled=true
-	get_node("Area2D/whip_node").position.x=0
-	get_node("Area2D/whip_node").position.y=0
+	if(shotgun>0):
+		velocity.x+=-k*100
+		var bullet=preload("res://src/Other/Bullet.tscn").instance()
+		bullet.position=position
+		bullet.player=true
+		bullet.speed*=k
+		get_parent().add_child(bullet)
+		shotgun=shotgun-1
+	else:
+		is_attacking=true
+		animatedSprite.animation="whiping"
+		get_node("Area2D/whip_node").disabled=false
+		#backwhiping
+		get_node("Area2D/whip_node").position.x=-5*k
+		get_node("Area2D/whip_node").position.y=-6
+		var time_in_seconds = 0.2
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+		#frontwhiping
+		get_node("Area2D/whip_node").position.y=0
+		get_node("Area2D/whip_node").position.x=9.3*k
+		time_in_seconds = 0.2
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+		get_node("Area2D/whip_node").disabled=true
+		get_node("Area2D/whip_node").position.x=0
+		get_node("Area2D/whip_node").position.y=0
 	
 	#if(!smjer): set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-12, $LedgeX.get_collider().get_global_position().y))
 	#else: set_global_position(Vector2($LedgeX.get_collider().get_global_position().x+12, $LedgeX.get_collider().get_global_position().y))

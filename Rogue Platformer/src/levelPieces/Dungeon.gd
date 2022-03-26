@@ -11,6 +11,19 @@ func _on_DetectBomb_area_entered(area):
 		get_node("Troll").speed.x*=1.6
 		get_node("Troll").velocity.x*=1.6
 		get_node("Troll/Sound1").play()
+		var warcry
+		match randi()%2:
+			0:
+				warcry="Uugh - "
+			1:
+				warcry="Aaagh - "
+		match randi()%2:
+			0:
+				warcry+="uugh!"
+			1:
+				warcry+="aaaah!"
+		
+		get_parent().get_node("Kanvas/UI").print_something(warcry)
 		if(area.global_position.x<global_position.x):
 			get_node("Troll").velocity.x=abs(get_node("Troll").velocity.x)
 		else:

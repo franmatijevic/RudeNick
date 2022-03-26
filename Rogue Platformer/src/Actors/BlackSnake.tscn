@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/SnakeWalking/snake_walk_dangerous3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/SnakeWalking/snake_walk_dangerous1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SnakeWalking/snake_walk_dangerous2.png" type="Texture" id=3]
+[ext_resource path="res://src/Actors/BlackSnake.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7, 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="BlackSnake" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource( 4 )
+speed = Vector2( 30, 500 )
+
+[node name="damagebox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damagebox"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( 0, 8 )
+scale = Vector2( 0.270194, 0.259707 )
+rect = Rect2( -30, -60, 60, 60 )
+
+[node name="StompDetector" type="Area2D" parent="."]
+modulate = Color( 0, 0.0196078, 1, 1 )
+position = Vector2( 0, -4 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+position = Vector2( 0, -1 )
+shape = SubResource( 3 )
+one_way_collision_margin = 2.0
+
+[node name="EdgeChecker" type="RayCast2D" parent="."]
+position = Vector2( 0, 5 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 8
+
+[node name="spiderWeb" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spiderWeb"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[connection signal="area_entered" from="damagebox" to="." method="_on_damagebox_area_entered"]
+[connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
+[connection signal="area_entered" from="spiderWeb" to="." method="_on_spiderWeb_area_entered"]
+[connection signal="area_exited" from="spiderWeb" to="." method="_on_spiderWeb_area_exited"]

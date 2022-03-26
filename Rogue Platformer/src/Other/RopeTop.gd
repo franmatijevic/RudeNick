@@ -62,25 +62,12 @@ func create_rest():
 			n=n+1
 			if($Floor.is_colliding()):
 				queue_free()
-		var rope
-		match n:
-			1:
-				rope=preload("res://src/environment/RopeTopPart.tscn").instance()
-			2:
-				rope=preload("res://src/Ropes/Rope2.tscn").instance()
-			3:
-				rope=preload("res://src/Ropes/Rope3.tscn").instance()
-			4:
-				rope=preload("res://src/Ropes/Rope4.tscn").instance()
-			5:
-				rope=preload("res://src/Ropes/Rope5.tscn").instance()
-			6:
-				rope=preload("res://src/Ropes/Rope6.tscn").instance()
-		#rope.global_position=global_position
-		#get_parent().add_child(rope)
 		queue_free()
 
 func _physics_process(delta: float) -> void:
+	if(look_down):
+		crash()
+		look_down=false
 	if(!crash):
 		move_and_slide(Vector2(0.0, -speed))
 		if(global_position.y<=end or $Ceiling.is_colliding()):

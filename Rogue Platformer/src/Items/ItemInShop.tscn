@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Items/ItemInShop.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Mole/steal_icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Mole/steal_icon (1).png" type="Texture" id=2]
 [ext_resource path="res://pcsenior.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Decoration/interact2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Decoration/interact1.png" type="Texture" id=5]
@@ -25,7 +25,7 @@ font_data = ExtResource( 3 )
 z_index = 6
 script = ExtResource( 1 )
 
-[node name="StealIcon" type="Sprite" parent="."]
+[node name="StealIcon(1)" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="DetectPlayer" type="Area2D" parent="."]

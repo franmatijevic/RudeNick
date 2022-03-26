@@ -11,14 +11,14 @@ var idle:bool=false
 var player_close:=false
 var try_to_attack:=false
 
-var last_damage:String="troll"
+var last_damage:String="Troll"
 var play_sound:bool=false
 
 var can_destroy:bool=true
 var look_for_player:bool=true
 
-var knock_back_h:float=280.0
-var knock_back_v:float=200.0
+var knock_back_h:float=240.0
+var knock_back_v:float=150.0
 
 func _ready() -> void:
 	get_node("BlockDestroy").monitoring=false
@@ -55,6 +55,7 @@ func _on_Head_body_entered(body: Node) -> void:
 	#get_parent().add_child(blood)
 
 func _on_DetectWhip_area_entered(area: Area2D) -> void:
+	flash_damage()
 	health=health-1
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.position=position
@@ -65,6 +66,7 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 
 func _on_ClubDamage_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
+		body.last_damage="Troll"
 		body.iframes()
 		body.treperenje()
 		body.ledge_grab=false
@@ -77,14 +79,15 @@ func _on_ClubDamage_body_entered(body: Node) -> void:
 			else:
 				body.death(false)
 		body.health=body.health-2
-		body.stunned()
+		if(randi()%3==0):
+			body.stunned()
 		if(body.global_position.x>global_position.x):
-			body.knock_h=knock_back_h
+			#body.knock_h=knock_back_h
 			body.side_stunned=true
 		else:
-			body.knock_h=-knock_back_h
+			#body.knock_h=-knock_back_h
 			body.side_stunned=false
-		body.knock_v=knock_back_v
+		#body.knock_v=knock_back_v
 
 func _process(delta: float) -> void:
 	if(health<1):
@@ -119,6 +122,23 @@ func _physics_process(delta: float) -> void:
 		idle()
 	
 	velocity.y = move_and_slide(velocity*can_move, Vector2.UP).y
+
+func damage(value: int)->void:
+	flash_damage()
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.position=position
+	blood.position.y=blood.position.y-10
+	get_parent().add_child(blood)
+	health=health-value
+
+func flash_damage()->void:
+	var time_in_seconds
+	for i in range(5):
+		if(i%2==0): modulate.a=0.5
+		else: modulate.a=1
+		time_in_seconds = 0.1
+		yield(get_tree().create_timer(time_in_seconds), "timeout")
+	modulate.a=1
 
 func play_random_sound()->void:
 	play_sound=true

@@ -24,3 +24,8 @@ func wait()->void:
 	boom.position=position
 	get_parent().add_child(boom)
 	queue_free()
+
+func timer(lenght:float)->void:
+	var time=0.0
+	while(time<lenght):
+		time+=get_physics_process_delta_time()
