@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
-[ext_resource path="res://src/environment/bedrock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Other/BlackScreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=6]
@@ -65,30 +64,24 @@ z_index = -10
 texture = ExtResource( 2 )
 
 [node name="Background3" type="Sprite" parent="."]
-position = Vector2( 160, 543 )
+position = Vector2( 926, 160 )
 z_index = -10
 texture = ExtResource( 2 )
 
 [node name="Background4" type="Sprite" parent="."]
-position = Vector2( 543, 543 )
+position = Vector2( 160, 544 )
 z_index = -10
 texture = ExtResource( 2 )
 
-[node name="Bedrock1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, -8 )
-scale = Vector2( 40, 1 )
+[node name="Background5" type="Sprite" parent="."]
+position = Vector2( 543, 544 )
+z_index = -10
+texture = ExtResource( 2 )
 
-[node name="Bedrock2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -8, 256 )
-scale = Vector2( 1, 32 )
-
-[node name="Bedrock3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 648, 256 )
-scale = Vector2( 1, 32 )
-
-[node name="Bedrock4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 320, 520 )
-scale = Vector2( 40, 1 )
+[node name="Background6" type="Sprite" parent="."]
+position = Vector2( 926, 544 )
+z_index = -10
+texture = ExtResource( 2 )
 
 [node name="BlackScreen" type="Node2D" parent="."]
 process_priority = 1

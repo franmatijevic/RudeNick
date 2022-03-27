@@ -75,6 +75,9 @@ func create_items()->void:
 	add_child(item4)
 
 func get_mad()->void:
+	if(has_node("Welcome")):
+		get_node("Welcome").queue_free()
+	get_node("/root/Game").shop_angry=5
 	get_node("Mole").angry=true
 	$DetectDanger.queue_free()
 	if(has_node("Wood4/ItemInShop")):
@@ -128,3 +131,73 @@ func _on_DetectDanger_area_entered(area: Area2D) -> void:
 
 func _on_DetectDanger_body_entered(body: Node) -> void:
 	get_mad()
+
+
+func _on_Welcome_body_entered(body: Node) -> void:
+	get_node("Welcome").queue_free()
+	var hello="Welcome to "
+	match randi()%55:
+		0: hello+="Moyt"
+		1: hello+="Jotaro"
+		2: hello+="Frank"
+		3: hello+="Igor"
+		4: hello+="Iggy"
+		5: hello+="Ivan"
+		6: hello+="Noah"
+		7: hello+="Elijah"
+		8: hello+="Oliver"
+		9: hello+="Windy"
+		10: hello+="Violet"
+		11: hello+="Mark"
+		12: hello+="Derek"
+		13: hello+="Josuke"
+		14: hello+="Giorno"
+		15: hello+="Luna"
+		16: hello+="Sam"
+		17: hello+="Ava"
+		18: hello+="Charlotte"
+		19: hello+="Liam"
+		20: hello+="Olga"
+		21: hello+="Zion"
+		22: hello+="Lee"
+		23: hello+="Jake"
+		24: hello+="Thor"
+		25: hello+="Karen"
+		26: hello+="Tyler"
+		27: hello+="Dubravka"
+		28: hello+="Sophia"
+		29: hello+="Blair"
+		30: hello+="Blaze"
+		31: hello+="Juan"
+		32: hello+="Luciana"
+		33: hello+="Diego"
+		34: hello+="Jonathan"
+		35: hello+="Joseph"
+		36: hello+="Jolyne"
+		37: hello+="Johnny"
+		38: hello+="Hiroto"
+		39: hello+="Dilara"
+		40: hello+="Ben"
+		41: hello+="Benjamin"
+		42: hello+="Franklin"
+		43: hello+="Toby"
+		44: hello+="Alexandar"
+		45: hello+="Alex"
+		46: hello+="Alexa"
+		47: hello+="Alice"
+		48: hello+="Zelda"
+		49: hello+="Edward"
+		50: hello+="Kamala"
+		51: hello+="Leith"
+		52: hello+="Arya"
+		53: hello+="Fay"
+		54: hello+="Azra"
+	
+	match randi()%3:
+		0:
+			hello+="s Shop! How can I help you?"
+		1:
+			hello+="s Shop! What can I do for you?"
+		2: 
+			hello+="s Shop! May I help you?"
+	get_parent().get_node("Kanvas/UI").print_something(hello)

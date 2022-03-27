@@ -1,11 +1,11 @@
 extends Node2D
 
+var lenght=0.6
 
 func _ready() -> void:
 	remove()
 
 
 func remove()->void:
-	var time_in_seconds = 0.6
-	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	yield(get_tree().create_timer(lenght), "timeout")
 	queue_free()

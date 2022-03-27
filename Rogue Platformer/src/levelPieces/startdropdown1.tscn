@@ -89,6 +89,8 @@ can_destroy = true
 
 [node name="KinematicBody2D10" parent="." instance=ExtResource( 5 )]
 position = Vector2( -8, -8 )
+n_ground = -1
 
 [node name="KinematicBody2D12" parent="." instance=ExtResource( 5 )]
 position = Vector2( 8, -8 )
+n_ground = -1

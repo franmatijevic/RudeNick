@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/environment/Wood.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 48 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 45, 32 )
 
 [node name="Shop" type="Node2D"]
 script = ExtResource( 4 )
@@ -338,5 +341,14 @@ texture = ExtResource( 5 )
 position = Vector2( 40, -24 )
 texture = ExtResource( 5 )
 
+[node name="Welcome" type="Area2D" parent="."]
+position = Vector2( 8, 16 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Welcome"]
+shape = SubResource( 2 )
+
 [connection signal="area_entered" from="DetectDanger" to="." method="_on_DetectDanger_area_entered"]
 [connection signal="body_entered" from="DetectDanger" to="." method="_on_DetectDanger_body_entered"]
+[connection signal="body_entered" from="Welcome" to="." method="_on_Welcome_body_entered"]

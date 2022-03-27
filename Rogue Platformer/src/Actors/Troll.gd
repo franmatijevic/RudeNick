@@ -221,7 +221,10 @@ func death()->void:
 	blood.position=position
 	blood.position.y=blood.position.y-12
 	blood.get_node("Particles2D").amount=50
+	var meat=preload("res://src/Collectable/RatMeat.tscn").instance()
+	meat.position=blood.position
 	get_parent().add_child(blood)
+	get_parent().add_child(meat)
 	queue_free()
 
 func idle()->void:

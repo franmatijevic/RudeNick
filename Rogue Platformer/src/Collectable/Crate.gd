@@ -4,11 +4,15 @@ var gravity:=295.0
 var speed:=Vector2(150.0, 300.0)
 var velocity:=Vector2.ZERO
 
+var dropped:=false
+
 func _on_Boom_area_entered(area: Area2D) -> void:
 	destroy()
+	queue_free()
 
 func _on_Whip_area_entered(area: Area2D) -> void:
 	destroy()
+	queue_free()
 
 func destroy()->void:
 	var drop=randi()%2
@@ -21,8 +25,10 @@ func destroy()->void:
 	item.position=position
 	var wood=preload("res://src/Other/Woodpiece.tscn").instance()
 	wood.position=position
-	get_parent().add_child(wood)
-	get_parent().add_child(item)
+	if(!dropped):
+		get_parent().add_child(wood)
+		get_parent().add_child(item)
+		dropped=true
 	queue_free()
 
 func _physics_process(delta: float) -> void:
@@ -34,3 +40,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_Whip_body_entered(body: Node) -> void:
 	destroy()
+	queue_free()

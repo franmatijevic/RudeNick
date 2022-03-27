@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/cobbletone (2).png" type="Texture" id=1]
 [ext_resource path="res://src/environment/dirt_tile_mid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/bedrock.tscn" type="PackedScene" id=4]
 
 [node name="Frame" type="Node2D"]
 z_index = 300
@@ -2293,3 +2294,19 @@ z_index = 99
 [node name="KinematicBody2D304" parent="." instance=ExtResource( 3 )]
 position = Vector2( 648, 504 )
 z_index = 99
+
+[node name="Bedrock1" parent="." instance=ExtResource( 4 )]
+position = Vector2( -8, 184 )
+scale = Vector2( 1, 50 )
+
+[node name="Bedrock2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 648, 232 )
+scale = Vector2( 1, 50 )
+
+[node name="Bedrock3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 328, -8 )
+scale = Vector2( 50, 1 )
+
+[node name="Bedrock4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 320, 520 )
+scale = Vector2( 50, 1 )

@@ -7,6 +7,10 @@ var player_money:int=0
 var player_rope:int=4
 var player_bomb:int=4
 var level:=0
+var poisoned:=false
+var shotgun:int=0
+
+var shop_angry:int=0
 
 var old_health:int=0
 var old_money:int=0
@@ -25,24 +29,15 @@ func set_health()->void:
 	get_node("World").get_node("Player").money=player_money
 	get_node("World").get_node("Player").rope=player_rope
 	get_node("World").get_node("Player").bomb=player_bomb
+	get_node("World/Player").poisoned=poisoned
+	get_node("World/Player").shotgun=shotgun
 
 func _ready() -> void:
 	#get_node("PauseLayer/Pause").visible=false
 	OS.window_fullscreen = true
 
-func _process(delta: float) -> void:
-	pass
-	
-	
-	if(get_tree().paused):
-		if(Input.is_action_just_pressed("ui_accept")):
-			print("nesto ako bas mora")
-	
-	#if(Input.is_action_just_pressed("ui_cancel") and has_node("World")):
-	#	if(get_tree().paused == false):
-	#		pause_menu(true)
-	#	else:
-	#		pause_menu(false)
+
+
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()

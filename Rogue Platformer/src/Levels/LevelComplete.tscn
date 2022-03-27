@@ -879,3 +879,11 @@ position = Vector2( 152, 168 )
 texture = ExtResource( 3 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 12 )]
+
+[node name="PoisonLayer" type="CanvasLayer" parent="."]
+
+[node name="Poison" type="ColorRect" parent="PoisonLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.870588, 0.0352941, 0.0784314 )

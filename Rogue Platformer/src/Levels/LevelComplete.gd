@@ -10,6 +10,10 @@ var current_time:=0.0
 var total_time:=0.0
 
 func _ready() -> void:
+	if(get_node("/root/Game").poisoned):
+		get_node("PoisonLayer/Poison").visible=true
+		get_node("WalkingPlayerAnim").speed=35.0
+	
 	level=get_parent().level
 	health=get_parent().player_health-get_parent().old_health
 	ropes=get_parent().player_rope-get_parent().old_rope

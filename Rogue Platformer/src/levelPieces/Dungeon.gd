@@ -32,6 +32,5 @@ func _on_DetectBomb_area_entered(area):
 		get_node("Troll/AnimatedSprite2").visible=true
 		get_node("Troll/AnimatedSprite3").visible=false
 		get_node("Troll").idle=false
-		print("uuuhg")
 
 

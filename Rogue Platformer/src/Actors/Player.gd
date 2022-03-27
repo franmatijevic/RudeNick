@@ -14,6 +14,7 @@ var slowed_speed:=30.0
 var normal_jump:=225.0
 var slowed_jump:=150.0
 
+var poisoned:=false
 var iframes_on:=false
 var is_attacking: = false
 var smjer: = false
@@ -27,6 +28,7 @@ var bomb_in_hands:=false
 
 var burned_death:=false
 var club_death:=false
+var spike_death:=false
 
 var look_down:=false
 
@@ -54,6 +56,8 @@ var knock_v:float=0.0
 var friction:float=20.0
 
 func _ready() -> void:
+	if(poisoned):
+		poison()
 	speed.x=run_speed
 	speed.y=225.0
 	stomp_impulse=250.0
@@ -147,7 +151,7 @@ func _process(delta: float) -> void:
 			velocity.y=-speed.y
 		speed.x=slowed_speed
 		speed.y=slowed_jump
-	elif(is_running):
+	elif(is_running and !poisoned):
 		speed.x=run_speed
 		speed.y=normal_jump
 	else:
@@ -310,7 +314,11 @@ func stunned()->void:
 	knock_v=0
 
 func poison()->void:
-	print("poison")
+	poisoned=true
+	get_parent().get_node("Kanvas/UI/Poison").visible=true
+	get_parent().get_node("Kanvas/UI/Heart1").modulate.r=0.4
+	get_parent().get_node("Kanvas/UI/Heart1").modulate.g=0.902
+	get_parent().get_node("Kanvas/UI/Heart1").modulate.b=0.227
 
 
 func ladder()->void:
@@ -407,6 +415,8 @@ func exitlevel()->void:
 	get_parent().get_parent().player_money=money
 	get_parent().get_parent().player_rope=rope
 	get_parent().get_parent().player_bomb=bomb
+	get_parent().get_parent().shotgun=shotgun
+	get_parent().get_parent().poisoned=poisoned
 	get_parent().get_parent().current_time=get_parent().current_time
 	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
@@ -449,6 +459,7 @@ func death(direciton: bool)->void:
 		corpse.push=300.0
 		corpse.push_v=100.0
 		corpse.friction=2.0
+	corpse.spikes=spike_death
 	
 	if(burned_death):
 		corpse.get_node("Sprite").modulate.r=0.26

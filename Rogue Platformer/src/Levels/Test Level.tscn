@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Actors/Spider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=5]
 [ext_resource path="res://src/Actors/Snake.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/environment/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/environment/SpiderWeb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/levelPieces/start1.tscn" type="PackedScene" id=30]
@@ -97,7 +98,7 @@ speed = Vector2( 50, 200 )
 position = Vector2( 423.856, 168 )
 
 [node name="Snake" parent="." instance=ExtResource( 6 )]
-position = Vector2( 399.864, 160 )
+position = Vector2( 335.886, 128 )
 
 [node name="Kanvas" type="CanvasLayer" parent="."]
 
@@ -229,3 +230,6 @@ position = Vector2( 279.905, 32 )
 
 [node name="KinematicBody2D62" parent="." instance=ExtResource( 3 )]
 position = Vector2( 279.905, 16 )
+
+[node name="Spikes" parent="." instance=ExtResource( 7 )]
+position = Vector2( 343.883, 168 )

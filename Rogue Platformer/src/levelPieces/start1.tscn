@@ -67,9 +67,11 @@ position = Vector2( -40, 24 )
 
 [node name="KinematicBody2D3" parent="." instance=ExtResource( 5 )]
 position = Vector2( -24, 8 )
+n_ground = -1
 
 [node name="KinematicBody2D6" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 8 )
+n_ground = -1
 
 [node name="KinematicBody2D9" parent="." instance=ExtResource( 5 )]
 position = Vector2( 40, 24 )

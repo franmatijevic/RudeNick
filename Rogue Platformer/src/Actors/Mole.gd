@@ -116,7 +116,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(hat_n):
 		get_node("AnimatedSprite/Hats").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
+		get_node("AnimatedSprite/Hats").position.x=abs(get_node("AnimatedSprite/Hats").position.x)
 	else:
+		get_node("AnimatedSprite/Hats").position.x=-abs(get_node("AnimatedSprite/Hats").position.x)
 		get_node("AnimatedSprite/Hats").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
 	
 	if(!angry):
@@ -125,6 +127,10 @@ func _process(delta: float) -> void:
 		else:
 			get_node("AnimatedSprite/Hats").position.y=haty_down
 	else:
+		if(get_node("AnimatedSprite").frame==0):
+			get_node("AnimatedSprite/Hats").position.y=haty_down_later+1
+		else:
+			get_node("AnimatedSprite/Hats").position.y=haty_down_later
 		if(!turn_to_player):
 			look_for_player()
 		if(velocity.x>0.0):
@@ -190,6 +196,7 @@ func look_for_player()->void:
 	turn_to_player=false
 
 func death()->void:
+	get_node("/root/Game").shop_angry=0
 	get_node("DamagePlayer").queue_free()
 	get_node("DetectPlayer").queue_free()
 	var blood=preload("res://src/Other/Blood.tscn").instance()

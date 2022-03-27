@@ -21,6 +21,8 @@ export var bonus_money=0
 export var add:int=700
 export var high_drop:int=0
 
+export var can_be_tnt:=500
+
 var outside:bool=false
 
 func _ready() -> void:
@@ -73,8 +75,8 @@ func build_thing()->void:
 	if(up==false):
 		randomize()
 		var enemy=randi()%n_ground
-		if(enemy<groundenemy):
-			enemy=randi()%2
+		if(enemy<groundenemy and n_ground>-1):
+			enemy=randi()%20
 			if(enemy==0):
 				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
 				groundenemy.position.x=global_position.x
@@ -234,5 +236,12 @@ func _physics_process(delta: float) -> void:
 		bone.position.y=position.y
 		get_parent().add_child(bone)
 		blok.queue_free()
+	elif(can_be_tnt>0):
+		what=randi()%can_be_tnt
+		if(what==0):
+			var boom=preload("res://src/environment/TNT.tscn").instance()
+			boom.position=position
+			get_parent().add_child(boom)
+			blok.queue_free()
 	
 	queue_free()

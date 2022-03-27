@@ -22,6 +22,8 @@ shape = SubResource( 1 )
 
 [node name="Player" type="Area2D" parent="."]
 collision_layer = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 2 )
