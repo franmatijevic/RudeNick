@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Mole/mole_idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Mole/mole.png" type="Texture" id=2]
@@ -62,19 +62,24 @@ animations = [ {
 "name": "hat2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "hat4",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "hat0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "hat8",
+"name": "hat1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "hat4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "hat6",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -87,14 +92,9 @@ animations = [ {
 "name": "hat3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "hat1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "hat6",
+"name": "hat8",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -114,6 +114,9 @@ extents = Vector2( 7, 4 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 72, 50 )
 
 [node name="Mole" type="KinematicBody2D"]
 collision_layer = 32768
@@ -187,6 +190,16 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
 shape = SubResource( 10 )
 
+[node name="IdlePlayer" type="Area2D" parent="."]
+scale = Vector2( 0.939365, 1 )
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IdlePlayer"]
+shape = SubResource( 11 )
+
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
 [connection signal="body_entered" from="DamagePlayer" to="." method="_on_DamagePlayer_body_entered"]
 [connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]
+[connection signal="body_entered" from="IdlePlayer" to="." method="_on_IdlePlayer_body_entered"]

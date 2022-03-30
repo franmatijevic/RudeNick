@@ -14,6 +14,7 @@ func _on_DetectPlayer_body_exited(body: Node) -> void:
 
 func _process(delta: float) -> void:
 	if(player and Input.is_action_just_pressed("buy")):
+		get_parent().get_node("Kanvas/UI").print_something("God of death is pleased with your sacrifice.")
 		get_node("/root/Game/World/Player").last_damage="Alter"
 		one_sac=!one_sac
 		if(!one_sac):

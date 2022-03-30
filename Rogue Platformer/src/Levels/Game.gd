@@ -33,6 +33,7 @@ func set_health()->void:
 	get_node("World/Player").shotgun=shotgun
 
 func _ready() -> void:
+	shop_angry=0
 	#get_node("PauseLayer/Pause").visible=false
 	OS.window_fullscreen = true
 
@@ -74,6 +75,7 @@ func new_level()->void:
 	old_money=player_money
 	old_rope=player_rope
 	world.get_node("Kanvas/UI").get_node("LevelNumber").text=str(level)
+	world.shop_angry=shop_angry
 	add_child(world)
 	#get_tree().change_scene("res://src/Levels/World.tscn")
 	if(has_node("LevelComplete")):

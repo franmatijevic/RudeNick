@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whip5.png-12c1cc31f3bf04dc77816f808b6bfea5.stex"
+path="res://.import/player_knocked1 (1).png-6f3dd125d960d54195f9582d098b3292.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/whip5.png"
-dest_files=[ "res://.import/whip5.png-12c1cc31f3bf04dc77816f808b6bfea5.stex" ]
+source_file="res://Assets/Player/player_knocked1 (1).png"
+dest_files=[ "res://.import/player_knocked1 (1).png-6f3dd125d960d54195f9582d098b3292.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

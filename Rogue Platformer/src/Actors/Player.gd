@@ -316,9 +316,6 @@ func stunned()->void:
 func poison()->void:
 	poisoned=true
 	get_parent().get_node("Kanvas/UI/Poison").visible=true
-	get_parent().get_node("Kanvas/UI/Heart1").modulate.r=0.4
-	get_parent().get_node("Kanvas/UI/Heart1").modulate.g=0.902
-	get_parent().get_node("Kanvas/UI/Heart1").modulate.b=0.227
 
 
 func ladder()->void:
@@ -420,6 +417,7 @@ func exitlevel()->void:
 	get_parent().get_parent().current_time=get_parent().current_time
 	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
+	get_node("Shotgun").visible=false
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
 	position=pos
@@ -460,7 +458,8 @@ func death(direciton: bool)->void:
 		corpse.push_v=100.0
 		corpse.friction=2.0
 	corpse.spikes=spike_death
-	
+	corpse.get_node("Camera2D").limit_right=get_node("Camera2D").limit_right
+	corpse.get_node("Camera2D").limit_bottom=get_node("Camera2D").limit_bottom
 	if(burned_death):
 		corpse.get_node("Sprite").modulate.r=0.26
 		corpse.get_node("Sprite").modulate.g=0.19

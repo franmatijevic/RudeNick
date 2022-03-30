@@ -8,6 +8,8 @@ var item4
 var dir:=false
 var purchased:int=0
 
+var very_angry:=false
+
 func _ready() -> void:
 	if(dir):
 		get_node("Wood4/ItemInShop").position.x*=-1
@@ -59,13 +61,15 @@ func create_items()->void:
 	item3.position.y=0.0
 	item3.name="item3"
 	add_child(item3)
-	chance=randi()%5
+	chance=randi()%6+3
 	if(chance<2):
 		item4=preload("res://src/Items/BuyRope.tscn").instance()
 	elif(chance<4):
 		item4=preload("res://src/Items/BuyBomb.tscn").instance()
-	else:
+	elif(chance<5):
 		item4=preload("res://src/Items/BuyBeans.tscn").instance()
+	else:
+		item4=preload("res://src/Items/Cure.tscn").instance()
 	item4.position.y=0.0
 	if(!dir):
 		item4.position.x=32
@@ -77,7 +81,10 @@ func create_items()->void:
 func get_mad()->void:
 	if(has_node("Welcome")):
 		get_node("Welcome").queue_free()
-	get_node("/root/Game").shop_angry=5
+	if(very_angry):
+		get_node("/root/Game").shop_angry=5
+	else:
+		get_node("/root/Game").shop_angry=2
 	get_node("Mole").angry=true
 	$DetectDanger.queue_free()
 	if(has_node("Wood4/ItemInShop")):

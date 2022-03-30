@@ -55,32 +55,32 @@ position = Vector2( 24, 56 )
 
 [node name="Background1" type="Sprite" parent="."]
 position = Vector2( 160, 160 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 543, 160 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Background3" type="Sprite" parent="."]
 position = Vector2( 926, 160 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Background4" type="Sprite" parent="."]
 position = Vector2( 160, 544 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Background5" type="Sprite" parent="."]
 position = Vector2( 543, 544 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Background6" type="Sprite" parent="."]
 position = Vector2( 926, 544 )
-z_index = -10
+z_index = -11
 texture = ExtResource( 2 )
 
 [node name="BlackScreen" type="Node2D" parent="."]
@@ -103,3 +103,18 @@ pause_mode = 2
 stream = ExtResource( 7 )
 volume_db = -40.0
 autoplay = true
+
+[node name="Background7" type="Sprite" parent="."]
+position = Vector2( 160, 928 )
+z_index = -11
+texture = ExtResource( 2 )
+
+[node name="Background8" type="Sprite" parent="."]
+position = Vector2( 543, 928 )
+z_index = -11
+texture = ExtResource( 2 )
+
+[node name="Background9" type="Sprite" parent="."]
+position = Vector2( 926, 928 )
+z_index = -11
+texture = ExtResource( 2 )

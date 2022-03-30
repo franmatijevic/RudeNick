@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whip1.png-ca9b286d701aeabafd7da8213a07f910.stex"
+path="res://.import/spike_blood_1.png-52802e0cc27aef755f3d7a9acc84c2ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/whip1.png"
-dest_files=[ "res://.import/whip1.png-ca9b286d701aeabafd7da8213a07f910.stex" ]
+source_file="res://Assets/Enviroment/spike_blood_1.png"
+dest_files=[ "res://.import/spike_blood_1.png-52802e0cc27aef755f3d7a9acc84c2ad.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

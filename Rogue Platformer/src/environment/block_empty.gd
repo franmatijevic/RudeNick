@@ -90,7 +90,7 @@ func build_thing()->void:
 		else:
 			var generate_gold=randi()%money
 			if(generate_gold<27):
-				var value=randi()%879 + add*high_drop
+				var value=randi()%750 + add*high_drop
 				if(value<350):
 					var gold=preload("res://src/Collectable/Gold1.tscn").instance()
 					gold.position.x=position.x
@@ -123,6 +123,8 @@ func build_thing()->void:
 					get_parent().add_child(gold)
 				else:
 					var gold=preload("res://src/Collectable/Crate.tscn").instance()
+					if(randi()%3==0):
+						gold=preload("res://src/Collectable/Chest.tscn").instance()
 					gold.position.x=position.x
 					gold.position.y=position.y-16
 					get_parent().add_child(gold)
@@ -217,6 +219,30 @@ func build_thing()->void:
 	get_parent().add_child(blok)
 	queue_free()
 
+func add_money()->void:
+	var value=randi()%7
+	if(value!=0):
+		return
+	value=randi()%25
+	if(value<5):
+		blok.money="min"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/gold_tile_min.png")
+	elif(value<11):
+		blok.money="mid"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/gold_tile_mid.png")
+	elif(value<16):
+		blok.money="max"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/gold_tile_max.png")
+	elif(value<20):
+		blok.money="emerald"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/emerald_underground.png")
+	elif(value<23):
+		blok.money="sapphire"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/sapphire_underground.png")
+	else:
+		blok.money="ruby"
+		blok.get_node("Money").texture=load("res://Assets/Blocks/ruby_underground.png")
+
 func wait()->void:
 	var time_in_seconds = 1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
@@ -225,6 +251,7 @@ func wait()->void:
 
 func _physics_process(delta: float) -> void:
 	build_thing()
+	add_money()
 	var what
 	randomize()
 	what=randi()%n_boneblock

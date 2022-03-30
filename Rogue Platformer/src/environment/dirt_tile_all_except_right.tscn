@@ -21,3 +21,5 @@ shape = SubResource( 1 )
 
 [node name="DirtParticles" parent="." instance=ExtResource( 2 )]
 position = Vector2( -0.0949631, -0.334026 )
+
+[node name="Money" type="Sprite" parent="."]

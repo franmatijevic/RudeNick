@@ -18,17 +18,13 @@ func _ready() -> void:
 			velocity.x-=push
 			velocity.y-=push_v
 	else:
-		gravity/=8
+		gravity/=35
 		slow_blood()
 
 func slow_blood()->void:
-	var blood=preload("res://src/Other/Blood.tscn").instance()
-	#blood.position=position
-	#blood.global_position=global_position
-	blood.lenght=3
-	blood.get_node("Particles2D").amount=30
-	blood.get_node("Particles2D").explosiveness=0.35
-	get_parent().add_child(blood)
+	$Blood.lenght=5
+	$Blood.get_node("Particles2D").amount=60
+	$Blood.get_node("Particles2D").explosiveness=0.2
 
 func _physics_process(delta: float) -> void:
 	move_and_slide(velocity)

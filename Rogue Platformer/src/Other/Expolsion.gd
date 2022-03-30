@@ -11,6 +11,7 @@ func _on_KillBeings_body_entered(body: Node) -> void:
 				body.death(false)
 		else:
 			body.health=body.health-5
+			body.stunned()
 	else:
 		body.death()
 

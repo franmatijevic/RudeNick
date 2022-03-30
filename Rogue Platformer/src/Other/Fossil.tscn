@@ -9,24 +9,24 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "an2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "an4",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": false,
 "name": "an1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "an2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "an3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "an4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -42,7 +42,6 @@ animations = [ {
 
 [node name="Fossil" type="Node2D"]
 z_index = -9
-z_as_relative = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.490196 )

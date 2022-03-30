@@ -3,16 +3,19 @@ extends "res://src/Actors/Actor.gd"
 export var max_jump:=200
 
 var angry:=false
+var idle_angry:=false
+
 var haty_down:=0.0
 var haty_up:=0.0
 var haty_down_later=0.0
 var hat_n:bool=false
-var health:int=5
+var health:int=6
 
 var last_damage="Mole"
 
 var turn_to_player:bool=false
 var can_shoot:bool=true
+var look_around_idle:=false
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	if(body.global_position.y<global_position.y and !body.if_stunned):
@@ -42,6 +45,9 @@ func _on_DamagePlayer_body_entered(body: Node) -> void:
 				body.damage(1)
 
 func _on_Whip_area_entered(area: Area2D) -> void:
+	if(health==1):
+		death()
+	
 	if(!angry):
 		get_parent().get_mad()
 	health=health-1
@@ -51,9 +57,27 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 	blood.get_node("Particles2D").amount=int(25)
 	add_child(blood)
 
+func _on_IdlePlayer_body_entered(body: Node) -> void:
+	angry=true
+	idle_angry=false
+	get_node("IdlePlayer").monitoring=false
+	haty_down=haty_down_later
+	haty_up=haty_down_later+1
+	get_node("AnimatedSprite").animation="walking"
+	if(body.global_position.x>global_position.x):
+		velocity.x=speed.x
+	else: 
+		velocity.x=-speed.x
+	get_node("DetectPlayer").monitoring=true
+	get_node("DamagePlayer").monitoring=true
+	get_node("GunSight").enabled=true
+
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
 	get_node("Shotgun").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
+	if(idle_angry):
+		get_node("Shotgun").visible=true
+		get_node("AnimatedSprite").animation="idle"
 	var pickhat=randi()%2
 	var hat = get_node("AnimatedSprite/Hats")
 	match pickhat:
@@ -126,6 +150,8 @@ func _process(delta: float) -> void:
 			get_node("AnimatedSprite/Hats").position.y=haty_up
 		else:
 			get_node("AnimatedSprite/Hats").position.y=haty_down
+	elif(idle_angry):
+		idle_look_around()
 	else:
 		if(get_node("AnimatedSprite").frame==0):
 			get_node("AnimatedSprite/Hats").position.y=haty_down_later+1
@@ -143,7 +169,7 @@ func _process(delta: float) -> void:
 			get_node("Shotgun").set_flip_h(true)
 
 func _physics_process(delta: float) -> void:
-	if(angry):
+	if(angry and !idle_angry):
 		if(is_on_wall()):
 			velocity.x=-velocity.x
 		if(get_node("/root/Game/World").has_node("Player")):
@@ -153,6 +179,13 @@ func _physics_process(delta: float) -> void:
 		if($GunSight.is_colliding() and can_shoot):
 			shoot()
 	velocity.y = move_and_slide(velocity, Vector2.UP*gravity*delta).y
+
+func idle_look_around()->void:
+	if(!look_around_idle):
+		look_around_idle=true
+		yield(get_tree().create_timer(9), "timeout")
+		get_node("AnimatedSprite").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
+		look_around_idle=false
 
 
 func damage(value: int)->void:

@@ -24,6 +24,7 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 var current_time:=0.0
 
 var alter:=false
+var shop_angry:int=0
 
 var end_right=4
 var end_down=4
@@ -89,7 +90,7 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
-	var shop=randi()%1
+	var shop=randi()%6
 	
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -97,7 +98,7 @@ func _init()->void:
 	var n_of_shops:int=0
 	var where_shop
 	
-	if(shop==0):
+	if(shop==0 and shop_angry<1):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -159,10 +160,7 @@ func _init()->void:
 				8:
 					create_dungeon(i,j)
 				9:
-					array[i][j]=preload("res://src/levelPieces/exit1.tscn").instance()
-					array[i][j].global_position.x=80 + j * 160
-					array[i][j].global_position.y=64 + i * 128
-					add_child(array[i][j])
+					create_exit(i,j)
 				0:
 					create_side_room(i,j)
 	add_child(frame)
@@ -176,6 +174,17 @@ func _ready() -> void:
 		get_node("Kanvas/UI").print_something("It looks like a long way down...")
 	if(end_right==5):
 		get_node("Kanvas/UI").print_something("My voice ecos in here...")
+	if(get_parent().shop_angry>0):
+		for i in range(end_down):
+			for j in range(end_right):
+				if(array[i][j].has_node("exit")):
+					get_parent().shop_angry-=1
+					var mole=preload("res://src/Actors/Mole.tscn").instance()
+					mole.idle_angry=true
+					mole.get_node("IdlePlayer").monitoring=true
+					mole.position=array[i][j].get_node("exit").position
+					array[i][j].add_child(mole)
+
 
 func _process(delta: float) -> void:
 	if(has_node("Player")):
@@ -186,6 +195,18 @@ func _process(delta: float) -> void:
 		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
 	else:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
+
+func create_exit(i:int, j:int)->void:
+	match randi()%3:
+		0:
+			array[i][j]=preload("res://src/levelPieces/exit1.tscn").instance()
+		1:
+			array[i][j]=preload("res://src/levelPieces/exit2.tscn").instance()
+		2:
+			array[i][j]=preload("res://src/levelPieces/exit3.tscn").instance()
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
+	add_child(array[i][j])
 
 func create_dungeon(i: int, j:int)->void:
 	match randi()%1:
@@ -274,7 +295,7 @@ func create_dropdown(i:int, j:int)->void:
 
 func create_hallway(i:int, j:int) ->void:
 	randomize()
-	var room=randi()%10
+	var room=randi()%11
 	match room:
 		0:
 			array[i][j]=preload("res://src/levelPieces/hallway1.tscn").instance()
@@ -296,6 +317,8 @@ func create_hallway(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/hallway4.tscn").instance()
 		9:
 			array[i][j]=preload("res://src/levelPieces/hallwaydrop3.tscn").instance()
+		10:
+			array[i][j]=preload("res://src/levelPieces/Bridge.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2

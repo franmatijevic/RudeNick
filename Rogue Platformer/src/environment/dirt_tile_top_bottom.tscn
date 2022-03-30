@@ -21,3 +21,5 @@ position = Vector2( -0.0531521, -0.0442238 )
 
 [node name="Dirt" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+
+[node name="Money" type="Sprite" parent="."]
