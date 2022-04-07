@@ -81,7 +81,6 @@ func _on_EnemyDetector_area_entered(area: Area2D) -> void:
 		enemy_jump()
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
-	_on_Player_draw()
 	if(!iframes_on):
 		last_damage=body.last_damage
 		var blood=preload("res://src/Other/Blood.tscn").instance()
@@ -104,7 +103,24 @@ func _on_Boss_area_entered(area: Area2D) -> void:
 			death(knock)
 		damage(2)
 
+var high:=999.0
+var sky:=false
+
 func _process(delta: float) -> void:
+	if(!is_on_floor() and !sky):
+		high=global_position.y
+		sky=true
+	if(velocity.y<0.0 and !sky):
+		high=global_position.y
+		sky=true
+	if(sky and is_on_floor()):
+		sky=false
+		if(global_position.y-high>16*7):
+			if(health==1):
+				death(true)
+			damage(1)
+			last_damage="fall"
+			stunned()
 	var ui = get_parent().get_node("Kanvas").get_node("UI")
 	ui.get_node("health").text=str(health)
 	ui.get_node("money").text=str(money*100)
@@ -151,7 +167,7 @@ func _process(delta: float) -> void:
 			velocity.y=-speed.y
 		speed.x=slowed_speed
 		speed.y=slowed_jump
-	elif(is_running and !poisoned):
+	elif(is_running):
 		speed.x=run_speed
 		speed.y=normal_jump
 	else:
@@ -240,6 +256,7 @@ func _physics_process(delta: float) -> void:
 		look_down=false
 	
 	if(climbing):
+		sky=false
 		if(Input.is_action_just_pressed("move_left") and !is_attacking): smjer=true
 		if(Input.is_action_just_pressed("move_right") and !is_attacking): smjer=false
 		if(!move_up and !move_down): velocity.y=0
@@ -287,7 +304,6 @@ func damage(value:int)->void:
 	velocity.x=0.0
 	ledge_grab=false
 	health-=value
-	_on_Player_draw()
 	ledge_grab=false
 	iframes()
 	treperenje()
@@ -314,9 +330,19 @@ func stunned()->void:
 	knock_v=0
 
 func poison()->void:
+	if(get_parent().poison_time==0.0):
+		get_parent().poison_time=int(get_parent().current_time)
 	poisoned=true
-	get_parent().get_node("Kanvas/UI/Poison").visible=true
+	get_node("AnimatedSprite").modulate.r=0.27
+	get_node("AnimatedSprite").modulate.g=0.51
+	get_node("AnimatedSprite").modulate.b=0.20
+	#get_parent().get_node("Kanvas/UI/Poison").visible=true
 
+func cure()->void:
+	poisoned=false
+	get_node("AnimatedSprite").modulate.r=1
+	get_node("AnimatedSprite").modulate.g=1
+	get_node("AnimatedSprite").modulate.b=1
 
 func ladder()->void:
 	climbing=true
@@ -329,6 +355,7 @@ func ladder()->void:
 func hold_ledge()->void:
 	if(!$LedgeY.is_colliding() and !is_on_floor()):
 		if(velocity.y>0 and !move_down or velocity.y<0 and move_down):
+			sky=false
 			if(!ledge_grab): 
 				if(!smjer): set_global_position(Vector2($LedgeX.get_collider().get_global_position().x-12, $LedgeX.get_collider().get_global_position().y))
 				else: set_global_position(Vector2($LedgeX.get_collider().get_global_position().x+12, $LedgeX.get_collider().get_global_position().y))
@@ -342,6 +369,8 @@ func action()-> void:
 	if(smjer==false): k=1
 	else: k=-1
 	if(shotgun>0):
+		if(shotgun==1):
+			get_parent().get_node("Kanvas/UI").print_something("My shotgun broke.")
 		velocity.x+=-k*100
 		var bullet=preload("res://src/Other/Bullet.tscn").instance()
 		bullet.position=position
@@ -408,6 +437,7 @@ func treperenje()->void:
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func exitlevel()->void:
+	iframes_on=true
 	get_parent().get_parent().player_health=health
 	get_parent().get_parent().player_money=money
 	get_parent().get_parent().player_rope=rope
@@ -418,6 +448,7 @@ func exitlevel()->void:
 	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
 	get_node("Shotgun").visible=false
+	get_node("Shotgun").position.x=-200
 	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
 	pos.y=pos.y+8
 	position=pos
@@ -475,14 +506,9 @@ func death(direciton: bool)->void:
 	queue_free()
 
 func enemy_jump()->void:
+	sky=false
 	climbing=false
 	using_gravity=1
 	move_horizontal=1
 	velocity = calculate_stomp_velocity(velocity, stomp_impulse)
 
-func _on_Player_draw() -> void:
-	pass
-	#get_node("Kanvas").get_node("Label").text = str(health)
-	#get_node("Kanvas").get_node("Label2").text = str(money*100)
-	#get_parent().get_node("UI").get_node("Label").text = str(health)
-	#get_parent().get_node("UI").get_node("Label2").text = str(money*100)

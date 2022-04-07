@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/Spikes.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/environment/BoneBlock.tscn" type="PackedScene" id=3]
 
 [node name="SpikesDropDown" type="Node2D"]
 
@@ -49,15 +50,19 @@ position = Vector2( 40, 40 )
 
 [node name="KinematicBody2D19" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, 40 )
+n_boneblock = -1
 
 [node name="KinematicBody2D20" parent="." instance=ExtResource( 1 )]
 position = Vector2( -24, 24 )
+n_boneblock = -1
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 1 )]
 position = Vector2( 8, 40 )
+n_boneblock = -1
 
 [node name="KinematicBody2D22" parent="." instance=ExtResource( 1 )]
 position = Vector2( 24, 24 )
+n_boneblock = -1
 
 [node name="Spikes" parent="." instance=ExtResource( 2 )]
 position = Vector2( -8, 24 )
@@ -70,3 +75,15 @@ position = Vector2( -24, 8 )
 
 [node name="Spikes4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 24, 8 )
+
+[node name="BoneBlock" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, -24 )
+
+[node name="BoneBlock2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -24, -24 )
+
+[node name="BoneBlock3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, -24 )
+
+[node name="BoneBlock4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, -24 )

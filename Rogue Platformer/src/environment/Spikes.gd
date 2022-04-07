@@ -10,6 +10,8 @@ func _on_Player_body_entered(body: Node) -> void:
 		get_node("Blood1").visible=true
 		get_node("Blood2").visible=true
 
+func destroy()->void:
+	queue_free()
 
 func _on_Enemy_body_entered(body: Node) -> void:
 	if(!body.is_on_floor() and body.velocity.y>0.0):

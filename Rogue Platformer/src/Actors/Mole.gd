@@ -17,6 +17,8 @@ var turn_to_player:bool=false
 var can_shoot:bool=true
 var look_around_idle:=false
 
+var can_move:int=1
+
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	if(body.global_position.y<global_position.y and !body.if_stunned):
 		if(velocity.y<0):
@@ -58,6 +60,9 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 	add_child(blood)
 
 func _on_IdlePlayer_body_entered(body: Node) -> void:
+	if(get_parent().name=="Shop"):
+		get_parent().make_free()
+	
 	angry=true
 	idle_angry=false
 	get_node("IdlePlayer").monitoring=false
@@ -78,6 +83,8 @@ func _ready() -> void:
 	if(idle_angry):
 		get_node("Shotgun").visible=true
 		get_node("AnimatedSprite").animation="idle"
+		if(get_parent().name=="Shop"):
+			get_parent().get_node("Welcome").monitoring=false
 	var pickhat=randi()%2
 	var hat = get_node("AnimatedSprite/Hats")
 	match pickhat:
@@ -178,7 +185,7 @@ func _physics_process(delta: float) -> void:
 		
 		if($GunSight.is_colliding() and can_shoot):
 			shoot()
-	velocity.y = move_and_slide(velocity, Vector2.UP*gravity*delta).y
+	velocity.y = move_and_slide(velocity*can_move, can_move*Vector2.UP*gravity*delta).y
 
 func idle_look_around()->void:
 	if(!look_around_idle):
@@ -230,6 +237,7 @@ func look_for_player()->void:
 
 func death()->void:
 	get_node("/root/Game").shop_angry=0
+	print("now is angry 0")
 	get_node("DamagePlayer").queue_free()
 	get_node("DetectPlayer").queue_free()
 	var blood=preload("res://src/Other/Blood.tscn").instance()
@@ -249,3 +257,11 @@ func flash_damage()->void:
 		time_in_seconds = 0.1
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 	modulate.a=1
+
+
+func _on_Web_body_entered(body: Node) -> void:
+	can_move=0
+
+
+func _on_Web_body_exited(body: Node) -> void:
+	can_move=1

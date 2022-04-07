@@ -4,8 +4,6 @@ var last:String=""
 
 func _ready() -> void:
 	pass
-	if(get_node("/root/Game").poisoned):
-		get_node("Poison").visible=true
 
 func print_something(text: String)->void:
 	last=text

@@ -15,19 +15,26 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 #Start with dropdown = 5
 #Hallway = 1
 #Dropdown = 2
-#Critical path > 0
 #End of level = 9
 #Side tile = 0
 #shop = 7
 #Dungeon = 8
 
+#Lair left = 10
+#Lair right = 11
+
+
 var current_time:=0.0
+
+var poison_time:float=0.0
 
 var alter:=false
 var shop_angry:int=0
 
 var end_right=4
 var end_down=4
+
+var lair_dir:=false
 
 func _init()->void:
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
@@ -91,13 +98,12 @@ func _init()->void:
 					polje[i+1][j]=6
 	
 	var shop=randi()%6
-	
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
-	
+	print(shop_angry)
 	if(shop==0 and shop_angry<1):
 		for i in range(end_down):
 			for j in range(end_right):
@@ -116,7 +122,7 @@ func _init()->void:
 			polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
 	
 	#Dungeon spawn rate
-	if(randi()%2==0):
+	if(randi()%200==0):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -131,14 +137,71 @@ func _init()->void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
+	elif(randi()%1==0): #Lair spawn rate
+		var n=0
+		for i in range(end_down):
+			for j in range(end_right-1):
+				if(polje[i][j]==0 and polje[i][j+1]==0 and i!=0):
+					if(polje[i-1][j]==1 or polje[i-1][j+1]==1 or polje[i-1][j]==6 or polje[i-1][j+1]==6 or polje[i-1][j]==4 or polje[i-1][j+1]==4):
+						n=n+1
+		print("broj mjesta: ", n)
+		if(n!=0):
+			var choice=randi()%n
+			var track=0
+			for i in range(end_down):
+				for j in range(end_right-1):
+					if(polje[i][j]==0 and polje[i][j+1]==0 and i!=0):
+						if(polje[i-1][j]==1 or polje[i-1][j+1]==1  or polje[i-1][j]==6 or polje[i-1][j+1]==6 or polje[i-1][j]==4 or polje[i-1][j+1]==4):
+							if(track==choice):
+								polje[i][j]=10
+								polje[i][j+1]=99
+								
+								if(polje[i-1][j]==4 and polje[i-1][j+1]==0):
+									polje[i-1][j]==5
+									print("start lijevo")
+								elif(polje[i-1][j]==4 and polje[i-1][j+1]==1):
+									polje[i-1][j+1]==2
+									lair_dir=true
+									print("start desno")
+								elif(polje[i-1][j]==0 and polje[i-1][j+1]==4):
+									polje[i-1][j+1]==5
+									print("0 pa 4")
+								elif(polje[i-1][j]==1 and polje[i-1][j+1]==4):
+									polje[i-1][j]==2
+									lair_dir=true
+									print("1 pa 4")
+								elif((polje[i-1][j]==1 or polje[i-1][j]==6) and (polje[i-1][j+1]==1 or polje[i-1][j+1]==6)):
+									print("oboje")
+									if(randi()%2+1==0):
+										polje[i-1][j]=2
+										print("oboje ali lijevo")
+									else:
+										polje[i-1][j+1]=2
+										lair_dir=true
+										print("oboje ali desno")
+								elif(polje[i-1][j]==1 or polje[i-1][j]==6):
+									polje[i-1][j]=2
+									print("samo lijevo")
+								elif(polje[-1][j+1]==1 or polje[i-1][j+1]==6):
+									print("samo desno")
+									polje[i-1][j+1]=2
+									lair_dir=true
+								else:
+									print("sranje")
+							track=track+1
+	for i in range(4):
+		print(polje[i])
 	
-	var frame=preload("res://src/environment/Frame.tscn").instance()
+	var frame
+	if(end_right==4):
+		if(end_down==4):
+			frame=preload("res://src/environment/Frame.tscn").instance()
+		else:
+			frame=preload("res://src/environment/Frame4x8.tscn").instance()
+	else:
+		frame=preload("res://src/environment/Frame5x5.tscn").instance()
 	frame.position.x=0
 	frame.position.y=0
-	frame.scale.x/=4
-	frame.scale.x*=end_right
-	frame.scale.y/=4
-	frame.scale.y*=end_down
 	for i in range(end_down):
 		for j in range(end_right):
 			match polje[i][j]:
@@ -163,6 +226,8 @@ func _init()->void:
 					create_exit(i,j)
 				0:
 					create_side_room(i,j)
+				10:
+					create_lair(i,j)
 	add_child(frame)
 
 
@@ -189,12 +254,31 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(has_node("Player")):
 		current_time=current_time+delta
+		if(get_node("Player").poisoned and int(current_time)!=0 and int(current_time)%30==0 and !get_node("Player").iframes_on and current_time-poison_time>poison_time+1):
+			if(get_node("Player").health==1):
+				get_node("Player").last_damage="Poison"
+				get_node("Player").spike_death=true
+				get_node("Player").death(true)
+			else:
+				get_node("Player").damage(1)
 	var minutes=floor(current_time/60.0)
 	var seconds=int(current_time)%60
 	if(seconds>9):
 		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
 	else:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
+
+func create_lair(i: int, j:int)->void:
+	print("Lair")
+	array[i][j]=preload("res://src/levelPieces/LairLeft.tscn").instance()
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
+	if(lair_dir):
+		print("flipped")
+		array[i][j].global_position.x+=160
+		for _i in array[i][j].get_children():
+			_i.position.x=-_i.position.x
+	add_child(array[i][j])
 
 func create_exit(i:int, j:int)->void:
 	match randi()%3:
@@ -363,6 +447,9 @@ func add_player()->void:
 	player.global_position.y=34
 	player.get_node("Camera2D").limit_right+=(end_right-4)*160
 	player.get_node("Camera2D").limit_bottom+=(end_down-4)*128
+	player.poisoned=get_parent().poisoned
+	
+	
 	add_child(player)
 
 func create_decorations()->void:

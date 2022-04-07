@@ -37,3 +37,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x=0.0
 	if(is_on_ceiling() and velocity.y<0.0):
 		velocity.y=0.0
+
+
+func _on_DetectSpikes_area_entered(area: Area2D) -> void:
+	velocity.x=0.0
+	velocity.y=0.0
+	gravity/=35

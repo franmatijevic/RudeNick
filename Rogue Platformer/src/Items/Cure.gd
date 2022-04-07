@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 
 func e()->void:
 	if(free):
-		get_parent().get_parent().get_node("Player").health+=2
+		get_parent().get_parent().get_node("Player").cure()
 		queue_free()
 	e=true
 	var time_in_seconds = 0.1
@@ -40,13 +40,15 @@ func buy()->void:
 	var player=get_parent().get_parent().get_node("Player")
 	if(player.money>price-1):
 		player.money-=price
-		player.poison=false
+		player.poisoned=false
+		player.cure()
 		get_parent().get_parent().get_node("Kanvas/UI/Poison").visible=false
 		get_parent().count_items()
 		queue_free()
 
 func get_for_free()->void:
-	get_parent().get_parent().get_node("Player").poison=false
+	get_parent().get_parent().get_node("Player").poisoned=false
+	get_parent().get_parent().get_node("Player").cure()
 	get_parent().get_parent().get_node("Kanvas/UI/Poison").visible=false
 	queue_free()
 

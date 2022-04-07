@@ -76,7 +76,7 @@ func build_thing()->void:
 		randomize()
 		var enemy=randi()%n_ground
 		if(enemy<groundenemy and n_ground>-1):
-			enemy=randi()%20
+			enemy=randi()%15
 			if(enemy==0):
 				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
 				groundenemy.position.x=global_position.x
@@ -222,6 +222,27 @@ func build_thing()->void:
 func add_money()->void:
 	var value=randi()%7
 	if(value!=0):
+		value=randi()%10
+		if(value!=0):
+			return
+		match randi()%8:
+			0:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_1.png")
+			1:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_2.png")
+			2:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_3.png")
+			3:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_4.png")
+			4:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_5.png")
+			5:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_6.png")
+			6:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_7.png")
+			7:
+				blok.get_node("Money").texture=load("res://Assets/Rocks/rock_underground_8.png")
+		
 		return
 	value=randi()%25
 	if(value<5):

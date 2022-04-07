@@ -62,4 +62,4 @@ shape = SubResource( 5 )
 [connection signal="area_entered" from="BlockDMG" to="." method="_on_BlockDMG_area_entered"]
 [connection signal="body_entered" from="BlockDMG" to="." method="_on_BlockDMG_body_entered"]
 [connection signal="body_entered" from="KillBeings" to="." method="_on_KillBeings_body_entered"]
-[connection signal="area_entered" from="DetectBoss" to="." method="_on_DetectBoss_area_entered"]
+[connection signal="body_entered" from="DetectBoss" to="." method="_on_DetectBoss_body_entered"]

@@ -27,6 +27,7 @@ collision_mask = 8
 script = ExtResource( 5 )
 
 [node name="White1X1" type="Sprite" parent="."]
+modulate = Color( 0.643137, 0.0941176, 0.894118, 1 )
 scale = Vector2( 8, 8 )
 texture = ExtResource( 1 )
 
@@ -37,6 +38,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Text" type="Node2D" parent="."]

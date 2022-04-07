@@ -14,6 +14,12 @@ func _ready() -> void:
 	if(dir):
 		get_node("Wood4/ItemInShop").position.x*=-1
 	create_items()
+	if(get_node("/root/Game").shop_angry>0):
+		get_node("Mole").idle_angry=true
+		get_node("Mole/IdlePlayer").monitoring=true
+		get_node("Mole/IdlePlayer").position=position
+		get_node("Mole/Shotgun").visible=true
+		get_node("Welcome").queue_free()
 
 func count_items()->void:
 	if(purchased==3):
@@ -28,48 +34,23 @@ func count_items()->void:
 	purchased+=1
 
 func create_items()->void:
-	var chance=randi()%5
-	if(chance<2):
-		item1=preload("res://src/Items/BuyRope.tscn").instance()
-	elif(chance<4):
-		item1=preload("res://src/Items/BuyBomb.tscn").instance()
-	else:
-		item1=preload("res://src/Items/BuyBeans.tscn").instance()
+	item1 = load(find_item()).instance()
 	item1.position.y=0.0
 	item1.position.x=16
 	item1.name="item1"
 	add_child(item1)
-	chance=randi()%5
-	if(chance<2):
-		item2=preload("res://src/Items/BuyRope.tscn").instance()
-	elif(chance<4):
-		item2=preload("res://src/Items/BuyBomb.tscn").instance()
-	else:
-		item2=preload("res://src/Items/BuyBeans.tscn").instance()
+	item2=load(find_item()).instance()
 	item2.position.y=0.0
 	item2.position.x=0
 	item2.name="item2"
 	add_child(item2)
-	chance=randi()%5
-	if(chance<2):
-		item3=preload("res://src/Items/BuyRope.tscn").instance()
-	elif(chance<4):
-		item3=preload("res://src/Items/BuyBomb.tscn").instance()
-	else:
-		item3=preload("res://src/Items/BuyBeans.tscn").instance()
+	item3=load(find_item()).instance()
 	item3.position.x=-16
 	item3.position.y=0.0
 	item3.name="item3"
 	add_child(item3)
-	chance=randi()%6+3
-	if(chance<2):
-		item4=preload("res://src/Items/BuyRope.tscn").instance()
-	elif(chance<4):
-		item4=preload("res://src/Items/BuyBomb.tscn").instance()
-	elif(chance<5):
-		item4=preload("res://src/Items/BuyBeans.tscn").instance()
-	else:
-		item4=preload("res://src/Items/Cure.tscn").instance()
+	
+	item4 = load(find_item()).instance()
 	item4.position.y=0.0
 	if(!dir):
 		item4.position.x=32
@@ -78,25 +59,32 @@ func create_items()->void:
 	item4.name="item4"
 	add_child(item4)
 
+func find_item()->String:
+	var chance=randi()%6
+	if(chance<2):
+		return "res://src/Items/BuyRope.tscn"
+	elif(chance<4):
+		return "res://src/Items/BuyBomb.tscn"
+	elif(chance<5):
+		return "res://src/Items/BuyBeans.tscn"
+	
+	return "res://src/Items/Cure.tscn"
+
 func get_mad()->void:
+	if(!has_node("Mole")):
+		return
+	if(has_node("DetectDanger")):
+		get_node("DetectDanger").queue_free()
 	if(has_node("Welcome")):
 		get_node("Welcome").queue_free()
 	if(very_angry):
+		print("now is angry 5")
 		get_node("/root/Game").shop_angry=5
 	else:
+		print("now is angry 2")
 		get_node("/root/Game").shop_angry=2
 	get_node("Mole").angry=true
-	$DetectDanger.queue_free()
-	if(has_node("Wood4/ItemInShop")):
-		get_node("Wood4/ItemInShop").queue_free()
-	if(has_node("item1")):
-		item1.free=true
-	if(has_node("item2")):
-		item2.free=true
-	if(has_node("item3")):
-		item3.free=true
-	if(has_node("item4")):
-		item4.free=true
+	make_free()
 	get_node("Mole").haty_down=get_node("Mole").haty_down_later
 	get_node("Mole").haty_up=get_node("Mole").haty_down_later+1
 	get_node("Mole/AnimatedSprite").animation="walking"
@@ -122,6 +110,20 @@ func get_mad()->void:
 			upset="You monster! It's over for you now!"
 	
 	get_parent().get_node("Kanvas/UI").print_something(upset)
+
+func make_free()->void:
+	if(has_node("DetectPlayer")):
+		$DetectDanger.queue_free()
+	if(has_node("Wood4/ItemInShop")):
+		get_node("Wood4/ItemInShop").queue_free()
+	if(has_node("item1")):
+		item1.free=true
+	if(has_node("item2")):
+		item2.free=true
+	if(has_node("item3")):
+		item3.free=true
+	if(has_node("item4")):
+		item4.free=true
 
 func steal_all()->void:
 	if(has_node("item1")):

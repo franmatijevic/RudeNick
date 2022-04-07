@@ -1,0 +1,3033 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/environment/dirt_tile_mid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/bedrock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Backgrounds/cobbletone (2).png" type="Texture" id=4]
+
+[node name="Frame4x8" type="Node2D"]
+
+[node name="Cobblestone" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Cobbletone(2)4" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 520 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)2" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)5" type="Sprite" parent="Cobblestone"]
+position = Vector2( 8, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)6" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)7" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)8" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)9" type="Sprite" parent="Cobblestone"]
+position = Vector2( 8, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)10" type="Sprite" parent="Cobblestone"]
+position = Vector2( 24, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)11" type="Sprite" parent="Cobblestone"]
+position = Vector2( 24, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)13" type="Sprite" parent="Cobblestone"]
+position = Vector2( 56, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)16" type="Sprite" parent="Cobblestone"]
+position = Vector2( 72, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)17" type="Sprite" parent="Cobblestone"]
+position = Vector2( 56, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)18" type="Sprite" parent="Cobblestone"]
+position = Vector2( 40, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)19" type="Sprite" parent="Cobblestone"]
+position = Vector2( 40, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)20" type="Sprite" parent="Cobblestone"]
+position = Vector2( 72, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)21" type="Sprite" parent="Cobblestone"]
+position = Vector2( 88, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)22" type="Sprite" parent="Cobblestone"]
+position = Vector2( 88, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)12" type="Sprite" parent="Cobblestone"]
+position = Vector2( 120, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)14" type="Sprite" parent="Cobblestone"]
+position = Vector2( 136, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)15" type="Sprite" parent="Cobblestone"]
+position = Vector2( 120, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)23" type="Sprite" parent="Cobblestone"]
+position = Vector2( 104, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)24" type="Sprite" parent="Cobblestone"]
+position = Vector2( 104, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)25" type="Sprite" parent="Cobblestone"]
+position = Vector2( 136, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)26" type="Sprite" parent="Cobblestone"]
+position = Vector2( 152, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)27" type="Sprite" parent="Cobblestone"]
+position = Vector2( 152, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)28" type="Sprite" parent="Cobblestone"]
+position = Vector2( 184, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)29" type="Sprite" parent="Cobblestone"]
+position = Vector2( 200, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)30" type="Sprite" parent="Cobblestone"]
+position = Vector2( 184, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)31" type="Sprite" parent="Cobblestone"]
+position = Vector2( 168, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)32" type="Sprite" parent="Cobblestone"]
+position = Vector2( 168, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)33" type="Sprite" parent="Cobblestone"]
+position = Vector2( 200, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)34" type="Sprite" parent="Cobblestone"]
+position = Vector2( 216, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)35" type="Sprite" parent="Cobblestone"]
+position = Vector2( 216, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)36" type="Sprite" parent="Cobblestone"]
+position = Vector2( 248, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)37" type="Sprite" parent="Cobblestone"]
+position = Vector2( 264, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)38" type="Sprite" parent="Cobblestone"]
+position = Vector2( 248, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)39" type="Sprite" parent="Cobblestone"]
+position = Vector2( 232, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)40" type="Sprite" parent="Cobblestone"]
+position = Vector2( 232, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)41" type="Sprite" parent="Cobblestone"]
+position = Vector2( 264, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)42" type="Sprite" parent="Cobblestone"]
+position = Vector2( 280, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)43" type="Sprite" parent="Cobblestone"]
+position = Vector2( 280, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)44" type="Sprite" parent="Cobblestone"]
+position = Vector2( 312, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)45" type="Sprite" parent="Cobblestone"]
+position = Vector2( 328, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)46" type="Sprite" parent="Cobblestone"]
+position = Vector2( 312, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)47" type="Sprite" parent="Cobblestone"]
+position = Vector2( 296, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)48" type="Sprite" parent="Cobblestone"]
+position = Vector2( 296, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)49" type="Sprite" parent="Cobblestone"]
+position = Vector2( 328, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)50" type="Sprite" parent="Cobblestone"]
+position = Vector2( 344, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)51" type="Sprite" parent="Cobblestone"]
+position = Vector2( 344, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)52" type="Sprite" parent="Cobblestone"]
+position = Vector2( 376, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)53" type="Sprite" parent="Cobblestone"]
+position = Vector2( 392, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)54" type="Sprite" parent="Cobblestone"]
+position = Vector2( 376, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)55" type="Sprite" parent="Cobblestone"]
+position = Vector2( 360, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)56" type="Sprite" parent="Cobblestone"]
+position = Vector2( 360, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)57" type="Sprite" parent="Cobblestone"]
+position = Vector2( 392, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)58" type="Sprite" parent="Cobblestone"]
+position = Vector2( 408, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)59" type="Sprite" parent="Cobblestone"]
+position = Vector2( 408, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)60" type="Sprite" parent="Cobblestone"]
+position = Vector2( 440, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)61" type="Sprite" parent="Cobblestone"]
+position = Vector2( 456, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)62" type="Sprite" parent="Cobblestone"]
+position = Vector2( 440, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)63" type="Sprite" parent="Cobblestone"]
+position = Vector2( 424, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)64" type="Sprite" parent="Cobblestone"]
+position = Vector2( 424, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)65" type="Sprite" parent="Cobblestone"]
+position = Vector2( 456, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)66" type="Sprite" parent="Cobblestone"]
+position = Vector2( 472, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)67" type="Sprite" parent="Cobblestone"]
+position = Vector2( 472, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)132" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)133" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)134" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)135" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)136" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 40 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)137" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 40 )
+z_index = 20
+z_as_relative = false
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)138" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 56 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)139" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 56 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)140" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 72 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)141" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 72 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)142" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 88 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)143" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 88 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)144" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 104 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)145" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 104 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)146" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 136 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)147" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 120 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)148" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 136 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)149" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 120 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)150" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 152 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)151" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 152 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)152" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 168 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)153" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 168 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)154" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 184 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)155" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 184 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)156" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 200 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)157" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 200 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)158" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 216 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)159" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 216 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)160" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 232 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)161" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 232 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)162" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 248 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)163" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 248 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)164" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 280 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)165" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 264 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)166" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 280 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)167" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 264 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)168" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 296 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)169" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 296 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)170" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 312 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)171" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 312 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)172" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 328 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)173" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 328 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)174" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 344 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)175" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 344 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)176" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 360 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)177" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 360 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)178" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 376 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)179" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 376 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)180" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 392 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)181" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 392 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)182" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 424 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)183" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 408 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)184" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 424 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)185" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 408 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)186" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 440 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)187" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 440 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)188" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 456 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)189" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 456 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)190" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 472 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)191" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 472 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)192" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 488 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)193" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 488 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)194" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 504 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)195" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 504 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)200" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)201" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)202" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)203" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)204" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 40 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)205" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 40 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)206" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 56 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)207" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 56 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)208" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 72 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)209" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 72 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)210" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 104 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)211" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 88 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)212" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 104 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)213" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 88 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)214" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 120 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)215" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 120 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)216" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 136 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)217" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 136 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)218" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 152 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)219" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 152 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)220" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 168 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)221" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 168 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)222" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 184 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)223" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 184 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)224" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 200 )
+scale = Vector2( 1, 0.992539 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)225" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 200 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)226" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 216 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)227" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 216 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)228" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 248 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)229" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 232 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)230" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 248 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)231" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 232 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)232" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 264 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)233" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 264 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)234" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 280 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)235" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 280 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)236" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 296 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)237" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 296 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)238" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 312 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)239" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 312 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)240" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 328 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)241" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 328 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)242" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 344 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)243" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 344 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)244" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 360 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)245" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 360 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)246" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 392 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)247" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 376 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)248" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 392 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)249" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 376 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)250" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 408 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)251" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 408 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)252" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 424 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)253" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 424 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)254" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 440 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)255" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 440 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)256" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 456 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)257" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 456 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)258" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 472 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)259" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 472 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)260" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 488 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)261" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 504 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)262" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 504 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)196" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)263" type="Sprite" parent="Cobblestone"]
+position = Vector2( 488, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)264" type="Sprite" parent="Cobblestone"]
+position = Vector2( 504, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)265" type="Sprite" parent="Cobblestone"]
+position = Vector2( 488, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)266" type="Sprite" parent="Cobblestone"]
+position = Vector2( 504, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)267" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)268" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)269" type="Sprite" parent="Cobblestone"]
+position = Vector2( 520, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)270" type="Sprite" parent="Cobblestone"]
+position = Vector2( 520, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)271" type="Sprite" parent="Cobblestone"]
+position = Vector2( 536, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)272" type="Sprite" parent="Cobblestone"]
+position = Vector2( 552, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)273" type="Sprite" parent="Cobblestone"]
+position = Vector2( 536, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)274" type="Sprite" parent="Cobblestone"]
+position = Vector2( 552, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)275" type="Sprite" parent="Cobblestone"]
+position = Vector2( 568, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)276" type="Sprite" parent="Cobblestone"]
+position = Vector2( 568, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)277" type="Sprite" parent="Cobblestone"]
+position = Vector2( 584, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)278" type="Sprite" parent="Cobblestone"]
+position = Vector2( 584, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)279" type="Sprite" parent="Cobblestone"]
+position = Vector2( 600, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)280" type="Sprite" parent="Cobblestone"]
+position = Vector2( 600, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)281" type="Sprite" parent="Cobblestone"]
+position = Vector2( 616, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)282" type="Sprite" parent="Cobblestone"]
+position = Vector2( 632, -8 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)283" type="Sprite" parent="Cobblestone"]
+position = Vector2( 616, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)284" type="Sprite" parent="Cobblestone"]
+position = Vector2( 632, -24 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)285" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 488 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)286" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 520 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)3" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 536 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)68" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 536 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)69" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 552 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)70" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 552 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)71" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 568 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)72" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 568 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)73" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 584 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)74" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 584 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)75" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 600 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)76" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 600 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)77" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 616 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)78" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 616 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)79" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 632 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)80" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 632 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)81" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 648 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)82" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 648 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)83" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 664 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)84" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 664 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)85" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 680 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)86" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 680 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)87" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 696 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)88" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 696 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)89" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 712 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)90" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 712 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)91" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 728 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)92" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 728 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)93" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 744 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)94" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 744 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)95" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 760 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)96" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 760 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)97" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 776 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)98" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 776 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)99" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 792 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)100" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 792 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)101" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 808 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)102" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 808 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)103" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 824 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)104" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 824 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)105" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 840 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)106" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 840 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)107" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 856 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)108" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 856 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)109" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 872 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)110" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 872 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)111" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 888 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)112" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 888 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)113" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 904 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)114" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 904 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)115" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 920 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)116" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 920 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)117" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 936 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)118" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 936 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)119" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 952 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)120" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 952 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)121" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 968 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)122" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 968 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)123" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 984 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)124" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 984 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)125" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 1000 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)126" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 1000 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)127" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 1016 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)128" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 1016 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)129" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 1032 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)130" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 1032 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)131" type="Sprite" parent="Cobblestone"]
+position = Vector2( 648, 1048 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)197" type="Sprite" parent="Cobblestone"]
+position = Vector2( 664, 1048 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)198" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 520 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)199" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 520 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)287" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 536 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)288" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 536 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)289" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 552 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)290" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 552 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)291" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 568 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)292" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 568 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)293" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 584 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)294" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 584 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)295" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 600 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)296" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 600 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)297" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 616 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)298" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 616 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)299" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 632 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)300" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 632 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)301" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 648 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)302" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 648 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)303" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 664 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)304" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 664 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)305" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 680 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)306" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 680 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)307" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 696 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)308" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 696 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)309" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 712 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)310" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 712 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)311" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 728 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)312" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 728 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)313" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 744 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)314" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 744 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)315" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 760 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)316" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 760 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)317" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 776 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)318" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 776 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)319" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 792 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)320" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 792 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)321" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 808 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)322" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 808 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)323" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 824 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)324" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 824 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)325" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 840 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)326" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 840 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)327" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 856 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)328" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 856 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)329" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 872 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)330" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 872 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)331" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 888 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)332" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 888 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)333" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 904 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)334" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 904 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)335" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 920 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)336" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 920 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)337" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 936 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)338" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 936 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)339" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 952 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)340" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 952 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)341" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 968 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)342" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 968 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)343" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 984 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)344" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 984 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)345" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 1000 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)346" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 1000 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)347" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 1016 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)348" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 1016 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)349" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 1032 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)350" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 1032 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)351" type="Sprite" parent="Cobblestone"]
+position = Vector2( -8, 1048 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)352" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 1032 )
+texture = ExtResource( 4 )
+
+[node name="Cobbletone(2)353" type="Sprite" parent="Cobblestone"]
+position = Vector2( -24, 1048 )
+texture = ExtResource( 4 )
+
+[node name="Dirt" type="Node2D" parent="."]
+position = Vector2( 16, 0 )
+z_index = 99
+
+[node name="KinematicBody2D" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, -24 )
+
+[node name="KinematicBody2D2" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, -8 )
+
+[node name="KinematicBody2D3" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 8 )
+
+[node name="KinematicBody2D4" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 24 )
+
+[node name="KinematicBody2D5" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 40 )
+
+[node name="KinematicBody2D6" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 56 )
+
+[node name="KinematicBody2D7" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 72 )
+
+[node name="KinematicBody2D8" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 88 )
+
+[node name="KinematicBody2D9" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 104 )
+
+[node name="KinematicBody2D10" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 120 )
+
+[node name="KinematicBody2D11" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 136 )
+
+[node name="KinematicBody2D12" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 152 )
+
+[node name="KinematicBody2D13" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 168 )
+
+[node name="KinematicBody2D14" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 184 )
+
+[node name="KinematicBody2D15" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 200 )
+
+[node name="KinematicBody2D16" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 216 )
+
+[node name="KinematicBody2D17" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 232 )
+
+[node name="KinematicBody2D18" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 248 )
+
+[node name="KinematicBody2D19" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 264 )
+
+[node name="KinematicBody2D20" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 280 )
+
+[node name="KinematicBody2D21" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 296 )
+
+[node name="KinematicBody2D22" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 312 )
+
+[node name="KinematicBody2D23" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 328 )
+
+[node name="KinematicBody2D24" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 344 )
+
+[node name="KinematicBody2D25" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 360 )
+
+[node name="KinematicBody2D26" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 376 )
+
+[node name="KinematicBody2D27" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 392 )
+
+[node name="KinematicBody2D28" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 408 )
+
+[node name="KinematicBody2D29" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 424 )
+
+[node name="KinematicBody2D30" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 440 )
+
+[node name="KinematicBody2D31" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 456 )
+
+[node name="KinematicBody2D32" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 472 )
+
+[node name="KinematicBody2D33" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 488 )
+
+[node name="KinematicBody2D34" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 504 )
+
+[node name="KinematicBody2D37" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, -24 )
+
+[node name="KinematicBody2D38" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, -8 )
+
+[node name="KinematicBody2D39" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 8 )
+
+[node name="KinematicBody2D40" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 24 )
+
+[node name="KinematicBody2D41" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 40 )
+
+[node name="KinematicBody2D42" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 56 )
+
+[node name="KinematicBody2D43" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 72 )
+
+[node name="KinematicBody2D44" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 88 )
+
+[node name="KinematicBody2D45" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 104 )
+
+[node name="KinematicBody2D46" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 120 )
+
+[node name="KinematicBody2D47" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 136 )
+
+[node name="KinematicBody2D48" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 152 )
+
+[node name="KinematicBody2D49" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 168 )
+
+[node name="KinematicBody2D50" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 184 )
+
+[node name="KinematicBody2D51" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 200 )
+
+[node name="KinematicBody2D52" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 216 )
+
+[node name="KinematicBody2D53" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 232 )
+
+[node name="KinematicBody2D54" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 248 )
+
+[node name="KinematicBody2D55" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 264 )
+
+[node name="KinematicBody2D56" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 280 )
+
+[node name="KinematicBody2D57" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 296 )
+
+[node name="KinematicBody2D58" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 312 )
+
+[node name="KinematicBody2D59" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 328 )
+
+[node name="KinematicBody2D60" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 344 )
+
+[node name="KinematicBody2D61" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 360 )
+
+[node name="KinematicBody2D62" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 376 )
+
+[node name="KinematicBody2D63" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 392 )
+
+[node name="KinematicBody2D64" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 408 )
+
+[node name="KinematicBody2D65" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 424 )
+
+[node name="KinematicBody2D66" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 440 )
+
+[node name="KinematicBody2D67" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 456 )
+
+[node name="KinematicBody2D68" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 472 )
+
+[node name="KinematicBody2D69" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 488 )
+
+[node name="KinematicBody2D70" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 504 )
+
+[node name="KinematicBody2D73" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -8, -24 )
+
+[node name="KinematicBody2D74" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 8, -24 )
+
+[node name="KinematicBody2D75" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -24, -24 )
+
+[node name="KinematicBody2D76" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 24, -24 )
+
+[node name="KinematicBody2D77" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 40, -24 )
+
+[node name="KinematicBody2D78" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 56, -24 )
+
+[node name="KinematicBody2D79" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 72, -24 )
+
+[node name="KinematicBody2D80" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 88, -24 )
+
+[node name="KinematicBody2D81" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 104, -24 )
+
+[node name="KinematicBody2D82" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 120, -24 )
+
+[node name="KinematicBody2D83" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 136, -24 )
+
+[node name="KinematicBody2D84" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 152, -24 )
+
+[node name="KinematicBody2D85" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 184, -24 )
+
+[node name="KinematicBody2D86" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 200, -24 )
+
+[node name="KinematicBody2D87" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 168, -24 )
+
+[node name="KinematicBody2D88" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 216, -24 )
+
+[node name="KinematicBody2D89" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 232, -24 )
+
+[node name="KinematicBody2D90" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 248, -24 )
+
+[node name="KinematicBody2D91" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 264, -24 )
+
+[node name="KinematicBody2D92" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 280, -24 )
+
+[node name="KinematicBody2D93" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 296, -24 )
+
+[node name="KinematicBody2D94" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 312, -24 )
+
+[node name="KinematicBody2D95" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 328, -24 )
+
+[node name="KinematicBody2D96" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 344, -24 )
+
+[node name="KinematicBody2D97" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 376, -24 )
+
+[node name="KinematicBody2D98" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 392, -24 )
+
+[node name="KinematicBody2D99" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 360, -24 )
+
+[node name="KinematicBody2D100" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 408, -24 )
+
+[node name="KinematicBody2D101" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 424, -24 )
+
+[node name="KinematicBody2D102" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 440, -24 )
+
+[node name="KinematicBody2D103" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 456, -24 )
+
+[node name="KinematicBody2D104" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 472, -24 )
+
+[node name="KinematicBody2D105" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 488, -24 )
+
+[node name="KinematicBody2D106" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 504, -24 )
+
+[node name="KinematicBody2D107" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 520, -24 )
+
+[node name="KinematicBody2D108" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 536, -24 )
+
+[node name="KinematicBody2D109" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 552, -24 )
+
+[node name="KinematicBody2D110" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 568, -24 )
+
+[node name="KinematicBody2D111" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 584, -24 )
+
+[node name="KinematicBody2D112" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 600, -24 )
+
+[node name="KinematicBody2D113" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 616, -24 )
+
+[node name="KinematicBody2D114" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 632, -24 )
+
+[node name="KinematicBody2D35" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 520 )
+
+[node name="KinematicBody2D36" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 536 )
+
+[node name="KinematicBody2D71" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 552 )
+
+[node name="KinematicBody2D72" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 568 )
+
+[node name="KinematicBody2D115" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 584 )
+
+[node name="KinematicBody2D116" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 600 )
+
+[node name="KinematicBody2D117" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 616 )
+
+[node name="KinematicBody2D118" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 632 )
+
+[node name="KinematicBody2D119" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 648 )
+
+[node name="KinematicBody2D120" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 664 )
+
+[node name="KinematicBody2D121" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 680 )
+
+[node name="KinematicBody2D122" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 696 )
+
+[node name="KinematicBody2D123" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 712 )
+
+[node name="KinematicBody2D124" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 728 )
+
+[node name="KinematicBody2D125" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 744 )
+
+[node name="KinematicBody2D126" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 760 )
+
+[node name="KinematicBody2D127" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 776 )
+
+[node name="KinematicBody2D128" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 792 )
+
+[node name="KinematicBody2D129" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 808 )
+
+[node name="KinematicBody2D130" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 824 )
+
+[node name="KinematicBody2D131" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 840 )
+
+[node name="KinematicBody2D132" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 856 )
+
+[node name="KinematicBody2D133" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 872 )
+
+[node name="KinematicBody2D134" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 888 )
+
+[node name="KinematicBody2D135" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 904 )
+
+[node name="KinematicBody2D136" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 920 )
+
+[node name="KinematicBody2D137" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 936 )
+
+[node name="KinematicBody2D138" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 952 )
+
+[node name="KinematicBody2D139" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 968 )
+
+[node name="KinematicBody2D140" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 984 )
+
+[node name="KinematicBody2D141" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 1000 )
+
+[node name="KinematicBody2D142" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 1016 )
+
+[node name="KinematicBody2D143" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 1032 )
+
+[node name="KinematicBody2D144" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -40, 1048 )
+
+[node name="KinematicBody2D145" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 520 )
+
+[node name="KinematicBody2D146" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 536 )
+
+[node name="KinematicBody2D147" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 552 )
+
+[node name="KinematicBody2D148" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 568 )
+
+[node name="KinematicBody2D149" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 584 )
+
+[node name="KinematicBody2D150" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 600 )
+
+[node name="KinematicBody2D151" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 616 )
+
+[node name="KinematicBody2D152" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 632 )
+
+[node name="KinematicBody2D153" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 648 )
+
+[node name="KinematicBody2D154" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 664 )
+
+[node name="KinematicBody2D155" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 680 )
+
+[node name="KinematicBody2D156" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 696 )
+
+[node name="KinematicBody2D157" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 712 )
+
+[node name="KinematicBody2D158" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 728 )
+
+[node name="KinematicBody2D159" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 744 )
+
+[node name="KinematicBody2D160" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 760 )
+
+[node name="KinematicBody2D161" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 776 )
+
+[node name="KinematicBody2D162" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 792 )
+
+[node name="KinematicBody2D163" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 808 )
+
+[node name="KinematicBody2D164" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 824 )
+
+[node name="KinematicBody2D165" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 840 )
+
+[node name="KinematicBody2D166" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 856 )
+
+[node name="KinematicBody2D167" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 872 )
+
+[node name="KinematicBody2D168" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 888 )
+
+[node name="KinematicBody2D169" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 904 )
+
+[node name="KinematicBody2D170" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 920 )
+
+[node name="KinematicBody2D171" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 936 )
+
+[node name="KinematicBody2D172" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 952 )
+
+[node name="KinematicBody2D173" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 968 )
+
+[node name="KinematicBody2D174" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 984 )
+
+[node name="KinematicBody2D175" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 1000 )
+
+[node name="KinematicBody2D176" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 1016 )
+
+[node name="KinematicBody2D177" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 1032 )
+
+[node name="KinematicBody2D178" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 648, 1048 )
+
+[node name="KinematicBody2D179" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -8, 1048 )
+
+[node name="KinematicBody2D180" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 8, 1048 )
+
+[node name="KinematicBody2D181" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 24, 1048 )
+
+[node name="KinematicBody2D182" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 40, 1048 )
+
+[node name="KinematicBody2D183" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 56, 1048 )
+
+[node name="KinematicBody2D184" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 72, 1048 )
+
+[node name="KinematicBody2D185" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 88, 1048 )
+
+[node name="KinematicBody2D186" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 104, 1048 )
+
+[node name="KinematicBody2D187" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 120, 1048 )
+
+[node name="KinematicBody2D188" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 136, 1048 )
+
+[node name="KinematicBody2D189" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 152, 1048 )
+
+[node name="KinematicBody2D190" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 184, 1048 )
+
+[node name="KinematicBody2D191" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 200, 1048 )
+
+[node name="KinematicBody2D192" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 168, 1048 )
+
+[node name="KinematicBody2D193" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 216, 1048 )
+
+[node name="KinematicBody2D194" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 232, 1048 )
+
+[node name="KinematicBody2D195" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 248, 1048 )
+
+[node name="KinematicBody2D196" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 264, 1048 )
+
+[node name="KinematicBody2D197" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 280, 1048 )
+
+[node name="KinematicBody2D198" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 296, 1048 )
+
+[node name="KinematicBody2D199" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 312, 1048 )
+
+[node name="KinematicBody2D200" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 328, 1048 )
+
+[node name="KinematicBody2D201" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 344, 1048 )
+
+[node name="KinematicBody2D202" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 376, 1048 )
+
+[node name="KinematicBody2D203" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 392, 1048 )
+
+[node name="KinematicBody2D204" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 360, 1048 )
+
+[node name="KinematicBody2D205" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 408, 1048 )
+
+[node name="KinematicBody2D206" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 424, 1048 )
+
+[node name="KinematicBody2D207" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 440, 1048 )
+
+[node name="KinematicBody2D208" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 456, 1048 )
+
+[node name="KinematicBody2D209" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 472, 1048 )
+
+[node name="KinematicBody2D210" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 488, 1048 )
+
+[node name="KinematicBody2D211" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 504, 1048 )
+
+[node name="KinematicBody2D212" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 520, 1048 )
+
+[node name="KinematicBody2D213" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 536, 1048 )
+
+[node name="KinematicBody2D214" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 552, 1048 )
+
+[node name="KinematicBody2D215" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 568, 1048 )
+
+[node name="KinematicBody2D216" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 584, 1048 )
+
+[node name="KinematicBody2D217" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 600, 1048 )
+
+[node name="KinematicBody2D218" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 616, 1048 )
+
+[node name="KinematicBody2D219" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( -24, 1048 )
+
+[node name="KinematicBody2D220" parent="Dirt" instance=ExtResource( 1 )]
+position = Vector2( 632, 1048 )
+
+[node name="KinematicBody2D157" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, -8 )
+z_index = 99
+
+[node name="KinematicBody2D158" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -8 )
+z_index = 99
+
+[node name="KinematicBody2D159" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, -8 )
+z_index = 99
+
+[node name="KinematicBody2D160" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, -8 )
+z_index = 99
+
+[node name="KinematicBody2D161" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, -8 )
+z_index = 99
+
+[node name="KinematicBody2D162" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, -8 )
+z_index = 99
+
+[node name="KinematicBody2D163" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, -8 )
+z_index = 99
+
+[node name="KinematicBody2D164" parent="." instance=ExtResource( 3 )]
+position = Vector2( 104, -8 )
+z_index = 99
+
+[node name="KinematicBody2D165" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, -8 )
+z_index = 99
+
+[node name="KinematicBody2D166" parent="." instance=ExtResource( 3 )]
+position = Vector2( 136, -8 )
+z_index = 99
+
+[node name="KinematicBody2D167" parent="." instance=ExtResource( 3 )]
+position = Vector2( 152, -8 )
+z_index = 99
+
+[node name="KinematicBody2D168" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, -8 )
+z_index = 99
+
+[node name="KinematicBody2D169" parent="." instance=ExtResource( 3 )]
+position = Vector2( 184, -8 )
+z_index = 99
+
+[node name="KinematicBody2D170" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, -8 )
+z_index = 99
+
+[node name="KinematicBody2D171" parent="." instance=ExtResource( 3 )]
+position = Vector2( 216, -8 )
+z_index = 99
+
+[node name="KinematicBody2D172" parent="." instance=ExtResource( 3 )]
+position = Vector2( 232, -8 )
+z_index = 99
+
+[node name="KinematicBody2D173" parent="." instance=ExtResource( 3 )]
+position = Vector2( 248, -8 )
+z_index = 99
+
+[node name="KinematicBody2D174" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, -8 )
+z_index = 99
+
+[node name="KinematicBody2D175" parent="." instance=ExtResource( 3 )]
+position = Vector2( 280, -8 )
+z_index = 99
+
+[node name="KinematicBody2D176" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, -8 )
+z_index = 99
+
+[node name="KinematicBody2D177" parent="." instance=ExtResource( 3 )]
+position = Vector2( 312, -8 )
+z_index = 99
+
+[node name="KinematicBody2D178" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, -8 )
+z_index = 99
+
+[node name="KinematicBody2D179" parent="." instance=ExtResource( 3 )]
+position = Vector2( 344, -8 )
+z_index = 99
+
+[node name="KinematicBody2D180" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, -8 )
+z_index = 99
+
+[node name="KinematicBody2D181" parent="." instance=ExtResource( 3 )]
+position = Vector2( 376, -8 )
+z_index = 99
+
+[node name="KinematicBody2D182" parent="." instance=ExtResource( 3 )]
+position = Vector2( 392, -8 )
+z_index = 99
+
+[node name="KinematicBody2D183" parent="." instance=ExtResource( 3 )]
+position = Vector2( 408, -8 )
+z_index = 99
+
+[node name="KinematicBody2D184" parent="." instance=ExtResource( 3 )]
+position = Vector2( 424, -8 )
+z_index = 99
+
+[node name="KinematicBody2D185" parent="." instance=ExtResource( 3 )]
+position = Vector2( 440, -8 )
+z_index = 99
+
+[node name="KinematicBody2D186" parent="." instance=ExtResource( 3 )]
+position = Vector2( 456, -8 )
+z_index = 99
+
+[node name="KinematicBody2D187" parent="." instance=ExtResource( 3 )]
+position = Vector2( 472, -8 )
+z_index = 99
+
+[node name="KinematicBody2D188" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488, -8 )
+z_index = 99
+
+[node name="KinematicBody2D189" parent="." instance=ExtResource( 3 )]
+position = Vector2( 504, -8 )
+z_index = 99
+
+[node name="KinematicBody2D190" parent="." instance=ExtResource( 3 )]
+position = Vector2( 520, -8 )
+z_index = 99
+
+[node name="KinematicBody2D191" parent="." instance=ExtResource( 3 )]
+position = Vector2( 536, -8 )
+z_index = 99
+
+[node name="KinematicBody2D192" parent="." instance=ExtResource( 3 )]
+position = Vector2( 552, -8 )
+z_index = 99
+
+[node name="KinematicBody2D193" parent="." instance=ExtResource( 3 )]
+position = Vector2( 568, -8 )
+z_index = 99
+
+[node name="KinematicBody2D194" parent="." instance=ExtResource( 3 )]
+position = Vector2( 584, -8 )
+z_index = 99
+
+[node name="KinematicBody2D195" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, -8 )
+z_index = 99
+
+[node name="KinematicBody2D196" parent="." instance=ExtResource( 3 )]
+position = Vector2( 616, -8 )
+z_index = 99
+
+[node name="KinematicBody2D197" parent="." instance=ExtResource( 3 )]
+position = Vector2( 632, -8 )
+z_index = 99
+
+[node name="KinematicBody2D198" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, -8 )
+z_index = 99
+
+[node name="KinematicBody2D241" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 8 )
+z_index = 99
+
+[node name="KinematicBody2D242" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 24 )
+z_index = 99
+
+[node name="KinematicBody2D243" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 40 )
+z_index = 99
+
+[node name="KinematicBody2D244" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 56 )
+z_index = 99
+
+[node name="KinematicBody2D245" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 72 )
+z_index = 99
+
+[node name="KinematicBody2D246" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 88 )
+z_index = 99
+
+[node name="KinematicBody2D247" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 104 )
+z_index = 99
+
+[node name="KinematicBody2D248" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 120 )
+z_index = 99
+
+[node name="KinematicBody2D249" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 136 )
+z_index = 99
+
+[node name="KinematicBody2D250" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 152 )
+z_index = 99
+
+[node name="KinematicBody2D251" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 168 )
+z_index = 99
+
+[node name="KinematicBody2D252" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 184 )
+z_index = 99
+
+[node name="KinematicBody2D253" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 200 )
+z_index = 99
+
+[node name="KinematicBody2D254" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 216 )
+z_index = 99
+
+[node name="KinematicBody2D255" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 232 )
+z_index = 99
+
+[node name="KinematicBody2D256" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 248 )
+z_index = 99
+
+[node name="KinematicBody2D257" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 264 )
+z_index = 99
+
+[node name="KinematicBody2D258" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 280 )
+z_index = 99
+
+[node name="KinematicBody2D259" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 296 )
+z_index = 99
+
+[node name="KinematicBody2D260" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 312 )
+z_index = 99
+
+[node name="KinematicBody2D261" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 328 )
+z_index = 99
+
+[node name="KinematicBody2D262" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 344 )
+z_index = 99
+
+[node name="KinematicBody2D263" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 360 )
+z_index = 99
+
+[node name="KinematicBody2D264" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 376 )
+z_index = 99
+
+[node name="KinematicBody2D265" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 392 )
+z_index = 99
+
+[node name="KinematicBody2D266" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 408 )
+z_index = 99
+
+[node name="KinematicBody2D267" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 424 )
+z_index = 99
+
+[node name="KinematicBody2D268" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 440 )
+z_index = 99
+
+[node name="KinematicBody2D269" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 456 )
+z_index = 99
+
+[node name="KinematicBody2D270" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 472 )
+z_index = 99
+
+[node name="KinematicBody2D271" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 488 )
+z_index = 99
+
+[node name="KinematicBody2D272" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 504 )
+z_index = 99
+
+[node name="KinematicBody2D273" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 8 )
+z_index = 99
+
+[node name="KinematicBody2D274" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 24 )
+z_index = 99
+
+[node name="KinematicBody2D275" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 40 )
+z_index = 99
+
+[node name="KinematicBody2D276" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 56 )
+z_index = 99
+
+[node name="KinematicBody2D277" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 72 )
+z_index = 99
+
+[node name="KinematicBody2D278" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 88 )
+z_index = 99
+
+[node name="KinematicBody2D279" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 104 )
+z_index = 99
+
+[node name="KinematicBody2D280" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 120 )
+z_index = 99
+
+[node name="KinematicBody2D281" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 136 )
+z_index = 99
+
+[node name="KinematicBody2D282" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 152 )
+z_index = 99
+
+[node name="KinematicBody2D283" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 168 )
+z_index = 99
+
+[node name="KinematicBody2D284" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 184 )
+z_index = 99
+
+[node name="KinematicBody2D285" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 200 )
+z_index = 99
+
+[node name="KinematicBody2D286" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 216 )
+z_index = 99
+
+[node name="KinematicBody2D287" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 232 )
+z_index = 99
+
+[node name="KinematicBody2D288" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 248 )
+z_index = 99
+
+[node name="KinematicBody2D289" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 264 )
+z_index = 99
+
+[node name="KinematicBody2D290" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 280 )
+z_index = 99
+
+[node name="KinematicBody2D291" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 296 )
+z_index = 99
+
+[node name="KinematicBody2D292" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 312 )
+z_index = 99
+
+[node name="KinematicBody2D293" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 328 )
+z_index = 99
+
+[node name="KinematicBody2D294" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 344 )
+z_index = 99
+
+[node name="KinematicBody2D295" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 360 )
+z_index = 99
+
+[node name="KinematicBody2D296" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 376 )
+z_index = 99
+
+[node name="KinematicBody2D297" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 392 )
+z_index = 99
+
+[node name="KinematicBody2D298" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 408 )
+z_index = 99
+
+[node name="KinematicBody2D299" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 424 )
+z_index = 99
+
+[node name="KinematicBody2D300" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 440 )
+z_index = 99
+
+[node name="KinematicBody2D301" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 456 )
+z_index = 99
+
+[node name="KinematicBody2D302" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 472 )
+z_index = 99
+
+[node name="KinematicBody2D303" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 488 )
+z_index = 99
+
+[node name="KinematicBody2D304" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 504 )
+z_index = 99
+
+[node name="Bedrock1" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -8, 520 )
+scale = Vector2( 1, 80 )
+
+[node name="Bedrock3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 328, -8 )
+scale = Vector2( 50, 1 )
+
+[node name="KinematicBody2D305" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 520 )
+z_index = 99
+
+[node name="KinematicBody2D306" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 536 )
+z_index = 99
+
+[node name="KinematicBody2D307" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 552 )
+z_index = 99
+
+[node name="KinematicBody2D308" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 568 )
+z_index = 99
+
+[node name="KinematicBody2D309" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 584 )
+z_index = 99
+
+[node name="KinematicBody2D310" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 600 )
+z_index = 99
+
+[node name="KinematicBody2D311" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 616 )
+z_index = 99
+
+[node name="KinematicBody2D312" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 632 )
+z_index = 99
+
+[node name="KinematicBody2D313" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 648 )
+z_index = 99
+
+[node name="KinematicBody2D314" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 664 )
+z_index = 99
+
+[node name="KinematicBody2D315" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 680 )
+z_index = 99
+
+[node name="KinematicBody2D316" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 696 )
+z_index = 99
+
+[node name="KinematicBody2D317" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 712 )
+z_index = 99
+
+[node name="KinematicBody2D318" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 728 )
+z_index = 99
+
+[node name="KinematicBody2D319" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 744 )
+z_index = 99
+
+[node name="KinematicBody2D320" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 760 )
+z_index = 99
+
+[node name="KinematicBody2D321" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 776 )
+z_index = 99
+
+[node name="KinematicBody2D322" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 792 )
+z_index = 99
+
+[node name="KinematicBody2D323" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 808 )
+z_index = 99
+
+[node name="KinematicBody2D324" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 824 )
+z_index = 99
+
+[node name="KinematicBody2D325" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 840 )
+z_index = 99
+
+[node name="KinematicBody2D326" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 856 )
+z_index = 99
+
+[node name="KinematicBody2D327" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 872 )
+z_index = 99
+
+[node name="KinematicBody2D328" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 888 )
+z_index = 99
+
+[node name="KinematicBody2D329" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 904 )
+z_index = 99
+
+[node name="KinematicBody2D330" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 920 )
+z_index = 99
+
+[node name="KinematicBody2D331" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 936 )
+z_index = 99
+
+[node name="KinematicBody2D332" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 952 )
+z_index = 99
+
+[node name="KinematicBody2D333" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 968 )
+z_index = 99
+
+[node name="KinematicBody2D334" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 984 )
+z_index = 99
+
+[node name="KinematicBody2D335" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 1000 )
+z_index = 99
+
+[node name="KinematicBody2D336" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 1016 )
+z_index = 99
+
+[node name="KinematicBody2D337" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 520 )
+z_index = 99
+
+[node name="KinematicBody2D338" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 536 )
+z_index = 99
+
+[node name="KinematicBody2D339" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 552 )
+z_index = 99
+
+[node name="KinematicBody2D340" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 568 )
+z_index = 99
+
+[node name="KinematicBody2D341" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 584 )
+z_index = 99
+
+[node name="KinematicBody2D342" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 600 )
+z_index = 99
+
+[node name="KinematicBody2D343" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 616 )
+z_index = 99
+
+[node name="KinematicBody2D344" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 632 )
+z_index = 99
+
+[node name="KinematicBody2D345" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 648 )
+z_index = 99
+
+[node name="KinematicBody2D346" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 664 )
+z_index = 99
+
+[node name="KinematicBody2D347" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 680 )
+z_index = 99
+
+[node name="KinematicBody2D348" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 696 )
+z_index = 99
+
+[node name="KinematicBody2D349" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 712 )
+z_index = 99
+
+[node name="KinematicBody2D350" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 728 )
+z_index = 99
+
+[node name="KinematicBody2D351" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 744 )
+z_index = 99
+
+[node name="KinematicBody2D352" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 760 )
+z_index = 99
+
+[node name="KinematicBody2D353" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 776 )
+z_index = 99
+
+[node name="KinematicBody2D354" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 792 )
+z_index = 99
+
+[node name="KinematicBody2D355" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 808 )
+z_index = 99
+
+[node name="KinematicBody2D356" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 824 )
+z_index = 99
+
+[node name="KinematicBody2D357" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 840 )
+z_index = 99
+
+[node name="KinematicBody2D358" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 856 )
+z_index = 99
+
+[node name="KinematicBody2D359" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 872 )
+z_index = 99
+
+[node name="KinematicBody2D360" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 888 )
+z_index = 99
+
+[node name="KinematicBody2D361" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 904 )
+z_index = 99
+
+[node name="KinematicBody2D362" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 920 )
+z_index = 99
+
+[node name="KinematicBody2D363" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 936 )
+z_index = 99
+
+[node name="KinematicBody2D364" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 952 )
+z_index = 99
+
+[node name="KinematicBody2D365" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 968 )
+z_index = 99
+
+[node name="KinematicBody2D366" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 984 )
+z_index = 99
+
+[node name="KinematicBody2D367" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 1000 )
+z_index = 99
+
+[node name="KinematicBody2D368" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 1016 )
+z_index = 99
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 1032 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 648, 1032 )
+
+[node name="Bedrock2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 296, 1032 )
+scale = Vector2( 50, 1 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, 1032 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -8 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, -8 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, -8 )
+
+[node name="KinematicBody2D7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, -8 )
+
+[node name="KinematicBody2D8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, -8 )
+
+[node name="KinematicBody2D9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, -8 )
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 104, -8 )
+
+[node name="KinematicBody2D11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, -8 )
+
+[node name="KinematicBody2D12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 136, -8 )
+
+[node name="KinematicBody2D13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 152, -8 )
+
+[node name="KinematicBody2D14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, -8 )
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 184, -8 )
+
+[node name="KinematicBody2D16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, -8 )
+
+[node name="KinematicBody2D17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 216, -8 )
+
+[node name="KinematicBody2D18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 232, -8 )
+
+[node name="KinematicBody2D19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 248, -8 )
+
+[node name="KinematicBody2D20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, -8 )
+
+[node name="KinematicBody2D21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 280, -8 )
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, -8 )
+
+[node name="KinematicBody2D23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 312, -8 )
+
+[node name="KinematicBody2D24" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, -8 )
+
+[node name="KinematicBody2D25" parent="." instance=ExtResource( 3 )]
+position = Vector2( 344, -8 )
+
+[node name="KinematicBody2D26" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, -8 )
+
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 3 )]
+position = Vector2( 376, -8 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 3 )]
+position = Vector2( 392, -8 )
+
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 3 )]
+position = Vector2( 408, -8 )
+
+[node name="KinematicBody2D30" parent="." instance=ExtResource( 3 )]
+position = Vector2( 424, -8 )
+
+[node name="KinematicBody2D31" parent="." instance=ExtResource( 3 )]
+position = Vector2( 440, -8 )
+
+[node name="KinematicBody2D32" parent="." instance=ExtResource( 3 )]
+position = Vector2( 456, -8 )
+
+[node name="KinematicBody2D33" parent="." instance=ExtResource( 3 )]
+position = Vector2( 472, -8 )
+
+[node name="KinematicBody2D34" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488, -8 )
+
+[node name="KinematicBody2D35" parent="." instance=ExtResource( 3 )]
+position = Vector2( 504, -8 )
+
+[node name="KinematicBody2D36" parent="." instance=ExtResource( 3 )]
+position = Vector2( 520, -8 )
+
+[node name="KinematicBody2D37" parent="." instance=ExtResource( 3 )]
+position = Vector2( 536, -8 )
+
+[node name="KinematicBody2D38" parent="." instance=ExtResource( 3 )]
+position = Vector2( 552, -8 )
+
+[node name="KinematicBody2D39" parent="." instance=ExtResource( 3 )]
+position = Vector2( 568, -8 )
+
+[node name="KinematicBody2D40" parent="." instance=ExtResource( 3 )]
+position = Vector2( 584, -8 )
+
+[node name="KinematicBody2D41" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, -8 )
+
+[node name="KinematicBody2D42" parent="." instance=ExtResource( 3 )]
+position = Vector2( 616, -8 )
+
+[node name="KinematicBody2D43" parent="." instance=ExtResource( 3 )]
+position = Vector2( 632, -8 )
+
+[node name="KinematicBody2D45" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, 1032 )
+
+[node name="KinematicBody2D46" parent="." instance=ExtResource( 3 )]
+position = Vector2( 40, 1032 )
+
+[node name="KinematicBody2D47" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, 1032 )
+
+[node name="KinematicBody2D48" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, 1032 )
+
+[node name="KinematicBody2D49" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88, 1032 )
+
+[node name="KinematicBody2D50" parent="." instance=ExtResource( 3 )]
+position = Vector2( 104, 1032 )
+
+[node name="KinematicBody2D51" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 1032 )
+
+[node name="KinematicBody2D52" parent="." instance=ExtResource( 3 )]
+position = Vector2( 136, 1032 )
+
+[node name="KinematicBody2D53" parent="." instance=ExtResource( 3 )]
+position = Vector2( 152, 1032 )
+
+[node name="KinematicBody2D54" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, 1032 )
+
+[node name="KinematicBody2D55" parent="." instance=ExtResource( 3 )]
+position = Vector2( 184, 1032 )
+
+[node name="KinematicBody2D56" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, 1032 )
+
+[node name="KinematicBody2D57" parent="." instance=ExtResource( 3 )]
+position = Vector2( 216, 1032 )
+
+[node name="KinematicBody2D58" parent="." instance=ExtResource( 3 )]
+position = Vector2( 232, 1032 )
+
+[node name="KinematicBody2D59" parent="." instance=ExtResource( 3 )]
+position = Vector2( 248, 1032 )
+
+[node name="KinematicBody2D60" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, 1032 )
+
+[node name="KinematicBody2D61" parent="." instance=ExtResource( 3 )]
+position = Vector2( 280, 1032 )
+
+[node name="KinematicBody2D62" parent="." instance=ExtResource( 3 )]
+position = Vector2( 296, 1032 )
+
+[node name="KinematicBody2D63" parent="." instance=ExtResource( 3 )]
+position = Vector2( 312, 1032 )
+
+[node name="KinematicBody2D64" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, 1032 )
+
+[node name="KinematicBody2D65" parent="." instance=ExtResource( 3 )]
+position = Vector2( 344, 1032 )
+
+[node name="KinematicBody2D66" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, 1032 )
+
+[node name="KinematicBody2D67" parent="." instance=ExtResource( 3 )]
+position = Vector2( 376, 1032 )
+
+[node name="KinematicBody2D68" parent="." instance=ExtResource( 3 )]
+position = Vector2( 392, 1032 )
+
+[node name="KinematicBody2D69" parent="." instance=ExtResource( 3 )]
+position = Vector2( 408, 1032 )
+
+[node name="KinematicBody2D70" parent="." instance=ExtResource( 3 )]
+position = Vector2( 424, 1032 )
+
+[node name="KinematicBody2D71" parent="." instance=ExtResource( 3 )]
+position = Vector2( 440, 1032 )
+
+[node name="KinematicBody2D72" parent="." instance=ExtResource( 3 )]
+position = Vector2( 456, 1032 )
+
+[node name="KinematicBody2D73" parent="." instance=ExtResource( 3 )]
+position = Vector2( 472, 1032 )
+
+[node name="KinematicBody2D74" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488, 1032 )
+
+[node name="KinematicBody2D75" parent="." instance=ExtResource( 3 )]
+position = Vector2( 504, 1032 )
+
+[node name="KinematicBody2D76" parent="." instance=ExtResource( 3 )]
+position = Vector2( 520, 1032 )
+
+[node name="KinematicBody2D77" parent="." instance=ExtResource( 3 )]
+position = Vector2( 536, 1032 )
+
+[node name="KinematicBody2D78" parent="." instance=ExtResource( 3 )]
+position = Vector2( 552, 1032 )
+
+[node name="KinematicBody2D79" parent="." instance=ExtResource( 3 )]
+position = Vector2( 568, 1032 )
+
+[node name="KinematicBody2D80" parent="." instance=ExtResource( 3 )]
+position = Vector2( 584, 1032 )
+
+[node name="KinematicBody2D81" parent="." instance=ExtResource( 3 )]
+position = Vector2( 600, 1032 )
+
+[node name="KinematicBody2D82" parent="." instance=ExtResource( 3 )]
+position = Vector2( 616, 1032 )
+
+[node name="KinematicBody2D83" parent="." instance=ExtResource( 3 )]
+position = Vector2( 632, 1032 )
+
+[node name="Bedrock4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 648, 576 )
+scale = Vector2( 1, 80 )

@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 			can_move=1
 	if(!is_on_floor()):
 		can_move=1
+	
 	velocity.y = move_and_slide(velocity*can_move*has_stopped, Vector2.UP).y
 
 func death()->void:

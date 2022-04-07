@@ -14,11 +14,27 @@ func _on_DetectPlayer_body_exited(body: Node) -> void:
 
 func _process(delta: float) -> void:
 	if(player and Input.is_action_just_pressed("buy")):
-		get_parent().get_node("Kanvas/UI").print_something("God of death is pleased with your sacrifice.")
 		get_node("/root/Game/World/Player").last_damage="Alter"
-		one_sac=!one_sac
-		if(!one_sac):
+		
+		if(get_node("/root/Game/World/Player").poisoned):
+			var item=preload("res://src/Items/Cure.tscn").instance()
+			item.position.x=0.0
+			item.position.y=-6.5
+			item.free=true
+			add_child(item)
+			var color=preload("res://src/Other/MoneyParticle.tscn").instance()
+			color.get_node("Money").process_material.color=Color(0.773,0.055,0.902)
+			color.get_node("Money").amount=80
+			color.get_node("Money").emitting=true
+			color.position.x=0.0
+			color.position.y=-6.5
+			add_child(color)
+			get_parent().get_node("Kanvas/UI").print_something("God of death is pleased with your sacrifice.")
+		elif(randi()%2==0):
 			create_item()
+			get_parent().get_node("Kanvas/UI").print_something("God of death is pleased with your sacrifice.")
+		else:
+			get_parent().get_node("Kanvas/UI").print_something("God of death seems happy")
 		if(get_node("/root/Game/World/Player").health==1):
 			if(get_node("/root/Game/World/Player").global_position.x>global_position.x):
 				get_node("/root/Game/World/Player").death(true)

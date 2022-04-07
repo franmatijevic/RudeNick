@@ -12,7 +12,7 @@ func _on_DetectPlayer_body_entered(body: Node) -> void:
 func _physics_process(delta: float) -> void:
 	if(get_node("E").visible==true):
 		if(Input.is_action_just_pressed("buy")):
-			get_parent().get_parent().get_mad()
 			get_parent().get_parent().very_angry=true
 			get_parent().get_parent().steal_all()
+			get_parent().get_parent().get_mad()
 			queue_free()

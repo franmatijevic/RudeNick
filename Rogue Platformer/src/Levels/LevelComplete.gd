@@ -11,8 +11,9 @@ var total_time:=0.0
 
 func _ready() -> void:
 	if(get_node("/root/Game").poisoned):
-		get_node("PoisonLayer/Poison").visible=true
-		get_node("WalkingPlayerAnim").speed=35.0
+		get_node("WalkingPlayerAnim/AnimatedSprite").modulate.r=0.27
+		get_node("WalkingPlayerAnim/AnimatedSprite").modulate.g=0.51
+		get_node("WalkingPlayerAnim/AnimatedSprite").modulate.b=0.20
 	
 	level=get_parent().level
 	health=get_parent().player_health-get_parent().old_health
@@ -21,6 +22,38 @@ func _ready() -> void:
 	money=get_parent().player_money-get_parent().old_money
 	total_time=get_parent().total_time
 	current_time=get_parent().current_time
+	if(health<0):
+		get_node("Kanvas/health").modulate.r=0.68
+		get_node("Kanvas/health").modulate.g=0.14
+		get_node("Kanvas/health").modulate.b=0.20
+	elif(health>0):
+		get_node("Kanvas/health").modulate.r=0.27
+		get_node("Kanvas/health").modulate.g=0.51
+		get_node("Kanvas/health").modulate.b=0.20
+	if(bomb<0):
+		get_node("Kanvas/bombs").modulate.r=0.68
+		get_node("Kanvas/bombs").modulate.g=0.14
+		get_node("Kanvas/bombs").modulate.b=0.20
+	elif(bomb>0):
+		get_node("Kanvas/bombs").modulate.r=0.27
+		get_node("Kanvas/bombs").modulate.g=0.51
+		get_node("Kanvas/bombs").modulate.b=0.20
+	if(ropes<0):
+		get_node("Kanvas/ropes").modulate.r=0.68
+		get_node("Kanvas/ropes").modulate.g=0.14
+		get_node("Kanvas/ropes").modulate.b=0.20
+	elif(ropes>0):
+		get_node("Kanvas/ropes").modulate.r=0.27
+		get_node("Kanvas/ropes").modulate.g=0.51
+		get_node("Kanvas/ropes").modulate.b=0.20
+	if(money<0):
+		get_node("Kanvas/money").modulate.r=0.68
+		get_node("Kanvas/money").modulate.g=0.14
+		get_node("Kanvas/money").modulate.b=0.20
+	elif(money>0):
+		get_node("Kanvas/money").modulate.r=0.27
+		get_node("Kanvas/money").modulate.g=0.51
+		get_node("Kanvas/money").modulate.b=0.20
 	
 	get_node("Kanvas/nice").text="Level " + str(level) + " Completed!"
 	get_node("Kanvas/health").text=str(health)

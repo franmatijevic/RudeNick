@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Serpant/serpent_walk3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Serpant/serpent_attack2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Serpant/serpent_attack3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Serpant/serpent_walk1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Serpant/serpent_attack1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Serpant/serpent_walk2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Serpant/serpent_tongue_out.png" type="Texture" id=7]
+[ext_resource path="res://src/Actors/Serpant.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 14 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 14, 7 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 14, 14 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10, 11 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 10, 11 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 13, 10 )
+
+[node name="Serpant" type="KinematicBody2D"]
+collision_layer = 8192
+collision_mask = 8
+script = ExtResource( 8 )
+speed = Vector2( 40, 500 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 9, 0 )
+frames = SubResource( 9 )
+frame = 3
+playing = true
+
+[node name="Player" type="RayCast2D" parent="."]
+position = Vector2( 0, 8 )
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="Head" type="Area2D" parent="."]
+position = Vector2( 0, -7 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+modulate = Color( 0.0392157, 0.0823529, 0.458824, 1 )
+shape = SubResource( 10 )
+
+[node name="Whip" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
+shape = SubResource( 11 )
+
+[node name="Prepare" type="Area2D" parent="."]
+position = Vector2( 14, 2 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prepare"]
+position = Vector2( 0, 3 )
+shape = SubResource( 12 )
+
+[node name="DamageArea" type="Area2D" parent="."]
+modulate = Color( 0.847059, 0.815686, 0.0470588, 1 )
+position = Vector2( 14, 5 )
+collision_layer = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource( 13 )
+
+[node name="BodyDamage" type="Area2D" parent="."]
+position = Vector2( 0, 5 )
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyDamage"]
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="Head" to="." method="_on_Head_body_entered"]
+[connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]
+[connection signal="body_entered" from="Prepare" to="." method="_on_Prepare_body_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_DamageArea_body_entered"]
+[connection signal="body_entered" from="BodyDamage" to="." method="_on_BodyDamage_body_entered"]
