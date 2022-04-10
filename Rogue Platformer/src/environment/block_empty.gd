@@ -52,6 +52,173 @@ func add_web(direction: int)->void:
 			web.global_position.y=global_position.y
 	get_parent().get_parent().add_child(web)
 
+func build_dungeon()->void:
+	var up=false
+	var down=false
+	var left=false
+	var right=false
+	
+	if(global_position.x==8):
+		left=true
+	if(global_position.x==632):
+		right=true
+	if(global_position.y==8):
+		up=true
+	if(global_position.y==504):
+		down=true
+	
+	if($Up.is_colliding()): up=true
+	if($Down.is_colliding()): down=true
+	if($Left.is_colliding()): left=true
+	if($Right.is_colliding()): right=true
+	
+	if(up==false):
+		randomize()
+		var enemy=randi()%n_ground
+		if(enemy<groundenemy and n_ground>-1):
+			enemy=randi()%15
+			if(enemy==-1):
+				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
+				groundenemy.position.x=global_position.x
+				groundenemy.position.y=global_position.y-16
+				get_parent().get_parent().add_child(groundenemy)
+			else:
+				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
+				groundenemy.position.x=global_position.x
+				groundenemy.position.y=global_position.y-16
+				get_parent().get_parent().add_child(groundenemy)
+		else:
+			var generate_gold=randi()%money
+			if(generate_gold<27):
+				var value=randi()%750 + add*high_drop
+				if(value<350):
+					var gold=preload("res://src/Collectable/Gold1.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<600):
+					var gold=preload("res://src/Collectable/Gold2.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<700):
+					var gold=preload("res://src/Collectable/Emerald.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<800):
+					var gold=preload("res://src/Collectable/Sapphire.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<880):
+					var gold=preload("res://src/Collectable/Ruby.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				elif(value<1150):
+					var gold=preload("res://src/Collectable/Chest.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+				else:
+					var gold=preload("res://src/Collectable/Crate.tscn").instance()
+					if(randi()%3==0):
+						gold=preload("res://src/Collectable/Chest.tscn").instance()
+					gold.position.x=position.x
+					gold.position.y=position.y-16
+					get_parent().add_child(gold)
+	
+	if(down==false):
+		randomize()
+		var enemy=randi()%n_sky
+		if(enemy<skyenemy):
+			randomize()
+			enemy=randi()%2
+			if(enemy==0):
+				var top=preload("res://src/Actors/Bat.tscn").instance()
+				top.global_position.x=global_position.x
+				top.global_position.y=global_position.y+15
+				get_parent().get_parent().add_child(top)
+			else:
+				var set = preload("res://src/environment/SpiderWeb.tscn").instance()
+				var web=randi()%8
+				set.global_position.x=global_position.x
+				set.global_position.y=global_position.y+16
+				var top=preload("res://src/Actors/Spider.tscn").instance()
+				top.global_position.x=global_position.x
+				top.global_position.y=global_position.y+13
+				if(web==0):
+					set.global_position=top.global_position
+					set.global_position.y=global_position.y+16
+					get_parent().get_parent().add_child(set)
+				get_parent().get_parent().add_child(top)
+	
+	if(!up):
+		if(randi()%50==0):
+			print("bodlje bato")
+			var trava=preload("res://src/environment/Spikes.tscn").instance()
+			trava.position=position
+			trava.position.y-=16
+			get_parent().add_child(trava)
+	
+	
+	if(up and down and left and right):
+		blok = preload("res://src/environment/dirt_tile_mid.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
+	elif(up and down and left and !right):
+		blok = preload("res://src/environment/dirt_tile_right.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_right.png")
+	elif(up and down and !left and right):
+		blok = preload("res://src/environment/dirt_tile_left.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_left.png")
+	elif(up and down and !left and !right):
+		blok = preload("res://src/environment/dirt_tile_left_right.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_right_left.png")
+	elif(up and !down and left and right):
+		blok = preload("res://src/environment/dirt_tile_bottom.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_bottom.png")
+	elif(up and !down and left and !right): 
+		blok = preload("res://src/environment/dirt_tile_bottom_right.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_bottom_right.png")
+	elif(up and !down and !left and right): 
+		blok = preload("res://src/environment/dirt_tile_bottom_left.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_bottom_left.png")
+	elif(up and !down and !left and !right): 
+		blok = preload("res://src/environment/dirt_tile_all_except_top.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_except_top.png")
+	elif(!up and down and left and right): 
+		blok = preload("res://src/environment/dirt_tile_top.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_top.png")
+	elif(!up and down and left and !right): 
+		blok = preload("res://src/environment/dirt_tile_top_right.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungen_tile_top_right.png")
+	elif(!up and down and !left and right): 
+		blok = preload("res://src/environment/dirt_tile_top_left.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_top_left.png")
+	elif(!up and down and !left and !right): 
+		blok = preload("res://src/environment/dirt_tile_all_except_bottom.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_all_except_bottom.png")
+	elif(!up and !down and left and right): 
+		blok = preload("res://src/environment/dirt_tile_top_bottom.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_top_bottom.png")
+	elif(!up and !down and left and !right): 
+		blok = preload("res://src/environment/dirt_tile_all_except_left.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_all_except_left.png")
+	elif(!up and !down and !left and right): 
+		blok = preload("res://src/environment/dirt_tile_all_except_right.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_all_except_right.png")
+	else:
+		blok = preload("res://src/environment/dir_tile_all.tscn").instance()
+		blok.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_all.png")
+	
+	blok.position.x=position.x
+	blok.position.y=position.y
+	
+	
+	get_parent().add_child(blok)
+	queue_free()
+
 func build_thing()->void:
 	var up=false
 	var down=false
@@ -77,7 +244,7 @@ func build_thing()->void:
 		var enemy=randi()%n_ground
 		if(enemy<groundenemy and n_ground>-1):
 			enemy=randi()%15
-			if(enemy==0):
+			if(enemy==-1):
 				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
@@ -194,7 +361,14 @@ func build_thing()->void:
 	
 	if(!up):
 		var grass=randi()%20
-		if(grass==0):
+		if(get_node("/root/Game/World").temple or 1==1):
+			if(randi()%25==0):
+				print("bodlje bato")
+				var trava=preload("res://src/environment/Spikes.tscn").instance()
+				trava.position=trava.position
+				trava.position.y-=16
+				get_parent().add_child(trava)
+		elif(grass==0):
 			var trava=preload("res://src/Other/Grass.tscn").instance()
 			trava.position=position
 			trava.position.y-=16
@@ -219,8 +393,33 @@ func build_thing()->void:
 	get_parent().add_child(blok)
 	queue_free()
 
+func add_temple_money()->void:
+	var value=randi()%12
+	if(value!=0):
+		return
+	value=randi()%25
+	if(value<5):
+		blok.money="min"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/gold_tile_min_dungeon.png")
+	elif(value<11):
+		blok.money="mid"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/gold_tile_mid_dungeon.png")
+	elif(value<16):
+		blok.money="max"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/gold_tile_max_dungeon.png")
+	elif(value<20):
+		blok.money="emerald"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/emerald_dungeon.png")
+	elif(value<23):
+		blok.money="sapphire"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/sapphire_dungeon.png")
+	else:
+		blok.money="ruby"
+		blok.get_node("Money").texture=load("res://Assets/TempleBlocks/ruby_dungeon.png")
+	
+
 func add_money()->void:
-	var value=randi()%7
+	var value=randi()%12
 	if(value!=0):
 		value=randi()%10
 		if(value!=0):
@@ -271,14 +470,41 @@ func wait()->void:
 
 
 func _physics_process(delta: float) -> void:
-	build_thing()
-	add_money()
+	if(get_node("/root/Game/World").temple):
+		build_dungeon()
+		add_temple_money()
+	else:
+		build_thing()
+		add_money()
 	var what
 	randomize()
 	what=randi()%n_boneblock
 	if(n_boneblock==-1):
 		what=10
-	if(what==0):
+	
+	if(randi()%40==0):
+		if(!$Left.is_colliding() and !$Right.is_colliding()):
+			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
+			trap.position.x=position.x
+			trap.position.y=position.y
+			if(randi()%2==0):
+				trap.dir=true
+			get_parent().add_child(trap)
+			blok.queue_free()
+		elif(!$Left.is_colliding()):
+			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
+			trap.position.x=position.x
+			trap.position.y=position.y
+			get_parent().add_child(trap)
+			blok.queue_free()
+		elif(!$Right.is_colliding()):
+			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
+			trap.position.x=position.x
+			trap.position.y=position.y
+			trap.dir=true
+			get_parent().add_child(trap)
+			blok.queue_free()
+	elif(what==0):
 		var bone=preload("res://src/environment/BoneBlock.tscn").instance()
 		bone.position.x=position.x
 		bone.position.y=position.y
@@ -291,5 +517,4 @@ func _physics_process(delta: float) -> void:
 			boom.position=position
 			get_parent().add_child(boom)
 			blok.queue_free()
-	
 	queue_free()

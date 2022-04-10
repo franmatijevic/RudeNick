@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Items/Arrow.gd" type="Script" id=2]
+[ext_resource path="res://Assets/ArrowTrap/arrow.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 0.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 1 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 3, 1 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6, 2 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3, 1 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5, 1 )
+
+[node name="Arrow" type="KinematicBody2D"]
+scale = Vector2( 0.950354, 1.00863 )
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 0, -0.5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="DetectPlayer" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
+shape = SubResource( 2 )
+
+[node name="Ground" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource( 3 )
+
+[node name="DetectEnemy" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectEnemy"]
+shape = SubResource( 4 )
+
+[node name="Whip" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
+shape = SubResource( 5 )
+
+[node name="Boss" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss"]
+shape = SubResource( 6 )
+
+[node name="BoneBlock" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoneBlock"]
+scale = Vector2( 0.966144, 1 )
+shape = SubResource( 7 )
+
+[connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
+[connection signal="body_entered" from="Ground" to="." method="_on_Ground_body_entered"]
+[connection signal="body_exited" from="Ground" to="." method="_on_Ground_body_exited"]
+[connection signal="body_entered" from="DetectEnemy" to="." method="_on_DetectEnemy_body_entered"]
+[connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]
+[connection signal="area_entered" from="Boss" to="." method="_on_Boss_area_entered"]
+[connection signal="body_entered" from="BoneBlock" to="." method="_on_BoneBlock_body_entered"]

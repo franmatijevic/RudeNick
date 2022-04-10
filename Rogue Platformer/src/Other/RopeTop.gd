@@ -13,6 +13,7 @@ var crash:=false
 var start_creating:=false
 var look_down:=false
 
+var velocity = Vector2.ZERO
 
 func _ready() -> void:
 	if(look_down):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/dir_tile_all.tscn" type="PackedScene" id=2]
@@ -8,11 +8,13 @@
 [ext_resource path="res://src/Actors/Snake.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/environment/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/environment/ArrowTrap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/environment/SpiderWeb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/environment/TNT.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/levelPieces/start1.tscn" type="PackedScene" id=30]
 
 [node name="Test Level" type="Node2D"]
-scale = Vector2( 1.00034, 1 )
+scale = Vector2( 0.99515, 1 )
 
 [node name="KinematicBody2D30" parent="." instance=ExtResource( 3 )]
 position = Vector2( 311.894, 96 )
@@ -233,3 +235,9 @@ position = Vector2( 279.905, 16 )
 
 [node name="Spikes" parent="." instance=ExtResource( 7 )]
 position = Vector2( 343.883, 168 )
+
+[node name="TNT" parent="." instance=ExtResource( 11 )]
+position = Vector2( 369.794, 144 )
+
+[node name="ArrowTrap" parent="." instance=ExtResource( 9 )]
+position = Vector2( 434.106, 144 )

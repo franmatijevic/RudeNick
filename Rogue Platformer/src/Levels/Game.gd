@@ -76,6 +76,8 @@ func new_level()->void:
 	old_rope=player_rope
 	world.get_node("Kanvas/UI").get_node("LevelNumber").text=str(level)
 	world.shop_angry=shop_angry
+	
+	world.level=level
 	add_child(world)
 	#get_tree().change_scene("res://src/Levels/World.tscn")
 	if(has_node("LevelComplete")):

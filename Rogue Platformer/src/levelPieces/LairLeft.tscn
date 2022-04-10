@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Serpant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Collectable/EpicChest.tscn" type="PackedScene" id=3]
 
 [node name="LairLeft" type="Node2D"]
 
@@ -289,3 +290,43 @@ position = Vector2( 104, 40 )
 
 [node name="KinematicBody2D94" parent="." instance=ExtResource( 1 )]
 position = Vector2( 88, 40 )
+
+[node name="EpicChest" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, -8 )
+
+[node name="KinematicBody2D95" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, -24 )
+
+[node name="KinematicBody2D96" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, -24 )
+
+[node name="KinematicBody2D97" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 24 )
+
+[node name="KinematicBody2D98" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 24 )
+
+[node name="KinematicBody2D99" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, -24 )
+
+[node name="KinematicBody2D100" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, -8 )
+
+[node name="KinematicBody2D101" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 8 )
+
+[node name="KinematicBody2D102" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 24 )
+
+[node name="KinematicBody2D104" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, -8 )
+
+[node name="KinematicBody2D105" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 8 )
+
+[node name="KinematicBody2D106" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 24 )
+
+[node name="KinematicBody2D107" parent="." instance=ExtResource( 1 )]
+position = Vector2( 168, 24 )
+can_destroy = true

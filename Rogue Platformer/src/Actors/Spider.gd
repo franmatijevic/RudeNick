@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.animation="jumping"
 		
 		
-		if(first_fall and !is_on_floor() and player):
+		if(first_fall and !is_on_floor() and player and get_node("/root/Game/World").has_node("Player")):
 			if(playerx>=spiderx):
 				velocity.x=speed.x
 				get_node("AnimatedSprite").set_flip_h(true)

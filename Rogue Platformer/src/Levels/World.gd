@@ -6,6 +6,8 @@ var level
 var playerx
 var playery
 
+var temple:=false
+
 var polje = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 var start
 var x
@@ -21,7 +23,6 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 #Dungeon = 8
 
 #Lair left = 10
-#Lair right = 11
 
 
 var current_time:=0.0
@@ -97,14 +98,14 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
+	
 	var shop=randi()%6
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
-	print(shop_angry)
-	if(shop==0 and shop_angry<1):
+	if(shop==0 and shop_angry<1 and !temple):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -121,8 +122,9 @@ func _init()->void:
 			where_shop=randi()%n_of_shops
 			polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
 	
+	
 	#Dungeon spawn rate
-	if(randi()%200==0):
+	if(randi()%200==0 and !temple):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -137,14 +139,13 @@ func _init()->void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%1==0): #Lair spawn rate
+	elif(randi()%1==0 and !temple): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
 				if(polje[i][j]==0 and polje[i][j+1]==0 and i!=0):
 					if(polje[i-1][j]==1 or polje[i-1][j+1]==1 or polje[i-1][j]==6 or polje[i-1][j+1]==6 or polje[i-1][j]==4 or polje[i-1][j+1]==4):
 						n=n+1
-		print("broj mjesta: ", n)
 		if(n!=0):
 			var choice=randi()%n
 			var track=0
@@ -156,41 +157,48 @@ func _init()->void:
 								polje[i][j]=10
 								polje[i][j+1]=99
 								
+								
+								if(i==1):
+									if(polje[i-1][j]==4 and polje[i-1][j+1]==0):
+										polje[i-1][j]=5
+									elif(polje[i-1][j]==0 and polje[i-1][j+1]==4):
+										polje[i-1][j+1]=5
+										lair_dir=true
+									elif(polje[i-1][j]==1 and polje[i-1][j+1]==4):
+										polje[i-1][j]=2
+									elif(polje[i-1][j]==4 and polje[i-1][j+1]==1):
+										polje[i-1][j+1]==1
+										lair_dir=true
+									elif(polje[i-1][j]==4 and polje[i-1][j+1]==7):
+										polje[i-1][j]=5
+									elif(polje[i-1][j]==7 and polje[i-1][j+1]==4):
+										polje[i-1][j+1]=5
+										lair_dir=true
+								
 								if(polje[i-1][j]==4 and polje[i-1][j+1]==0):
 									polje[i-1][j]==5
-									print("start lijevo")
 								elif(polje[i-1][j]==4 and polje[i-1][j+1]==1):
 									polje[i-1][j+1]==2
 									lair_dir=true
-									print("start desno")
 								elif(polje[i-1][j]==0 and polje[i-1][j+1]==4):
 									polje[i-1][j+1]==5
-									print("0 pa 4")
 								elif(polje[i-1][j]==1 and polje[i-1][j+1]==4):
 									polje[i-1][j]==2
 									lair_dir=true
-									print("1 pa 4")
 								elif((polje[i-1][j]==1 or polje[i-1][j]==6) and (polje[i-1][j+1]==1 or polje[i-1][j+1]==6)):
-									print("oboje")
-									if(randi()%2+1==0):
+									if(randi()%2==0):
 										polje[i-1][j]=2
-										print("oboje ali lijevo")
 									else:
 										polje[i-1][j+1]=2
 										lair_dir=true
-										print("oboje ali desno")
 								elif(polje[i-1][j]==1 or polje[i-1][j]==6):
 									polje[i-1][j]=2
-									print("samo lijevo")
 								elif(polje[-1][j+1]==1 or polje[i-1][j+1]==6):
-									print("samo desno")
 									polje[i-1][j+1]=2
 									lair_dir=true
-								else:
-									print("sranje")
 							track=track+1
-	for i in range(4):
-		print(polje[i])
+	
+	
 	
 	var frame
 	if(end_right==4):
@@ -202,6 +210,11 @@ func _init()->void:
 		frame=preload("res://src/environment/Frame5x5.tscn").instance()
 	frame.position.x=0
 	frame.position.y=0
+	
+	if(temple):
+		for _i in frame.get_node("Dirt").get_children():
+			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
+	
 	for i in range(end_down):
 		for j in range(end_right):
 			match polje[i][j]:
@@ -232,7 +245,20 @@ func _init()->void:
 
 
 func _ready() -> void:
-	create_decorations()
+	if(temple):
+		get_node("Background1").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background2").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background3").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background4").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background5").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background6").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background7").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background8").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background9").texture=load("res://Assets/Backgrounds/temple_background.png")
+	
+	print("level: ", level)
+	if(!temple):
+		create_decorations()
 	get_node("BlackScreen").queue_free()
 	add_player()
 	if(end_down==8):
@@ -242,7 +268,7 @@ func _ready() -> void:
 	if(get_parent().shop_angry>0):
 		for i in range(end_down):
 			for j in range(end_right):
-				if(array[i][j].has_node("exit")):
+				if(polje[i][j]!=99 and array[i][j].has_node("exit")):
 					get_parent().shop_angry-=1
 					var mole=preload("res://src/Actors/Mole.tscn").instance()
 					mole.idle_angry=true
@@ -269,12 +295,15 @@ func _process(delta: float) -> void:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
 
 func create_lair(i: int, j:int)->void:
-	print("Lair")
-	array[i][j]=preload("res://src/levelPieces/LairLeft.tscn").instance()
+	match randi()%2:
+		0:
+			array[i][j]=preload("res://src/levelPieces/LairLeft.tscn").instance()
+		1:
+			array[i][j]=preload("res://src/levelPieces/LairRight.tscn").instance()
+	
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	if(lair_dir):
-		print("flipped")
 		array[i][j].global_position.x+=160
 		for _i in array[i][j].get_children():
 			_i.position.x=-_i.position.x
@@ -413,7 +442,7 @@ func create_hallway(i:int, j:int) ->void:
 
 func create_side_room(i:int, j:int) ->void:
 	randomize()
-	if(randi()%13==0 and !alter):
+	if(randi()%13==-2 and !alter):
 		alter=true
 		array[i][j]=preload("res://src/levelPieces/EvilAlter.tscn").instance()
 	else:

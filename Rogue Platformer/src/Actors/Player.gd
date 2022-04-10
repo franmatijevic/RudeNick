@@ -321,6 +321,9 @@ func stunned()->void:
 	stunned_mod=0
 	ledge_grab=false
 	climbing=false
+	sky=false
+	climbing=false
+	using_gravity=1
 	var time_in_seconds = stun_time
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	if_stunned=false
