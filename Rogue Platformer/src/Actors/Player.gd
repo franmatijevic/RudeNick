@@ -116,10 +116,10 @@ func _process(delta: float) -> void:
 	if(sky and is_on_floor()):
 		sky=false
 		if(global_position.y-high>16*7):
+			last_damage="fall"
 			if(health==1):
 				death(true)
 			damage(1)
-			last_damage="fall"
 			stunned()
 	var ui = get_parent().get_node("Kanvas").get_node("UI")
 	ui.get_node("health").text=str(health)
@@ -289,6 +289,7 @@ func _physics_process(delta: float) -> void:
 			using_gravity=1
 	
 	if(near_exit and Input.is_action_just_pressed("buy") and !if_stunned):
+		
 		exitlevel()
 
 func get_direction() -> Vector2:
@@ -440,6 +441,9 @@ func treperenje()->void:
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func exitlevel()->void:
+	if(get_node("/root/Game/World").temple):
+		get_parent().get_node("exitPiece/exit").get_node("DungeonDoorsOpen").visible=true
+		get_parent().get_node("exitPiece/exit").get_node("DungeonDoors").visible=false
 	iframes_on=true
 	get_parent().get_parent().player_health=health
 	get_parent().get_parent().player_money=money
@@ -487,6 +491,13 @@ func death(direciton: bool)->void:
 	get_parent().get_node("Kanvas/UI/Heart1").queue_free()
 	get_parent().get_node("Kanvas/UI/health").queue_free()
 	get_parent().get_node("Kanvas/UI/HeartBroken").visible=true
+	if(last_damage=="fall" or last_damage=="lava"):
+		corpse.push=0.0
+	
+	if(last_damage=="lava"):
+		corpse.push_v=25.0
+		corpse.gravity/=8
+	
 	if(club_death):
 		corpse.push=300.0
 		corpse.push_v=100.0

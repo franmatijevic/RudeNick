@@ -34,6 +34,10 @@ func _process(delta: float) -> void:
 			if(get_node("Help/GoLeft/ArrowLeft").visible):
 				get_node("Help/Controls").animation="an1"
 				help_page=false
+	
+	get_node("Background1").position.y-=delta*15
+	if(get_node("Background1").position.y<0):
+		get_node("Background1").position.y=192
 
 var help_page:=false
 

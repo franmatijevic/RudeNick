@@ -6,7 +6,7 @@ var level
 var playerx
 var playery
 
-var temple:=false
+var temple:=true
 
 var polje = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 var start
@@ -432,6 +432,9 @@ func create_hallway(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/hallwaydrop3.tscn").instance()
 		10:
 			array[i][j]=preload("res://src/levelPieces/Bridge.tscn").instance()
+	if(temple and randi()%3==0):
+		array[i][j]=preload("res://src/levelPieces/LavaPool.tscn").instance()
+	
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2

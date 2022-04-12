@@ -23,6 +23,9 @@ export var high_drop:int=0
 
 export var can_be_tnt:=500
 
+export var can_be_spikes:=true
+export var can_be_arrow:=true
+
 var outside:bool=false
 
 func _ready() -> void:
@@ -155,8 +158,7 @@ func build_dungeon()->void:
 				get_parent().get_parent().add_child(top)
 	
 	if(!up):
-		if(randi()%50==0):
-			print("bodlje bato")
+		if(randi()%50==0 and can_be_spikes):
 			var trava=preload("res://src/environment/Spikes.tscn").instance()
 			trava.position=position
 			trava.position.y-=16
@@ -362,10 +364,9 @@ func build_thing()->void:
 	if(!up):
 		var grass=randi()%20
 		if(get_node("/root/Game/World").temple or 1==1):
-			if(randi()%25==0):
-				print("bodlje bato")
+			if(randi()%75==0 and can_be_spikes):
 				var trava=preload("res://src/environment/Spikes.tscn").instance()
-				trava.position=trava.position
+				trava.position=position
 				trava.position.y-=16
 				get_parent().add_child(trava)
 		elif(grass==0):
@@ -480,9 +481,9 @@ func _physics_process(delta: float) -> void:
 	randomize()
 	what=randi()%n_boneblock
 	if(n_boneblock==-1):
-		what=10
+		what=42069
 	
-	if(randi()%40==0):
+	if(randi()%40==0 and what!=42069 and can_be_arrow):
 		if(!$Left.is_colliding() and !$Right.is_colliding()):
 			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
 			trap.position.x=position.x

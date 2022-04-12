@@ -5,7 +5,7 @@
 [ext_resource path="res://src/environment/ladder2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/ladder_top.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/environment/ladder1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Doors/exit.png" type="Texture" id=6]
+[ext_resource path="res://src/environment/Start.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -112,13 +112,11 @@ n = 3
 chanse = 2
 groundenemy = -1
 
-[node name="Exit" type="Sprite" parent="."]
-position = Vector2( -16, -16 )
-z_index = -9
-texture = ExtResource( 6 )
-
 [node name="Bedrock1" parent="." instance=ExtResource( 2 )]
 position = Vector2( -24, 8 )
 
 [node name="Bedrock2" parent="." instance=ExtResource( 2 )]
 position = Vector2( -8, 8 )
+
+[node name="Exit" parent="." instance=ExtResource( 6 )]
+position = Vector2( -16, -14 )

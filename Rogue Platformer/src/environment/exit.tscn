@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Doors/entrance.png" type="Texture" id=1]
 [ext_resource path="res://src/environment/exit.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Decoration/interact2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Decoration/interact1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Enviroment/dungeon_doors.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Doors/dungeon_doors_1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 14 )
@@ -26,6 +28,18 @@ collision_layer = 128
 collision_mask = 0
 script = ExtResource( 2 )
 
+[node name="DungeonDoorsOpen" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.546143, 0.819075 )
+z_index = -9
+texture = ExtResource( 6 )
+
+[node name="DungeonDoors" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.733429, 0.444498 )
+z_index = -9
+texture = ExtResource( 5 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 1 )
@@ -47,7 +61,6 @@ visible = false
 position = Vector2( 0, -9.12145 )
 z_index = 6
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]

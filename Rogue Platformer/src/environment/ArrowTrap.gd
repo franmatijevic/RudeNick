@@ -15,7 +15,9 @@ func _physics_process(delta: float) -> void:
 		var collider = $Detect.get_collider()
 		if(collider.name=="Player"):
 			shoot()
-		elif(collider.velocity.x!=0.0 or collider.velocity.y!=0.0):
+		elif(collider.has_node("Dirt")):
+			pass
+		elif("velocity" in collider and (collider.velocity.x!=0.0 or collider.velocity.y!=0.0)):
 			shoot()
 
 func shoot()->void:

@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/Lava.tscn" type="PackedScene" id=2]
+
+[node name="LavaPool" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -72, 56 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, 56 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 56 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 56 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 56 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 56 )
+
+[node name="KinematicBody2D7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 56 )
+
+[node name="KinematicBody2D8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 56 )
+
+[node name="KinematicBody2D9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 56 )
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 56 )
+
+[node name="KinematicBody2D11" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 40 )
+
+[node name="KinematicBody2D12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 40 )
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 24 )
+
+[node name="KinematicBody2D16" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 24 )
+
+[node name="KinematicBody2D18" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, -8 )
+
+[node name="KinematicBody2D19" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, -8 )
+
+[node name="KinematicBody2D21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 8 )
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 8 )
+
+[node name="KinematicBody2D23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, -8 )
+
+[node name="Lava" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, 40 )
+
+[node name="Lava5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, -8 )
+
+[node name="Lava6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, -8 )
+
+[node name="Lava7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -8 )
+
+[node name="Lava8" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 8 )
+
+[node name="Lava9" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 24 )
+
+[node name="Lava10" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 40 )
+
+[node name="Lava11" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 8 )
+
+[node name="Lava12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 8 )
+
+[node name="Lava13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 8 )
+
+[node name="Lava14" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 24 )
+
+[node name="Lava15" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 40 )
+
+[node name="Lava16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 24 )
+
+[node name="Lava17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 24 )
+
+[node name="Lava18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 40 )
+
+[node name="Lava19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 40 )
+
+[node name="Lava21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 40 )
+
+[node name="KinematicBody2D13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 24 )
+
+[node name="KinematicBody2D14" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 24 )

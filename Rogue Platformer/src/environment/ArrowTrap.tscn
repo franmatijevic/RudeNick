@@ -17,7 +17,7 @@ shape = SubResource( 1 )
 
 [node name="Detect" type="RayCast2D" parent="."]
 cast_to = Vector2( -104, 0 )
-collision_mask = 42007
+collision_mask = 42015
 
 [node name="ArrowTrap" type="Sprite" parent="."]
 position = Vector2( 0.144943, 0.0726891 )

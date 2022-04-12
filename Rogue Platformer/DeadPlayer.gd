@@ -43,3 +43,7 @@ func _on_DetectSpikes_area_entered(area: Area2D) -> void:
 	velocity.x=0.0
 	velocity.y=0.0
 	gravity/=35
+	area.get_parent().get_node("Spike1").visible=false
+	area.get_parent().get_node("Spike2").visible=false
+	area.get_parent().get_node("Blood1").visible=true
+	area.get_parent().get_node("Blood2").visible=true

@@ -57,9 +57,9 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "hat7",
+"name": "hat6",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -72,24 +72,14 @@ animations = [ {
 "name": "hat0",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "hat7",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "hat1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "hat4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "hat6",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hat9",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -100,6 +90,16 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "hat8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "hat4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hat9",
 "speed": 5.0
 } ]
 
@@ -131,6 +131,7 @@ gravity = 400.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 
