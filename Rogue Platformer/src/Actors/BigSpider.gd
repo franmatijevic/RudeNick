@@ -5,9 +5,11 @@ var change: = false
 var can_move=1
 var health:=15
 
-var jump_speed:=200.0
+var jump_speed:=225.0
 
-var hostile:=false
+var big_range:=false
+var small_range:=false
+
 
 var last_damage="bigspider"
 
@@ -17,6 +19,9 @@ var fast_speed:=75.0
 var is_attacking:=false
 
 var is_in_air:=false
+
+var count_cool_attack:int=0
+var count_bite:int=0
 
 func _ready() -> void:
 	speed.x=normal_speed
@@ -45,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		get_node("AnimatedSprite").animation="default"
 		velocity.x=abs(velocity.x)/velocity.x*normal_speed
 	
-	if(is_on_wall() and is_on_floor() and !hostile):
+	if(is_on_wall() and is_on_floor()):
 		velocity.x*=-1
 		$Player.cast_to.x*=-1
 		get_node("AnimatedSprite").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
@@ -53,7 +58,6 @@ func _physics_process(delta: float) -> void:
 		get_node("AnimatedSprite2").position.x*=-1
 		get_node("Bite").position.x*=-1
 	velocity.y = move_and_slide(velocity*can_move, Vector2.UP).y
-	
 	
 	
 	if($Player.is_colliding() and !is_attacking):
@@ -66,7 +70,7 @@ func spit()->void:
 	get_parent().add_child(web)
 
 func jump()->void:
-	if(!get_node("/root/Game/World").has_node("Player")):
+	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
 		return
 	var player = get_node("/root/Game/World/Player")
 	if((player.global_position.x>global_position.x and velocity.x<0.0) or (player.global_position.x<global_position.x and velocity.x>0.0)):
@@ -80,6 +84,11 @@ func jump()->void:
 	velocity.x=abs(velocity.x)/velocity.x*fast_speed
 
 func attack()->void:
+	if(randi()%5==0):
+		spit()
+		is_attacking=false
+		velocity.x=abs(velocity.x)/velocity.x*normal_speed
+		return
 	velocity.x=abs(velocity.x)/velocity.x*0.001
 	get_node("AnimatedSprite").visible=false
 	get_node("AnimatedSprite2").visible=true
@@ -92,6 +101,12 @@ func attack()->void:
 	get_node("AnimatedSprite2").visible=false
 	velocity.x=abs(velocity.x)/velocity.x*normal_speed
 	is_attacking=false
+	count_bite+=1
+
+func cool_attack()->void:
+	spit()
+	yield(get_tree().create_timer(0.5), "timeout")
+	jump()
 
 func death()->void:
 	#get_parent().get_node("TrollDeath").play()
@@ -116,6 +131,8 @@ func damage(value: int)->void:
 	blood.position.y=blood.position.y-10
 	get_parent().add_child(blood)
 	health=health-value
+	if(randi()%6==0):
+		cool_attack()
 
 func flash_damage()->void:
 	var time_in_seconds
@@ -133,7 +150,6 @@ func destroy()->void:
 func _on_Head_body_entered(body: Node) -> void:
 	if(body.global_position.y<global_position.y):
 		body.enemy_jump()
-		spit()
 
 
 func _on_Whip_area_entered(area: Area2D) -> void:
@@ -151,11 +167,6 @@ func _on_Damage_body_entered(body: Node) -> void:
 		body.damage(1)
 
 
-func _on_DetectPlayer_body_entered(body: Node) -> void:
-	hostile=true
-	get_node("DetectPlayer").monitoring=false
-
-
 func _on_Bite_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
 		body.last_damage=last_damage
@@ -166,3 +177,48 @@ func _on_Bite_body_entered(body: Node) -> void:
 			else:
 				body.death(false)
 		body.damage(2)
+
+func _on_DetectPlayer_body_entered(body: Node) -> void:
+	big_range=true
+	cool_attack()
+	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
+			return
+	var player = get_node("/root/Game/World/Player")
+	if((player.global_position.x>global_position.x and velocity.x<0.0) or (player.global_position.x<global_position.x and velocity.x>0.0)):
+		velocity.x=-(velocity.x)
+		$Player.cast_to.x*=-1
+		get_node("AnimatedSprite").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
+		get_node("AnimatedSprite2").set_flip_h(!get_node("AnimatedSprite2").is_flipped_h())
+		get_node("AnimatedSprite2").position.x*=-1
+		get_node("Bite").position.x*=-1
+
+func _on_DetectPlayer_body_exited(body: Node) -> void:
+	big_range=false
+	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
+		return
+	var player = get_node("/root/Game/World/Player")
+	if((player.global_position.x>global_position.x and velocity.x<0.0) or (player.global_position.x<global_position.x and velocity.x>0.0)):
+		velocity.x=-(velocity.x)
+		$Player.cast_to.x*=-1
+		get_node("AnimatedSprite").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
+		get_node("AnimatedSprite2").set_flip_h(!get_node("AnimatedSprite2").is_flipped_h())
+		get_node("AnimatedSprite2").position.x*=-1
+		get_node("Bite").position.x*=-1
+
+
+func _on_ClosePlayer_body_entered(body: Node) -> void:
+	small_range=true
+	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
+		return
+	var player = get_node("/root/Game/World/Player")
+	if((player.global_position.x>global_position.x and velocity.x<0.0) or (player.global_position.x<global_position.x and velocity.x>0.0)):
+		velocity.x=-(velocity.x)
+		$Player.cast_to.x*=-1
+		get_node("AnimatedSprite").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
+		get_node("AnimatedSprite2").set_flip_h(!get_node("AnimatedSprite2").is_flipped_h())
+		get_node("AnimatedSprite2").position.x*=-1
+		get_node("Bite").position.x*=-1
+
+func _on_ClosePlayer_body_exited(body: Node) -> void:
+	small_range=false
+	cool_attack()
