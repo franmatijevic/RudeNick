@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/environment/Start.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/environment/dirt_tile_top.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=5]
 
 [node name="Start 1" type="Node2D"]
@@ -98,11 +97,17 @@ position = Vector2( 8, 40 )
 [node name="KinematicBody2D18" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 40 )
 
-[node name="Bedrock1" parent="." instance=ExtResource( 2 )]
-position = Vector2( -8, 8 )
-
-[node name="Bedrock2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, 8 )
-
 [node name="Exit" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -14 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -8, 8 )
+groundenemy = -1
+can_be_spikes = false
+can_be_arrow = false
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8, 8 )
+groundenemy = -1
+can_be_spikes = false
+can_be_arrow = false

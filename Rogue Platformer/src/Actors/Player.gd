@@ -7,6 +7,7 @@ var money:int=0
 var rope:int=4
 var bomb:int=4
 var shotgun:int=0
+var goggles:=false
 
 var walk_speed:=75.0
 var run_speed:=105.0
@@ -34,6 +35,8 @@ var look_down:=false
 
 var near_exit:=false
 var stop:=1
+
+var dungeon_gate:=false
 
 var move_up:=false
 var move_down:=false
@@ -451,12 +454,17 @@ func exitlevel()->void:
 	get_parent().get_parent().player_bomb=bomb
 	get_parent().get_parent().shotgun=shotgun
 	get_parent().get_parent().poisoned=poisoned
+	get_parent().get_parent().goggles=goggles
 	get_parent().get_parent().current_time=get_parent().current_time
 	get_parent().get_parent().total_time+=get_parent().current_time
 	stop=0
 	get_node("Shotgun").visible=false
 	get_node("Shotgun").position.x=-200
-	var pos=get_parent().get_node("exitPiece").get_node("exit").global_position
+	var pos
+	if(!dungeon_gate):
+		pos=get_parent().get_node("exitPiece").get_node("exit").global_position
+	else:
+		pos=get_parent().get_node("DungeonGate").get_node("BossGate").global_position
 	pos.y=pos.y+8
 	position=pos
 	exits_level=true
@@ -483,8 +491,54 @@ func darker_effect()->void:
 		time_in_seconds = 0.05
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
+func killed_by()->void:
+	var killed=get_node("/root/Game/World/Kanvas/UI/Killed")
+	
+	var time=get_parent().get_parent().total_time
+	var minutes=floor(time/60.0)
+	var seconds=int(time)%60
+	
+	get_node("/root/Game/World/Kanvas/UI/DialogBox").visible=false
+	get_node("/root/Game/World/Kanvas/UI/DialogText").visible=false
+	
+	get_node("/root/Game/World/Kanvas/UI/Time_whole").text="Total time: \n"
+	get_node("/root/Game/World/Kanvas/UI/LevelDead").text="Level: " + str(get_parent().level)
+	if(seconds>9):
+		get_node("/root/Game/World/Kanvas/UI/Time_whole").text=str(minutes)+":"+str(seconds)
+	else:
+		get_node("/root/Game/World/Kanvas/UI/Time_whole").text=str(minutes)+":0"+str(seconds)
+	
+	get_node("/root/Game/World/Kanvas/UI/Time_whole").text
+	
+	if(last_damage=="snake"):
+		killed.text="I was bitten by a snake"
+	elif(last_damage=="bat"):
+		killed.text="I was killed by a bat"
+	elif(last_damage=="lava"):
+		killed.text="I was burned in lava"
+	elif(last_damage=="Spikes"):
+		killed.text="I got pierced in spikes"
+	elif(last_damage=="explosion"):
+		killed.text="I got blown up"
+	elif(last_damage=="arrow"):
+		killed.text="I got shot by an arrow trap"
+	elif(last_damage=="spider"):
+		killed.text="I was jumped on by a spider"
+	elif(last_damage=="Mole"):
+		killed.text="The Mole got its revenge"
+	elif(last_damage=="fall"):
+		killed.text="The fall was a bit to long"
+	else:
+		killed.text="Ako vidis ovo, prijavi ovo franu"
+
+
+
 func death(direciton: bool)->void:
-	get_parent().get_parent().game_over()
+	get_parent().get_parent().total_time+=get_parent().current_time
+	killed_by()
+	get_parent().get_node("Kanvas/UI").dead=true
+	#game_over()
+	get_parent().get_parent().can_pause=false
 	print(last_damage)
 	var corpse=preload("res://src/Actors/DeadPlayer.tscn").instance()
 	#get_parent().get_node("Kanvas/UI").draw=false

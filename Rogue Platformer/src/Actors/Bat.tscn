@@ -82,6 +82,12 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spiderWeb"]
 shape = SubResource( 6 )
 
+[node name="Ground" type="RayCast2D" parent="."]
+position = Vector2( 0, -8 )
+enabled = true
+cast_to = Vector2( 0, -3 )
+collision_mask = 8
+
 [connection signal="area_entered" from="damageBox" to="." method="_on_damageBox_area_entered"]
 [connection signal="body_entered" from="playerDetect" to="." method="_on_playerDetect_body_entered"]
 [connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]

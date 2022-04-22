@@ -33,6 +33,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Text" type="Node2D" parent="."]
@@ -51,5 +52,5 @@ custom_fonts/font = SubResource( 3 )
 text = "text"
 align = 1
 
-[node name="Antidote(1)" type="Sprite" parent="."]
+[node name="Cure" type="Sprite" parent="."]
 texture = ExtResource( 1 )

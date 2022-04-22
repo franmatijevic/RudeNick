@@ -19,9 +19,16 @@ func destroy()->void:
 	var item
 	match drop:
 		0:
-			item=preload("res://src/Collectable/RopeDrop.tscn").instance()
+			item=preload("res://src/Items/BuyRope.tscn").instance()
 		1:
-			item=preload("res://src/Collectable/BombDrop.tscn").instance()
+			item=preload("res://src/Items/BuyBomb.tscn").instance()
+	if(get_node("/root/Game/World").has_node("Player") and get_node("/root/Game/World/Player").poisoned and randi()%3==0):
+		item=preload("res://src/Items/Cure.tscn").instance()
+	item.free=true
+	item.get_node("E").scale.x=0
+	item.get_node("E").scale.y=0
+	item.get_node("Text").scale.x=0
+	item.get_node("Text").scale.y=0
 	item.position=position
 	var wood=preload("res://src/Other/Woodpiece.tscn").instance()
 	wood.position=position

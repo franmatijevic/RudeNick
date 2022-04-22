@@ -60,15 +60,17 @@ func create_items()->void:
 	add_child(item4)
 
 func find_item()->String:
-	var chance=randi()%6
+	var chance=randi()%7
 	if(chance<2):
 		return "res://src/Items/BuyRope.tscn"
 	elif(chance<4):
 		return "res://src/Items/BuyBomb.tscn"
 	elif(chance<5):
 		return "res://src/Items/BuyBeans.tscn"
+	elif(chance<6):
+		return "res://src/Items/Cure.tscn"
 	
-	return "res://src/Items/Cure.tscn"
+	return "res://src/Items/Goggles.tscn"
 
 func get_mad()->void:
 	if(!has_node("Mole")):

@@ -3,12 +3,19 @@ extends KinematicBody2D
 var dir:bool=false
 var do_what_must_be_done:=false
 
+var goggles=false
+
 func _ready() -> void:
 	if(dir):
 		$Detect.cast_to.x*=-1
 		get_node("ArrowTrap").set_flip_h(false)
-	
 	wait()
+
+func _process(delta: float) -> void:
+	if(!goggles):
+		if(get_node("/root/Game").goggles):
+			goggles=true
+			get_node("ArrowTrap").texture=load("res://Assets/Enviroment/arrow_trap_outlined.png")
 
 func _physics_process(delta: float) -> void:
 	if($Detect.is_colliding()):

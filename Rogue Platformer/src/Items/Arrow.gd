@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	body.last_damage="arrow"
-	if(body.health<3):
+	if(body.health<3 and !body.iframes_on):
 		if(speed>0.0):
 			body.death(true)
 		else:

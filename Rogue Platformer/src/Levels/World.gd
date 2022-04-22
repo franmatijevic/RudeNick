@@ -1,12 +1,16 @@
 extends Node2D
 
+var green:=false
+var red:=false
+var white:=false
+
 var health
 var level
 
 var playerx
 var playery
 
-var temple:=true
+export var temple:=false
 
 var polje = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]]
 var start
@@ -21,6 +25,7 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 #Side tile = 0
 #shop = 7
 #Dungeon = 8
+#SpiderLair = 11
 
 #Lair left = 10
 
@@ -37,11 +42,16 @@ var end_down=4
 
 var lair_dir:=false
 
+var frame
+
 func _init()->void:
+	pass
+
+
+func _ready() -> void:
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
-	
-
+	print("level po ovom dreku: ", level)
 	#Big level or small level
 	if(randi()%9==0):
 		if(randi()%4==0):
@@ -105,7 +115,8 @@ func _init()->void:
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
-	if(shop==0 and shop_angry<1 and !temple):
+	shop=0
+	if(shop==0 and shop_angry<1 and !temple and level!=0):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -124,7 +135,7 @@ func _init()->void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%200==0 and !temple):
+	if(randi()%20==0 and !temple and !green):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -139,7 +150,7 @@ func _init()->void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%1==0 and !temple): #Lair spawn rate
+	elif(randi()%10==0 and !temple and !red): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -197,10 +208,22 @@ func _init()->void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
+	elif(randi()%1==0 and !temple and !white): #Create SPIDER NEST
+		var n=0
+		for i in range(end_down):
+			for j in range(end_right):
+				if(polje[i][j]==0):
+					n=n+1
+		if(n!=0):
+			var choice=randi()%n
+			var track=0
+			for i in range(end_down):
+				for j in range(end_right):
+					if(polje[i][j]==0):
+						if(track==choice):
+							polje[i][j]=11
+						track=track+1
 	
-	
-	
-	var frame
 	if(end_right==4):
 		if(end_down==4):
 			frame=preload("res://src/environment/Frame.tscn").instance()
@@ -211,9 +234,7 @@ func _init()->void:
 	frame.position.x=0
 	frame.position.y=0
 	
-	if(temple):
-		for _i in frame.get_node("Dirt").get_children():
-			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
+	
 	
 	for i in range(end_down):
 		for j in range(end_right):
@@ -241,10 +262,13 @@ func _init()->void:
 					create_side_room(i,j)
 				10:
 					create_lair(i,j)
+				11:
+					create_spider_nest(i,j)
 	add_child(frame)
-
-
-func _ready() -> void:
+	if(temple):
+		for _i in frame.get_node("Dirt").get_children():
+			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
+	
 	if(temple):
 		get_node("Background1").texture=load("res://Assets/Backgrounds/temple_background.png")
 		get_node("Background2").texture=load("res://Assets/Backgrounds/temple_background.png")
@@ -256,7 +280,18 @@ func _ready() -> void:
 		get_node("Background8").texture=load("res://Assets/Backgrounds/temple_background.png")
 		get_node("Background9").texture=load("res://Assets/Backgrounds/temple_background.png")
 	
-	print("level: ", level)
+	if(get_parent().goggles):
+		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true
+	
+	if(get_parent().red_key):
+		get_node("/root/Game/World/Kanvas/UI/KeyRed").visible=true
+	
+	if(get_parent().green_key):
+		get_node("/root/Game/World/Kanvas/UI/KeyGreen").visible=true
+	
+	if(get_parent().white_key):
+		get_node("/root/Game/World/Kanvas/UI/KeyWhite").visible=true
+	
 	if(!temple):
 		create_decorations()
 	get_node("BlackScreen").queue_free()
@@ -265,16 +300,29 @@ func _ready() -> void:
 		get_node("Kanvas/UI").print_something("It looks like a long way down...")
 	if(end_right==5):
 		get_node("Kanvas/UI").print_something("My voice ecos in here...")
-	if(get_parent().shop_angry>0):
-		for i in range(end_down):
-			for j in range(end_right):
-				if(polje[i][j]!=99 and array[i][j].has_node("exit")):
-					get_parent().shop_angry-=1
-					var mole=preload("res://src/Actors/Mole.tscn").instance()
-					mole.idle_angry=true
-					mole.get_node("IdlePlayer").monitoring=true
-					mole.position=array[i][j].get_node("exit").position
-					array[i][j].add_child(mole)
+	
+	var gate=randi()%1
+	var was_gate:=false
+	for i in range(end_down):
+		for j in range(end_right):
+			if(polje[i][j]==7 and shop_angry>0):
+				pass
+				#array[i][j].queue_free()
+				#create_side_room(i,j)
+			
+			if(polje[i][j]==0 and !was_gate and gate==0 and !temple):
+				was_gate=true
+				array[i][j].queue_free()
+				create_dungeon_gate(i,j)
+			
+			
+			if(polje[i][j]!=99 and array[i][j].has_node("exit") and shop_angry>0):
+				get_parent().shop_angry-=1
+				var mole=preload("res://src/Actors/Mole.tscn").instance()
+				mole.idle_angry=true
+				mole.get_node("IdlePlayer").monitoring=true
+				mole.position=array[i][j].get_node("exit").position
+				array[i][j].add_child(mole)
 
 
 func _process(delta: float) -> void:
@@ -307,6 +355,20 @@ func create_lair(i: int, j:int)->void:
 		array[i][j].global_position.x+=160
 		for _i in array[i][j].get_children():
 			_i.position.x=-_i.position.x
+	add_child(array[i][j])
+
+func create_spider_nest(i:int, j:int)->void:
+	array[i][j]=preload("res://src/levelPieces/SpiderNest.tscn").instance()
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
+	add_child(array[i][j])
+
+func create_dungeon_gate(i:int, j:int)->void:
+	
+	array[i][j]=preload("res://src/levelPieces/DungeonGate.tscn").instance()
+	
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
 
 func create_exit(i:int, j:int)->void:
@@ -480,7 +542,7 @@ func add_player()->void:
 	player.get_node("Camera2D").limit_right+=(end_right-4)*160
 	player.get_node("Camera2D").limit_bottom+=(end_down-4)*128
 	player.poisoned=get_parent().poisoned
-	
+	player.goggles=get_parent().goggles
 	
 	add_child(player)
 

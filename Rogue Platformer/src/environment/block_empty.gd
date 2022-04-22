@@ -28,6 +28,8 @@ export var can_be_arrow:=true
 
 var outside:bool=false
 
+export var brick_block:=false
+
 func _ready() -> void:
 	#if(global_position.x<0 or global_position.y<0 or global_position.x>616 or global_position.y>604):
 	#	outside=true
@@ -471,7 +473,10 @@ func wait()->void:
 
 
 func _physics_process(delta: float) -> void:
-	if(get_node("/root/Game/World").temple):
+	if(get_node("/root/Game/World").temple or get_node("/root/Game").temple):
+		brick_block=true
+	
+	if(brick_block):
 		build_dungeon()
 		add_temple_money()
 	else:

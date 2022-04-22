@@ -118,3 +118,5 @@ texture = ExtResource( 2 )
 position = Vector2( 926, 928 )
 z_index = -11
 texture = ExtResource( 2 )
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]

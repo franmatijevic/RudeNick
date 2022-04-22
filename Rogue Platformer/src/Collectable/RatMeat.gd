@@ -4,11 +4,20 @@ var gravity:=295.0
 var speed:=Vector2(150.0, 100.0)
 var velocity:=Vector2.ZERO
 
+var animation:=false
+
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
 	move_and_slide(velocity)
 	if(velocity.y>speed.y):
 		velocity.y=speed.y
+	if(animation):
+		get_node("RatMeat").position.y-=delta*90
+		get_node("RatMeat").scale.x+=delta*0.6
+		get_node("RatMeat").scale.y+=delta*0.6
+		get_node("RatMeat").modulate.a-=delta*1.5
+		if(get_node("RatMeat").modulate.a<0):
+			queue_free()
 
 func _ready() -> void:
 	wait()
@@ -19,5 +28,12 @@ func wait()->void:
 
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
-	body.health+=1
-	queue_free()
+	if(!animation):
+		body.health+=1
+		play_animation()
+
+func play_animation()->void:
+	gravity=0.0
+	velocity.y=0.0
+	get_node("DetectPlayer").monitoring=false
+	animation=true

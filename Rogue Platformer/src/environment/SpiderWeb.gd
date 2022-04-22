@@ -15,8 +15,8 @@ func _physics_process(delta: float) -> void:
 	return
 
 func _ready() -> void:
-	#if(get_parent().get_parent().has_node("Player")): 
-	player = get_parent().get_node("Player")
+	if(get_node("/root/Game/World").has_node("Player")): 
+		player = get_node("/root/Game/World/Player")
 
 func _process(delta: float) -> void:
 	if(collide):

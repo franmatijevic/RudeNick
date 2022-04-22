@@ -62,5 +62,11 @@ visible = false
 z_index = -1
 texture = ExtResource( 5 )
 
+[node name="BoneBlock" type="RayCast2D" parent="."]
+position = Vector2( 0, 10 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 520
+
 [connection signal="body_entered" from="Player" to="." method="_on_Player_body_entered"]
 [connection signal="body_entered" from="Enemy" to="." method="_on_Enemy_body_entered"]

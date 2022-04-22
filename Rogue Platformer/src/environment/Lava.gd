@@ -7,6 +7,8 @@ func _ready() -> void:
 	get_node("Fire/Particles2D").process_material.color.g=191.0/255
 	get_node("Fire/Particles2D").process_material.color.b=66.0/255
 	get_node("Fire/Particles2D").speed_scale=0.75
+	get_node("Fire/Particles2D").process_material.spread=75
+	get_node("Fire/Particles2D").lifetime=0.5
 
 func _physics_process(delta: float) -> void:
 	if($Up.is_colliding()):

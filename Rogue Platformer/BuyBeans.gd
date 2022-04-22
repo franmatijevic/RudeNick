@@ -4,6 +4,7 @@ var gravity:=295.0
 var speed:=Vector2(150.0, 100.0)
 var velocity:=Vector2.ZERO
 
+var animation:=false
 
 var price:int=100
 var e:=false
@@ -25,11 +26,19 @@ func _process(delta: float) -> void:
 	else:
 		get_node("E").visible=false
 		get_node("Text/price").visible=false
+	if(animation):
+		get_node("CanOfBeans").position.y-=delta*90
+		get_node("CanOfBeans").scale.x+=delta*0.6
+		get_node("CanOfBeans").scale.y+=delta*0.6
+		get_node("CanOfBeans").modulate.a-=delta*1.5
+		if(get_node("CanOfBeans").modulate.a<0):
+			queue_free()
+
 
 func e()->void:
 	if(free):
 		get_parent().get_parent().get_node("Player").health+=2
-		queue_free()
+		play_animation()
 	e=true
 	var time_in_seconds = 0.1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
@@ -42,8 +51,15 @@ func buy()->void:
 		player.money-=price
 		player.health+=2
 		get_parent().count_items()
-		queue_free()
+		play_animation()
 
 func get_for_free()->void:
 	get_parent().get_parent().get_node("Player").health+=2
-	queue_free()
+	play_animation()
+
+func play_animation()->void:
+	gravity=0.0
+	velocity.y=0.0
+	set_collision_layer_bit(15,false)
+	animation=true
+	z_index=10

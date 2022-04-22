@@ -31,6 +31,7 @@ func _on_playerDetect_body_entered(body: PhysicsBody2D) -> void:
 	hostile=true
 	get_node("AnimatedSprite").animation="flying"
 	get_node("playerDetect/playerD").disabled=true
+	get_node("Ground").enabled=false
 
 func _ready() -> void:
 	start_level()
@@ -45,6 +46,12 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta):
+	if(!$Ground.is_colliding()):
+		hostile=true
+		get_node("AnimatedSprite").animation="flying"
+		get_node("playerDetect/playerD").disabled=true
+		get_node("Ground").enabled=false
+	
 	if(hostile and get_parent().has_node("Player") and begin):
 		#dir = Vector2( player.get_global_position() - get_global_position()).normalized()
 		dir = Vector2(player.global_position-global_position).normalized()

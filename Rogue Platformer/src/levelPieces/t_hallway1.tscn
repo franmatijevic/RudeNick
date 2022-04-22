@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/environment/Spikes.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/environment/ChainMid.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/ChainBot.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, 56 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, 56 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, 56 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, 56 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, 56 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, 56 )
+
+[node name="KinematicBody2D7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, 56 )
+
+[node name="KinematicBody2D8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, 56 )
+
+[node name="KinematicBody2D9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, 56 )
+
+[node name="KinematicBody2D10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, 56 )
+
+[node name="KinematicBody2D11" parent="." instance=ExtResource( 2 )]
+position = Vector2( -72, -56 )
+
+[node name="KinematicBody2D12" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, -56 )
+
+[node name="KinematicBody2D13" parent="." instance=ExtResource( 2 )]
+position = Vector2( -40, -56 )
+
+[node name="KinematicBody2D14" parent="." instance=ExtResource( 2 )]
+position = Vector2( -24, -56 )
+
+[node name="KinematicBody2D15" parent="." instance=ExtResource( 2 )]
+position = Vector2( -8, -56 )
+
+[node name="KinematicBody2D16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 8, -56 )
+
+[node name="KinematicBody2D17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 24, -56 )
+
+[node name="KinematicBody2D18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 40, -56 )
+
+[node name="KinematicBody2D19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, -56 )
+
+[node name="KinematicBody2D20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 72, -56 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 24 )
+
+[node name="Spikes3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, 40 )
+
+[node name="Spikes4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 40 )
+
+[node name="Spikes5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 40 )
+
+[node name="Spikes6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 40 )
+
+[node name="Spikes7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 40 )
+
+[node name="Spikes8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 40, 40 )
+
+[node name="Spikes9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 24 )
+
+[node name="ChainMid" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, -40 )
+
+[node name="ChainMid2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, -24 )
+
+[node name="ChainMid3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, -8 )
+
+[node name="ChainMid7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, 8 )
+
+[node name="ChainBot" parent="." instance=ExtResource( 4 )]
+position = Vector2( -40, 8 )
+
+[node name="ChainMid4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, -40 )
+
+[node name="ChainMid5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, -24 )
+
+[node name="ChainBot2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 56, -8 )
+
+[node name="ChainMid6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -40 )
+
+[node name="ChainMid8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -24 )
+
+[node name="ChainMid9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, -8 )
+
+[node name="ChainBot3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 8, 24 )
+
+[node name="KinematicBody2D21" parent="." instance=ExtResource( 2 )]
+position = Vector2( -56, 40 )
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56, 40 )
