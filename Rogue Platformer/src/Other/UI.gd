@@ -54,9 +54,12 @@ func _process(delta: float) -> void:
 func setup()->void:
 	get_node("GameOver").visible=true
 	get_node("GameOver").frame=0
-	yield(get_tree().create_timer(0.6), "timeout")
+	yield(get_tree().create_timer(0.7), "timeout")
 	dead_setup=true
 	get_node("ResetHover").visible=true
+	get_node("Time_whole").visible=true
+	get_node("Killed").visible=true
+	get_node("LevelDead").visible=true
 
 
 

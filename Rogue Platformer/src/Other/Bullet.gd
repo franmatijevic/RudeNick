@@ -23,13 +23,13 @@ func _on_CollideWall_body_entered(body: Node) -> void:
 
 
 func _on_DetectEnemy_body_entered(body: Node) -> void:
-	if(body.last_damage=="Troll" or body.last_damage=="serpant"):
+	if(body.last_damage=="Troll" or body.last_damage=="serpant" or body.last_damage=="bigspider"):
 		body.damage(2)
 	elif(body.last_damage=="Mole" and player):
 		body.damage(2)
 		if(!body.angry):
 			body.get_parent().get_mad()
-	if(body.last_damage!="Troll" and body.last_damage!="Mole" and body.last_damage!="serpant"):
+	if(body.last_damage!="Troll" and body.last_damage!="Mole" and body.last_damage!="serpant" and body.last_damage!="bigspider"):
 		body.death()
 	if(body.last_damage=="Mole" and !player):
 		pass

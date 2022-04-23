@@ -124,3 +124,6 @@ position = Vector2( -72, 24 )
 
 [node name="KinematicBody2D39" parent="." instance=ExtResource( 1 )]
 position = Vector2( -72, 8 )
+
+[node name="KinematicBody2D40" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, 8 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
+[ext_resource path="res://Music/2.wav" type="AudioStream" id=3]
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Other/BlackScreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=6]
@@ -120,3 +121,5 @@ z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0

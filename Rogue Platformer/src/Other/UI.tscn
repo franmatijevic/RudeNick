@@ -31,7 +31,7 @@
 [ext_resource path="res://Assets/Serpant/poison_icon.png" type="Texture" id=29]
 
 [sub_resource type="DynamicFont" id=1]
-size = 50
+size = 25
 outline_color = Color( 0.00392157, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
@@ -217,75 +217,83 @@ color = Color( 0.0196078, 0.870588, 0.0352941, 0.0784314 )
 
 [node name="GameOver" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 950, 340 )
-scale = Vector2( 5, 5 )
+position = Vector2( 936, 440 )
+scale = Vector2( 6.5, 6.5 )
 frames = SubResource( 10 )
 frame = 8
 playing = true
 
 [node name="ResetHover" type="Sprite" parent="."]
 visible = false
-position = Vector2( 950, 340 )
-scale = Vector2( 5, 5 )
+position = Vector2( 936, 440 )
+scale = Vector2( 6.5, 6.5 )
 texture = ExtResource( 21 )
 
 [node name="Help" type="Sprite" parent="."]
 visible = false
-position = Vector2( 950, 492.5 )
-scale = Vector2( 5, 5 )
+position = Vector2( 936, 640 )
+scale = Vector2( 6.5, 6.5 )
 texture = ExtResource( 14 )
 
 [node name="Quit" type="Sprite" parent="."]
 visible = false
-position = Vector2( 950, 617.5 )
-scale = Vector2( 5, 5 )
+position = Vector2( 936, 800 )
+scale = Vector2( 6.5, 6.5 )
 texture = ExtResource( 13 )
 
 [node name="Time_whole" type="Label" parent="."]
-margin_left = 280.0
-margin_top = 584.0
-margin_right = 480.0
-margin_bottom = 640.0
+visible = false
+margin_left = 1176.0
+margin_top = 552.0
+margin_right = 1376.0
+margin_bottom = 608.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Killed" type="Label" parent="."]
-margin_left = 296.0
-margin_top = 808.0
-margin_right = 496.0
-margin_bottom = 864.0
+visible = false
+margin_left = 448.0
+margin_top = 528.0
+margin_right = 788.0
+margin_bottom = 612.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="LevelDead" type="Label" parent="."]
-margin_left = 1344.0
-margin_top = 544.0
-margin_right = 1544.0
-margin_bottom = 600.0
+visible = false
+margin_left = 1168.0
+margin_top = 480.0
+margin_right = 1393.0
+margin_bottom = 536.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Goggles" type="Sprite" parent="."]
+visible = false
 position = Vector2( 384, 94 )
 scale = Vector2( 8, 8 )
 texture = ExtResource( 25 )
 
 [node name="KeyGreen" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1296, 94 )
 scale = Vector2( 7, 7 )
 texture = ExtResource( 26 )
 
 [node name="KeyRed" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1408, 94 )
 scale = Vector2( 7, 7 )
 texture = ExtResource( 28 )
 
 [node name="KeyWhite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1520, 94 )
 scale = Vector2( 7, 7 )
 texture = ExtResource( 27 )
 
 [node name="Poison2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 525, 94 )
 scale = Vector2( 8, 8 )
 texture = ExtResource( 29 )

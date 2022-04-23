@@ -5,7 +5,7 @@ var change: = false
 var can_move=1
 var health:=15
 
-var jump_speed:=225.0
+var jump_speed:=205.0
 
 var big_range:=false
 var small_range:=false
@@ -14,7 +14,7 @@ var small_range:=false
 var last_damage="bigspider"
 
 var normal_speed:=35.0
-var fast_speed:=75.0
+var fast_speed:=80.0
 
 var is_attacking:=false
 
@@ -84,12 +84,13 @@ func jump()->void:
 	velocity.x=abs(velocity.x)/velocity.x*fast_speed
 
 func attack()->void:
-	if(randi()%5==0):
+	if(randi()%10==0):
 		spit()
 		is_attacking=false
 		velocity.x=abs(velocity.x)/velocity.x*normal_speed
 		return
-	velocity.x=abs(velocity.x)/velocity.x*0.001
+	if(!$Ground.is_colliding()):
+		velocity.x=abs(velocity.x)/velocity.x*3
 	get_node("AnimatedSprite").visible=false
 	get_node("AnimatedSprite2").visible=true
 	get_node("AnimatedSprite2").frame=0
@@ -101,7 +102,6 @@ func attack()->void:
 	get_node("AnimatedSprite2").visible=false
 	velocity.x=abs(velocity.x)/velocity.x*normal_speed
 	is_attacking=false
-	count_bite+=1
 
 func cool_attack()->void:
 	spit()
@@ -122,6 +122,7 @@ func death()->void:
 	queue_free()
 
 func damage(value: int)->void:
+	velocity.x=abs(velocity.x)/velocity.x*fast_speed
 	if(health<value+1):
 		death()
 		return
@@ -180,7 +181,8 @@ func _on_Bite_body_entered(body: Node) -> void:
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	big_range=true
-	cool_attack()
+	if(randi()%3==0):
+		cool_attack()
 	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
 			return
 	var player = get_node("/root/Game/World/Player")
@@ -221,4 +223,5 @@ func _on_ClosePlayer_body_entered(body: Node) -> void:
 
 func _on_ClosePlayer_body_exited(body: Node) -> void:
 	small_range=false
-	cool_attack()
+	if(randi()%3==0):
+		cool_attack()
