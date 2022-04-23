@@ -32,14 +32,6 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	#if(get_node("AnimatedSprite2").frame==2):
-	#	get_node("DamageArea").monitoring=true
-	#else:
-	#	get_node("DamageArea").monitoring=false
-	if(Input.is_action_just_pressed("ui_accept")):
-		jump()
-	
-	
 	if(!$Floor.is_colliding() and !is_attacking and !is_in_air):
 		is_in_air=true
 		get_node("AnimatedSprite").animation="jump"

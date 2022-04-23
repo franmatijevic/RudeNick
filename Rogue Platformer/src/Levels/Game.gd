@@ -27,7 +27,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=false
+var temple:=true
+
+var go_to_boss:=true
 
 var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
 
@@ -118,9 +120,17 @@ func new_level()->void:
 		get_node("RestartScreen").queue_free()
 	
 	var world = preload("res://src/Levels/World.tscn").instance()
-	if(temple):
+	if(go_to_boss):
+		world=preload("res://src/Levels/WorldBoss.tscn").instance()
+		world.name="World"
+	elif(temple):
 		world = preload("res://src/Levels/WorldTemple.tscn").instance()
 		world.name="World"
+		if(randi()%2==0):
+			go_to_boss=true
+	
+	
+	
 	world.global_position=global_position
 	world.red=red_key
 	world.green=green_key

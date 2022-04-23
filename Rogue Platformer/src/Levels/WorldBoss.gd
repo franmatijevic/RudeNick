@@ -126,9 +126,11 @@ func _init()->void:
 		for j in range(end_right):
 			match polje[i][j]:
 				1:
-					create_hallway(i,j)
+					#create_hallway(i,j)
+					pass
 				2:
-					create_dropdown(i,j)
+					#create_dropdown(i,j)
+					pass
 				4:
 					array[i][j]=preload("res://src/levelPieces/start1.tscn").instance()
 					array[i][j].global_position.x=80 + j * 160
