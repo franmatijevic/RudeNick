@@ -247,7 +247,7 @@ margin_left = 1176.0
 margin_top = 552.0
 margin_right = 1376.0
 margin_bottom = 608.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Killed" type="Label" parent="."]
@@ -256,7 +256,7 @@ margin_left = 448.0
 margin_top = 528.0
 margin_right = 788.0
 margin_bottom = 612.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="LevelDead" type="Label" parent="."]
@@ -265,7 +265,7 @@ margin_left = 1168.0
 margin_top = 480.0
 margin_right = 1393.0
 margin_bottom = 536.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Goggles" type="Sprite" parent="."]
