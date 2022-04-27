@@ -97,7 +97,7 @@ func get_mad()->void:
 	get_node("Mole/GunSight").enabled=true
 	
 	var upset:String="Sad sam jako razocaran!"
-	match randi()%6:
+	match randi()%7:
 		0:
 			upset="You thief! You will pay for this!"
 		1:
@@ -110,6 +110,8 @@ func get_mad()->void:
 			upset="A terrorist? In my shop? No way..."
 		5:
 			upset="You monster! It's over for you now!"
+		6:
+			upset="An imposter! Very sus!"
 	
 	get_parent().get_node("Kanvas/UI").print_something(upset)
 

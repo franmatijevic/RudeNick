@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/MainMenu.gd" type="Script" id=2]
@@ -12,8 +12,12 @@
 [ext_resource path="res://Assets/MainMenuStuff/main_menu_animation7.png" type="Texture" id=10]
 [ext_resource path="res://Assets/MainMenuStuff/main_menu_animation9.png" type="Texture" id=11]
 [ext_resource path="res://Assets/MainMenuStuff/rude_nick_1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover.png" type="Texture" id=13]
+[ext_resource path="res://Assets/HelpMenu/help_menu.png" type="Texture" id=14]
+[ext_resource path="res://Assets/HelpMenu/help_menu_2.png" type="Texture" id=15]
 [ext_resource path="res://Music/ACOUSTIC GUITAR + CHIPTUNE ♫ c o n f e t t i.ogg" type="AudioStream" id=16]
 [ext_resource path="res://Assets/HelpMenu/help_menu_1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/back_button_v2_hover.png" type="Texture" id=18]
 [ext_resource path="res://Assets/MainMenuStuff/help_button_1_hover.png" type="Texture" id=22]
 [ext_resource path="res://Assets/MainMenuStuff/quit_button_1_hover.png" type="Texture" id=23]
 [ext_resource path="res://Assets/MainMenuStuff/play_button_1_hover.png" type="Texture" id=24]
@@ -93,9 +97,35 @@ visible = false
 position = Vector2( 192, 96 )
 texture = ExtResource( 22 )
 
-[node name="HelpMenu1" type="Sprite" parent="."]
+[node name="HelpMenu" type="Sprite" parent="."]
 visible = false
-position = Vector2( 184, 88 )
+position = Vector2( 192, 68.5 )
+texture = ExtResource( 14 )
+
+[node name="Controls1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 165.5, 84 )
 texture = ExtResource( 17 )
+
+[node name="Controls2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 165.5, 84 )
+texture = ExtResource( 15 )
+
+[node name="ArrowLeft" type="Sprite" parent="."]
+visible = false
+position = Vector2( 230, 106.5 )
+texture = ExtResource( 13 )
+
+[node name="ArrowRight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 258, 106.5 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="Back" type="Sprite" parent="."]
+visible = false
+position = Vector2( 244, 125.5 )
+texture = ExtResource( 18 )
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

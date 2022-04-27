@@ -10,6 +10,11 @@ var choice:int=0
 #quit 2
 var dead_setup:=false
 
+var help:=false
+var help_choice:int=0
+#left 0
+#right 1
+#back 2
 
 func _ready() -> void:
 	pass
@@ -18,7 +23,7 @@ func _process(delta: float) -> void:
 	if(dead):
 		if(!dead_setup):
 			setup()
-		else:
+		elif(!help):
 			if(Input.is_action_just_pressed("down")):
 				choice+=1
 				if(choice==3):
@@ -44,19 +49,71 @@ func _process(delta: float) -> void:
 					get_node("/root/Game").restart()
 					get_node("/root/Game").can_pause=true
 				elif(choice==1):
-					pass
+					help_setup()
 				else:
 					#get_node("/root/Game").back_to_main_menu()
 					get_tree().reload_current_scene()
+		else:
+			if(help_choice==0):
+				get_node("ArrowLeft").visible=true
+				get_node("ArrowRight").visible=false
+				get_node("Back").visible=false
+			elif(help_choice==1):
+				get_node("ArrowLeft").visible=false
+				get_node("ArrowRight").visible=true
+				get_node("Back").visible=false
+			else:
+				get_node("ArrowLeft").visible=false
+				get_node("ArrowRight").visible=false
+				get_node("Back").visible=true
+			
+			if(Input.is_action_just_pressed("move_left")):
+				help_choice=0
+			if(Input.is_action_just_pressed("move_right")):
+				help_choice=1
+			if(Input.is_action_just_pressed("down")):
+				help_choice=2
+			if(Input.is_action_just_pressed("up") and help_choice==2):
+				help_choice=0
+			if(Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("action") or Input.is_action_just_pressed("ui_accept")):
+				if(help_choice==0):
+					get_node("Controls2").visible=false
+					get_node("Controls1").visible=true
+				elif(help_choice==1):
+					get_node("Controls1").visible=false
+					get_node("Controls2").visible=true
+				else:
+					help=false
+					get_node("Controls1").visible=false
+					get_node("Controls2").visible=false
+					get_node("HelpMenu").visible=false
+					get_node("Back").visible=false
+					setup()
 
+
+func help_setup()->void:
+	get_node("GameOver").visible=false
+	get_node("ResetHover").visible=false
+	get_node("Help").visible=false
+	get_node("Quit").visible=false
+	get_node("Time_whole").visible=false
+	get_node("Killed").visible=false
+	get_node("LevelDead").visible=false
+	
+	help_choice=0
+	help=true
+	
+	get_node("HelpMenu").visible=true
+	get_node("Controls1").visible=true
 
 
 func setup()->void:
+	choice=0
 	get_node("GameOver").visible=true
 	get_node("GameOver").frame=0
 	yield(get_tree().create_timer(0.7), "timeout")
 	dead_setup=true
-	get_node("ResetHover").visible=true
+	yield(get_tree().create_timer(0.05), "timeout")
 	get_node("Time_whole").visible=true
 	get_node("Killed").visible=true
 	get_node("LevelDead").visible=true

@@ -116,7 +116,7 @@ func _ready() -> void:
 	var n_of_shops:int=0
 	var where_shop
 	shop=0
-	if(shop==0 and shop_angry<1 and !temple and level!=0):
+	if(shop==0 and shop_angry<1 and !temple and level!=1):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -135,7 +135,7 @@ func _ready() -> void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%20==0 and !temple and !green):
+	if(randi()%3==0 and !temple and !green):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -150,7 +150,7 @@ func _ready() -> void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%10==0 and !temple and !red): #Lair spawn rate
+	elif(randi()%3==0 and !temple and !red): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -208,7 +208,7 @@ func _ready() -> void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
-	elif(randi()%1==0 and !temple and !white): #Create SPIDER NEST
+	elif(randi()%2==0 and !temple and !white): #Create SPIDER NEST
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -310,7 +310,7 @@ func _ready() -> void:
 				#array[i][j].queue_free()
 				#create_side_room(i,j)
 			
-			if(polje[i][j]==0 and !was_gate and gate==0 and !temple):
+			if(polje[i][j]==0 and !was_gate and gate==0 and !temple and randi()%3==0):
 				was_gate=true
 				array[i][j].queue_free()
 				create_dungeon_gate(i,j)

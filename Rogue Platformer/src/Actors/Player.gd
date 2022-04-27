@@ -343,6 +343,7 @@ func poison()->void:
 	get_node("AnimatedSprite").modulate.r=0.27
 	get_node("AnimatedSprite").modulate.g=0.51
 	get_node("AnimatedSprite").modulate.b=0.20
+	get_node("/root/Game/World/Kanvas/UI/Poison2").visible=true
 	#get_parent().get_node("Kanvas/UI/Poison").visible=true
 
 func cure()->void:
@@ -350,6 +351,7 @@ func cure()->void:
 	get_node("AnimatedSprite").modulate.r=1
 	get_node("AnimatedSprite").modulate.g=1
 	get_node("AnimatedSprite").modulate.b=1
+	get_node("/root/Game/World/Kanvas/UI/Poison2").visible=false
 
 func ladder()->void:
 	climbing=true
@@ -511,9 +513,9 @@ func killed_by()->void:
 	get_node("/root/Game/World/Kanvas/UI/Time_whole").text
 	
 	if(last_damage=="snake"):
-		killed.text="I was bitten by a snake"
+		killed.text="I was \nbitten by \na snake"
 	elif(last_damage=="bat"):
-		killed.text="I was killed by a bat"
+		killed.text="I was killed \nby a bat"
 	elif(last_damage=="lava"):
 		killed.text="I was burned in lava"
 	elif(last_damage=="Spikes"):

@@ -7,8 +7,17 @@ var using_gravity: = 1
 var velocity: = Vector2.ZERO
 
 func _ready() -> void:
-	pass
+	get_node("DestroyBlocks").monitoring=true
 	gravity=0.0
+
+var animation_direction=1
+
+func _process(delta: float) -> void:
+	get_node("AnimatedSprite").position.y+=delta*animation_direction*5
+	if(get_node("AnimatedSprite").position.y>1):
+		animation_direction=-1
+	if(get_node("AnimatedSprite").position.y<-1):
+		animation_direction=1
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta * using_gravity

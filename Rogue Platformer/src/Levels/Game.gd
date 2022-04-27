@@ -13,9 +13,9 @@ var goggles:=false
 
 var shop_angry:int=0
 
-var red_key:=true
-var white_key:=true
-var green_key:=true
+var red_key:=false
+var white_key:=false
+var green_key:=false
 
 var old_health:int=0
 var old_money:int=0
@@ -27,9 +27,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=true
+var temple:=false
 
-var go_to_boss:=true
+var go_to_boss:=false
 
 var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
 
