@@ -1,5 +1,7 @@
 extends "res://src/Actors/Actor.gd"
 
+var music:=false
+
 var direction: = false
 var change: = false
 var can_move=1
@@ -172,6 +174,8 @@ func _on_Bite_body_entered(body: Node) -> void:
 		body.damage(2)
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
+	get_node("/root/Game/World").raging_music()
+	
 	big_range=true
 	if(randi()%3==0):
 		cool_attack()

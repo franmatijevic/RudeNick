@@ -11,6 +11,7 @@ var help_choice:int=0
 #left 0
 #right 1
 #back 2
+var music:=false
 
 func title_animation()->void:
 	get_node("RudeNick").visible=false
@@ -29,8 +30,11 @@ func title_animation()->void:
 	get_node("HelpSprite").visible=true
 	get_node("QuitSprite").visible=true
 	
-	get_node("GameMusic").play()
 	get_node("AnimatedSprite").animation="default"
+	
+	if(music==false):
+		music=true
+		get_node("Music").play()
 
 
 func _ready() -> void:

@@ -4,6 +4,7 @@ var angry:bool=false
 
 func _on_DetectBomb_area_entered(area):
 	if(!angry):
+		get_node("/root/Game/World").raging_music()
 		angry=true
 		get_node("Troll").can_destroy=true
 		get_node("Troll").angry=true

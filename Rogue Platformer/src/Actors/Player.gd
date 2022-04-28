@@ -536,6 +536,11 @@ func killed_by()->void:
 
 
 func death(direciton: bool)->void:
+	get_node("/root/Game/World/Music1").stop()
+	get_node("/root/Game/World/Music2").stop()
+	get_node("/root/Game/World/Music3").stop()
+	get_node("/root/Game/World/Rage").stop()
+	
 	get_parent().get_parent().total_time+=get_parent().current_time
 	killed_by()
 	get_parent().get_node("Kanvas/UI").dead=true
@@ -574,6 +579,8 @@ func death(direciton: bool)->void:
 	corpse.position=position
 	get_parent().add_child(corpse)
 	queue_free()
+
+
 
 func enemy_jump()->void:
 	sky=false

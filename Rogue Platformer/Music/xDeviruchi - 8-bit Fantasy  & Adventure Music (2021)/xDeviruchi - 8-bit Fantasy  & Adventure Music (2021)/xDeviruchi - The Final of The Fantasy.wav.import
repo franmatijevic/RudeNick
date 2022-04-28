@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xDeviruchi - The Final of The Fantasy.wav-ba99b49296c2985bb6f1bb3cd5c9b398.sample"
+
+[deps]
+
+source_file="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - The Final of The Fantasy.wav"
+dest_files=[ "res://.import/xDeviruchi - The Final of The Fantasy.wav-ba99b49296c2985bb6f1bb3cd5c9b398.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

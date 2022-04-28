@@ -9,7 +9,7 @@ func _ready() -> void:
 	if(get_node("/root/Game/World").has_node("Player")):
 		player=get_node("/root/Game/World/Player")
 		dir = Vector2(player.global_position-global_position).normalized()
-		get_node("Laser1").rotation_degrees=dir.angle()
+		#get_node("Laser1").rotation_degrees=dir.angle()
 		rotation = dir.angle()-90
 	else:
 		queue_free()

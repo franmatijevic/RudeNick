@@ -15,7 +15,7 @@
 [ext_resource path="res://Assets/HelpMenu/next_page_button_hover.png" type="Texture" id=13]
 [ext_resource path="res://Assets/HelpMenu/help_menu.png" type="Texture" id=14]
 [ext_resource path="res://Assets/HelpMenu/help_menu_2.png" type="Texture" id=15]
-[ext_resource path="res://Music/ACOUSTIC GUITAR + CHIPTUNE ♫ c o n f e t t i.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" type="AudioStream" id=16]
 [ext_resource path="res://Assets/HelpMenu/help_menu_1.png" type="Texture" id=17]
 [ext_resource path="res://Assets/back_button_v2_hover.png" type="Texture" id=18]
 [ext_resource path="res://Assets/MainMenuStuff/help_button_1_hover.png" type="Texture" id=22]
@@ -78,10 +78,6 @@ visible = false
 position = Vector2( 192, 24 )
 texture = ExtResource( 12 )
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-volume_db = -80.0
-
 [node name="PlaySprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 192, 67 )
@@ -127,5 +123,9 @@ flip_h = true
 visible = false
 position = Vector2( 244, 125.5 )
 texture = ExtResource( 18 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -15.0
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

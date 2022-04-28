@@ -49,6 +49,7 @@ script = ExtResource( 10 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "bite"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -71,6 +72,12 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Whip"]
 shape = SubResource( 4 )
+
+[node name="Wall" type="RayCast2D" parent="."]
+modulate = Color( 0.466667, 0.0352941, 0.0352941, 1 )
+enabled = true
+cast_to = Vector2( 45, 0 )
+collision_mask = 8
 
 [connection signal="body_entered" from="DestroyBlocks" to="." method="_on_DestroyBlocks_body_entered"]
 [connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]

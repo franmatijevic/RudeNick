@@ -44,11 +44,17 @@ var lair_dir:=false
 
 var frame
 
-func _init()->void:
-	pass
-
+var rage_music:=false
 
 func _ready() -> void:
+	var music=randi()%3
+	if(music==0):
+		get_node("Music1").play()
+	elif(music==1):
+		get_node("Music2").play()
+	else:
+		get_node("Music3").play()
+	
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
 	print("level po ovom dreku: ", level)
@@ -135,7 +141,7 @@ func _ready() -> void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%3==0 and !temple and !green):
+	if(randi()%2==0 and !temple and !green):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -150,7 +156,7 @@ func _ready() -> void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%3==0 and !temple and !red): #Lair spawn rate
+	elif(randi()%2==0 and !temple and !red): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -341,6 +347,18 @@ func _process(delta: float) -> void:
 		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
 	else:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
+
+func raging_music()->void:
+	if(!rage_music):
+		rage_music=true
+		get_node("/root/Game/World/Music1").volume_db=-80
+		get_node("/root/Game/World/Music2").volume_db=-80
+		get_node("/root/Game/World/Music3").volume_db=-80
+		get_node("/root/Game/World/Music1").stop()
+		get_node("/root/Game/World/Music2").stop()
+		get_node("/root/Game/World/Music3").stop()
+		
+		get_node("/root/Game/World/Rage").play()
 
 func create_lair(i: int, j:int)->void:
 	match randi()%2:

@@ -5,6 +5,7 @@ var change: = false
 var can_move=1
 var health:=12
 
+var music:=false
 
 var last_damage="serpant"
 
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	
 	if($Player.is_colliding()):
 		velocity.x=abs(velocity.x) / velocity.x * fast_speed
+		music()
 
 func death()->void:
 	#get_parent().get_node("TrollDeath").play()
@@ -98,12 +100,16 @@ func _on_Head_body_entered(body: Node) -> void:
 func _on_Whip_area_entered(area: Area2D) -> void:
 	damage(1)
 	velocity.x=abs(velocity.x) / velocity.x * fast_speed
+	music()
 
 
 func _on_Prepare_body_entered(body: Node) -> void:
 	if(!is_attacking):
 		is_attacking=true
 		attack()
+
+func music()->void:
+	get_node("/root/Game/World").raging_music()
 
 
 func _on_DamageArea_body_entered(body: Node) -> void:

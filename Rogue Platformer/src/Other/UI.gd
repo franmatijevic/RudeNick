@@ -108,6 +108,7 @@ func help_setup()->void:
 
 
 func setup()->void:
+	get_node("Dim").visible=true
 	choice=0
 	get_node("GameOver").visible=true
 	get_node("GameOver").frame=0

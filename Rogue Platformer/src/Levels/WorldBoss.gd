@@ -155,9 +155,6 @@ func _init()->void:
 
 
 func _ready() -> void:
-	if(temple):
-		for _i in frame.get_node("Dirt").get_children():
-			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
 	if(temple):
 		get_node("Background1").texture=load("res://Assets/Backgrounds/temple_background.png")

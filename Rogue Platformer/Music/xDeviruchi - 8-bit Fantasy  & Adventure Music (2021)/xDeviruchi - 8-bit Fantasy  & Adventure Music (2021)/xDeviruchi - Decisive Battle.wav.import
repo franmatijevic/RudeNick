@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xDeviruchi - Decisive Battle.wav-12764e8aefdfdf0b38c782f1c1fb814b.sample"
+
+[deps]
+
+source_file="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Decisive Battle.wav"
+dest_files=[ "res://.import/xDeviruchi - Decisive Battle.wav-12764e8aefdfdf0b38c782f1c1fb814b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

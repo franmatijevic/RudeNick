@@ -73,6 +73,8 @@ func find_item()->String:
 	return "res://src/Items/Goggles.tscn"
 
 func get_mad()->void:
+	get_node("/root/Game/World").raging_music()
+	
 	if(!has_node("Mole")):
 		return
 	if(has_node("DetectDanger")):

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xDeviruchi - Minigame (End).wav-9da9b928d907f58a6e7abba65f1fee63.sample"
+
+[deps]
+
+source_file="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/Separated Audio Files/Separated Files/Minigame/xDeviruchi - Minigame (End).wav"
+dest_files=[ "res://.import/xDeviruchi - Minigame (End).wav-9da9b928d907f58a6e7abba65f1fee63.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

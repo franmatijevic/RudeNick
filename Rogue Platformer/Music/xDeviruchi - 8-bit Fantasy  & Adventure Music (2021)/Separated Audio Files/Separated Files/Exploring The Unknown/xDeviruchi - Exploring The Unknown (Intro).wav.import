@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xDeviruchi - Exploring The Unknown (Intro).wav-9d087aac187b777a5d63d6444848c6ce.sample"
+
+[deps]
+
+source_file="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/Separated Audio Files/Separated Files/Exploring The Unknown/xDeviruchi - Exploring The Unknown (Intro).wav"
+dest_files=[ "res://.import/xDeviruchi - Exploring The Unknown (Intro).wav-9d087aac187b777a5d63d6444848c6ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Music/c a f e ♫ ROYALTY FREE CHIPTUNE LOOP.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/Levels/WorldBoss.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Beholder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -56,32 +57,32 @@ position = Vector2( 24, 56 )
 [node name="Background1" type="Sprite" parent="."]
 position = Vector2( 160, 160 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="Background2" type="Sprite" parent="."]
 position = Vector2( 543, 160 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="Background3" type="Sprite" parent="."]
 position = Vector2( 926, 160 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="Background4" type="Sprite" parent="."]
 position = Vector2( 160, 544 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="Background5" type="Sprite" parent="."]
 position = Vector2( 543, 544 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="Background6" type="Sprite" parent="."]
 position = Vector2( 926, 544 )
 z_index = -11
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
 
 [node name="BlackScreen" type="Node2D" parent="."]
 process_priority = 1

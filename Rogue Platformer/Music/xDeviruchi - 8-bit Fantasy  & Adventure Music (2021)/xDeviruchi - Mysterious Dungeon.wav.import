@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/xDeviruchi - Mysterious Dungeon.wav-e1f5b58defdd3fc78ff2e5a2ed891757.sample"
+
+[deps]
+
+source_file="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Mysterious Dungeon.wav"
+dest_files=[ "res://.import/xDeviruchi - Mysterious Dungeon.wav-e1f5b58defdd3fc78ff2e5a2ed891757.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
