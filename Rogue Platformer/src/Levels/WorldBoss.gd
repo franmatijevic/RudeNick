@@ -48,13 +48,8 @@ func _init()->void:
 	transition.choice=true
 	
 	#Big level or small level
-	if(randi()%9==0):
-		if(randi()%4==0):
-			end_down=8
-			end_right=4
-		else:
-			end_right=5
-			end_down=5
+	end_down=8
+	end_right=4
 	
 	randomize()
 	start=randi()%end_right
@@ -156,17 +151,6 @@ func _init()->void:
 
 func _ready() -> void:
 	
-	if(temple):
-		get_node("Background1").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background2").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background3").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background4").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background5").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background6").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background7").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background8").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background9").texture=load("res://Assets/Backgrounds/temple_background.png")
-	
 	if(get_parent().goggles):
 		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true
 	
@@ -183,10 +167,7 @@ func _ready() -> void:
 
 	get_node("BlackScreen").queue_free()
 	add_player()
-	if(end_down==8):
-		get_node("Kanvas/UI").print_something("It looks like a long way down...")
-	if(end_right==5):
-		get_node("Kanvas/UI").print_something("My voice ecos in here...")
+	get_node("Kanvas/UI").print_something("I feel like something bad is coming...")
 
 
 func _process(delta: float) -> void:

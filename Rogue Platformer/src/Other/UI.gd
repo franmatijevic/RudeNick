@@ -24,6 +24,12 @@ func _process(delta: float) -> void:
 		if(!dead_setup):
 			setup()
 		elif(!help):
+			if(get_node("GameOver").frame==8):
+				get_node("Time_whole").visible=true
+				get_node("Killed").visible=true
+				get_node("LevelDead").visible=true
+				get_node("Portrait").visible=true
+			
 			if(Input.is_action_just_pressed("down")):
 				choice+=1
 				if(choice==3):
@@ -54,6 +60,10 @@ func _process(delta: float) -> void:
 					#get_node("/root/Game").back_to_main_menu()
 					get_tree().reload_current_scene()
 		else:
+			get_node("Time_whole").visible=false
+			get_node("Killed").visible=false
+			get_node("LevelDead").visible=false
+			get_node("Portrait").visible=false
 			if(help_choice==0):
 				get_node("ArrowLeft").visible=true
 				get_node("ArrowRight").visible=false
@@ -114,10 +124,10 @@ func setup()->void:
 	get_node("GameOver").frame=0
 	yield(get_tree().create_timer(0.7), "timeout")
 	dead_setup=true
-	yield(get_tree().create_timer(0.05), "timeout")
-	get_node("Time_whole").visible=true
-	get_node("Killed").visible=true
-	get_node("LevelDead").visible=true
+	#yield(get_tree().create_timer(0.05), "timeout")
+	#get_node("Time_whole").visible=true
+	#get_node("Killed").visible=true
+	#get_node("LevelDead").visible=true
 
 
 

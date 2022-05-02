@@ -27,9 +27,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=false
+var temple:=true
 
-var go_to_boss:=false
+var go_to_boss:=true
 
 var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
 

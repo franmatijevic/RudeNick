@@ -153,6 +153,7 @@ func _init()->void:
 
 
 func _ready() -> void:
+	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=true
 	if(temple):
 		for _i in frame.get_node("Dirt").get_children():
 			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")

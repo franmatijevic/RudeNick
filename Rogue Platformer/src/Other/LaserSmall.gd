@@ -9,18 +9,16 @@ func _ready() -> void:
 	if(get_node("/root/Game/World").has_node("Player")):
 		player=get_node("/root/Game/World/Player")
 		dir = Vector2(player.global_position-global_position).normalized()
-		#get_node("Laser1").rotation_degrees=dir.angle()
-		rotation = dir.angle()-90
 	else:
 		queue_free()
 
 
 func _physics_process(delta: float) -> void:
-	move_and_slide(dir * speed)
-
+	if(dir!=null):
+		move_and_slide(dir * speed)
 
 func _on_Wall_body_entered(body: Node) -> void:
-	if(randi()%3==0):
+	if(randi()%3==0 and body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
 		body.destroy()
 	queue_free()
 
@@ -35,3 +33,9 @@ func _on_Player_body_entered(body: Node) -> void:
 				body.death(false)
 		else:
 			body.damage(1)
+	queue_free()
+
+
+func _on_Enemy_body_entered(body: Node) -> void:
+	body.death()
+	queue_free()

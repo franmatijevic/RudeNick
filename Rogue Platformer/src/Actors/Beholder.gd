@@ -8,11 +8,36 @@ var velocity: = Vector2.ZERO
 
 var health:=20
 
+var player_near:=false
+
+var burst:=false
+var bite:=false
+var going_down:=false
+var k:int=0
+
+var starting_y
+
+func _on_BiteMaybe_body_entered(body: Node) -> void:
+	bite()
+
+func _on_Bite_body_entered(body: Node) -> void:
+	if(body.name=="Player" and !body.iframes_on):
+		body.last_damage="beholder"
+		if(body.health<2):
+			if(global_position.x<body.global_position.x):
+				body.death(true)
+			else:
+				body.death(false)
+		else:
+			body.damage(1)
+
 func _ready() -> void:
+	starting_y=global_position.y
 	get_node("AnimatedSprite").animation="default"
 	get_node("DestroyBlocks").monitoring=true
 	gravity=0.0
 	velocity.x=25.0
+	print(velocity.x)
 
 var animation_direction=1
 
@@ -28,19 +53,90 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > speed.y:
 		velocity.y = speed.y
 	
-	velocity.y = move_and_slide(velocity).y
+	velocity = move_and_slide(velocity)
 	
 	if($Wall.is_colliding()):
 		$Wall.cast_to.x*=-1
 		velocity.x*=-1
 	
+	if(going_down):
+		velocity.x=0.001
+		global_position.y+=30.0*delta
+		if(global_position.y>starting_y+k*256):
+			going_down=false
+			velocity.x=25
+
+func burst()->void:
+	if(burst):
+		return
+	burst=true
+	yield(get_tree().create_timer(1), "timeout")
 	
-	if(Input.is_action_just_pressed("ui_accept")):
+	for i in range(10):
+		yield(get_tree().create_timer(0.3), "timeout")
 		shoot_small_laser()
+	burst=false
+	if(randi()%3==0):
+		k=k+1
+		going_down=true
+		print("going down")
+
+func bite()->void:
+	if(burst or bite):
+		return
+	bite=true
+	velocity.x=abs(velocity.x)/velocity.x*0.001
+	get_node("AnimatedSprite").animation="bite"
+	get_node("AnimatedSprite").frame=0
+	yield(get_tree().create_timer(0.6), "timeout")
+	get_node("Bite").monitoring=true
+	get_node("Bite").visible=true
+	get_node("BiteMaybe").monitoring=false
+	yield(get_tree().create_timer(0.1), "timeout")
+	get_node("Bite").monitoring=false
+	get_node("BiteMaybe").monitoring=true
+	get_node("Bite").visible=false
+	bite=false
+	get_node("AnimatedSprite").animation="default"
+	velocity.x=abs(velocity.x)/velocity.x*25
 
 func shoot_small_laser()->void:
 	var laser = preload("res://src/Other/LaserSmall.tscn").instance()
-	laser.position=position
+	match randi()%3:
+		1:
+			laser=preload("res://src/Other/SummonLaser.tscn").instance()
+		2:
+			laser=preload("res://src/Other/StunLasser.tscn").instance()
+	match randi()%9:
+		0:
+			laser.position.x=-21.5
+			laser.position.y=6.5
+		1:
+			laser.position.x=-40.5
+			laser.position.y=-16.5
+		2:
+			laser.position.x=-25
+			laser.position.y=-27.5
+		3:
+			laser.position.x=-28
+			laser.position.y=-48.5
+		4:
+			laser.position.x=-4
+			laser.position.y=-41
+		5:
+			laser.position.x=8.5
+			laser.position.y=-41.5
+		6:
+			laser.position.x=21-5
+			laser.position.y=-40
+		7:
+			laser.position.x=38
+			laser.position.y=-17
+		8:
+			laser.position.x=41
+			laser.position.y=11.5
+	laser.position.x+=position.x
+	laser.position.y+=position.y
 	get_parent().add_child(laser)
 
 func flash_damage()->void:
@@ -78,4 +174,13 @@ func _on_DestroyBlocks_body_entered(body: Node) -> void:
 
 
 func _on_Whip_area_entered(area: Area2D) -> void:
+	burst()
 	damage(1)
+
+
+
+func _on_Player_body_entered(body: Node) -> void:
+	player_near=true
+
+func _on_Player_body_exited(body: Node) -> void:
+	player_near=false

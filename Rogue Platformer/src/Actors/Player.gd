@@ -512,34 +512,53 @@ func killed_by()->void:
 	
 	get_node("/root/Game/World/Kanvas/UI/Time_whole").text
 	
+	var portret=get_node("/root/Game/World/Kanvas/UI/Portrait")
+	
 	if(last_damage=="snake"):
+		portret.texture=load("res://Assets/SnakeWalking/snake.png")
 		killed.text="I was \nbitten by \na snake"
 	elif(last_damage=="bat"):
+		portret.texture=load("res://Assets/Bat/flying_bat1.png")
 		killed.text="I was killed \nby a bat"
 	elif(last_damage=="lava"):
+		portret.texture=load("res://Assets/TempleBlocks/lava_top.png")
 		killed.text="I was burned in lava"
 	elif(last_damage=="Spikes"):
+		portret.texture=load("res://Assets/Enviroment/spike_blood_1.png")
 		killed.text="I got pierced in spikes"
 	elif(last_damage=="explosion"):
+		portret.texture=load("res://Assets/Bomb/bomba.png")
 		killed.text="I got blown up"
 	elif(last_damage=="arrow"):
+		portret.texture=load("res://Assets/ArrowTrap/arrow.png")
 		killed.text="I got shot by an arrow trap"
 	elif(last_damage=="spider"):
+		portret.texture=load("res://Assets/Spider/spider_small.png")
 		killed.text="I was jumped on by a spider"
 	elif(last_damage=="Mole"):
+		portret.texture=load("res://Assets/Mole/mole.png")
 		killed.text="The Mole got its revenge"
 	elif(last_damage=="fall"):
+		portret.texture=load("res://Assets/Player/player_dead.png")
 		killed.text="The fall was a bit to long"
+	elif(last_damage=="beholder"):
+		portret.texture=load("res://Assets/GameOver/beholder_portrait.png")
+		killed.text="I was no match for a beholder..."
 	else:
+		portret.texture=load("res://Assets/Player/player_dead.png")
 		killed.text="Ako vidis ovo, prijavi ovo franu"
 
 
 
 func death(direciton: bool)->void:
-	get_node("/root/Game/World/Music1").stop()
-	get_node("/root/Game/World/Music2").stop()
-	get_node("/root/Game/World/Music3").stop()
-	get_node("/root/Game/World/Rage").stop()
+	if(get_node("/root/Game/World").has_node("Music1")):
+		get_node("/root/Game/World/Music1").stop()
+	if(get_node("/root/Game/World").has_node("Music2")):
+		get_node("/root/Game/World/Music2").stop()
+	if(get_node("/root/Game/World").has_node("Music3")):
+		get_node("/root/Game/World/Music3").stop()
+	if(get_node("/root/Game/World").has_node("Rage")):
+		get_node("/root/Game/World/Rage").stop()
 	
 	get_parent().get_parent().total_time+=get_parent().current_time
 	killed_by()
