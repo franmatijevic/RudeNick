@@ -30,6 +30,8 @@ var outside:bool=false
 
 export var brick_block:=false
 
+onready var level=get_node("/root/Game/World").level
+
 func _ready() -> void:
 	#if(global_position.x<0 or global_position.y<0 or global_position.x>616 or global_position.y>604):
 	#	outside=true
@@ -81,8 +83,8 @@ func build_dungeon()->void:
 		randomize()
 		var enemy=randi()%n_ground
 		if(enemy<groundenemy and n_ground>-1):
-			enemy=randi()%15
-			if(enemy==-1):
+			enemy=randi()%2
+			if(enemy==0):
 				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
@@ -306,6 +308,8 @@ func build_thing()->void:
 		if(enemy<skyenemy):
 			randomize()
 			enemy=randi()%2
+			if(level<4):
+				enemy=1
 			if(enemy==0):
 				var top=preload("res://src/Actors/Bat.tscn").instance()
 				top.global_position.x=global_position.x

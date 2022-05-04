@@ -36,8 +36,8 @@ func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
 	get_node("DestroyBlocks").monitoring=true
 	gravity=0.0
-	velocity.x=25.0
-	print(velocity.x)
+	#velocity.x=25.0
+	#print(velocity.x)
 
 var animation_direction=1
 
@@ -65,6 +65,9 @@ func _physics_process(delta: float) -> void:
 		if(global_position.y>starting_y+k*256):
 			going_down=false
 			velocity.x=25
+	
+	if(get_node("AnimatedSprite").animation=="wink" and get_node("AnimatedSprite").frame==6):
+		get_node("AnimatedSprite").animation="default"
 
 func burst()->void:
 	if(burst):
@@ -80,6 +83,9 @@ func burst()->void:
 		k=k+1
 		going_down=true
 		print("going down")
+	if(randi()%3==0):
+		get_node("AnimatedSprite").animation="wink"
+		get_node("AnimatedSprite").frame=0
 
 func bite()->void:
 	if(burst or bite):
@@ -176,10 +182,15 @@ func _on_DestroyBlocks_body_entered(body: Node) -> void:
 func _on_Whip_area_entered(area: Area2D) -> void:
 	burst()
 	damage(1)
+	if(randi()%3==0):
+		get_node("AnimatedSprite").animation="wink"
+		get_node("AnimatedSprite").frame=0
 
 
 
 func _on_Player_body_entered(body: Node) -> void:
+	if(velocity.x==0):
+		velocity.x=25.0
 	player_near=true
 
 func _on_Player_body_exited(body: Node) -> void:

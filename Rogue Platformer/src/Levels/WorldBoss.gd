@@ -121,10 +121,10 @@ func _init()->void:
 		for j in range(end_right):
 			match polje[i][j]:
 				1:
-					#create_hallway(i,j)
+					create_hallway(i,j)
 					pass
 				2:
-					#create_dropdown(i,j)
+					create_dropdown(i,j)
 					pass
 				4:
 					array[i][j]=preload("res://src/levelPieces/start1.tscn").instance()
@@ -150,6 +150,8 @@ func _init()->void:
 
 
 func _ready() -> void:
+	for _i in frame.get_node("Dirt").get_children():
+		_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
 	if(get_parent().goggles):
 		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true

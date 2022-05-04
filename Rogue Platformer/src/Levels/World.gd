@@ -26,7 +26,7 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 #shop = 7
 #Dungeon = 8
 #SpiderLair = 11
-
+#Dungeon gate = 15
 #Lair left = 10
 
 
@@ -47,6 +47,7 @@ var frame
 var rage_music:=false
 
 func _ready() -> void:
+	randomize()
 	var music=randi()%3
 	if(music==0):
 		get_node("Music1").play()
@@ -139,9 +140,35 @@ func _ready() -> void:
 			where_shop=randi()%n_of_shops
 			polje[all_shops_i[where_shop]][all_shops_j[where_shop]]=7
 	
+	#Generate Dungeon Gate
+	var gate_generate:=0
+	if(green):
+		gate_generate+=1
+	if(red):
+		gate_generate+=1
+	if(white):
+		gate_generate+=1
+	
+	if(randi()%15+gate_generate*4<1 and level>6):
+		var n=0
+		for i in range(end_down):
+			for j in range(end_right):
+				if(polje[i][j]==0):
+					n=n+1
+		if(n!=0):
+			var choice=randi()%n
+			var track=0
+			for i in range(end_down):
+				for j in range(end_right):
+					if(polje[i][j]==0):
+						if(track==choice):
+							polje[i][j]=15
+						track=track+1
+	
+	
 	
 	#Dungeon spawn rate
-	if(randi()%2==0 and !temple and !green):
+	if(randi()%200==0 and !temple and !green and level>1):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -156,7 +183,7 @@ func _ready() -> void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%2==0 and !temple and !red): #Lair spawn rate
+	elif(randi()%1==0 and !temple and !red and level>1): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -214,7 +241,7 @@ func _ready() -> void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
-	elif(randi()%2==0 and !temple and !white): #Create SPIDER NEST
+	elif(randi()%12==0 and !temple and !white and level>1): #Create SPIDER NEST
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -270,6 +297,8 @@ func _ready() -> void:
 					create_lair(i,j)
 				11:
 					create_spider_nest(i,j)
+				15:
+					create_dungeon_gate(i,j)
 	add_child(frame)
 	if(temple):
 		for _i in frame.get_node("Dirt").get_children():
@@ -316,10 +345,6 @@ func _ready() -> void:
 				#array[i][j].queue_free()
 				#create_side_room(i,j)
 			
-			if(polje[i][j]==0 and !was_gate and gate==0 and !temple and randi()%3==0):
-				was_gate=true
-				array[i][j].queue_free()
-				create_dungeon_gate(i,j)
 			
 			
 			if(polje[i][j]!=99 and array[i][j].has_node("exit") and shop_angry>0):

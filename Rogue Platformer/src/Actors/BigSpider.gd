@@ -84,7 +84,7 @@ func attack()->void:
 		velocity.x=abs(velocity.x)/velocity.x*normal_speed
 		return
 	if(!$Ground.is_colliding()):
-		velocity.x=abs(velocity.x)/velocity.x*3
+		velocity.x=abs(velocity.x)/velocity.x*0.001
 	get_node("AnimatedSprite").visible=false
 	get_node("AnimatedSprite2").visible=true
 	get_node("AnimatedSprite2").frame=0

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/BigSpider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/environment/SpiderWeb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/environment/BoneBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Collectable/EpicChest.tscn" type="PackedScene" id=5]
 
 [node name="SpiderNest" type="Node2D"]
 
@@ -127,3 +130,18 @@ position = Vector2( -72, 8 )
 
 [node name="KinematicBody2D40" parent="." instance=ExtResource( 1 )]
 position = Vector2( 72, 8 )
+
+[node name="BoneBlock" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, 24 )
+
+[node name="BoneBlock2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, 40 )
+
+[node name="EpicChest" parent="." instance=ExtResource( 5 )]
+position = Vector2( -48, 32 )
+
+[node name="SpiderWeb" parent="." instance=ExtResource( 3 )]
+position = Vector2( 56, -8 )
+
+[node name="SpiderWeb2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -40, -24 )

@@ -101,6 +101,15 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 	damage(1)
 	velocity.x=abs(velocity.x) / velocity.x * fast_speed
 	music()
+	if(randi()%2==0):
+		return
+	var ball1=preload("res://src/Other/SnakeBall.tscn").instance()
+	var ball2=preload("res://src/Other/SnakeBall.tscn").instance()
+	ball1.position=position
+	ball2.position=position
+	ball1.knock=true
+	get_parent().add_child(ball1)
+	get_parent().add_child(ball2)
 
 
 func _on_Prepare_body_entered(body: Node) -> void:

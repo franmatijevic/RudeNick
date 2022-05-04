@@ -519,7 +519,7 @@ func killed_by()->void:
 		killed.text="I was \nbitten by \na snake"
 	elif(last_damage=="bat"):
 		portret.texture=load("res://Assets/Bat/flying_bat1.png")
-		killed.text="I was killed \nby a bat"
+		killed.text="I was killed by a bat"
 	elif(last_damage=="lava"):
 		portret.texture=load("res://Assets/TempleBlocks/lava_top.png")
 		killed.text="I was burned in lava"
@@ -544,9 +544,24 @@ func killed_by()->void:
 	elif(last_damage=="beholder"):
 		portret.texture=load("res://Assets/GameOver/beholder_portrait.png")
 		killed.text="I was no match for a beholder..."
+	elif(last_damage=="bigspider"):
+		killed.text="Giant spider ate me"
+		portret.texture=load("res://Assets/GameOver/spider_big_portrait.png")
+	elif(last_damage=="troll"):
+		killed.text="I got beaten up by a troll"
+		portret.texture=load("res://Assets/GameOver/troll_portrait.png")
+	elif(last_damage=="serpant"):
+		killed.text="I was bitten by a serpant"
+		portret.texture=load("res://Assets/GameOver/serpant_portrait.png")
+	elif(last_damage=="BlackSnake"):
+		killed.text="Poisonus snake was too dangerous"
+		portret.texture=load("res://Assets/SnakeWalking/snake_dangerous.png")
+	elif(last_damage=="Poison"):
+		killed.text="Deadly poison was my end"
+		portret.texture=load("res://Assets/Serpant/poison_icon.png")
 	else:
 		portret.texture=load("res://Assets/Player/player_dead.png")
-		killed.text="Ako vidis ovo, prijavi ovo franu"
+		killed.text="I died"
 
 
 

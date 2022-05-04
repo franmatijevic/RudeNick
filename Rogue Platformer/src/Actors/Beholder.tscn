@@ -21,14 +21,24 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "close",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "bite",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
+"loop": false,
 "name": "wink",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "opening",
 "speed": 5.0
 } ]
 
@@ -57,8 +67,7 @@ script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "bite"
-frame = 2
+animation = "close"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
