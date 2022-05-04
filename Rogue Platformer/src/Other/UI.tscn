@@ -348,7 +348,6 @@ custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Killed" type="Label" parent="."]
-visible = false
 margin_left = 455.0
 margin_top = 587.0
 margin_right = 726.0
