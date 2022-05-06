@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Blocks/dirt_tile_bottom.png" type="Texture" id=2]
@@ -60,6 +60,9 @@ size = 30
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
 
 [node name="LevelComplete" type="Node2D"]
@@ -899,3 +902,9 @@ texture = ExtResource( 3 )
 [node name="DirtTileMid108" type="Sprite" parent="Blocks"]
 position = Vector2( 152, 152 )
 texture = ExtResource( 3 )
+
+[node name="press_E" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "Press E to continue"
