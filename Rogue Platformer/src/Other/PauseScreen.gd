@@ -19,6 +19,19 @@ func _ready():
 func _input(event):
 	if(event.is_action_pressed("pause") and get_node("/root/Game").can_pause):
 		choose=2
+		var value:int=0
+		if(get_tree().paused):
+			value=-15
+		else:
+			value=-30
+		if(get_node("/root/Game/World/Music1").is_playing()):
+			get_node("/root/Game/World/Music1").set_volume_db(value)
+		elif(get_node("/root/Game/World/Music2").is_playing()):
+			get_node("/root/Game/World/Music2").set_volume_db(value)
+		elif(get_node("/root/Game/World/Music3").is_playing()):
+			get_node("/root/Game/World/Music3").set_volume_db(value)
+		elif(get_node("/root/Game/World/Rage").is_playing()):
+			get_node("/root/Game/World/Rage").set_volume_db(value)
 		set_buttons()
 		set_visible(!get_tree().paused)
 		get_tree().paused = !get_tree().paused

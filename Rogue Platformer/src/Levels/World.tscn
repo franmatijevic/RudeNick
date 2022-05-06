@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Exploring The Unknown.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - And The Journey Begins .wav" type="AudioStream" id=8]
 [ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Prepare for Battle! .wav" type="AudioStream" id=9]
+[ext_resource path="res://Music/Mole/mole_death.wav" type="AudioStream" id=10]
+[ext_resource path="res://Music/Random/no_money.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -122,13 +124,22 @@ z_index = -11
 texture = ExtResource( 2 )
 
 [node name="Music2" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 8 )
 volume_db = -15.0
 
 [node name="Music3" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 3 )
 volume_db = -15.0
 
 [node name="Rage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -15.0
+
+[node name="MoleDeath" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 10 )
+
+[node name="BuyItemFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )

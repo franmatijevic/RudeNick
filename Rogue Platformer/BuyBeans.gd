@@ -56,6 +56,8 @@ func buy()->void:
 		value=0
 		get_parent().count_items()
 		play_animation()
+	else:
+		get_node("/root/Game/World/BuyItemFail").play()
 
 func get_for_free()->void:
 	get_parent().get_parent().get_node("Player").health+=value

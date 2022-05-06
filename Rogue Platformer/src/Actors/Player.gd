@@ -301,6 +301,18 @@ func get_direction() -> Vector2:
 	)
 
 func damage(value:int)->void:
+	match randi()%5:
+		0:
+			get_node("Dam1").play()
+		1:
+			get_node("Dam2").play()
+		2:
+			get_node("Dam3").play()
+		3:
+			get_node("Dam4").play()
+		4:
+			get_node("Dam5").play()
+	
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position
 	get_parent().add_child(blood)
@@ -396,6 +408,7 @@ func action()-> void:
 		shotgun=shotgun-1
 		shotgun_effect()
 	else:
+		get_node("Whip").play()
 		is_attacking=true
 		animatedSprite.animation="whiping"
 		get_node("Area2D/whip_node").disabled=false
@@ -440,7 +453,7 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 
 func iframes()->void:
 	iframes_on=true
-	var time_in_seconds = 2.8
+	var time_in_seconds = 3
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	#modulate.a=1
 	iframes_on=false

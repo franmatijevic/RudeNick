@@ -62,7 +62,8 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 func _on_IdlePlayer_body_entered(body: Node) -> void:
 	if(get_parent().name=="Shop"):
 		get_parent().make_free()
-	
+	if(!angry):
+		scream()
 	angry=true
 	idle_angry=false
 	get_node("IdlePlayer").monitoring=false
@@ -76,6 +77,15 @@ func _on_IdlePlayer_body_entered(body: Node) -> void:
 	get_node("DetectPlayer").monitoring=true
 	get_node("DamagePlayer").monitoring=true
 	get_node("GunSight").enabled=true
+
+func scream()->void:
+	match randi()%3:
+		0:
+			get_node("Scream1").play()
+		1:
+			get_node("Scream2").play()
+		2:
+			get_node("Scream3").play()
 
 func _ready() -> void:
 	get_node("AnimatedSprite").animation="default"
@@ -238,6 +248,8 @@ func look_for_player()->void:
 	turn_to_player=false
 
 func death()->void:
+	get_node("/root/Game/World/MoleDeath").play()
+	
 	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=false
 	get_node("/root/Game").shop_angry=0
 	print("now is angry 0")

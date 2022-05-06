@@ -53,6 +53,8 @@ func buy()->void:
 		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true
 		get_parent().count_items()
 		play_animation()
+	else:
+		get_node("/root/Game/World/BuyItemFail").play()
 
 func get_for_free()->void:
 	get_parent().get_parent().get_node("Player").goggles=true

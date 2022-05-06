@@ -54,6 +54,8 @@ func buy()->void:
 		get_parent().get_parent().get_node("Kanvas/UI/Poison").visible=false
 		get_parent().count_items()
 		play_animation()
+	else:
+		get_node("/root/Game/World/BuyItemFail").play()
 
 func get_for_free()->void:
 	get_parent().get_parent().get_node("Player").poisoned=false
