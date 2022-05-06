@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/heart_1.png" type="Texture" id=1]
 [ext_resource path="res://src/Other/UI.gd" type="Script" id=2]
@@ -36,6 +36,7 @@
 [ext_resource path="res://Assets/back_button_v2_hover.png" type="Texture" id=34]
 [ext_resource path="res://Assets/GameOver/spider_big_portrait.png" type="Texture" id=35]
 [ext_resource path="res://Assets/GameOver/beholder_portrait.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Mole/mole_icon.png" type="Texture" id=37]
 [ext_resource path="res://Assets/GameOver/serpant_portrait.png" type="Texture" id=38]
 
 [sub_resource type="Shader" id=11]
@@ -340,6 +341,7 @@ scale = Vector2( 6.5, 6.5 )
 texture = ExtResource( 34 )
 
 [node name="Time_whole" type="Label" parent="."]
+visible = false
 margin_left = 1158.0
 margin_top = 552.0
 margin_right = 1376.0
@@ -348,8 +350,9 @@ custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
 custom_fonts/font = SubResource( 1 )
 
 [node name="Killed" type="Label" parent="."]
+visible = false
 margin_left = 455.0
-margin_top = 587.0
+margin_top = 593.0
 margin_right = 726.0
 margin_bottom = 823.0
 custom_colors/font_color = Color( 0.270588, 0.137255, 0.137255, 1 )
@@ -357,6 +360,7 @@ custom_fonts/font = SubResource( 1 )
 autowrap = true
 
 [node name="LevelDead" type="Label" parent="."]
+visible = false
 margin_left = 1158.0
 margin_top = 480.0
 margin_right = 1383.0
@@ -400,3 +404,9 @@ visible = false
 position = Vector2( 525, 94 )
 scale = Vector2( 8, 8 )
 texture = ExtResource( 29 )
+
+[node name="MoleIcon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 677.742, 75.912 )
+scale = Vector2( 8, 8 )
+texture = ExtResource( 37 )

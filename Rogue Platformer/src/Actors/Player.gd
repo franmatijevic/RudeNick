@@ -76,12 +76,11 @@ func _on_webDetect_area_exited(area: Area2D) -> void:
 	spider_web=false
 
 func _on_EnemyDetector_area_entered(area: Area2D) -> void:
-	#if !is_on_floor():
-		area.get_parent().death()
-		var blood=preload("res://src/Other/Blood.tscn").instance()
-		blood.global_position=area.global_position
-		area.get_parent().add_child(blood) 
-		enemy_jump()
+	area.get_parent().death()
+	var blood=preload("res://src/Other/Blood.tscn").instance()
+	blood.global_position=area.global_position
+	area.get_parent().add_child(blood) 
+	enemy_jump()
 
 func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 	if(!iframes_on):
@@ -373,6 +372,14 @@ func hold_ledge()->void:
 			using_gravity=0
 			velocity.y=0.0
 
+func shotgun_effect()->void:
+	move_horizontal=0
+	if(velocity.y>0.0):
+		velocity.y=0
+	var time_in_seconds = 0.4
+	yield(get_tree().create_timer(time_in_seconds), "timeout")
+	move_horizontal=1
+
 func action()-> void:
 	var k
 	if(smjer==false): k=1
@@ -387,6 +394,7 @@ func action()-> void:
 		bullet.speed*=k
 		get_parent().add_child(bullet)
 		shotgun=shotgun-1
+		shotgun_effect()
 	else:
 		is_attacking=true
 		animatedSprite.animation="whiping"
@@ -432,7 +440,7 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 
 func iframes()->void:
 	iframes_on=true
-	var time_in_seconds = 1.5
+	var time_in_seconds = 2.8
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	#modulate.a=1
 	iframes_on=false
@@ -575,6 +583,7 @@ func death(direciton: bool)->void:
 	if(get_node("/root/Game/World").has_node("Rage")):
 		get_node("/root/Game/World/Rage").stop()
 	
+	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=false
 	get_parent().get_parent().total_time+=get_parent().current_time
 	killed_by()
 	get_parent().get_node("Kanvas/UI").dead=true

@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void:
 			pass
 		elif("velocity" in collider and (collider.velocity.x!=0.0 or collider.velocity.y!=0.0)):
 			shoot()
+		elif("maks" in collider):
+			shoot()
 
 func shoot()->void:
 	$Detect.enabled=false

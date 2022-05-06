@@ -188,8 +188,7 @@ func _ready() -> void:
 	if(end_down==8):
 		get_node("Kanvas/UI").print_something("It looks like a long way down...")
 	if(end_right==5):
-		get_node("Kanvas/UI").print_something("My voice ecos in here...")
-
+		get_node("Kanvas/UI").print_something("My voice echoes in here...")
 
 func _process(delta: float) -> void:
 	if(has_node("Player")):

@@ -74,7 +74,7 @@ func find_item()->String:
 
 func get_mad()->void:
 	get_node("/root/Game/World").raging_music()
-	
+	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=true
 	if(!has_node("Mole")):
 		return
 	if(has_node("DetectDanger")):

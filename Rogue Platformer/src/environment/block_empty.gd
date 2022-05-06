@@ -256,7 +256,7 @@ func build_thing()->void:
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)
 			else:
-				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
+				var groundenemy=preload("res://src/Actors/Rat.tscn").instance()
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)

@@ -37,7 +37,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Text" type="Node2D" parent="."]

@@ -136,6 +136,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_17="bullet"
 2d_physics/layer_18="spikes"
 2d_physics/layer_19="Lava"
+2d_physics/layer_20="rope"
 
 [physics]
 

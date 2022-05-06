@@ -57,16 +57,6 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "hat6",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "hat2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "hat0",
@@ -92,14 +82,24 @@ animations = [ {
 "name": "hat8",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hat9",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "hat4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "hat9",
+"name": "hat2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "hat6",
 "speed": 5.0
 } ]
 
@@ -116,7 +116,7 @@ extents = Vector2( 7, 4 )
 extents = Vector2( 8, 8 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 72, 50 )
+extents = Vector2( 80, 55 )
 
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 8, 8 )
@@ -194,7 +194,7 @@ monitorable = false
 shape = SubResource( 10 )
 
 [node name="IdlePlayer" type="Area2D" parent="."]
-scale = Vector2( 0.939365, 1 )
+position = Vector2( 0, 20 )
 collision_layer = 0
 monitoring = false
 monitorable = false

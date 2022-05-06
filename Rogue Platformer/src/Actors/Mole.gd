@@ -3,7 +3,7 @@ extends "res://src/Actors/Actor.gd"
 export var max_jump:=200
 
 var angry:=false
-var idle_angry:=false
+export var idle_angry:=false
 
 var haty_down:=0.0
 var haty_up:=0.0
@@ -83,8 +83,10 @@ func _ready() -> void:
 	if(idle_angry):
 		get_node("Shotgun").visible=true
 		get_node("AnimatedSprite").animation="idle"
+		get_node("IdlePlayer").monitoring=true
 		if(get_parent().name=="Shop"):
 			get_parent().get_node("Welcome").monitoring=false
+	
 	var pickhat=randi()%2
 	var hat = get_node("AnimatedSprite/Hats")
 	match pickhat:
@@ -236,6 +238,7 @@ func look_for_player()->void:
 	turn_to_player=false
 
 func death()->void:
+	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=false
 	get_node("/root/Game").shop_angry=0
 	print("now is angry 0")
 	get_node("DamagePlayer").queue_free()

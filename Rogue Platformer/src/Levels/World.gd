@@ -28,7 +28,7 @@ var array = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,
 #SpiderLair = 11
 #Dungeon gate = 15
 #Lair left = 10
-
+#Mole hideout = 16
 
 var current_time:=0.0
 
@@ -116,14 +116,14 @@ func _ready() -> void:
 					polje[i+1][j]=6
 	
 	
-	var shop=randi()%6
+	var shop=randi()%1
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
 	shop=0
-	if(shop==0 and shop_angry<1 and !temple and level!=1):
+	if(shop==0 and shop_angry<1 and !temple and level!=0):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -257,6 +257,27 @@ func _ready() -> void:
 							polje[i][j]=11
 						track=track+1
 	
+	var places_for_mole:int=0
+	for i in range(end_down):
+		for j in range(end_right):
+			if(polje[i][j]==1 and shop_angry>0):
+				places_for_mole+=1
+			elif(polje[i][j]==6 and shop_angry>0):
+				places_for_mole+=1
+			elif(polje[i][j]==2 and shop_angry>0):
+				places_for_mole+=1
+	
+	if(places_for_mole>0):
+		var place_mole=randi()%places_for_mole
+		var track_mole:int=0
+		for i in range(end_down):
+			for j in range(end_right):
+				if((polje[i][j]==1 or polje[i][j]==6 or polje[i][j]==2) and shop_angry>0):
+					if(track_mole==place_mole):
+						polje[i][j]=16
+					track_mole+=1
+	
+	
 	if(end_right==4):
 		if(end_down==4):
 			frame=preload("res://src/environment/Frame.tscn").instance()
@@ -299,6 +320,8 @@ func _ready() -> void:
 					create_spider_nest(i,j)
 				15:
 					create_dungeon_gate(i,j)
+				16:
+					create_mole_hideout(i,j)
 	add_child(frame)
 	if(temple):
 		for _i in frame.get_node("Dirt").get_children():
@@ -334,26 +357,8 @@ func _ready() -> void:
 	if(end_down==8):
 		get_node("Kanvas/UI").print_something("It looks like a long way down...")
 	if(end_right==5):
-		get_node("Kanvas/UI").print_something("My voice ecos in here...")
+		get_node("Kanvas/UI").print_something("My voice echoes in here...")
 	
-	var gate=randi()%1
-	var was_gate:=false
-	for i in range(end_down):
-		for j in range(end_right):
-			if(polje[i][j]==7 and shop_angry>0):
-				pass
-				#array[i][j].queue_free()
-				#create_side_room(i,j)
-			
-			
-			
-			if(polje[i][j]!=99 and array[i][j].has_node("exit") and shop_angry>0):
-				get_parent().shop_angry-=1
-				var mole=preload("res://src/Actors/Mole.tscn").instance()
-				mole.idle_angry=true
-				mole.get_node("IdlePlayer").monitoring=true
-				mole.position=array[i][j].get_node("exit").position
-				array[i][j].add_child(mole)
 
 
 func _process(delta: float) -> void:
@@ -372,6 +377,14 @@ func _process(delta: float) -> void:
 		get_node("Kanvas/UI/time").text=str(minutes)+":"+str(seconds)
 	else:
 		get_node("Kanvas/UI/time").text=str(minutes)+":0"+str(seconds)
+
+func create_mole_hideout(i:int, j:int)->void:
+	array[i][j]=preload("res://src/levelPieces/MoleHallway.tscn").instance()
+	array[i][j].global_position.x=80 + j * 160
+	array[i][j].global_position.y=64 + i * 128
+	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=true
+	get_parent().shop_angry-=1
+	add_child(array[i][j])
 
 func raging_music()->void:
 	if(!rage_music):

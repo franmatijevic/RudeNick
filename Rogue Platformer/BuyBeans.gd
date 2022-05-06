@@ -10,6 +10,8 @@ var price:int=100
 var e:=false
 var free:=false
 
+var value:int=2
+
 func _ready() -> void:
 	get_node("Text/price").text="$"+str(price*100)
 
@@ -37,7 +39,8 @@ func _process(delta: float) -> void:
 
 func e()->void:
 	if(free):
-		get_parent().get_parent().get_node("Player").health+=2
+		get_parent().get_parent().get_node("Player").health+=value
+		value=0
 		play_animation()
 	e=true
 	var time_in_seconds = 0.1
@@ -49,12 +52,14 @@ func buy()->void:
 	var player=get_parent().get_parent().get_node("Player")
 	if(player.money>price-1):
 		player.money-=price
-		player.health+=2
+		player.health+=value
+		value=0
 		get_parent().count_items()
 		play_animation()
 
 func get_for_free()->void:
-	get_parent().get_parent().get_node("Player").health+=2
+	get_parent().get_parent().get_node("Player").health+=value
+	value=0
 	play_animation()
 
 func play_animation()->void:
