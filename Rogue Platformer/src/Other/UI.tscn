@@ -417,11 +417,13 @@ scale = Vector2( 8, 8 )
 texture = ExtResource( 37 )
 
 [node name="BossHealthBar" type="Sprite" parent="."]
+visible = false
 position = Vector2( 962, 139 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 39 )
 
 [node name="Boss_name" type="Label" parent="."]
+visible = false
 margin_left = 782.0
 margin_top = 69.0
 margin_right = 1142.0

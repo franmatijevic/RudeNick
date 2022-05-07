@@ -63,6 +63,7 @@ font_data = ExtResource( 6 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 32
 font_data = ExtResource( 6 )
 
 [node name="LevelComplete" type="Node2D"]
@@ -215,6 +216,15 @@ position = Vector2( 891, 373 )
 scale = Vector2( 6, 6 )
 z_index = -1
 texture = ExtResource( 10 )
+
+[node name="PressE" type="Label" parent="Kanvas"]
+margin_left = 658.0
+margin_top = 1010.0
+margin_right = 1418.0
+margin_bottom = 1050.0
+custom_fonts/font = SubResource( 7 )
+text = "Press \"E\" to continue"
+percent_visible = -0.0625
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 12 )]
 
@@ -902,9 +912,3 @@ texture = ExtResource( 3 )
 [node name="DirtTileMid108" type="Sprite" parent="Blocks"]
 position = Vector2( 152, 152 )
 texture = ExtResource( 3 )
-
-[node name="press_E" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 7 )
-text = "Press E to continue"
