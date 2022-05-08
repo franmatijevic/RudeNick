@@ -131,6 +131,8 @@ func _init()->void:
 					create_dropdown(i,j)
 				4:
 					array[i][j]=preload("res://src/levelPieces/start1.tscn").instance()
+					if(randi()%2==0):
+						array[i][j]=preload("res://src/DungeonPieces/start1.tscn").instance()
 					array[i][j].global_position.x=80 + j * 160
 					array[i][j].global_position.y=64 + i * 128
 					add_child(array[i][j])
@@ -153,6 +155,13 @@ func _init()->void:
 
 
 func _ready() -> void:
+	randomize()
+	var music=randi()%2
+	if(music==0):
+		get_node("Music1").play()
+	elif(music==1):
+		get_node("Music2").play()
+	
 	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=true
 	if(temple):
 		for _i in frame.get_node("Dirt").get_children():
@@ -231,13 +240,11 @@ func create_dungeon_gate(i:int, j:int)->void:
 	add_child(array[i][j])
 
 func create_exit(i:int, j:int)->void:
-	match randi()%3:
+	match randi()%2:
 		0:
-			array[i][j]=preload("res://src/levelPieces/exit1.tscn").instance()
+			array[i][j]=preload("res://src/DungeonPieces/exit1.tscn").instance()
 		1:
-			array[i][j]=preload("res://src/levelPieces/exit2.tscn").instance()
-		2:
-			array[i][j]=preload("res://src/levelPieces/exit3.tscn").instance()
+			array[i][j]=preload("res://src/DungeonPieces/exit2.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	add_child(array[i][j])
@@ -275,15 +282,16 @@ func create_hallwaywithdrop(i:int, j:int)->void:
 	var room=randi()%5
 	match room:
 		0:
-			array[i][j]=preload("res://src/levelPieces/hallwaydrop1.tscn").instance()
+			array[i][j]=preload("res://src/DungeonPieces/HallwayDrop1.tscn").instance()
 		1:
-			array[i][j]=preload("res://src/levelPieces/hallwaydrop2.tscn").instance()
+			array[i][j]=preload("res://src/DungeonPieces/HallwayDrop2.tscn").instance()
 		2:
 			array[i][j]=preload("res://src/levelPieces/hallway5.tscn").instance()
 		3: 
 			array[i][j]=preload("res://src/levelPieces/hallwaywithdrop4.tscn").instance()
 		4:
 			array[i][j]=preload("res://src/levelPieces/SpikesDropDown.tscn").instance()
+	
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2
@@ -295,12 +303,20 @@ func create_hallwaywithdrop(i:int, j:int)->void:
 
 func create_startdropdown(i:int, j:int)->void:
 	randomize()
-	var room=randi()%2
+	var room=randi()%5
 	match room:
 		0:
-				array[i][j]=preload("res://src/levelPieces/startdropdown1.tscn").instance()
+			array[i][j]=preload("res://src/levelPieces/startdropdown1.tscn").instance()
 		1:
-				array[i][j]=preload("res://src/levelPieces/startdropdown2.tscn").instance()
+			array[i][j]=preload("res://src/levelPieces/startdropdown2.tscn").instance()
+		2:
+			array[i][j]=preload("res://src/DungeonPieces/StartDrop1.tscn").instance()
+		3:
+			array[i][j]=preload("res://src/DungeonPieces/start1.tscn").instance()
+		4:
+			array[i][j]=preload("res://src/DungeonPieces/StartDrop1.tscn").instance()
+		5:
+			array[i][j]=preload("res://src/DungeonPieces/StartDrop1.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2
@@ -314,7 +330,7 @@ func create_dropdown(i:int, j:int)->void:
 	var room=randi()%3
 	match room:
 		0:
-			array[i][j]=preload("res://src/levelPieces/dropdown1.tscn").instance()
+			array[i][j]=preload("res://src/DungeonPieces/Dropdown1.tscn").instance()
 		1:
 			array[i][j]=preload("res://src/levelPieces/dropdown2.tscn").instance()
 		2:
@@ -329,7 +345,7 @@ func create_dropdown(i:int, j:int)->void:
 
 func create_hallway(i:int, j:int) ->void:
 	randomize()
-	var room=randi()%11
+	var room=randi()%16
 	match room:
 		0:
 			array[i][j]=preload("res://src/levelPieces/hallway1.tscn").instance()
@@ -353,9 +369,17 @@ func create_hallway(i:int, j:int) ->void:
 			array[i][j]=preload("res://src/levelPieces/hallwaydrop3.tscn").instance()
 		10:
 			array[i][j]=preload("res://src/levelPieces/Bridge.tscn").instance()
-	if(temple and randi()%3==0):
-		#array[i][j]=preload("res://src/levelPieces/LavaPool.tscn").instance()
-		array[i][j]=preload("res://src/levelPieces/t_hallway1.tscn").instance()
+		11:
+			array[i][j]=preload("res://src/levelPieces/LavaPool.tscn").instance()
+		12:
+			array[i][j]=preload("res://src/levelPieces/t_hallway1.tscn").instance()
+		13:
+			array[i][j]=preload("res://src/DungeonPieces/Hallway1.tscn").instance()
+		14:
+			array[i][j]=preload("res://src/DungeonPieces/Hallway2.tscn").instance()
+		15:
+			array[i][j]=preload("res://src/DungeonPieces/Hallway3.tscn").instance()
+	
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2

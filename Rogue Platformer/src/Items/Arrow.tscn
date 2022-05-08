@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://Music/Random/whip.wav" type="AudioStream" id=1]
 [ext_resource path="res://src/Items/Arrow.gd" type="Script" id=2]
 [ext_resource path="res://Assets/ArrowTrap/arrow.png" type="Texture" id=3]
 
@@ -84,6 +85,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoneBlock"]
 scale = Vector2( 0.966144, 1 )
 shape = SubResource( 7 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+pitch_scale = 5.0
+autoplay = true
 
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
 [connection signal="body_entered" from="Ground" to="." method="_on_Ground_body_entered"]

@@ -10,6 +10,7 @@ var push:=80.0
 var friction:=5.0
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
+	get_node("/root/Game/Gem").play()
 	body.money+=value
 	var color=preload("res://src/Other/MoneyParticle.tscn").instance()
 	color.get_node("Money").process_material.color=Color(0.12,0.56,0.87)

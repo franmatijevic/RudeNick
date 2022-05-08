@@ -88,6 +88,11 @@ position = Vector2( 926, 544 )
 z_index = -11
 texture = ExtResource( 2 )
 
+[node name="Background7" type="Sprite" parent="."]
+position = Vector2( 160, 928 )
+z_index = -11
+texture = ExtResource( 2 )
+
 [node name="BlackScreen" type="Node2D" parent="."]
 process_priority = 1
 z_index = 90
@@ -107,11 +112,6 @@ anims/fade_to_normal = SubResource( 2 )
 pause_mode = 2
 stream = ExtResource( 7 )
 volume_db = -15.0
-
-[node name="Background7" type="Sprite" parent="."]
-position = Vector2( 160, 928 )
-z_index = -11
-texture = ExtResource( 2 )
 
 [node name="Background8" type="Sprite" parent="."]
 position = Vector2( 543, 928 )
@@ -134,6 +134,7 @@ stream = ExtResource( 3 )
 volume_db = -15.0
 
 [node name="Rage" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 9 )
 volume_db = -15.0
 
@@ -143,3 +144,4 @@ stream = ExtResource( 10 )
 
 [node name="BuyItemFail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -5.0

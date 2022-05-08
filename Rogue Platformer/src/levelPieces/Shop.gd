@@ -32,6 +32,7 @@ func count_items()->void:
 				upset="Oh, I won't forget such a wealthy man!"
 		get_parent().get_node("Kanvas/UI").print_something(upset)
 	purchased+=1
+	get_node("Sound").play()
 
 func create_items()->void:
 	item1 = load(find_item()).instance()

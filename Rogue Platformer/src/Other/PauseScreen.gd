@@ -24,14 +24,15 @@ func _input(event):
 			value=-15
 		else:
 			value=-30
-		if(get_node("/root/Game/World/Music1").is_playing()):
-			get_node("/root/Game/World/Music1").set_volume_db(value)
-		elif(get_node("/root/Game/World/Music2").is_playing()):
-			get_node("/root/Game/World/Music2").set_volume_db(value)
-		elif(get_node("/root/Game/World/Music3").is_playing()):
-			get_node("/root/Game/World/Music3").set_volume_db(value)
-		elif(get_node("/root/Game/World/Rage").is_playing()):
-			get_node("/root/Game/World/Rage").set_volume_db(value)
+		if(!get_node("/root/Game").temple or 1==1):
+			if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
+				get_node("/root/Game/World/Music1").set_volume_db(value)
+			elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
+				get_node("/root/Game/World/Music2").set_volume_db(value)
+			elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
+				get_node("/root/Game/World/Music3").set_volume_db(value)
+			elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
+				get_node("/root/Game/World/Rage").set_volume_db(value)
 		set_buttons()
 		set_visible(!get_tree().paused)
 		get_tree().paused = !get_tree().paused
@@ -41,6 +42,8 @@ func _input(event):
 		else:
 			help_menu=false
 	if(event.is_action_pressed("up")):
+		if(get_tree().paused==true):
+			get_node("Click").play()
 		if(!help_menu):
 			if(choose==2):
 				choose=0
@@ -52,6 +55,8 @@ func _input(event):
 				help_choose=2
 			set_help()
 	if(event.is_action_pressed("down")):
+		if(get_tree().paused==true):
+			get_node("Click").play()
 		if(!help_menu):
 			if(choose==0):
 				choose=2
@@ -63,12 +68,16 @@ func _input(event):
 			set_help()
 	
 	if(event.is_action_pressed("move_right") and help_menu):
+		if(get_tree().paused==true):
+			get_node("Click").play()
 		if(help_choose!=0):
 			help_choose=help_choose-1
 			if(help_choose==-1):
 				help_choose=2
 			set_help()
 	if(event.is_action_pressed("move_left") and help_menu):
+		if(get_tree().paused==true):
+			get_node("Click").play()
 		if(help_choose!=2):
 			help_choose=help_choose+1
 			if(help_choose==3):
@@ -137,7 +146,8 @@ func set_buttons()->void:
 func set_visible(is_visible):
 	for node in get_children():
 		if((node.name!="Buttons" and is_visible) or !is_visible):
-			node.visible = is_visible
+			if(node.name!="Click"):
+				node.visible = is_visible
 	get_node("Help").visible=false
 	var time_in_seconds = 0.2
 	yield(get_tree().create_timer(time_in_seconds), "timeout")

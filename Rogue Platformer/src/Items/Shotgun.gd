@@ -25,6 +25,6 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if(player):
 		if(Input.is_action_just_pressed("buy")):
-			get_node("/root/Game/World/Player").shotgun+=10
+			get_node("/root/Game/World/Player").shotgun+=5
 			get_node("DetectPlayer").monitoring=false
 			queue_free()

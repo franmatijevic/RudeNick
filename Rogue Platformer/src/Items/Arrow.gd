@@ -8,6 +8,7 @@ var velocity: = Vector2.ZERO
 var speed=450.0
 
 func _ready() -> void:
+	get_node("Sound").play()
 	velocity.x=speed
 	if(speed<0):
 		get_node("Arrow").set_flip_h(true)

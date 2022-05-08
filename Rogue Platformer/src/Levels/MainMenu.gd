@@ -69,12 +69,16 @@ func _process(delta: float) -> void:
 			get_node("ArrowRight").visible=false
 			get_node("Back").visible=true
 		if(Input.is_action_just_pressed("down")):
+			get_node("Click").play()
 			help_choice=2
 		if(Input.is_action_just_pressed("move_left")):
+			get_node("Click").play()
 			help_choice=0
 		if(Input.is_action_just_pressed("move_right")):
+			get_node("Click").play()
 			help_choice=1
 		if(Input.is_action_just_pressed("up") and help_choice==2):
+			get_node("Click").play()
 			help_choice=0
 		if(Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")):
 			if(help_choice==0):
@@ -93,14 +97,17 @@ func _process(delta: float) -> void:
 				title_animation()
 	
 	if(Input.is_action_just_pressed("down")):
+		get_node("Click").play()
 		choice+=1
 		if(choice==3):
 			choice=0
 	if(Input.is_action_just_pressed("up")):
+		get_node("Click").play()
 		choice-=1
 		if(choice==-1):
 			choice=2
 	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help):
+		get_node("Click").play()
 		if(choice==0):
 			get_node("/root/Game").can_pause=true
 			get_parent().level=0

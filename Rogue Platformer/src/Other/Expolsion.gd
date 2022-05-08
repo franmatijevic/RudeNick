@@ -22,7 +22,7 @@ func _on_KillBeings_body_entered(body: Node) -> void:
 
 
 func _on_BlockDMG_body_entered(body: Node) -> void:
-	if(body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
+	if(body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4" and body.name!="Bedrock5"):
 		body.destroy()
 
 func _on_BlockDMG_area_entered(area: Area2D) -> void:

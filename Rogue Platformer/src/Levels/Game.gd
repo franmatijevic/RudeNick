@@ -27,11 +27,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=false
+var temple:=true
 
-var go_to_boss:=false
-
-var paused:=preload("res://src/Other/PauseScreen.tscn").instance()
+var go_to_boss:=true
 
 func set_health()->void:
 	if(get_node("World").has_node("Player")):
@@ -81,6 +79,7 @@ func restart_stats()->void:
 	red_key=false
 	green_key=false
 	white_key=false
+	go_to_boss=false
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()
@@ -126,7 +125,7 @@ func new_level()->void:
 	elif(temple):
 		world = preload("res://src/Levels/WorldTemple.tscn").instance()
 		world.name="World"
-		if(randi()%2==0):
+		if(randi()%2==5):
 			go_to_boss=true
 	
 	

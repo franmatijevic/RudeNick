@@ -83,7 +83,7 @@ func build_dungeon()->void:
 		randomize()
 		var enemy=randi()%n_ground
 		if(enemy<groundenemy and n_ground>-1):
-			enemy=randi()%2
+			enemy=randi()%10
 			if(enemy==0):
 				var groundenemy=preload("res://src/Actors/BlackSnake.tscn").instance()
 				groundenemy.position.x=global_position.x
@@ -91,6 +91,8 @@ func build_dungeon()->void:
 				get_parent().get_parent().add_child(groundenemy)
 			else:
 				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
+				if(randi()%5==0):
+					groundenemy=preload("res://src/Actors/Rat.tscn").instance()
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)
@@ -162,7 +164,7 @@ func build_dungeon()->void:
 				get_parent().get_parent().add_child(top)
 	
 	if(!up):
-		if(randi()%50==0 and can_be_spikes):
+		if(randi()%50==0 and can_be_spikes and level>4):
 			var trava=preload("res://src/environment/Spikes.tscn").instance()
 			trava.position=position
 			trava.position.y-=16
@@ -256,7 +258,7 @@ func build_thing()->void:
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)
 			else:
-				var groundenemy=preload("res://src/Actors/Rat.tscn").instance()
+				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)
@@ -308,7 +310,7 @@ func build_thing()->void:
 		if(enemy<skyenemy):
 			randomize()
 			enemy=randi()%2
-			if(level<4):
+			if(level<3):
 				enemy=1
 			if(enemy==0):
 				var top=preload("res://src/Actors/Bat.tscn").instance()
@@ -370,7 +372,7 @@ func build_thing()->void:
 	if(!up):
 		var grass=randi()%20
 		if(get_node("/root/Game/World").temple or 1==1):
-			if(randi()%75==0 and can_be_spikes):
+			if(randi()%75==0 and can_be_spikes and level>4):
 				var trava=preload("res://src/environment/Spikes.tscn").instance()
 				trava.position=position
 				trava.position.y-=16
@@ -492,7 +494,7 @@ func _physics_process(delta: float) -> void:
 	if(n_boneblock==-1):
 		what=42069
 	
-	if(randi()%40==0 and what!=42069 and can_be_arrow):
+	if(randi()%40==0 and what!=42069 and can_be_arrow and level>3):
 		if(!$Left.is_colliding() and !$Right.is_colliding()):
 			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
 			trap.position.x=position.x

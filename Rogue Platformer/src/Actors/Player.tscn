@@ -87,14 +87,14 @@ animations = [ {
 "name": "whiping",
 "speed": 13.0
 }, {
-"frames": [ SubResource( 15 ) ],
-"loop": true,
-"name": "climbing_stop",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 16 ) ],
 "loop": true,
 "name": "hanging",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "climbing_stop",
 "speed": 5.0
 } ]
 
@@ -226,23 +226,23 @@ texture = ExtResource( 6 )
 
 [node name="Dam1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="Dam2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="Dam3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="Dam4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="Dam5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = 15.0
+volume_db = 10.0
 
 [node name="Whip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

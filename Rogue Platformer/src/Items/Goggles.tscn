@@ -40,6 +40,7 @@ visible = false
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="DetectPlayer" type="Area2D" parent="."]

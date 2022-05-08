@@ -116,7 +116,7 @@ func _init()->void:
 	frame.position.y=0
 	
 	
-	
+	return
 	for i in range(end_down):
 		for j in range(end_right):
 			match polje[i][j]:
@@ -153,6 +153,8 @@ func _ready() -> void:
 	for _i in frame.get_node("Dirt").get_children():
 		_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
+	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=true
+	
 	if(get_parent().goggles):
 		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true
 	
@@ -169,7 +171,7 @@ func _ready() -> void:
 
 	get_node("BlackScreen").queue_free()
 	add_player()
-	get_node("Kanvas/UI").print_something("I feel like something bad is coming...")
+	get_node("Kanvas/UI").print_something("I feel shivers down my spine...")
 
 
 func _process(delta: float) -> void:
@@ -338,6 +340,10 @@ func create_hallway(i:int, j:int) ->void:
 	if(temple and randi()%3==0):
 		#array[i][j]=preload("res://src/levelPieces/LavaPool.tscn").instance()
 		array[i][j]=preload("res://src/levelPieces/t_hallway1.tscn").instance()
+	if(temple and randi()%3==0):
+		array[i][j]=preload("res://src/levelPieces/LavaPool.tscn").instance()
+	
+	
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
 	var flip=randi()%2
@@ -382,6 +388,15 @@ func add_player()->void:
 	player.global_position.y=34
 	player.get_node("Camera2D").limit_right+=(end_right-4)*160
 	player.get_node("Camera2D").limit_bottom+=(end_down-4)*128
+	
+	player.get_node("Camera2D").limit_top=0
+	player.get_node("Camera2D").limit_left=0
+	player.get_node("Camera2D").limit_right+=536
+	player.get_node("Camera2D").limit_bottom+=(end_down-4)*128
+	
+	player.global_position.x=16
+	player.global_position.y=320
+	
 	player.poisoned=get_parent().poisoned
 	player.goggles=get_parent().goggles
 	

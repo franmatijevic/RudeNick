@@ -61,8 +61,8 @@ func _physics_process(delta: float) -> void:
 	
 	if(going_down):
 		velocity.x=0.001
-		global_position.y+=30.0*delta
-		if(global_position.y>starting_y+k*256):
+		global_position.y-=30.0*delta
+		if(global_position.y<starting_y-k*256):
 			going_down=false
 			velocity.x=25
 	
@@ -175,6 +175,7 @@ func death():
 	pass
 
 func _on_DestroyBlocks_body_entered(body: Node) -> void:
+	return
 	if(body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
 		body.destroy()
 
@@ -195,3 +196,10 @@ func _on_Player_body_entered(body: Node) -> void:
 
 func _on_Player_body_exited(body: Node) -> void:
 	player_near=false
+
+
+func _on_EpicStuff_body_entered(body: Node) -> void:
+	get_node("EpicStuff").monitoring=false
+	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=false
+	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=false
+	get_node("/root/Game/World/Music1").play()

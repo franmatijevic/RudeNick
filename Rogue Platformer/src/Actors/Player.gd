@@ -460,13 +460,22 @@ func iframes()->void:
 
 func treperenje()->void:
 	var time_in_seconds
-	for i in range(10):
+	for i in range(20):
 		if(i%2==0): modulate.a=0.2
 		else: modulate.a=1
 		time_in_seconds = 0.15
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 
 func exitlevel()->void:
+	if(get_node("/root/Game/World").has_node("Music1")):
+		get_node("/root/Game/World/Music1").stop()
+	if(get_node("/root/Game/World").has_node("Music2")):
+		get_node("/root/Game/World/Music2").stop()
+	if(get_node("/root/Game/World").has_node("Music3")):
+		get_node("/root/Game/World/Music3").stop()
+	if(get_node("/root/Game/World").has_node("Rage")):
+		get_node("/root/Game/World/Rage").stop()
+	
 	if(get_node("/root/Game/World").temple):
 		get_parent().get_node("exitPiece/exit").get_node("DungeonDoorsOpen").visible=true
 		get_parent().get_node("exitPiece/exit").get_node("DungeonDoors").visible=false
@@ -580,6 +589,9 @@ func killed_by()->void:
 	elif(last_damage=="Poison"):
 		killed.text="Deadly poison was my end"
 		portret.texture=load("res://Assets/Serpant/poison_icon.png")
+	elif(last_damage=="rat"):
+		killed.text="I was killed by a rat"
+		portret.texture=load("res://Assets/Rat/rat_walk1.png")
 	else:
 		portret.texture=load("res://Assets/Player/player_dead.png")
 		killed.text="I died"
@@ -597,6 +609,11 @@ func death(direciton: bool)->void:
 		get_node("/root/Game/World/Rage").stop()
 	
 	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=false
+	get_node("/root/Game/World/Kanvas/UI/Poison2").visible=false
+	
+	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=false
+	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=false
+	
 	get_parent().get_parent().total_time+=get_parent().current_time
 	killed_by()
 	get_parent().get_node("Kanvas/UI").dead=true

@@ -58,7 +58,6 @@ func _ready() -> void:
 	
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
-	print("level po ovom dreku: ", level)
 	#Big level or small level
 	if(randi()%9==0):
 		if(randi()%4==0):
@@ -116,14 +115,14 @@ func _ready() -> void:
 					polje[i+1][j]=6
 	
 	
-	var shop=randi()%1
+	var shop=randi()%3
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
 	shop=0
-	if(shop==0 and shop_angry<1 and !temple and level!=0):
+	if((shop==0 and shop_angry<1 and !temple and level>3) or level==4):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -149,7 +148,7 @@ func _ready() -> void:
 	if(white):
 		gate_generate+=1
 	
-	if(randi()%15+gate_generate*4<1 and level>6):
+	if((randi()%8-gate_generate*2<1 and level>2) or level==3 or gate_generate==3):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -168,7 +167,7 @@ func _ready() -> void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%200==0 and !temple and !green and level>1):
+	if(randi()%3==0 and !temple and !green and level>5):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -183,7 +182,7 @@ func _ready() -> void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%1==0 and !temple and !red and level>1): #Lair spawn rate
+	elif(randi()%3==0 and !temple and !red and level>5): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -241,7 +240,7 @@ func _ready() -> void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
-	elif(randi()%12==0 and !temple and !white and level>1): #Create SPIDER NEST
+	elif(randi()%3==0 and !temple and !white and level>5): #Create SPIDER NEST
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -462,7 +461,8 @@ func create_shop(i:int, j:int, dir:bool)->void:
 	if(!dir):
 		array[i][j].dir=true
 		for _i in array[i][j].get_children():
-			_i.position.x=-_i.position.x
+			if(_i.name!="Sound"):
+				_i.position.x=-_i.position.x
 			if(_i.name=="Mole"):
 				_i.get_node("AnimatedSprite").set_flip_h(false)
 	add_child(array[i][j])

@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide(dir * speed)
 
 func _on_Wall_body_entered(body: Node) -> void:
-	if(randi()%3==0 and body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
-		body.destroy()
+	#if(randi()%3==0 and body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
+	#	body.destroy()
 	queue_free()
 
 
