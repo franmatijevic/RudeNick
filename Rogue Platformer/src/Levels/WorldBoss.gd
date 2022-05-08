@@ -153,6 +153,7 @@ func _ready() -> void:
 	for _i in frame.get_node("Dirt").get_children():
 		_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
+	
 	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=true
 	
 	if(get_parent().goggles):
@@ -394,8 +395,8 @@ func add_player()->void:
 	player.get_node("Camera2D").limit_right+=536
 	player.get_node("Camera2D").limit_bottom+=(end_down-4)*128
 	
-	player.global_position.x=16
-	player.global_position.y=320
+	player.global_position.x=48
+	player.global_position.y=336
 	
 	player.poisoned=get_parent().poisoned
 	player.goggles=get_parent().goggles

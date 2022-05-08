@@ -35,6 +35,7 @@ func _on_DetectPlayer_body_entered(body: Node) -> void:
 			death()
 
 func _on_DamagePlayer_body_entered(body: Node) -> void:
+	return
 	if(!body.iframes_on and body.global_position.y>global_position.y):
 		body.last_damage=last_damage
 		if(body.health<2):
@@ -232,7 +233,7 @@ func shoot()->void:
 	if(velocity.x<0):
 		bullet.speed=-bullet.speed
 	get_parent().add_child(bullet)
-	var time_in_seconds = 1
+	var time_in_seconds = 0.5
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_shoot=true
 

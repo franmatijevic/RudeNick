@@ -6,9 +6,11 @@ var using_gravity: = 1
 
 var velocity: = Vector2.ZERO
 
-var health:=20
+var health:=3
 
 var player_near:=false
+
+var dead:=false
 
 var burst:=false
 var bite:=false
@@ -42,27 +44,44 @@ func _ready() -> void:
 var animation_direction=1
 
 func _process(delta: float) -> void:
-	get_node("AnimatedSprite").position.y+=delta*animation_direction*2
-	if(get_node("AnimatedSprite").position.y>3):
-		animation_direction=-1
-	if(get_node("AnimatedSprite").position.y<-3):
-		animation_direction=1
+	if(!dead):
+		get_node("AnimatedSprite").position.y+=delta*animation_direction*2
+		if(get_node("AnimatedSprite").position.y>3):
+			animation_direction=-1
+		if(get_node("AnimatedSprite").position.y<-3):
+			animation_direction=1
+
+var shoot:float=0
 
 func _physics_process(delta: float) -> void:
+	if(player_near and !dead):
+		shoot+=delta
+		if(shoot>3.0):
+			shoot=0.0
+			shoot_small_laser()
+			if(randi()%2==0):
+				shoot_small_laser()
+				if(randi()%2==0):
+					shoot_small_laser()
+	
 	velocity.y += gravity * delta * using_gravity
 	if velocity.y > speed.y:
 		velocity.y = speed.y
 	
 	velocity = move_and_slide(velocity)
 	
-	if($Wall.is_colliding()):
-		$Wall.cast_to.x*=-1
-		velocity.x*=-1
+	
+	if(position.x<688):
+		velocity.x=abs(velocity.x)
+	if(position.x>1104):
+		velocity.x=-abs(velocity.x)
+	
+	
 	
 	if(going_down):
 		velocity.x=0.001
 		global_position.y-=30.0*delta
-		if(global_position.y<starting_y-k*256):
+		if(global_position.y<starting_y-k*100):
 			going_down=false
 			velocity.x=25
 	
@@ -79,15 +98,34 @@ func burst()->void:
 		yield(get_tree().create_timer(0.3), "timeout")
 		shoot_small_laser()
 	burst=false
-	if(randi()%3==0):
+	if(k!=2 and health<22-k*8):
 		k=k+1
 		going_down=true
-		print("going down")
 	if(randi()%3==0):
 		get_node("AnimatedSprite").animation="wink"
 		get_node("AnimatedSprite").frame=0
 
+func big_laser()->void:
+	if(burst):
+		return
+	burst=true
+	velocity.x=abs(velocity.x)/velocity.x*0.001
+	yield(get_tree().create_timer(0.25), "timeout")
+	get_node("Charge").visible=true
+	get_node("Charge").frame=0
+	yield(get_tree().create_timer(0.75), "timeout")
+	var laser=preload("res://src/Other/BigLaser.tscn").instance()
+	laser.position=position
+	get_parent().add_child(laser)
+	get_node("Charge").visible=false
+	burst=false
+	velocity.x=abs(velocity.x)/velocity.x*25
+	if(randi()%5==0):
+		big_laser()
+
 func bite()->void:
+	if(dead):
+		return
 	if(burst or bite):
 		return
 	bite=true
@@ -107,12 +145,13 @@ func bite()->void:
 	velocity.x=abs(velocity.x)/velocity.x*25
 
 func shoot_small_laser()->void:
+	if(dead):
+		return
 	var laser = preload("res://src/Other/LaserSmall.tscn").instance()
-	match randi()%3:
-		1:
-			laser=preload("res://src/Other/SummonLaser.tscn").instance()
-		2:
-			laser=preload("res://src/Other/StunLasser.tscn").instance()
+	if(randi()%4==0):
+		laser=preload("res://src/Other/SummonLaser.tscn").instance()
+	elif(randi()%3==0):
+		laser=preload("res://src/Other/StunLasser.tscn").instance()
 	match randi()%9:
 		0:
 			laser.position.x=-21.5
@@ -155,6 +194,11 @@ func flash_damage()->void:
 	modulate.a=1
 
 func damage(value: int)->void:
+	if(randi()%15==0):
+		var meat=preload("res://src/Collectable/RatMeat.tscn").instance()
+		meat.global_position=global_position
+		get_parent().add_child(meat)
+	
 	health=health-value
 	var blood1=preload("res://src/Other/Blood.tscn").instance()
 	var blood2=preload("res://src/Other/Blood.tscn").instance()
@@ -168,11 +212,41 @@ func damage(value: int)->void:
 	if(health<1):
 		death()
 	flash_damage()
-
+	
+	if(randi()%3!=0):
+		return
+	if(randi()%4==0):
+		big_laser()
+		return
+	burst()
 
 
 func death():
-	pass
+	get_node("Camera2D").limit_top=get_node("/root/Game/World/Player/Camera2D").limit_top
+	get_node("Camera2D").limit_right=get_node("/root/Game/World/Player/Camera2D").limit_right
+	get_node("Camera2D").limit_left=get_node("/root/Game/World/Player/Camera2D").limit_left
+	get_node("Camera2D").limit_bottom=get_node("/root/Game/World/Player/Camera2D").limit_bottom
+	
+	get_node("/root/Game/World/Music1").stop()
+	
+	get_node("Whip").monitoring=false
+	get_node("/root/Game").can_pause=false
+	
+	
+	velocity.x=0.0
+	velocity.y=0.0
+	going_down=0.0
+	
+	#get_node("/root/Game/World/Player").gravity=0.0
+	get_node("/root/Game/World/Player").speed.x=0.0
+	
+	get_node("AnimatedSprite").animation="death"
+	dead=true
+	get_node("/root/Game/World/Kanvas/UI").visible=false
+	get_node("/root/Game/World/Player").health=99
+	get_node("Camera2D").current=true
+	yield(get_tree().create_timer(3), "timeout")
+	
 
 func _on_DestroyBlocks_body_entered(body: Node) -> void:
 	return
@@ -181,12 +255,12 @@ func _on_DestroyBlocks_body_entered(body: Node) -> void:
 
 
 func _on_Whip_area_entered(area: Area2D) -> void:
-	burst()
-	damage(1)
+	if(dead):
+		return
 	if(randi()%3==0):
 		get_node("AnimatedSprite").animation="wink"
 		get_node("AnimatedSprite").frame=0
-
+	damage(1)
 
 
 func _on_Player_body_entered(body: Node) -> void:

@@ -43,7 +43,7 @@ var lair_dir:=false
 
 var frame
 
-func _init()->void:
+func _ready() -> void:
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
 	
@@ -103,13 +103,6 @@ func _init()->void:
 				if(polje[i][j]==2 or polje[i][j]==5):
 					polje[i+1][j]=6
 	
-	
-	
-	
-	
-	
-	
-	
 	if(end_right==4):
 		if(end_down==4):
 			frame=preload("res://src/environment/Frame.tscn").instance()
@@ -152,9 +145,7 @@ func _init()->void:
 				10:
 					create_lair(i,j)
 	add_child(frame)
-
-
-func _ready() -> void:
+	
 	randomize()
 	var music=randi()%2
 	if(music==0):
@@ -168,15 +159,15 @@ func _ready() -> void:
 			_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
 	if(temple):
-		get_node("Background1").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background2").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background3").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background4").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background5").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background6").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background7").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background8").texture=load("res://Assets/Backgrounds/temple_background.png")
-		get_node("Background9").texture=load("res://Assets/Backgrounds/temple_background.png")
+		get_node("Background1").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background2").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background3").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background4").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background5").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background6").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background7").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background8").texture=load("res://Assets/Backgrounds/background_2.png")
+		get_node("Background9").texture=load("res://Assets/Backgrounds/background_2.png")
 	
 	if(get_parent().goggles):
 		get_node("/root/Game/World/Kanvas/UI/Goggles").visible=true
@@ -194,9 +185,11 @@ func _ready() -> void:
 
 	get_node("BlackScreen").queue_free()
 	add_player()
-	if(end_down==8):
+	if(get_node("/root/Game").boss_level!=-1 and int(get_node("/root/Game").boss_level*(2.0/3.0))==level):
+		get_node("Kanvas/UI").print_something("So this is what hides behind the mines...")
+	elif(end_down==8):
 		get_node("Kanvas/UI").print_something("It looks like a long way down...")
-	if(end_right==5):
+	elif(end_right==5):
 		get_node("Kanvas/UI").print_something("My voice echoes in here...")
 
 func _process(delta: float) -> void:
@@ -247,6 +240,9 @@ func create_exit(i:int, j:int)->void:
 			array[i][j]=preload("res://src/DungeonPieces/exit2.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	if(get_node("/root/Game").boss_level==level+1):
+		array[i][j].get_node("exit/DungeonDoors").texture=load("res://Assets/Doors/beholder_gate.png")
+		array[i][j].get_node("exit/DungeonDoorsOpen").texture=load("res://Assets/Doors/beholder_gate_1.png")
 	add_child(array[i][j])
 
 func create_dungeon(i: int, j:int)->void:

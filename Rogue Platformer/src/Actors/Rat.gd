@@ -17,6 +17,8 @@ var jumping:bool=false
 
 var jump_speed:float=135.0
 
+export var special:=false
+
 func _ready() -> void:
 	#get_node("Ground").monitoring=false
 	get_node("AnimatedSprite").animation="default"
@@ -73,6 +75,8 @@ func destroy()->void:
 
 func death()->void:
 	var meat=preload("res://src/Collectable/RatMeat.tscn").instance()
+	if(special):
+		meat=preload("res://src/Collectable/RatMeat.tscn").instance()
 	meat.global_position=global_position
 	get_parent().add_child(meat)
 	

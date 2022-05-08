@@ -608,6 +608,8 @@ func death(direciton: bool)->void:
 	if(get_node("/root/Game/World").has_node("Rage")):
 		get_node("/root/Game/World/Rage").stop()
 	
+	get_node("/root/Game/World/Kanvas/UI/GameOverSound").play()
+	
 	get_node("/root/Game/World/Kanvas/UI/MoleIcon").visible=false
 	get_node("/root/Game/World/Kanvas/UI/Poison2").visible=false
 	

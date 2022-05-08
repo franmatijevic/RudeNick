@@ -46,7 +46,6 @@ visible = false
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Opened" type="Sprite" parent="."]

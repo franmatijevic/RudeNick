@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Rat/rat_meat.png" type="Texture" id=1]
 [ext_resource path="res://src/Collectable/RatMeat.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Rat/rat_meat_erika.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 3 )
@@ -27,5 +28,8 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
 shape = SubResource( 2 )
+
+[node name="RatMeatErika" type="Sprite" parent="."]
+texture = ExtResource( 3 )
 
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]

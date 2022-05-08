@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
@@ -12,10 +12,14 @@
 [ext_resource path="res://src/environment/LavaBoss.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/environment/bedrock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/TempleBlocks/lava_mid.png" type="Texture" id=12]
-[ext_resource path="res://Assets/dollar.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Doors/beholder_gate.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Backgrounds/cobbletone (2).png" type="Texture" id=14]
 [ext_resource path="res://Assets/TempleBlocks/dungeon_tile_mid.png" type="Texture" id=15]
 [ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Decisive Battle.wav" type="AudioStream" id=16]
+[ext_resource path="res://src/Platforms/Platform1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/Platforms/Platform2.tscn" type="PackedScene" id=18]
+[ext_resource path="res://src/Platforms/Platform3.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/Platforms/LongChains.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -133,7 +137,7 @@ stream = ExtResource( 5 )
 volume_db = -10.0
 
 [node name="Beholder" parent="." instance=ExtResource( 8 )]
-position = Vector2( 904, 256 )
+position = Vector2( 904, 288 )
 
 [node name="Blocks" type="Node2D" parent="."]
 position = Vector2( 640, -1216 )
@@ -636,100 +640,100 @@ scale = Vector2( 40, 1 )
 position = Vector2( 0, -8 )
 
 [node name="LavaBoss" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 8, 1616 )
+position = Vector2( 8, 1620 )
 
 [node name="LavaBoss2" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 24, 1616 )
+position = Vector2( 24, 1620 )
 
 [node name="LavaBoss3" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 40, 1616 )
+position = Vector2( 40, 1620 )
 
 [node name="LavaBoss4" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 56, 1616 )
+position = Vector2( 56, 1620 )
 
 [node name="LavaBoss5" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 72, 1616 )
+position = Vector2( 72, 1620 )
 
 [node name="LavaBoss6" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 88, 1616 )
+position = Vector2( 88, 1620 )
 
 [node name="LavaBoss7" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 104, 1616 )
+position = Vector2( 104, 1620 )
 
 [node name="LavaBoss8" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 120, 1616 )
+position = Vector2( 120, 1620 )
 
 [node name="LavaBoss9" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 136, 1616 )
+position = Vector2( 136, 1620 )
 
 [node name="LavaBoss10" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 152, 1616 )
+position = Vector2( 152, 1620 )
 
 [node name="LavaBoss11" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 168, 1616 )
+position = Vector2( 168, 1620 )
 
 [node name="LavaBoss12" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 184, 1616 )
+position = Vector2( 184, 1620 )
 
 [node name="LavaBoss13" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 200, 1616 )
+position = Vector2( 200, 1620 )
 
 [node name="LavaBoss14" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 216, 1616 )
+position = Vector2( 216, 1620 )
 
 [node name="LavaBoss15" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 232, 1616 )
+position = Vector2( 232, 1620 )
 
 [node name="LavaBoss16" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 248, 1616 )
+position = Vector2( 248, 1620 )
 
 [node name="LavaBoss17" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 264, 1616 )
+position = Vector2( 264, 1620 )
 
 [node name="LavaBoss18" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 280, 1616 )
+position = Vector2( 280, 1620 )
 
 [node name="LavaBoss19" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 296, 1616 )
+position = Vector2( 296, 1620 )
 
 [node name="LavaBoss20" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 312, 1616 )
+position = Vector2( 312, 1620 )
 
 [node name="LavaBoss21" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 328, 1616 )
+position = Vector2( 328, 1620 )
 
 [node name="LavaBoss22" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 344, 1616 )
+position = Vector2( 344, 1620 )
 
 [node name="LavaBoss23" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 360, 1616 )
+position = Vector2( 360, 1620 )
 
 [node name="LavaBoss24" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 376, 1616 )
+position = Vector2( 376, 1620 )
 
 [node name="LavaBoss25" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 392, 1616 )
+position = Vector2( 392, 1620 )
 
 [node name="LavaBoss26" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 408, 1616 )
+position = Vector2( 408, 1620 )
 
 [node name="LavaBoss27" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 424, 1616 )
+position = Vector2( 424, 1620 )
 
 [node name="LavaBoss28" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 440, 1616 )
+position = Vector2( 440, 1620 )
 
 [node name="LavaBoss29" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 456, 1616 )
+position = Vector2( 456, 1620 )
 
 [node name="LavaBoss30" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 472, 1616 )
+position = Vector2( 472, 1620 )
 
 [node name="LavaBoss31" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 488, 1616 )
+position = Vector2( 488, 1620 )
 
 [node name="LavaBoss32" parent="Blocks/Lava" instance=ExtResource( 10 )]
-position = Vector2( 504, 1616 )
+position = Vector2( 504, 1620 )
 
 [node name="LavaMid" type="Sprite" parent="Blocks/Lava"]
 position = Vector2( 256, 1880 )
@@ -1104,18 +1108,28 @@ can_destroy = true
 
 [node name="KinematicBody2D288" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -584, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D289" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -568, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D290" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -552, 1576 )
+n_sky = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D291" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -536, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D292" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -520, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D293" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -504, 1576 )
@@ -1134,24 +1148,38 @@ position = Vector2( -440, 1576 )
 
 [node name="KinematicBody2D298" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -616, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D299" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -600, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D300" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -584, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D301" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -568, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D302" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -552, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D303" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -536, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D304" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -520, 1512 )
+n_ground = 9999
+n_sky = 9999
 
 [node name="KinematicBody2D305" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -504, 1512 )
@@ -1170,9 +1198,13 @@ position = Vector2( -472, 1512 )
 
 [node name="KinematicBody2D310" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -600, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D311" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -616, 1576 )
+n_ground = 9999
+can_be_spikes = false
 
 [node name="KinematicBody2D312" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -632, 1576 )
@@ -1255,46 +1287,28 @@ position = Vector2( -152, 1560 )
 can_destroy = true
 
 [node name="KinematicBody2D126" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1512 )
+position = Vector2( 520, 1544 )
 
 [node name="KinematicBody2D127" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1512 )
+position = Vector2( 520, 1528 )
 
 [node name="KinematicBody2D327" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1576 )
 
 [node name="KinematicBody2D328" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1576 )
+position = Vector2( 536, 1560 )
 
 [node name="KinematicBody2D329" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1576 )
-
-[node name="KinematicBody2D330" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1576 )
-
-[node name="KinematicBody2D331" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1576 )
-
-[node name="KinematicBody2D332" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1576 )
+position = Vector2( 536, 1528 )
 
 [node name="KinematicBody2D333" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 552, 1576 )
+position = Vector2( 520, 1560 )
 
 [node name="KinematicBody2D334" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1512 )
 
 [node name="KinematicBody2D335" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 552, 1512 )
-
-[node name="KinematicBody2D336" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1512 )
-
-[node name="KinematicBody2D337" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1512 )
-
-[node name="KinematicBody2D338" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1512 )
 
 [node name="KinematicBody2D128" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -24, 1496 )
@@ -1319,7 +1333,6 @@ position = Vector2( -360, 1496 )
 
 [node name="KinematicBody2D345" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -344, 1496 )
-can_destroy = true
 
 [node name="KinematicBody2D346" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -328, 1496 )
@@ -1437,7 +1450,6 @@ position = Vector2( -360, 1592 )
 
 [node name="KinematicBody2D384" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -344, 1592 )
-can_destroy = true
 
 [node name="KinematicBody2D385" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -328, 1592 )
@@ -1768,474 +1780,26 @@ position = Vector2( -472, 1608 )
 [node name="KinematicBody2D493" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( -632, 1608 )
 
-[node name="KinematicBody2D494" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1144, 1496 )
-
-[node name="KinematicBody2D495" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1128, 1496 )
-
-[node name="KinematicBody2D496" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 744, 1496 )
-
-[node name="KinematicBody2D497" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 760, 1496 )
-
-[node name="KinematicBody2D498" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 776, 1496 )
-
-[node name="KinematicBody2D499" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 792, 1496 )
-
-[node name="KinematicBody2D500" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 808, 1496 )
-
-[node name="KinematicBody2D501" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 824, 1496 )
-can_destroy = true
-
-[node name="KinematicBody2D502" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 840, 1496 )
-
-[node name="KinematicBody2D503" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 856, 1496 )
-
-[node name="KinematicBody2D504" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 872, 1496 )
-
-[node name="KinematicBody2D505" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 904, 1496 )
-
-[node name="KinematicBody2D506" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 920, 1496 )
-
-[node name="KinematicBody2D507" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 936, 1496 )
-
-[node name="KinematicBody2D508" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 952, 1496 )
-
-[node name="KinematicBody2D509" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 968, 1496 )
-
-[node name="KinematicBody2D510" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 984, 1496 )
-
-[node name="KinematicBody2D511" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1000, 1496 )
-
-[node name="KinematicBody2D512" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1016, 1496 )
-
-[node name="KinematicBody2D513" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 888, 1496 )
-
-[node name="KinematicBody2D514" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1048, 1496 )
-
-[node name="KinematicBody2D515" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1064, 1496 )
-
-[node name="KinematicBody2D516" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1080, 1496 )
-
-[node name="KinematicBody2D517" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1096, 1496 )
-
-[node name="KinematicBody2D518" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1112, 1496 )
-
-[node name="KinematicBody2D519" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1032, 1496 )
-
 [node name="KinematicBody2D520" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 552, 1496 )
-
-[node name="KinematicBody2D521" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1496 )
-
-[node name="KinematicBody2D522" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1496 )
-
-[node name="KinematicBody2D523" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1496 )
-
-[node name="KinematicBody2D524" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1496 )
-
-[node name="KinematicBody2D525" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1496 )
-
-[node name="KinematicBody2D526" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 648, 1496 )
-
-[node name="KinematicBody2D527" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 664, 1496 )
-
-[node name="KinematicBody2D528" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 680, 1496 )
-
-[node name="KinematicBody2D529" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 712, 1496 )
-
-[node name="KinematicBody2D530" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 728, 1496 )
-
-[node name="KinematicBody2D531" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 696, 1496 )
 
 [node name="KinematicBody2D532" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1496 )
 
-[node name="KinematicBody2D533" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1144, 1592 )
-
-[node name="KinematicBody2D534" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1128, 1592 )
-
-[node name="KinematicBody2D535" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 744, 1592 )
-
-[node name="KinematicBody2D536" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 760, 1592 )
-
-[node name="KinematicBody2D537" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 776, 1592 )
-
-[node name="KinematicBody2D538" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 792, 1592 )
-
-[node name="KinematicBody2D539" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 808, 1592 )
-
-[node name="KinematicBody2D540" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 824, 1592 )
-can_destroy = true
-
-[node name="KinematicBody2D541" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 840, 1592 )
-
-[node name="KinematicBody2D542" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 856, 1592 )
-
-[node name="KinematicBody2D543" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 872, 1592 )
-
-[node name="KinematicBody2D544" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 904, 1592 )
-
-[node name="KinematicBody2D545" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 920, 1592 )
-
-[node name="KinematicBody2D546" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 936, 1592 )
-
-[node name="KinematicBody2D547" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 952, 1592 )
-
-[node name="KinematicBody2D548" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 968, 1592 )
-
-[node name="KinematicBody2D549" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 984, 1592 )
-
-[node name="KinematicBody2D550" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1000, 1592 )
-
-[node name="KinematicBody2D551" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1016, 1592 )
-
-[node name="KinematicBody2D552" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 888, 1592 )
-
-[node name="KinematicBody2D553" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1048, 1592 )
-
-[node name="KinematicBody2D554" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1064, 1592 )
-
-[node name="KinematicBody2D555" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1080, 1592 )
-
-[node name="KinematicBody2D556" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1096, 1592 )
-
-[node name="KinematicBody2D557" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1112, 1592 )
-
-[node name="KinematicBody2D558" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1032, 1592 )
-
 [node name="KinematicBody2D559" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 552, 1592 )
-
-[node name="KinematicBody2D560" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1592 )
-
-[node name="KinematicBody2D561" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1592 )
-
-[node name="KinematicBody2D562" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1592 )
-
-[node name="KinematicBody2D563" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1592 )
-
-[node name="KinematicBody2D564" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1592 )
-
-[node name="KinematicBody2D565" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 648, 1592 )
-
-[node name="KinematicBody2D566" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 664, 1592 )
-
-[node name="KinematicBody2D567" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 680, 1592 )
-
-[node name="KinematicBody2D568" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 712, 1592 )
-
-[node name="KinematicBody2D569" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 728, 1592 )
-
-[node name="KinematicBody2D570" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 696, 1592 )
+position = Vector2( 536, 1544 )
 
 [node name="KinematicBody2D571" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1592 )
 
-[node name="KinematicBody2D572" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1144, 1480 )
-
-[node name="KinematicBody2D573" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1128, 1480 )
-
-[node name="KinematicBody2D574" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 744, 1480 )
-
-[node name="KinematicBody2D575" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 760, 1480 )
-
-[node name="KinematicBody2D576" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 776, 1480 )
-
-[node name="KinematicBody2D577" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 792, 1480 )
-
-[node name="KinematicBody2D578" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 808, 1480 )
-
-[node name="KinematicBody2D579" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 824, 1480 )
-can_destroy = true
-
-[node name="KinematicBody2D580" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 840, 1480 )
-
-[node name="KinematicBody2D581" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 856, 1480 )
-
-[node name="KinematicBody2D582" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 872, 1480 )
-
-[node name="KinematicBody2D583" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 904, 1480 )
-
-[node name="KinematicBody2D584" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 920, 1480 )
-
-[node name="KinematicBody2D585" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 936, 1480 )
-
-[node name="KinematicBody2D586" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 952, 1480 )
-
-[node name="KinematicBody2D587" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 968, 1480 )
-
-[node name="KinematicBody2D588" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 984, 1480 )
-
-[node name="KinematicBody2D589" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1000, 1480 )
-
-[node name="KinematicBody2D590" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1016, 1480 )
-
-[node name="KinematicBody2D591" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 888, 1480 )
-
-[node name="KinematicBody2D592" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1048, 1480 )
-
-[node name="KinematicBody2D593" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1064, 1480 )
-
-[node name="KinematicBody2D594" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1080, 1480 )
-
-[node name="KinematicBody2D595" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1096, 1480 )
-
-[node name="KinematicBody2D596" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1112, 1480 )
-
-[node name="KinematicBody2D597" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1032, 1480 )
-
 [node name="KinematicBody2D598" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 552, 1480 )
-
-[node name="KinematicBody2D599" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1480 )
-
-[node name="KinematicBody2D600" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1480 )
-
-[node name="KinematicBody2D601" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1480 )
-
-[node name="KinematicBody2D602" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1480 )
-
-[node name="KinematicBody2D603" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1480 )
-
-[node name="KinematicBody2D604" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 648, 1480 )
-
-[node name="KinematicBody2D605" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 664, 1480 )
-
-[node name="KinematicBody2D606" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 680, 1480 )
-
-[node name="KinematicBody2D607" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 712, 1480 )
-
-[node name="KinematicBody2D608" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 728, 1480 )
-
-[node name="KinematicBody2D609" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 696, 1480 )
 
 [node name="KinematicBody2D610" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1480 )
 
-[node name="KinematicBody2D611" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1144, 1608 )
-
-[node name="KinematicBody2D612" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1128, 1608 )
-
-[node name="KinematicBody2D613" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 744, 1608 )
-
-[node name="KinematicBody2D614" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 760, 1608 )
-
-[node name="KinematicBody2D615" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 776, 1608 )
-
-[node name="KinematicBody2D616" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 792, 1608 )
-
-[node name="KinematicBody2D617" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 808, 1608 )
-
-[node name="KinematicBody2D618" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 824, 1608 )
-can_destroy = true
-
-[node name="KinematicBody2D619" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 840, 1608 )
-
-[node name="KinematicBody2D620" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 856, 1608 )
-
-[node name="KinematicBody2D621" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 872, 1608 )
-
-[node name="KinematicBody2D622" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 904, 1608 )
-
-[node name="KinematicBody2D623" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 920, 1608 )
-
-[node name="KinematicBody2D624" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 936, 1608 )
-
-[node name="KinematicBody2D625" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 952, 1608 )
-
-[node name="KinematicBody2D626" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 968, 1608 )
-
-[node name="KinematicBody2D627" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 984, 1608 )
-
-[node name="KinematicBody2D628" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1000, 1608 )
-
-[node name="KinematicBody2D629" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1016, 1608 )
-
-[node name="KinematicBody2D630" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 888, 1608 )
-
-[node name="KinematicBody2D631" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1048, 1608 )
-
-[node name="KinematicBody2D632" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1064, 1608 )
-
-[node name="KinematicBody2D633" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1080, 1608 )
-
-[node name="KinematicBody2D634" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1096, 1608 )
-
-[node name="KinematicBody2D635" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1112, 1608 )
-
-[node name="KinematicBody2D636" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 1032, 1608 )
-
 [node name="KinematicBody2D637" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 552, 1608 )
-
-[node name="KinematicBody2D638" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 568, 1608 )
-
-[node name="KinematicBody2D639" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 584, 1608 )
-
-[node name="KinematicBody2D640" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 600, 1608 )
-
-[node name="KinematicBody2D641" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 616, 1608 )
-
-[node name="KinematicBody2D642" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 632, 1608 )
-
-[node name="KinematicBody2D643" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 648, 1608 )
-
-[node name="KinematicBody2D644" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 664, 1608 )
-
-[node name="KinematicBody2D645" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 680, 1608 )
-
-[node name="KinematicBody2D646" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 712, 1608 )
-
-[node name="KinematicBody2D647" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 728, 1608 )
-
-[node name="KinematicBody2D648" parent="Blocks" instance=ExtResource( 2 )]
-position = Vector2( 696, 1608 )
 
 [node name="KinematicBody2D649" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1608 )
@@ -2414,9 +1978,8 @@ position = Vector2( 536, 1800 )
 [node name="KinematicBody2D707" parent="Blocks" instance=ExtResource( 2 )]
 position = Vector2( 536, 1816 )
 
-[node name="Dollar" type="Sprite" parent="."]
-position = Vector2( 16, 320 )
-texture = ExtResource( 13 )
+[node name="LongChains" parent="Blocks" instance=ExtResource( 20 )]
+position = Vector2( 24, 1571 )
 
 [node name="Bedrock1" parent="." instance=ExtResource( 11 )]
 position = Vector2( 320, 384 )
@@ -2428,8 +1991,8 @@ scale = Vector2( 40, 20 )
 z_index = 4096
 
 [node name="Bedrock3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1340, 384 )
-scale = Vector2( 20, 2 )
+position = Vector2( 1340, 390 )
+scale = Vector2( 20, 30 )
 
 [node name="Bedrock4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1344, 96 )
@@ -5455,11 +5018,11 @@ position = Vector2( 1512, 1480 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid391" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1480 )
+position = Vector2( 1176, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid392" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1480 )
+position = Vector2( 1192, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid393" type="Sprite" parent="Walls"]
@@ -5471,19 +5034,19 @@ position = Vector2( 1512, 1464 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid395" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1464 )
+position = Vector2( 1176, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid396" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1464 )
+position = Vector2( 1192, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid397" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1448 )
+position = Vector2( 1192, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid398" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1448 )
+position = Vector2( 1176, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid399" type="Sprite" parent="Walls"]
@@ -5503,235 +5066,235 @@ position = Vector2( 1512, 1432 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid403" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1432 )
+position = Vector2( 1176, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid404" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1432 )
+position = Vector2( 1192, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid405" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1480 )
+position = Vector2( 1208, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid406" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1480 )
+position = Vector2( 1224, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid407" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1480 )
+position = Vector2( 1240, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid408" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1480 )
+position = Vector2( 1256, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid409" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1464 )
+position = Vector2( 1208, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid410" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1464 )
+position = Vector2( 1224, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid411" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1464 )
+position = Vector2( 1240, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid412" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1464 )
+position = Vector2( 1256, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid413" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1448 )
+position = Vector2( 1256, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid414" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1448 )
+position = Vector2( 1240, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid415" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1448 )
+position = Vector2( 1224, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid416" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1448 )
+position = Vector2( 1208, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid417" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1432 )
+position = Vector2( 1208, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid418" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1432 )
+position = Vector2( 1224, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid419" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1432 )
+position = Vector2( 1240, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid420" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1432 )
+position = Vector2( 1256, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid421" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1480 )
+position = Vector2( 1272, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid422" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1480 )
+position = Vector2( 1288, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid423" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1480 )
+position = Vector2( 1304, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid424" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1480 )
+position = Vector2( 1320, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid425" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1464 )
+position = Vector2( 1272, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid426" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1464 )
+position = Vector2( 1288, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid427" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1464 )
+position = Vector2( 1304, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid428" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1464 )
+position = Vector2( 1320, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid429" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1448 )
+position = Vector2( 1320, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid430" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1448 )
+position = Vector2( 1304, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid431" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1448 )
+position = Vector2( 1288, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid432" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1448 )
+position = Vector2( 1272, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid433" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1432 )
+position = Vector2( 1272, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid434" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1432 )
+position = Vector2( 1288, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid435" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1432 )
+position = Vector2( 1304, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid436" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1432 )
+position = Vector2( 1320, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid437" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1480 )
+position = Vector2( 1336, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid438" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1480 )
+position = Vector2( 1352, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid439" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1480 )
+position = Vector2( 1368, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid440" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1480 )
+position = Vector2( 1384, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid441" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1464 )
+position = Vector2( 1336, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid442" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1464 )
+position = Vector2( 1352, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid443" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1464 )
+position = Vector2( 1368, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid444" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1464 )
+position = Vector2( 1384, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid445" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1448 )
+position = Vector2( 1384, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid446" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1448 )
+position = Vector2( 1368, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid447" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1448 )
+position = Vector2( 1352, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid448" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1448 )
+position = Vector2( 1336, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid449" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1432 )
+position = Vector2( 1336, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid450" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1432 )
+position = Vector2( 1352, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid451" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1432 )
+position = Vector2( 1368, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid452" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1432 )
+position = Vector2( 1384, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid453" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1480 )
+position = Vector2( 1400, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid454" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1480 )
+position = Vector2( 1416, 1576 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid455" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1464 )
+position = Vector2( 1400, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid456" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1464 )
+position = Vector2( 1416, 1560 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid457" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1448 )
+position = Vector2( 1400, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid458" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1448 )
+position = Vector2( 1416, 1544 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid459" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1432 )
+position = Vector2( 1400, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid460" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1432 )
+position = Vector2( 1416, 1528 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid461" type="Sprite" parent="Walls"]
@@ -6087,15 +5650,15 @@ position = Vector2( 1560, 1648 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid549" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1632 )
+position = Vector2( 1448, 1608 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid550" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1632 )
+position = Vector2( 1432, 1608 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid551" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1632 )
+position = Vector2( 1464, 1608 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid552" type="Sprite" parent="Walls"]
@@ -6107,15 +5670,15 @@ position = Vector2( 1512, 1616 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid554" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1616 )
+position = Vector2( 1416, 1592 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid555" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1616 )
+position = Vector2( 1384, 1592 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid556" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1616 )
+position = Vector2( 1400, 1592 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid557" type="Sprite" parent="Walls"]
@@ -6151,35 +5714,35 @@ position = Vector2( 1624, 1648 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid565" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1632 )
+position = Vector2( 1272, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid566" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1632 )
+position = Vector2( 1256, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid567" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1632 )
+position = Vector2( 1240, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid568" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1632 )
+position = Vector2( 1224, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid569" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1616 )
+position = Vector2( 1176, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid570" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1616 )
+position = Vector2( 1192, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid571" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1616 )
+position = Vector2( 1208, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid572" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1616 )
+position = Vector2( 1224, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid573" type="Sprite" parent="Walls"]
@@ -6199,51 +5762,51 @@ position = Vector2( 1688, 1664 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid577" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1648 )
+position = Vector2( 1176, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid578" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1648 )
+position = Vector2( 1192, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid579" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1648 )
+position = Vector2( 1208, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid580" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1648 )
+position = Vector2( 1224, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid581" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1632 )
+position = Vector2( 1336, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid582" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1632 )
+position = Vector2( 1320, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid583" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1632 )
+position = Vector2( 1304, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid584" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1632 )
+position = Vector2( 1288, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid585" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1616 )
+position = Vector2( 1240, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid586" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1616 )
+position = Vector2( 1256, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid587" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1616 )
+position = Vector2( 1272, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid588" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1616 )
+position = Vector2( 1288, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid589" type="Sprite" parent="Walls"]
@@ -6263,51 +5826,51 @@ position = Vector2( 1752, 1664 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid593" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1648 )
+position = Vector2( 1240, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid594" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1648 )
+position = Vector2( 1256, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid595" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1648 )
+position = Vector2( 1272, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid596" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1648 )
+position = Vector2( 1288, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid597" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1632 )
+position = Vector2( 1400, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid598" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1632 )
+position = Vector2( 1384, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid599" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1632 )
+position = Vector2( 1368, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid600" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1632 )
+position = Vector2( 1352, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid601" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1616 )
+position = Vector2( 1304, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid602" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1616 )
+position = Vector2( 1320, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid603" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1616 )
+position = Vector2( 1336, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid604" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1616 )
+position = Vector2( 1352, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid605" type="Sprite" parent="Walls"]
@@ -6319,7 +5882,7 @@ position = Vector2( 1176, 1648 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid607" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1648 )
+position = Vector2( 1304, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid608" type="Sprite" parent="Walls"]
@@ -6327,7 +5890,7 @@ position = Vector2( 1176, 1632 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid609" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1632 )
+position = Vector2( 1416, 1600 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid610" type="Sprite" parent="Walls"]
@@ -6335,7 +5898,7 @@ position = Vector2( 1176, 1616 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid611" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1616 )
+position = Vector2( 1368, 1584 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid612" type="Sprite" parent="Walls"]
@@ -8535,11 +8098,11 @@ position = Vector2( 1480, 1400 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1161" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1416 )
+position = Vector2( 1192, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1162" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1416 )
+position = Vector2( 1176, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1163" type="Sprite" parent="Walls"]
@@ -8559,123 +8122,123 @@ position = Vector2( 1512, 1400 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1167" type="Sprite" parent="Walls"]
-position = Vector2( 1528, 1400 )
+position = Vector2( 1176, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1168" type="Sprite" parent="Walls"]
-position = Vector2( 1544, 1400 )
+position = Vector2( 1192, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1169" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1416 )
+position = Vector2( 1256, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1170" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1416 )
+position = Vector2( 1240, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1171" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1416 )
+position = Vector2( 1224, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1172" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1416 )
+position = Vector2( 1208, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1173" type="Sprite" parent="Walls"]
-position = Vector2( 1560, 1400 )
+position = Vector2( 1208, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1174" type="Sprite" parent="Walls"]
-position = Vector2( 1576, 1400 )
+position = Vector2( 1224, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1175" type="Sprite" parent="Walls"]
-position = Vector2( 1592, 1400 )
+position = Vector2( 1240, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1176" type="Sprite" parent="Walls"]
-position = Vector2( 1608, 1400 )
+position = Vector2( 1256, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1177" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1416 )
+position = Vector2( 1320, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1178" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1416 )
+position = Vector2( 1304, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1179" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1416 )
+position = Vector2( 1288, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1180" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1416 )
+position = Vector2( 1272, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1181" type="Sprite" parent="Walls"]
-position = Vector2( 1624, 1400 )
+position = Vector2( 1272, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1182" type="Sprite" parent="Walls"]
-position = Vector2( 1640, 1400 )
+position = Vector2( 1288, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1183" type="Sprite" parent="Walls"]
-position = Vector2( 1656, 1400 )
+position = Vector2( 1304, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1184" type="Sprite" parent="Walls"]
-position = Vector2( 1672, 1400 )
+position = Vector2( 1320, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1185" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1416 )
+position = Vector2( 1384, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1186" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1416 )
+position = Vector2( 1368, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1187" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1416 )
+position = Vector2( 1352, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1188" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1416 )
+position = Vector2( 1336, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1189" type="Sprite" parent="Walls"]
-position = Vector2( 1688, 1400 )
+position = Vector2( 1336, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1190" type="Sprite" parent="Walls"]
-position = Vector2( 1704, 1400 )
+position = Vector2( 1352, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1191" type="Sprite" parent="Walls"]
-position = Vector2( 1720, 1400 )
+position = Vector2( 1368, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1192" type="Sprite" parent="Walls"]
-position = Vector2( 1736, 1400 )
+position = Vector2( 1384, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1193" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1416 )
+position = Vector2( 1400, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1194" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1416 )
+position = Vector2( 1416, 1512 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1195" type="Sprite" parent="Walls"]
-position = Vector2( 1752, 1400 )
+position = Vector2( 1400, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1196" type="Sprite" parent="Walls"]
-position = Vector2( 1768, 1400 )
+position = Vector2( 1416, 1496 )
 texture = ExtResource( 15 )
 
 [node name="DungeonTileMid1197" type="Sprite" parent="Walls"]
@@ -10250,3 +9813,34 @@ scale = Vector2( 1, 20 )
 pause_mode = 2
 stream = ExtResource( 16 )
 volume_db = -15.0
+
+[node name="Platform" type="Node2D" parent="."]
+position = Vector2( 896, 272 )
+
+[node name="Platform1" parent="Platform" instance=ExtResource( 17 )]
+
+[node name="Platform2" parent="Platform" instance=ExtResource( 18 )]
+position = Vector2( 0, -128 )
+
+[node name="Platform3" parent="Platform" instance=ExtResource( 19 )]
+position = Vector2( 0, -192 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1149, 928 )
+z_index = -11
+texture = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1149, 544 )
+z_index = -11
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1149, 160 )
+z_index = -11
+texture = ExtResource( 9 )
+
+[node name="Doors" type="Sprite" parent="."]
+position = Vector2( 48, 336 )
+z_index = -10
+texture = ExtResource( 13 )

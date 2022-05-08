@@ -6,6 +6,9 @@ var velocity:=Vector2.ZERO
 
 var animation:=false
 
+var special:=false
+var value:int=1
+
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
 	move_and_slide(velocity)
@@ -20,6 +23,12 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 
 func _ready() -> void:
+	if(special):
+		value=2
+		get_node("RatMeat").queue_free()
+		get_node("RatMeatErika").name="RatMeat"
+	else:
+		get_node("RatMeatErika").queue_free()
 	wait()
 
 func wait()->void:
@@ -29,7 +38,7 @@ func wait()->void:
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	if(!animation):
-		body.health+=1
+		body.health+=value
 		play_animation()
 
 func play_animation()->void:

@@ -37,6 +37,9 @@ load_path = "res://.import/player_walk_1.png-480b0eaf8c9685b09cc30ff6b1595e2a.st
 [sub_resource type="StreamTexture" id=13]
 load_path = "res://.import/player_walk_2.png-616e5f01006f85b276c72b095750e2a0.stex"
 
+[sub_resource type="StreamTexture" id=16]
+load_path = "res://.import/player_grab.png-4c5ee118cc46bc737f915d302bb06901.stex"
+
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
@@ -56,9 +59,6 @@ region = Rect2( 96, 0, 32, 32 )
 [sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 1 )
 region = Rect2( 128, 0, 32, 32 )
-
-[sub_resource type="StreamTexture" id=16]
-load_path = "res://.import/player_grab.png-4c5ee118cc46bc737f915d302bb06901.stex"
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -82,11 +82,6 @@ animations = [ {
 "name": "walking",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
-"loop": false,
-"name": "whiping",
-"speed": 13.0
-}, {
 "frames": [ SubResource( 16 ) ],
 "loop": true,
 "name": "hanging",
@@ -96,6 +91,11 @@ animations = [ {
 "loop": true,
 "name": "climbing_stop",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": false,
+"name": "whiping",
+"speed": 13.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -226,23 +226,23 @@ texture = ExtResource( 6 )
 
 [node name="Dam1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Dam2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Dam3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Dam4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Dam5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = 10.0
+volume_db = 5.0
 
 [node name="Whip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )

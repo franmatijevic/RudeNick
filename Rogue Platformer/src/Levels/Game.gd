@@ -13,9 +13,9 @@ var goggles:=false
 
 var shop_angry:int=0
 
-var red_key:=false
-var white_key:=false
-var green_key:=false
+var red_key:=true
+var white_key:=true
+var green_key:=true
 
 var old_health:int=0
 var old_money:int=0
@@ -30,6 +30,8 @@ var last_damage:String=" "
 var temple:=true
 
 var go_to_boss:=true
+
+var boss_level:int=-1
 
 func set_health()->void:
 	if(get_node("World").has_node("Player")):
@@ -119,14 +121,15 @@ func new_level()->void:
 		get_node("RestartScreen").queue_free()
 	
 	var world = preload("res://src/Levels/World.tscn").instance()
+	if(level+1==boss_level):
+		go_to_boss=true
+	
 	if(go_to_boss):
 		world=preload("res://src/Levels/WorldBoss.tscn").instance()
 		world.name="World"
 	elif(temple):
 		world = preload("res://src/Levels/WorldTemple.tscn").instance()
 		world.name="World"
-		if(randi()%2==5):
-			go_to_boss=true
 	
 	
 	

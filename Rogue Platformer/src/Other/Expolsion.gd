@@ -1,10 +1,11 @@
 extends Node2D
 
 var damage:int=5
+var last_damage="explosion"
 
 func _on_KillBeings_body_entered(body: Node) -> void:
 	if(body.name=="Player"):
-		body.last_damage="explosion"
+		body.last_damage=last_damage
 		body.climbing=false
 		body.using_gravity=1
 		body.move_horizontal=1

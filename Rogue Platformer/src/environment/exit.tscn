@@ -61,6 +61,7 @@ visible = false
 position = Vector2( 0, -9.12145 )
 z_index = 6
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]

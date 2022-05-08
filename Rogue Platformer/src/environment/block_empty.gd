@@ -93,6 +93,8 @@ func build_dungeon()->void:
 				var groundenemy=preload("res://src/Actors/Snake.tscn").instance()
 				if(randi()%5==0):
 					groundenemy=preload("res://src/Actors/Rat.tscn").instance()
+					if(randi()%20==0):
+						groundenemy.special=true
 				groundenemy.position.x=global_position.x
 				groundenemy.position.y=global_position.y-16
 				get_parent().get_parent().add_child(groundenemy)
