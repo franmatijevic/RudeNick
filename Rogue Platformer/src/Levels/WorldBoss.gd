@@ -173,6 +173,52 @@ func _ready() -> void:
 	get_node("BlackScreen").queue_free()
 	add_player()
 	get_node("Kanvas/UI").print_something("I feel shivers down my spine...")
+	
+	randomize()
+	var platform1
+	match randi()%3:
+		0:
+			platform1=preload("res://src/Platforms/Platform1.tscn").instance()
+		1:
+			platform1=preload("res://src/Platforms/Platform2.tscn").instance()
+		2:
+			platform1=preload("res://src/Platforms/Platform3.tscn").instance()
+	platform1.position.x=0
+	platform1.position.y=0
+	if(randi()%2==0):
+		for _i in platform1.get_children():
+			_i.position.x=-_i.position.x
+	get_node("Platform").add_child(platform1)
+	var platform2
+	match randi()%3:
+		0:
+			platform2=preload("res://src/Platforms/Platform1.tscn").instance()
+		1:
+			platform2=preload("res://src/Platforms/Platform2.tscn").instance()
+		2:
+			platform2=preload("res://src/Platforms/Platform3.tscn").instance()
+	platform2.position.x=0
+	platform2.position.y=-128
+	if(randi()%2==0):
+		for _i in platform2.get_children():
+			_i.position.x=-_i.position.x
+	get_node("Platform").add_child(platform2)
+	var platform3
+	match randi()%3:
+		0:
+			platform3=preload("res://src/Platforms/Platform1.tscn").instance()
+		1:
+			platform3=preload("res://src/Platforms/Platform2.tscn").instance()
+		2:
+			platform3=preload("res://src/Platforms/Platform3.tscn").instance()
+	platform3.position.x=0
+	platform3.position.y=-256
+	if(randi()%2==0):
+		for _i in platform3.get_children():
+			_i.position.x=-_i.position.x
+	get_node("Platform").add_child(platform3)
+
+
 
 
 func _process(delta: float) -> void:

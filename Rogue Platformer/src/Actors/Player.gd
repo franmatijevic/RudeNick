@@ -599,6 +599,10 @@ func killed_by()->void:
 
 
 func death(direciton: bool)->void:
+	if(get_node("/root/Game").go_to_boss==true):
+		if(get_node("/root/Game/World/Beholder").dead==true):
+			return
+	
 	if(get_node("/root/Game/World").has_node("Music1")):
 		get_node("/root/Game/World/Music1").stop()
 	if(get_node("/root/Game/World").has_node("Music2")):

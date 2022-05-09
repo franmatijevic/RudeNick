@@ -6,7 +6,7 @@ var using_gravity: = 1
 
 var velocity: = Vector2.ZERO
 
-var health:=3
+var health:=30
 
 var player_near:=false
 
@@ -228,6 +228,7 @@ func death():
 	get_node("Camera2D").limit_bottom=get_node("/root/Game/World/Player/Camera2D").limit_bottom
 	
 	get_node("/root/Game/World/Music1").stop()
+	get_node("/root/Game/World/Music1").volume_db=-80
 	
 	get_node("Whip").monitoring=false
 	get_node("/root/Game").can_pause=false
@@ -245,8 +246,11 @@ func death():
 	get_node("/root/Game/World/Kanvas/UI").visible=false
 	get_node("/root/Game/World/Player").health=99
 	get_node("Camera2D").current=true
-	yield(get_tree().create_timer(3), "timeout")
-	
+	yield(get_tree().create_timer(2), "timeout")
+	var credits=preload("res://src/Levels/Credits.tscn").instance()
+	get_node("/root/Game").add_child(credits)
+	get_node("/root/Game/World").visible=false
+	get_node("/root/Game/World").queue_free()
 
 func _on_DestroyBlocks_body_entered(body: Node) -> void:
 	return

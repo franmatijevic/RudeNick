@@ -13,9 +13,9 @@ var goggles:=false
 
 var shop_angry:int=0
 
-var red_key:=true
-var white_key:=true
-var green_key:=true
+var red_key:=false
+var white_key:=false
+var green_key:=false
 
 var old_health:int=0
 var old_money:int=0
@@ -27,9 +27,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=true
+var temple:=false
 
-var go_to_boss:=true
+var go_to_boss:=false
 
 var boss_level:int=-1
 
@@ -55,7 +55,8 @@ func restart()->void:
 	get_node("/root/Game/World").queue_free()
 
 func back_to_main_menu()->void:
-	get_node("World").queue_free()
+	if(has_node("World")):
+		get_node("World").queue_free()
 	var main=preload("res://src/Levels/MainMenu.tscn").instance()
 	add_child(main)
 	restart_stats()
@@ -166,3 +167,7 @@ func game_over()->void:
 	var time_in_seconds = 3
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	get_tree().reload_current_scene()
+
+func credits()->void:
+	get_node("Credits").queue_free()
+	back_to_main_menu()
