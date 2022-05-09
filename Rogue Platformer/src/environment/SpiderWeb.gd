@@ -19,8 +19,8 @@ func _ready() -> void:
 		player = get_node("/root/Game/World/Player")
 
 func _process(delta: float) -> void:
-	if(collide):
-		if(player.velocity.x!=0 or player.velocity.y<0):
+	if(collide and player!=null):
+		if((player.velocity.x!=0 or player.velocity.y<0)):
 			lenght-=1
 	if(lenght<=5): 
 		remove()

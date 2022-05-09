@@ -169,5 +169,6 @@ func game_over()->void:
 	get_tree().reload_current_scene()
 
 func credits()->void:
+	get_node("Credits").visible=false
 	get_node("Credits").queue_free()
 	back_to_main_menu()

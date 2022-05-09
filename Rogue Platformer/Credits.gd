@@ -1,6 +1,6 @@
 extends Node2D
 
-var click:=false
+var click:=true
 
 var time:float=0.2
 

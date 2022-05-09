@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		attack()
 
 func spit()->void:
+	get_node("Spit").play()
 	var web=preload("res://src/Other/Spit.tscn").instance()
 	web.position=position
 	get_parent().add_child(web)
@@ -104,6 +105,7 @@ func cool_attack()->void:
 
 func death()->void:
 	#get_parent().get_node("TrollDeath").play()
+	get_parent().get_node("Sound").play()
 	get_node("CollisionShape2D").free()
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.position=position
@@ -175,7 +177,7 @@ func _on_Bite_body_entered(body: Node) -> void:
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	get_node("/root/Game/World").raging_music()
-	
+	get_parent().get_node("Sound").play()
 	big_range=true
 	if(randi()%3==0):
 		cool_attack()
@@ -221,3 +223,7 @@ func _on_ClosePlayer_body_exited(body: Node) -> void:
 	small_range=false
 	if(randi()%3==0):
 		cool_attack()
+
+
+func _on_Activation_finished() -> void:
+	get_parent().get_node("Sound").volume_db=-80

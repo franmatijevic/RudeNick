@@ -34,6 +34,7 @@ func wait()->void:
 			jump()
 
 func death()->void:
+	get_node("/root/Game/Spider").play()
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position
 	get_parent().add_child(blood)
@@ -50,6 +51,7 @@ func _physics_process(delta: float) -> void:
 		$BlockAbove.enabled=false
 		$PlayerDetect.enabled=false
 	if($PlayerDetect.is_colliding()):
+		get_node("Sound").play()
 		$PlayerDetect.enabled=false
 		$BlockAbove.enabled=false
 		hostile=true

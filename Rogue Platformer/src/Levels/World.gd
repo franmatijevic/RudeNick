@@ -416,6 +416,10 @@ func create_spider_nest(i:int, j:int)->void:
 	array[i][j]=preload("res://src/levelPieces/SpiderNest.tscn").instance()
 	array[i][j].global_position.x=80 + j * 160
 	array[i][j].global_position.y=64 + i * 128
+	if(randi()%2==0):
+		for _i in array[i][j].get_children():
+			if(_i.name!="Sound"):
+				_i.position.x=-_i.position.x
 	add_child(array[i][j])
 
 func create_dungeon_gate(i:int, j:int)->void:

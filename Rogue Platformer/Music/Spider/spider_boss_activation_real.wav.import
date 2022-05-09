@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spider_boss_activation_real.wav-0a7329124d6a57cacdfaf5e67428273b.sample"
+
+[deps]
+
+source_file="res://Music/Spider/spider_boss_activation_real.wav"
+dest_files=[ "res://.import/spider_boss_activation_real.wav-0a7329124d6a57cacdfaf5e67428273b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

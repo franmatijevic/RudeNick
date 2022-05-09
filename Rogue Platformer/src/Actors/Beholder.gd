@@ -6,7 +6,7 @@ var using_gravity: = 1
 
 var velocity: = Vector2.ZERO
 
-var health:=30
+var health:=36
 
 var player_near:=false
 
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 	if(going_down):
 		velocity.x=0.001
 		global_position.y-=30.0*delta
-		if(global_position.y<starting_y-k*100):
+		if(global_position.y<starting_y-k*64):
 			going_down=false
 			velocity.x=25
 	
@@ -98,7 +98,7 @@ func burst()->void:
 		yield(get_tree().create_timer(0.3), "timeout")
 		shoot_small_laser()
 	burst=false
-	if(k!=2 and health<22-k*8):
+	if(k!=2 and health<22-k*9):
 		k=k+1
 		going_down=true
 	if(randi()%3==0):
@@ -109,12 +109,17 @@ func big_laser()->void:
 	if(burst):
 		return
 	burst=true
-	velocity.x=abs(velocity.x)/velocity.x*0.001
+	if(velocity.x!=0):
+		velocity.x=abs(velocity.x)/velocity.x*0.001
+	else:
+		velocity.x=0.001
 	yield(get_tree().create_timer(0.25), "timeout")
+	get_node("BigLaser").play()
 	get_node("Charge").visible=true
 	get_node("Charge").frame=0
 	yield(get_tree().create_timer(0.75), "timeout")
 	var laser=preload("res://src/Other/BigLaser.tscn").instance()
+	get_node("BigLaser").stop()
 	laser.position=position
 	get_parent().add_child(laser)
 	get_node("Charge").visible=false
@@ -141,6 +146,8 @@ func bite()->void:
 	get_node("BiteMaybe").monitoring=true
 	get_node("Bite").visible=false
 	bite=false
+	if(dead):
+		return
 	get_node("AnimatedSprite").animation="default"
 	velocity.x=abs(velocity.x)/velocity.x*25
 

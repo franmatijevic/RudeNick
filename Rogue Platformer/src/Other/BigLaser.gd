@@ -6,6 +6,7 @@ var speed:=275.0
 var dir
 
 func _ready() -> void:
+	get_node("Sound").play()
 	if(get_node("/root/Game/World").has_node("Player")):
 		player=get_node("/root/Game/World/Player")
 		dir = Vector2(player.global_position-global_position).normalized()
