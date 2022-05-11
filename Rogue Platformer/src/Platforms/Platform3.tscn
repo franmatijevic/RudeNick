@@ -86,3 +86,36 @@ position = Vector2( -72, -56 )
 
 [node name="KinematicBody2D21" parent="." instance=ExtResource( 1 )]
 position = Vector2( -88, -56 )
+
+[node name="KinematicBody2D22" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, 56 )
+
+[node name="KinematicBody2D23" parent="." instance=ExtResource( 1 )]
+position = Vector2( -184, 56 )
+
+[node name="KinematicBody2D24" parent="." instance=ExtResource( 1 )]
+position = Vector2( -200, 56 )
+
+[node name="KinematicBody2D25" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, 24 )
+
+[node name="KinematicBody2D26" parent="." instance=ExtResource( 1 )]
+position = Vector2( -200, -8 )
+
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, -40 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 1 )]
+position = Vector2( -152, -40 )
+
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 1 )]
+position = Vector2( -152, -56 )
+
+[node name="KinematicBody2D30" parent="." instance=ExtResource( 1 )]
+position = Vector2( -40, -8 )
+
+[node name="KinematicBody2D31" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 8 )
+
+[node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
+position = Vector2( 88, -40 )

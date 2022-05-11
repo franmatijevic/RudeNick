@@ -115,14 +115,14 @@ func _ready() -> void:
 					polje[i+1][j]=6
 	
 	
-	var shop=randi()%3
+	var shop=randi()%5
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
 	shop=0
-	if((shop==0 and shop_angry<1 and !temple and level>3) or level==4):
+	if((shop==0 and shop_angry<1 and !temple and level>3) or level==4 or level==10):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):

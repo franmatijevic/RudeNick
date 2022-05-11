@@ -331,7 +331,8 @@ func build_thing()->void:
 					set.global_position=top.global_position
 					set.global_position.y=global_position.y+16
 					get_parent().get_parent().add_child(set)
-				get_parent().get_parent().add_child(top)
+				if(randi()%2==0 and level==1):
+					get_parent().get_parent().add_child(top)
 	
 	
 	

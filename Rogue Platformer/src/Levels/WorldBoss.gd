@@ -183,6 +183,10 @@ func _ready() -> void:
 			platform1=preload("res://src/Platforms/Platform2.tscn").instance()
 		2:
 			platform1=preload("res://src/Platforms/Platform3.tscn").instance()
+		3:
+			platform1=preload("res://src/Platforms/Platform4.tscn").instance()
+		4:
+			platform1=preload("res://src/Platforms/Platform5.tscn").instance()
 	platform1.position.x=0
 	platform1.position.y=0
 	if(randi()%2==0):
@@ -197,6 +201,10 @@ func _ready() -> void:
 			platform2=preload("res://src/Platforms/Platform2.tscn").instance()
 		2:
 			platform2=preload("res://src/Platforms/Platform3.tscn").instance()
+		3:
+			platform2=preload("res://src/Platforms/Platform4.tscn").instance()
+		4:
+			platform2=preload("res://src/Platforms/Platform5.tscn").instance()
 	platform2.position.x=0
 	platform2.position.y=-128
 	if(randi()%2==0):
@@ -211,6 +219,10 @@ func _ready() -> void:
 			platform3=preload("res://src/Platforms/Platform2.tscn").instance()
 		2:
 			platform3=preload("res://src/Platforms/Platform3.tscn").instance()
+		3:
+			platform3=preload("res://src/Platforms/Platform4.tscn").instance()
+		4:
+			platform3=preload("res://src/Platforms/Platform5.tscn").instance()
 	platform3.position.x=0
 	platform3.position.y=-256
 	if(randi()%2==0):

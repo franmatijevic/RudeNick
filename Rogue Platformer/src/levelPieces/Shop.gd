@@ -61,17 +61,26 @@ func create_items()->void:
 	add_child(item4)
 
 func find_item()->String:
-	var chance=randi()%7
-	if(chance<2):
-		return "res://src/Items/BuyRope.tscn"
-	elif(chance<4):
-		return "res://src/Items/BuyBomb.tscn"
-	elif(chance<5):
-		return "res://src/Items/BuyBeans.tscn"
-	elif(chance<6):
-		return "res://src/Items/Cure.tscn"
+	var chance=randi()%20
+	#rope 25% 5/20
+	#bomb 25% 5/20
+	#meat 25% 5/20
+	#beans 10% 2/20
+	#cure 10% 2/20
+	#goggles 5% 1/20
 	
-	return "res://src/Items/Goggles.tscn"
+	if(chance<5): #0,1,2,3,4
+		return "res://src/Items/BuyRope.tscn"
+	elif(chance<10): #5,6,7,8,9
+		return "res://src/Items/BuyBomb.tscn"
+	elif(chance<15): #10,11,12,13,14
+		return "res://src/Items/BuyMeat.tscn"
+	elif(chance<17): #15,16
+		return "res://src/Items/BuyBeans.tscn"
+	elif(chance<19): #17, 18
+		return "res://src/Items/Cure.tscn"
+	else: #19
+		return "res://src/Items/Goggles.tscn"
 
 func get_mad()->void:
 	get_node("/root/Game/World").raging_music()
@@ -126,12 +135,30 @@ func make_free()->void:
 		get_node("Wood4/ItemInShop").queue_free()
 	if(has_node("item1")):
 		item1.free=true
+		item1.get_node("E").scale.x=0
+		item1.get_node("E").scale.y=0
+		item1.get_node("Text").scale.x=0
+		item1.get_node("Text").scale.y=0
+	get_node("Sound").volume_db=-80
 	if(has_node("item2")):
 		item2.free=true
+		item2.get_node("E").scale.x=0
+		item2.get_node("E").scale.y=0
+		item2.get_node("Text").scale.x=0
+		item2.get_node("Text").scale.y=0
 	if(has_node("item3")):
 		item3.free=true
+		item3.get_node("E").scale.x=0
+		item3.get_node("E").scale.y=0
+		item3.get_node("Text").scale.x=0
+		item3.get_node("Text").scale.y=0
 	if(has_node("item4")):
 		item4.free=true
+		item4.get_node("E").scale.x=0
+		item4.get_node("E").scale.y=0
+		item4.get_node("Text").scale.x=0
+		item4.get_node("Text").scale.y=0
+
 
 func steal_all()->void:
 	if(has_node("item1")):

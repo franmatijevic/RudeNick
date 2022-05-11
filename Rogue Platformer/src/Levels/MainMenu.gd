@@ -4,6 +4,7 @@ var choice:int=0
 #play 0
 #help 1
 #quit 2
+#credits 3
 var enable:=false
 
 var help:=false
@@ -47,14 +48,22 @@ func _process(delta: float) -> void:
 			get_node("PlaySprite").texture=load("res://Assets/MainMenuStuff/play_button_1_hover.png")
 			get_node("HelpSprite").texture=load("res://Assets/MainMenuStuff/help_button_1.png")
 			get_node("QuitSprite").texture=load("res://Assets/MainMenuStuff/quit_button_1.png")
+			get_node("credits").texture=load("res://Assets/MainMenuStuff/credits.png")
 		elif(choice==1):
 			get_node("PlaySprite").texture=load("res://Assets/MainMenuStuff/play_button_1.png")
 			get_node("HelpSprite").texture=load("res://Assets/MainMenuStuff/help_button_1_hover.png")
 			get_node("QuitSprite").texture=load("res://Assets/MainMenuStuff/quit_button_1.png")
-		else:
+			get_node("credits").texture=load("res://Assets/MainMenuStuff/credits.png")
+		elif(choice==2):
 			get_node("PlaySprite").texture=load("res://Assets/MainMenuStuff/play_button_1.png")
 			get_node("HelpSprite").texture=load("res://Assets/MainMenuStuff/help_button_1.png")
 			get_node("QuitSprite").texture=load("res://Assets/MainMenuStuff/quit_button_1_hover.png")
+			get_node("credits").texture=load("res://Assets/MainMenuStuff/credits.png")
+		else:
+			get_node("PlaySprite").texture=load("res://Assets/MainMenuStuff/play_button_1.png")
+			get_node("HelpSprite").texture=load("res://Assets/MainMenuStuff/help_button_1.png")
+			get_node("QuitSprite").texture=load("res://Assets/MainMenuStuff/quit_button_1.png")
+			get_node("credits").texture=load("res://Assets/MainMenuStuff/credits_hover.png")
 	elif(help):
 		if(help_choice==0):
 			get_node("ArrowLeft").visible=true
@@ -99,13 +108,13 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("down")):
 		get_node("Click").play()
 		choice+=1
-		if(choice==3):
+		if(choice==4):
 			choice=0
 	if(Input.is_action_just_pressed("up")):
 		get_node("Click").play()
 		choice-=1
 		if(choice==-1):
-			choice=2
+			choice=3
 	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help):
 		get_node("Click").play()
 		if(choice==0):
@@ -114,8 +123,13 @@ func _process(delta: float) -> void:
 			get_parent().new_level()
 		elif(choice==1):
 			setup_help()
-		else:
+		elif(choice==2):
 			get_tree().quit()
+		else:
+			var credits=preload("res://src/Levels/Credits.tscn").instance()
+			get_node("/root/Game").add_child(credits)
+			get_node("/root/Game/MainMenu").visible=false
+			get_node("/root/Game/MainMenu").queue_free()
 	
 	
 	

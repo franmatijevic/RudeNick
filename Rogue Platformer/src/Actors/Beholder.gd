@@ -6,7 +6,8 @@ var using_gravity: = 1
 
 var velocity: = Vector2.ZERO
 
-var health:=36
+var health:int=80
+var maks:int=80
 
 var player_near:=false
 
@@ -15,6 +16,9 @@ var dead:=false
 var burst:=false
 var bite:=false
 var going_down:=false
+
+var leftright:=false
+
 var k:int=0
 
 var starting_y
@@ -34,9 +38,9 @@ func _on_Bite_body_entered(body: Node) -> void:
 			body.damage(1)
 
 func _ready() -> void:
+	health=maks
 	starting_y=global_position.y
 	get_node("AnimatedSprite").animation="default"
-	get_node("DestroyBlocks").monitoring=true
 	gravity=0.0
 	#velocity.x=25.0
 	#print(velocity.x)
@@ -49,6 +53,12 @@ func _process(delta: float) -> void:
 		if(get_node("AnimatedSprite").position.y>3):
 			animation_direction=-1
 		if(get_node("AnimatedSprite").position.y<-3):
+			animation_direction=1
+	if(leftright):
+		get_node("AnimatedSprite").position.x+=delta*animation_direction*40
+		if(get_node("AnimatedSprite").position.x>0.75):
+			animation_direction=-1
+		if(get_node("AnimatedSprite").position.x<-0.75):
 			animation_direction=1
 
 var shoot:float=0
@@ -81,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	if(going_down):
 		velocity.x=0.001
 		global_position.y-=30.0*delta
-		if(global_position.y<starting_y-k*64):
+		if(global_position.y<starting_y-k*100):
 			going_down=false
 			velocity.x=25
 	
@@ -95,12 +105,11 @@ func burst()->void:
 	yield(get_tree().create_timer(1), "timeout")
 	
 	for i in range(10):
+		if(dead):
+			return
 		yield(get_tree().create_timer(0.3), "timeout")
 		shoot_small_laser()
 	burst=false
-	if(k!=2 and health<22-k*9):
-		k=k+1
-		going_down=true
 	if(randi()%3==0):
 		get_node("AnimatedSprite").animation="wink"
 		get_node("AnimatedSprite").frame=0
@@ -117,6 +126,12 @@ func big_laser()->void:
 	get_node("BigLaser").play()
 	get_node("Charge").visible=true
 	get_node("Charge").frame=0
+	
+	if(dead):
+		get_node("BigLaser").stop()
+		get_node("Charge").visible=false
+		return
+	
 	yield(get_tree().create_timer(0.75), "timeout")
 	var laser=preload("res://src/Other/BigLaser.tscn").instance()
 	get_node("BigLaser").stop()
@@ -124,9 +139,11 @@ func big_laser()->void:
 	get_parent().add_child(laser)
 	get_node("Charge").visible=false
 	burst=false
-	velocity.x=abs(velocity.x)/velocity.x*25
+	if(velocity.x!=0):
+		velocity.x=abs(velocity.x)/velocity.x*25
 	if(randi()%5==0):
 		big_laser()
+
 
 func bite()->void:
 	if(dead):
@@ -155,9 +172,9 @@ func shoot_small_laser()->void:
 	if(dead):
 		return
 	var laser = preload("res://src/Other/LaserSmall.tscn").instance()
-	if(randi()%4==0):
+	if(randi()%6==0):
 		laser=preload("res://src/Other/SummonLaser.tscn").instance()
-	elif(randi()%3==0):
+	elif(randi()%4==0):
 		laser=preload("res://src/Other/StunLasser.tscn").instance()
 	match randi()%9:
 		0:
@@ -201,12 +218,13 @@ func flash_damage()->void:
 	modulate.a=1
 
 func damage(value: int)->void:
-	if(randi()%15==0):
+	if(randi()%50==0):
 		var meat=preload("res://src/Collectable/RatMeat.tscn").instance()
 		meat.global_position=global_position
 		get_parent().add_child(meat)
 	
 	health=health-value
+	get_node("/root/Game/World/Kanvas/UI/HPbeholder").value=health
 	var blood1=preload("res://src/Other/Blood.tscn").instance()
 	var blood2=preload("res://src/Other/Blood.tscn").instance()
 	blood1.position.y=position.y
@@ -219,6 +237,9 @@ func damage(value: int)->void:
 	if(health<1):
 		death()
 	flash_damage()
+	if(k!=2 and health<maks-k*20-20):
+		k=k+1
+		going_down=true
 	
 	if(randi()%3!=0):
 		return
@@ -240,6 +261,10 @@ func death():
 	get_node("Whip").monitoring=false
 	get_node("/root/Game").can_pause=false
 	
+	get_node("/root/Game/World/Player").velocity.x=0.0
+	get_node("/root/Game/World/Player").ledge_grab=false
+	get_node("/root/Game/World/Player").using_gravity=1
+	
 	
 	velocity.x=0.0
 	velocity.y=0.0
@@ -248,19 +273,34 @@ func death():
 	#get_node("/root/Game/World/Player").gravity=0.0
 	get_node("/root/Game/World/Player").speed.x=0.0
 	
-	get_node("AnimatedSprite").animation="death"
+	get_node("AnimatedSprite").animation="idle"
 	dead=true
 	get_node("/root/Game/World/Kanvas/UI").visible=false
 	get_node("/root/Game/World/Player").health=99
 	get_node("Camera2D").current=true
+	
+	yield(get_tree().create_timer(1), "timeout")
+	
+	get_node("DestroyBlocks").monitoring=true
+	
+	yield(get_tree().create_timer(1), "timeout")
+	
+	leftright=true
+	
+	yield(get_tree().create_timer(3), "timeout")
+	
+	
+	get_node("AnimatedSprite").animation="death"
+	
 	yield(get_tree().create_timer(2), "timeout")
+	
+	
 	var credits=preload("res://src/Levels/Credits.tscn").instance()
 	get_node("/root/Game").add_child(credits)
 	get_node("/root/Game/World").visible=false
 	get_node("/root/Game/World").queue_free()
 
 func _on_DestroyBlocks_body_entered(body: Node) -> void:
-	return
 	if(body.name!="Bedrock1" and body.name!="Bedrock2" and body.name!="Bedrock3" and body.name!="Bedrock4"):
 		body.destroy()
 
@@ -288,3 +328,7 @@ func _on_EpicStuff_body_entered(body: Node) -> void:
 	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=false
 	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=false
 	get_node("/root/Game/World/Music1").play()
+	get_node("/root/Game/World/Kanvas/UI/HPbeholder").visible=true
+	get_node("/root/Game/World/Kanvas/UI/BossHealthBar").visible=true
+	get_node("/root/Game/World/Kanvas/UI/Boss_name").visible=true
+	

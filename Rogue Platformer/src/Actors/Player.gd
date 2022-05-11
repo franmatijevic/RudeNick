@@ -320,6 +320,7 @@ func damage(value:int)->void:
 	ledge_grab=false
 	health-=value
 	ledge_grab=false
+	using_gravity=1
 	iframes()
 	treperenje()
 	if(last_damage=="BlackSnake"):
@@ -399,14 +400,35 @@ func action()-> void:
 	if(shotgun>0):
 		if(shotgun==1):
 			get_parent().get_node("Kanvas/UI").print_something("My shotgun broke.")
-		velocity.x+=-k*100
+		#velocity.x+=-k*100
 		var bullet=preload("res://src/Other/Bullet.tscn").instance()
+		var bullet2=preload("res://src/Other/Bullet.tscn").instance()
+		var bullet3=preload("res://src/Other/Bullet.tscn").instance()
+		
 		bullet.position=position
+		bullet2.position=position
+		bullet3.position=position
+		
+		bullet2.position.y+=3
+		bullet3.position.y-=3
+		
 		bullet.player=true
+		bullet2.player=true
+		bullet3.player=true
+		
 		bullet.speed*=k
+		var add=randi()%3
+		bullet2.speed=bullet2.speed-add*50
+		bullet2.speed*=k
+		add=randi()%3
+		bullet3.speed=bullet3.speed-add*50
+		bullet3.speed*=k
+		
 		get_parent().add_child(bullet)
+		get_parent().add_child(bullet2)
+		get_parent().add_child(bullet3)
 		shotgun=shotgun-1
-		shotgun_effect()
+		#shotgun_effect()
 	else:
 		get_node("Whip").play()
 		is_attacking=true
@@ -577,7 +599,7 @@ func killed_by()->void:
 	elif(last_damage=="bigspider"):
 		killed.text="Giant spider ate me"
 		portret.texture=load("res://Assets/GameOver/spider_big_portrait.png")
-	elif(last_damage=="troll"):
+	elif(last_damage=="Troll"):
 		killed.text="I got beaten up by a troll"
 		portret.texture=load("res://Assets/GameOver/troll_portrait.png")
 	elif(last_damage=="serpant"):
@@ -602,6 +624,12 @@ func death(direciton: bool)->void:
 	if(get_node("/root/Game").go_to_boss==true):
 		if(get_node("/root/Game/World/Beholder").dead==true):
 			return
+		else:
+			get_node("/root/Game/World/Beholder").health=80
+	
+	get_node("/root/Game/World/Kanvas/UI/HPbeholder").visible=false
+	get_node("/root/Game/World/Kanvas/UI/BossHealthBar").visible=false
+	get_node("/root/Game/World/Kanvas/UI/Boss_name").visible=false
 	
 	if(get_node("/root/Game/World").has_node("Music1")):
 		get_node("/root/Game/World/Music1").stop()

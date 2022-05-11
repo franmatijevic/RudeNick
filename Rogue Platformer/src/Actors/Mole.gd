@@ -9,7 +9,7 @@ var haty_down:=0.0
 var haty_up:=0.0
 var haty_down_later=0.0
 var hat_n:bool=false
-var health:int=6
+var health:int=10
 
 var last_damage="Mole"
 
@@ -228,11 +228,30 @@ func jump()->void:
 func shoot()->void:
 	can_shoot=false
 	var bullet=preload("res://src/Other/Bullet.tscn").instance()
+	var bullet2=preload("res://src/Other/Bullet.tscn").instance()
+	var bullet3=preload("res://src/Other/Bullet.tscn").instance()
 	bullet.position=position
+	bullet2.position=position
+	bullet3.position=position
 	
+	bullet2.position.y+=5
+	bullet3.position.y-=5
+	var k
 	if(velocity.x<0):
 		bullet.speed=-bullet.speed
+		k=randi()%3*50
+		bullet2.speed=-(bullet2.speed-k)
+		k=randi()%3*50
+		bullet3.speed=-(bullet3.speed-k)
+	else:
+		k=randi()%3*50
+		bullet2.speed=bullet2.speed-k
+		k=randi()%3*50
+		bullet3.speed=bullet3.speed-k
+	
 	get_parent().add_child(bullet)
+	get_parent().add_child(bullet2)
+	get_parent().add_child(bullet3)
 	var time_in_seconds = 0.5
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_shoot=true

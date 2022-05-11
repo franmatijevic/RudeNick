@@ -5,6 +5,11 @@ var speed:=215.0
 
 var dir
 
+var sound:=false
+var collide:=false
+
+var summon:=true
+
 func _ready() -> void:
 	if(get_node("/root/Game/World").has_node("Player")):
 		player=get_node("/root/Game/World/Player")
@@ -16,16 +21,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if(dir!=null):
 		move_and_slide(dir * speed)
+	if($Ground.is_colliding()):
+		summon=false
+	$Ground.enabled=false
 
 func _process(delta: float) -> void:
-	pass
-	#rotation += delta*30
+	if(sound and collide):
+		queue_free()
 
 func _on_Wall_body_entered(body: Node) -> void:
 	summon_creature()
-	queue_free()
+	remove()
 
 func summon_creature()->void:
+	if(!summon):
+		return
 	var enemy
 	match randi()%3:
 		0:
@@ -47,12 +57,22 @@ func _on_Player_body_entered(body: Node) -> void:
 				body.death(false)
 		else:
 			body.damage(1)
-	summon_creature()
-	queue_free()
+	#summon_creature()
+	remove()
+
+func remove()->void:
+	get_node("LaserBallGreen").visible=false
+	get_node("Wall").monitoring=false
+	get_node("Player").monitoring=false
+	get_node("Enemy").monitoring=false
+	collide=true
+	speed=0.0
 
 
 func _on_Enemy_body_entered(body: Node) -> void:
 	summon_creature()
 	body.death()
-	queue_free()
+	remove()
 
+func _on_Laser_finished() -> void:
+	sound=true

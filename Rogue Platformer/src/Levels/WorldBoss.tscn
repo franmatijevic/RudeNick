@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Other/TransitionEffect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Other/BlackScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Other/UI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Music/2.wav" type="AudioStream" id=5]
-[ext_resource path="res://Music/c a f e ♫ ROYALTY FREE CHIPTUNE LOOP.ogg" type="AudioStream" id=6]
 [ext_resource path="res://src/Levels/WorldBoss.gd" type="Script" id=7]
 [ext_resource path="res://src/Actors/Beholder.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=9]
@@ -110,7 +109,6 @@ anims/fade_to_normal = SubResource( 2 )
 
 [node name="Music3" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-stream = ExtResource( 6 )
 volume_db = -80.0
 autoplay = true
 

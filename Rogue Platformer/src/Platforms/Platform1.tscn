@@ -125,3 +125,32 @@ position = Vector2( -136, 8 )
 
 [node name="ChainBot3" parent="." instance=ExtResource( 2 )]
 position = Vector2( -136, 24 )
+
+[node name="KinematicBody2D27" parent="." instance=ExtResource( 1 )]
+position = Vector2( -152, -8 )
+
+[node name="KinematicBody2D28" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, -8 )
+
+[node name="KinematicBody2D29" parent="." instance=ExtResource( 1 )]
+position = Vector2( -184, -8 )
+
+[node name="KinematicBody2D30" parent="." instance=ExtResource( 1 )]
+position = Vector2( -216, 40 )
+
+[node name="KinematicBody2D31" parent="." instance=ExtResource( 1 )]
+position = Vector2( -200, 40 )
+
+[node name="KinematicBody2D32" parent="." instance=ExtResource( 1 )]
+position = Vector2( -216, 24 )
+can_destroy = true
+n = 5
+
+[node name="KinematicBody2D33" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 8 )
+
+[node name="KinematicBody2D34" parent="." instance=ExtResource( 1 )]
+position = Vector2( 136, 8 )
+
+[node name="KinematicBody2D35" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, -24 )

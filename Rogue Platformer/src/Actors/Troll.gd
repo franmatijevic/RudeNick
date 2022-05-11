@@ -67,8 +67,8 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 func _on_ClubDamage_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
 		body.last_damage="Troll"
-		body.iframes()
-		body.treperenje()
+		#body.iframes()
+		#body.treperenje()
 		body.ledge_grab=false
 		body.climbing=false
 		if(body.health<3):
@@ -78,7 +78,7 @@ func _on_ClubDamage_body_entered(body: Node) -> void:
 				body.death(true)
 			else:
 				body.death(false)
-		body.health=body.health-2
+		body.damage(2)
 		if(randi()%3==0):
 			body.stunned()
 		if(body.global_position.x>global_position.x):
@@ -177,7 +177,7 @@ func attack()->void:
 		get_node("ClubDamage").monitoring=true
 		get_node("AnimatedSprite").frame=0
 		
-		time_in_seconds = 0.1
+		time_in_seconds = 0.03
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		get_node("ClubDamage").monitoring=false
 		

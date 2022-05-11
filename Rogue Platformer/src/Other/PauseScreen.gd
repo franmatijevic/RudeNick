@@ -93,6 +93,14 @@ func _input(event):
 			elif(choose==2):
 				get_tree().paused = false
 				set_visible(false)
+				if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
+					get_node("/root/Game/World/Music1").set_volume_db(-15)
+				elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
+					get_node("/root/Game/World/Music2").set_volume_db(-15)
+				elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
+					get_node("/root/Game/World/Music3").set_volume_db(-15)
+				elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
+					get_node("/root/Game/World/Rage").set_volume_db(-15)
 			else:
 				help_menu=true
 				help_choose=2
