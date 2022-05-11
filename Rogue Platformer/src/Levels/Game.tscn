@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Levels/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Levels/Game.gd" type="Script" id=2]
 [ext_resource path="res://Music/Random/gem_pickup.wav" type="AudioStream" id=3]
 [ext_resource path="res://Music/Random/coin_pickup.wav" type="AudioStream" id=4]
 [ext_resource path="res://Music/Spider/spider_death.wav" type="AudioStream" id=5]
+[ext_resource path="res://Music/Bat/bat_death.wav" type="AudioStream" id=6]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -22,3 +23,7 @@ volume_db = -7.0
 [node name="Spider" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -15.0
+
+[node name="Bat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0

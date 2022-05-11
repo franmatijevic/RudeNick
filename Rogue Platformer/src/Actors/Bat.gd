@@ -28,6 +28,7 @@ func _on_damageBox_area_entered(area: Area2D) -> void:
 	death()
 
 func _on_playerDetect_body_entered(body: PhysicsBody2D) -> void:
+	get_node("Sound").play()
 	hostile=true
 	get_node("AnimatedSprite").animation="flying"
 	get_node("playerDetect/playerD").disabled=true
@@ -72,6 +73,7 @@ func destroy()->void:
 	death()
 
 func death()->void:
+	get_node("/root/Game/Bat").play()
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position
 	get_parent().add_child(blood)

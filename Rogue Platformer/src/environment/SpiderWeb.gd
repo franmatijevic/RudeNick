@@ -21,7 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(collide and player!=null):
 		if((player.velocity.x!=0 or player.velocity.y<0)):
-			lenght-=1
+			lenght-=1*delta
 	if(lenght<=5): 
 		remove()
 	modulate.a=lenght/105.0

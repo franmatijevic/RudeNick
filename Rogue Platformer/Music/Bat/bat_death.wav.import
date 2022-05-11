@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bat_death.wav-50ea1e1e8075fcac22bd999d44f5964d.sample"
+
+[deps]
+
+source_file="res://Music/Bat/bat_death.wav"
+dest_files=[ "res://.import/bat_death.wav-50ea1e1e8075fcac22bd999d44f5964d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

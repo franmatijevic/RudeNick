@@ -10,7 +10,7 @@
 extents = Vector2( 5.95836, 3.75795 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.5223, 3.14578 )
+extents = Vector2( 5, 3.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 5 )
@@ -22,14 +22,14 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "jumping",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "dance",
 "speed": 5.0
 } ]
 
@@ -48,7 +48,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
 modulate = Color( 0.0352941, 0.0666667, 0.862745, 1 )
-position = Vector2( 0, -3 )
+position = Vector2( 0, -3.5 )
 shape = SubResource( 3 )
 
 [node name="damageBox" type="Area2D" parent="."]

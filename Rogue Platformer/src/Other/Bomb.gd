@@ -16,13 +16,14 @@ func _physics_process(delta: float) -> void:
 func follow_player()->void:
 	if(get_parent().has_node("Player")):
 		position.x=get_parent().get_node("Player").position.x
-		position.y=get_parent().get_node("Player").position.y+4
+		position.y=get_parent().get_node("Player").position.y
 
 func wait()->void:
 	var time_in_seconds = 3
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
-	boom.position=position
-	boom.get_node("KillBeings").scale.y=1.1
+	boom.position.x=position.x
+	boom.position.y=position.y+3
+	#boom.get_node("KillBeings").scale.y=1.1
 	get_parent().add_child(boom)
 	queue_free()
 

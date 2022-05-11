@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Bat/flying_bat2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Bat/hanging_bat.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Bat/flying_bat1.png" type="Texture" id=3]
 [ext_resource path="res://src/Actors/Bat.gd" type="Script" id=4]
+[ext_resource path="res://Music/Bat/bat_activation.wav" type="AudioStream" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -87,6 +88,10 @@ position = Vector2( 0, -8 )
 enabled = true
 cast_to = Vector2( 0, -3 )
 collision_mask = 8
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
 
 [connection signal="area_entered" from="damageBox" to="." method="_on_damageBox_area_entered"]
 [connection signal="body_entered" from="playerDetect" to="." method="_on_playerDetect_body_entered"]

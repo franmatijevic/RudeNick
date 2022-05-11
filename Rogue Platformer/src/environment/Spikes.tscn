@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Enviroment/spike_blood_2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.5, 5.5 )
+extents = Vector2( 5.5, 5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 5, 7 )
@@ -24,7 +24,7 @@ collision_mask = 131073
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0, 2.5 )
+position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="Spike2" type="Sprite" parent="."]
