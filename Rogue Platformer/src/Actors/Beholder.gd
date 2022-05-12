@@ -23,6 +23,8 @@ var k:int=0
 
 var starting_y
 
+var time:float=0.0
+
 func _on_BiteMaybe_body_entered(body: Node) -> void:
 	bite()
 
@@ -48,6 +50,36 @@ func _ready() -> void:
 var animation_direction=1
 
 func _process(delta: float) -> void:
+	if(abs(velocity.x)>1):
+		time+=delta
+	if(time>12):
+		time=-3
+		get_node("AnimatedSprite").animation="talking"
+		match randi()%10:
+			0:
+				get_node("iwin").play()
+			1:
+				get_node("laugh1").play()
+			2:
+				get_node("laugh2").play()
+			3:
+				get_node("nomatch").play()
+			4:
+				get_node("run_weak").play()
+			5:
+				get_node("fool").play()
+			6:
+				get_node("run").play()
+			7:
+				get_node("aaa").play()
+			8:
+				get_node("hope").play()
+			9:
+				get_node("beware").play()
+	
+	if(time>-1 and time<0):
+		get_node("AnimatedSprite").animation="default"
+	
 	if(!dead):
 		get_node("AnimatedSprite").position.y+=delta*animation_direction*2
 		if(get_node("AnimatedSprite").position.y>3):
@@ -287,12 +319,13 @@ func death():
 	
 	leftright=true
 	
-	yield(get_tree().create_timer(3), "timeout")
-	
+	yield(get_tree().create_timer(4), "timeout")
+	get_node("Death1").play()
+	get_node("Death2").play()
 	
 	get_node("AnimatedSprite").animation="death"
 	
-	yield(get_tree().create_timer(2), "timeout")
+	yield(get_tree().create_timer(4), "timeout")
 	
 	
 	var credits=preload("res://src/Levels/Credits.tscn").instance()
@@ -324,11 +357,19 @@ func _on_Player_body_exited(body: Node) -> void:
 
 
 func _on_EpicStuff_body_entered(body: Node) -> void:
+	print("sranje")
+	get_node("AnimatedSprite").animation="talking"
 	get_node("EpicStuff").monitoring=false
+	get_node("EpicStuff").queue_free()
 	get_node("/root/Game/World/Kanvas/UI/Darkness").visible=false
 	get_node("/root/Game/World/Kanvas/UI/DarknessBoss").visible=false
 	get_node("/root/Game/World/Music1").play()
 	get_node("/root/Game/World/Kanvas/UI/HPbeholder").visible=true
 	get_node("/root/Game/World/Kanvas/UI/BossHealthBar").visible=true
 	get_node("/root/Game/World/Kanvas/UI/Boss_name").visible=true
+	match randi()%2:
+		0:
+			get_node("run").play()
+		1:
+			get_node("beware").play()
 	

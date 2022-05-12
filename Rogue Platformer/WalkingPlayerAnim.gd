@@ -10,4 +10,5 @@ func _process(delta: float) -> void:
 	global_position.x+=speed*delta
 	
 	if(global_position.x>288):
+		get_parent().walk=true
 		queue_free()

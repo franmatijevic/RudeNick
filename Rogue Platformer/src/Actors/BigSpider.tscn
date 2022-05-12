@@ -67,7 +67,6 @@ speed = Vector2( 40, 500 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 flip_h = true
 
@@ -150,11 +149,11 @@ shape = SubResource( 9 )
 
 [node name="Activation" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="Spit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -15.0
+volume_db = -30.0
 
 [connection signal="area_entered" from="Whip" to="." method="_on_Whip_area_entered"]
 [connection signal="body_entered" from="Damage" to="." method="_on_Damage_body_entered"]

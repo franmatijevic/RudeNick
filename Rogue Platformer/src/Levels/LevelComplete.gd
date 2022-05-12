@@ -11,6 +11,8 @@ var total_time:=0.0
 
 var temple=false
 
+var walk:=false
+
 func _ready() -> void:
 	if(get_node("/root/Game").poisoned):
 		get_node("WalkingPlayerAnim/AnimatedSprite").modulate.r=0.27
@@ -46,8 +48,17 @@ func _ready() -> void:
 	else:
 		get_node("Kanvas/total_n").text=str(minutes)+":0"+str(seconds)
 
-
+var time:=0.0
 
 func _process(delta: float) -> void:
+	time+=delta
+	
+	if(time>0.5):
+		get_node("Kanvas/PressE").visible=!get_node("Kanvas/PressE").visible
+		time=0.0
+	
+	if(walk):
+		get_node("Walk").volume_db-=5*delta
+	
 	if(Input.is_action_just_pressed("buy")):
 		get_parent().new_level()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/laugh2.wav-d86fe446eed784b212e8a7385431e897.sample"
+
+[deps]
+
+source_file="res://Music/BeholderVoice/laugh2.wav"
+dest_files=[ "res://.import/laugh2.wav-d86fe446eed784b212e8a7385431e897.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -35,6 +35,7 @@ func _on_DetectPlayer_body_entered(body: Node) -> void:
 	else:
 		body.damage(2)
 		body.stunned()
+		body.using_gravity=true
 	var chest=preload("res://src/Items/ArrowDrop.tscn").instance()
 	chest.position=position
 	get_parent().add_child(chest)

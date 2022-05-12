@@ -109,6 +109,12 @@ var high:=999.0
 var sky:=false
 
 func _process(delta: float) -> void:
+	if(!if_stunned and velocity.x!=0 and is_on_floor()):
+		if(!get_node("Walk").is_playing()):
+			get_node("Walk").play()
+	else:
+		get_node("Walk").stop()
+	
 	if(!is_on_floor() and !sky):
 		high=global_position.y
 		sky=true
@@ -325,6 +331,9 @@ func damage(value:int)->void:
 	treperenje()
 	if(last_damage=="BlackSnake"):
 		poison()
+		get_node("/root/Game/AttackSnake").play()
+	elif(last_damage=="snake"):
+		get_node("/root/Game/AttackSnake").play()
 	move_horizontal=0
 	if(velocity.y>0.0):
 		velocity.y=0
@@ -401,6 +410,7 @@ func action()-> void:
 		if(shotgun==1):
 			get_parent().get_node("Kanvas/UI").print_something("My shotgun broke.")
 		#velocity.x+=-k*100
+		get_node("Shoot").play()
 		var bullet=preload("res://src/Other/Bullet.tscn").instance()
 		var bullet2=preload("res://src/Other/Bullet.tscn").instance()
 		var bullet3=preload("res://src/Other/Bullet.tscn").instance()

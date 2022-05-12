@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = move_and_slide(velocity*can_move*has_stopped, Vector2.UP).y
 
 func death()->void:
+	get_node("/root/Game/SnakeDeath").play()
 	var blood=preload("res://src/Other/Blood.tscn").instance()
 	blood.global_position=global_position
 	get_parent().add_child(blood)

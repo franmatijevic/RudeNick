@@ -27,4 +27,5 @@ func _process(delta: float) -> void:
 		if(Input.is_action_just_pressed("buy")):
 			get_node("/root/Game/World/Player").shotgun+=5
 			get_node("DetectPlayer").monitoring=false
+			get_node("/root/Game/Reload").play()
 			queue_free()

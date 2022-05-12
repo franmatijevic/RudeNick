@@ -226,6 +226,7 @@ func jump()->void:
 			velocity.y-=max_jump/1.2
 
 func shoot()->void:
+	get_node("/root/Game/Shoot").play()
 	can_shoot=false
 	var bullet=preload("res://src/Other/Bullet.tscn").instance()
 	var bullet2=preload("res://src/Other/Bullet.tscn").instance()

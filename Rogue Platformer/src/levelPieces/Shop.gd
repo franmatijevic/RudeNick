@@ -180,7 +180,7 @@ func _on_DetectDanger_body_entered(body: Node) -> void:
 func _on_Welcome_body_entered(body: Node) -> void:
 	get_node("Welcome").queue_free()
 	var hello="Welcome to "
-	match randi()%55:
+	match randi()%57:
 		0: hello+="Moyt"
 		1: hello+="Jotaro"
 		2: hello+="Frank"
@@ -236,6 +236,8 @@ func _on_Welcome_body_entered(body: Node) -> void:
 		52: hello+="Arya"
 		53: hello+="Fay"
 		54: hello+="Azra"
+		55: hello+="Sinan"
+		56: hello+="Zlaja"
 	
 	match randi()%3:
 		0:
