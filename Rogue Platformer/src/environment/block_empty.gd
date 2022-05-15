@@ -497,7 +497,7 @@ func _physics_process(delta: float) -> void:
 	if(n_boneblock==-1):
 		what=42069
 	
-	if(randi()%40==0 and what!=42069 and can_be_arrow and level>3):
+	if(randi()%40==0 and what!=42069 and can_be_arrow and level>3 and global_position.y>64):
 		if(!$Left.is_colliding() and !$Right.is_colliding()):
 			var trap=preload("res://src/environment/ArrowTrap.tscn").instance()
 			trap.position.x=position.x

@@ -1,13 +1,11 @@
 extends KinematicBody2D
 
-export var speed: = Vector2(5.0, 1.0)
-export var gravity: = 0.0
-var using_gravity: = 1
-
 var velocity: = Vector2.ZERO
 
 var health:int=80
-var maks:int=80
+var maks:int=8
+var speed:float=0.0
+var more_big_laser:=0
 
 var player_near:=false
 
@@ -43,7 +41,7 @@ func _ready() -> void:
 	health=maks
 	starting_y=global_position.y
 	get_node("AnimatedSprite").animation="default"
-	gravity=0.0
+	speed=25.0
 	#velocity.x=25.0
 	#print(velocity.x)
 
@@ -106,9 +104,6 @@ func _physics_process(delta: float) -> void:
 				if(randi()%2==0):
 					shoot_small_laser()
 	
-	velocity.y += gravity * delta * using_gravity
-	if velocity.y > speed.y:
-		velocity.y = speed.y
 	
 	velocity = move_and_slide(velocity)
 	
@@ -125,7 +120,7 @@ func _physics_process(delta: float) -> void:
 		global_position.y-=30.0*delta
 		if(global_position.y<starting_y-k*100):
 			going_down=false
-			velocity.x=25
+			velocity.x=speed
 	
 	if(get_node("AnimatedSprite").animation=="wink" and get_node("AnimatedSprite").frame==6):
 		get_node("AnimatedSprite").animation="default"
@@ -172,7 +167,7 @@ func big_laser()->void:
 	get_node("Charge").visible=false
 	burst=false
 	if(velocity.x!=0):
-		velocity.x=abs(velocity.x)/velocity.x*25
+		velocity.x=abs(velocity.x)/velocity.x*speed
 	if(randi()%5==0):
 		big_laser()
 
@@ -198,7 +193,7 @@ func bite()->void:
 	if(dead):
 		return
 	get_node("AnimatedSprite").animation="default"
-	velocity.x=abs(velocity.x)/velocity.x*25
+	velocity.x=abs(velocity.x)/velocity.x*speed
 
 func shoot_small_laser()->void:
 	if(dead):
@@ -266,6 +261,14 @@ func damage(value: int)->void:
 	add_child(blood1)
 	add_child(blood2)
 	
+	if(health<maks/2):
+		speed=35.0
+	if(health<maks/4):
+		speed=50.0
+	if(health<18):
+		more_big_laser=1
+	
+	
 	if(health<1):
 		death()
 	flash_damage()
@@ -275,7 +278,7 @@ func damage(value: int)->void:
 	
 	if(randi()%3!=0):
 		return
-	if(randi()%4==0):
+	if(randi()%4-more_big_laser<1):
 		big_laser()
 		return
 	burst()
@@ -297,6 +300,7 @@ func death():
 	get_node("/root/Game/World/Player").ledge_grab=false
 	get_node("/root/Game/World/Player").using_gravity=1
 	
+	get_node("/root/Game").total_time+=get_node("/root/Game/World").current_time
 	
 	velocity.x=0.0
 	velocity.y=0.0
@@ -329,6 +333,10 @@ func death():
 	
 	
 	var credits=preload("res://src/Levels/Credits.tscn").instance()
+	credits.in_game=true
+	credits.total_score=get_node("/root/Game/World/Player").money
+	credits.total_time=get_node("/root/Game").total_time
+	credits.total_levels=get_node("/root/Game/World").level
 	get_node("/root/Game").add_child(credits)
 	get_node("/root/Game/World").visible=false
 	get_node("/root/Game/World").queue_free()
@@ -349,7 +357,7 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 
 func _on_Player_body_entered(body: Node) -> void:
 	if(velocity.x==0):
-		velocity.x=25.0
+		velocity.x=speed
 	player_near=true
 
 func _on_Player_body_exited(body: Node) -> void:

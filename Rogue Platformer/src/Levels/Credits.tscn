@@ -90,10 +90,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -550.0
-margin_top = 1224.5
-margin_right = 550.0
-margin_bottom = 1383.5
+margin_left = -539.309
+margin_top = 1709.07
+margin_right = 560.691
+margin_bottom = 1868.07
 custom_fonts/font = SubResource( 1 )
 text = "Animation and texture:
 
@@ -106,9 +106,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -475.0
-margin_top = 1709.07
+margin_top = 1256.49
 margin_right = 475.0
-margin_bottom = 1868.07
+margin_bottom = 1415.49
 custom_fonts/font = SubResource( 1 )
 text = "Programming:
 
@@ -152,4 +152,59 @@ Troll:Franko Jelic
 Serpant:Francesco Glasnovic
 Big Spider:Nikola Skeva
 The Beholder:Fran Matijevic"
+align = 1
+
+[node name="Time" type="Label" parent="Text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = 3784.51
+margin_right = 475.0
+margin_bottom = 3889.51
+custom_fonts/font = SubResource( 1 )
+text = "Total time:
+"
+align = 1
+
+[node name="Level" type="Label" parent="Text"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -475.0
+margin_top = 3517.45
+margin_right = 475.0
+margin_bottom = 3622.45
+custom_fonts/font = SubResource( 1 )
+text = "Total levels:
+"
+align = 1
+
+[node name="Score" type="Label" parent="Text"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -474.35
+margin_top = 4034.36
+margin_right = 475.65
+margin_bottom = 4139.36
+custom_fonts/font = SubResource( 1 )
+text = "Total Score:
+"
+align = 1
+
+[node name="Thank2" type="Label" parent="Text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.0
+margin_top = 4376.1
+margin_right = 475.0
+margin_bottom = 4427.1
+custom_fonts/font = SubResource( 1 )
+text = "Congrats!"
 align = 1

@@ -234,7 +234,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if(has_node("Player")):
+	if(has_node("Player") and !get_node("Beholder").dead):
 		current_time=current_time+delta
 		if(get_node("Player").poisoned and int(current_time)!=0 and int(current_time)%30==0 and !get_node("Player").iframes_on and current_time-poison_time>poison_time+1):
 			if(get_node("Player").health==1):
