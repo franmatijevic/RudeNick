@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/Other/PauseScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/white1x1.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/HelpMenu/next_page_button_hover.png" type="Texture" id=18]
 [ext_resource path="res://Assets/MainMenuStuff/back_button_v2_hover (1).png" type="Texture" id=19]
 [ext_resource path="res://Music/Random/button_hover_1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/MusicOnOff/music_button.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,14 +32,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "an2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "an1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "an2",
 "speed": 5.0
 } ]
 
@@ -82,6 +83,11 @@ visible = false
 position = Vector2( 960, 450 )
 scale = Vector2( 6.6, 6.6 )
 texture = ExtResource( 14 )
+
+[node name="MusicButton" type="Sprite" parent="Buttons"]
+position = Vector2( 1833.04, 996.099 )
+scale = Vector2( 6.6, 6.6 )
+texture = ExtResource( 21 )
 
 [node name="Help" type="Node2D" parent="."]
 visible = false

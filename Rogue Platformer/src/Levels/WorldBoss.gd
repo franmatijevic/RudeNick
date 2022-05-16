@@ -150,6 +150,11 @@ func _init()->void:
 
 
 func _ready() -> void:
+	if(!get_node("/root/Game").music):
+		get_node("Music1").volume_db=-80
+		get_node("Music2").volume_db=-80
+		get_node("Music3").volume_db=-80
+	
 	for _i in frame.get_node("Dirt").get_children():
 		_i.get_node("Dirt").texture=load("res://Assets/TempleBlocks/dungeon_tile_mid.png")
 	
@@ -234,6 +239,11 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if(!get_node("/root/Game").music):
+		get_node("/root/Game/World/Music1").volume_db=-80
+		get_node("/root/Game/World/Music2").volume_db=-80
+		get_node("/root/Game/World/Music3").volume_db=-80
+	
 	if(has_node("Player") and !get_node("Beholder").dead):
 		current_time=current_time+delta
 		if(get_node("Player").poisoned and int(current_time)!=0 and int(current_time)%30==0 and !get_node("Player").iframes_on and current_time-poison_time>poison_time+1):

@@ -8,6 +8,7 @@ var choice:int=0
 #restart 0
 #help 1
 #quit 2
+#music 3
 var dead_setup:=false
 
 var help:=false
@@ -21,6 +22,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if(dead):
+		get_node("MusicButton").visible=true
 		if(!dead_setup):
 			setup()
 		elif(!help):
@@ -34,35 +36,57 @@ func _process(delta: float) -> void:
 				if(get_node("GameOver").visible==true):
 					get_node("Click").play()
 				choice+=1
-				if(choice==3):
+				if(choice==4):
 					choice=0
 			if(Input.is_action_just_pressed("up")):
 				if(get_node("GameOver").visible==true):
 					get_node("Click").play()
 				choice-=1
 				if(choice==-1):
-					choice=2
+					choice=3
 			if(choice==0):
 				get_node("ResetHover").visible=true
 				get_node("Help").visible=false
 				get_node("Quit").visible=false
+				if(get_node("/root/Game").music):
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button.png")
+				else:
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted.png")
 			elif(choice==1):
 				get_node("ResetHover").visible=false
 				get_node("Help").visible=true
 				get_node("Quit").visible=false
-			else:
+				if(get_node("/root/Game").music):
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button.png")
+				else:
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted.png")
+			elif(choice==2):
 				get_node("ResetHover").visible=false
 				get_node("Help").visible=false
 				get_node("Quit").visible=true
+				if(get_node("/root/Game").music):
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button.png")
+				else:
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted.png")
+			else:
+				get_node("ResetHover").visible=false
+				get_node("Help").visible=false
+				get_node("Quit").visible=false
+				if(get_node("/root/Game").music):
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_hover.png")
+				else:
+					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted_hover.png")
 			if(Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("action") or Input.is_action_just_pressed("ui_accept")):
 				if(choice==0):
 					get_node("/root/Game").restart()
 					get_node("/root/Game").can_pause=true
 				elif(choice==1):
 					help_setup()
-				else:
+				elif(choice==2):
 					#get_node("/root/Game").back_to_main_menu()
 					get_tree().reload_current_scene()
+				else:
+					get_node("/root/Game").music=false
 		else:
 			get_node("Time_whole").visible=false
 			get_node("Killed").visible=false

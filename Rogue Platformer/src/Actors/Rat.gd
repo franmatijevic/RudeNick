@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	
 	if($Player.is_colliding()):
 		$Player.enabled=false
+		get_node("Activation").play()
 		speed.x=80
 		scared=true
 		if(get_node("AnimatedSprite").is_flipped_h()):
@@ -74,6 +75,7 @@ func destroy()->void:
 	death()
 
 func death()->void:
+	get_node("/root/Game/Rat").play()
 	var meat=preload("res://src/Collectable/RatMeat.tscn").instance()
 	if(special):
 		meat=preload("res://src/Collectable/RatMeat.tscn").instance()

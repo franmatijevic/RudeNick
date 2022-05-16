@@ -142,11 +142,12 @@ margin_bottom = 3271.73
 custom_fonts/font = SubResource( 1 )
 text = "Voice Actors:
 
+Chest:Ivan Zeman
 Nick:Martin Sek
 Snake:Francesco Glasnovic
 Bat:Lovro Domotorffy Zibrat
 Spider:Nikola Skeva
-Rat:
+Rat:David Vrckovic
 Mole:Lovro Domotorffy Zibrat
 Troll:Franko Jelic
 Serpant:Francesco Glasnovic
@@ -155,6 +156,7 @@ The Beholder:Fran Matijevic"
 align = 1
 
 [node name="Time" type="Label" parent="Text"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -169,6 +171,7 @@ text = "Total time:
 align = 1
 
 [node name="Level" type="Label" parent="Text"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -183,6 +186,7 @@ text = "Total levels:
 align = 1
 
 [node name="Score" type="Label" parent="Text"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -197,6 +201,7 @@ text = "Total Score:
 align = 1
 
 [node name="Thank2" type="Label" parent="Text"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

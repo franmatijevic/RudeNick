@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/Levels/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Levels/Game.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Music/Snake/snake1.wav" type="AudioStream" id=8]
 [ext_resource path="res://Music/Shotgun/shoot.wav" type="AudioStream" id=9]
 [ext_resource path="res://Music/Shotgun/reload.wav" type="AudioStream" id=10]
+[ext_resource path="res://Music/Rat/rat_sound2.wav" type="AudioStream" id=11]
+[ext_resource path="res://src/Other/boneblock.wav" type="AudioStream" id=12]
+[ext_resource path="res://Music/Random/crate.wav" type="AudioStream" id=13]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -38,7 +41,7 @@ volume_db = -10.0
 
 [node name="SnakeDeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -10.0
+volume_db = -8.0
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -47,3 +50,16 @@ volume_db = -12.0
 [node name="Reload" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -10.0
+
+[node name="Rat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 10.0
+
+[node name="Bone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+pitch_scale = 1.28
+
+[node name="Crate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0

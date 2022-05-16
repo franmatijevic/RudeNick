@@ -16,7 +16,7 @@ var add:int=0
 func _ready() -> void:
 	get_node("Music").play()
 	if(in_game):
-		add=10
+		add=14
 		get_node("Text/Time").visible=true
 		get_node("Text/Level").visible=true
 		get_node("Text/Score").visible=true
@@ -36,9 +36,9 @@ func _process(delta: float) -> void:
 		get_node("Music").volume_db-=15*delta
 	
 	time+=delta
-	if(time>57+add):
+	if(time>58+add):
 		volume_down=true
-	if(time>59+add):
+	if(time>60+add):
 		skip()
 	
 	get_node("Text").global_position.y-=75*delta

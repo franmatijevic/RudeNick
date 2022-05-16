@@ -40,16 +40,18 @@ func drop_money()->void:
 		get_parent().add_child(money[2])
 
 func e()->void:
+	return
 	e=true
 	var time_in_seconds = 0.1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	e=false
 
 func _process(delta: float) -> void:
-	if(e and !opened):
-		get_node("E").visible=true
-	else:
-		get_node("E").visible=false
+	pass
+	#if(e and !opened):
+	#	get_node("E").visible=true
+	#else:
+	#	get_node("E").visible=false
 
 func _physics_process(delta: float) -> void:
 	velocity.y+=gravity*delta
@@ -68,7 +70,22 @@ func _physics_process(delta: float) -> void:
 		velocity.x+=friction
 
 func buy()->void:
+	if(opened):
+		return
+	get_node("E").visible=false
 	drop_money()
 	get_node("Closed").visible=false
 	get_node("Opened").visible=true
+	if(randi()%20==0):
+		get_node("Sound2").play()
+	else:
+		get_node("Sound1").play()
 
+
+func _on_Player_body_exited(body: Node) -> void:
+	get_node("E").visible=false
+
+
+func _on_Player_body_entered(body: Node) -> void:
+	if(!opened):
+		get_node("E").visible=true

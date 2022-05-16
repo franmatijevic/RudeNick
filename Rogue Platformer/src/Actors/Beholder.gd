@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var velocity: = Vector2.ZERO
 
-var health:int=80
-var maks:int=8
+var health:int=85
+var maks:int=85
 var speed:float=0.0
 var more_big_laser:=0
 
@@ -122,6 +122,7 @@ func _physics_process(delta: float) -> void:
 			going_down=false
 			velocity.x=speed
 	
+	
 	if(get_node("AnimatedSprite").animation=="wink" and get_node("AnimatedSprite").frame==6):
 		get_node("AnimatedSprite").animation="default"
 
@@ -141,7 +142,7 @@ func burst()->void:
 		get_node("AnimatedSprite").animation="wink"
 		get_node("AnimatedSprite").frame=0
 
-func big_laser()->void:
+func big_laser(more_laser:int)->void:
 	if(burst):
 		return
 	burst=true
@@ -168,8 +169,8 @@ func big_laser()->void:
 	burst=false
 	if(velocity.x!=0):
 		velocity.x=abs(velocity.x)/velocity.x*speed
-	if(randi()%5==0):
-		big_laser()
+	if(randi()%5-more_laser<-1):
+		big_laser(more_laser)
 
 
 func bite()->void:
@@ -272,14 +273,17 @@ func damage(value: int)->void:
 	if(health<1):
 		death()
 	flash_damage()
-	if(k!=2 and health<maks-k*20-20):
+	if(k!=2 and health<maks-k*30-20):
 		k=k+1
 		going_down=true
+	
+	if(value>3 and randi()%3==0):
+		big_laser(2)
 	
 	if(randi()%3!=0):
 		return
 	if(randi()%4-more_big_laser<1):
-		big_laser()
+		big_laser(0)
 		return
 	burst()
 
@@ -299,6 +303,7 @@ func death():
 	get_node("/root/Game/World/Player").velocity.x=0.0
 	get_node("/root/Game/World/Player").ledge_grab=false
 	get_node("/root/Game/World/Player").using_gravity=1
+	get_node("/root/Game/World/Player").move_horizontal=0
 	
 	get_node("/root/Game").total_time+=get_node("/root/Game/World").current_time
 	
@@ -316,14 +321,15 @@ func death():
 	get_node("Camera2D").current=true
 	
 	yield(get_tree().create_timer(1), "timeout")
-	
 	get_node("DestroyBlocks").monitoring=true
 	
 	yield(get_tree().create_timer(1), "timeout")
 	
 	leftright=true
-	
-	yield(get_tree().create_timer(4), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
+	get_node("spooky").play()
+	yield(get_tree().create_timer(1), "timeout")
+	get_node("spooky").stop()
 	get_node("Death1").play()
 	get_node("Death2").play()
 	

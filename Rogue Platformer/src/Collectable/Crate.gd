@@ -15,13 +15,15 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 	queue_free()
 
 func destroy()->void:
-	var drop=randi()%2
+	var drop=randi()%3
 	var item
 	match drop:
 		0:
 			item=preload("res://src/Items/BuyRope.tscn").instance()
 		1:
 			item=preload("res://src/Items/BuyBomb.tscn").instance()
+		2:
+			item=preload("res://src/Items/BuyMeat.tscn").instance()
 	if(get_node("/root/Game/World").has_node("Player") and get_node("/root/Game/World/Player").poisoned and randi()%3==0):
 		item=preload("res://src/Items/Cure.tscn").instance()
 	item.free=true
@@ -36,6 +38,7 @@ func destroy()->void:
 		get_parent().add_child(wood)
 		get_parent().add_child(item)
 		dropped=true
+	get_node("/root/Game/Crate").play()
 	queue_free()
 
 func _physics_process(delta: float) -> void:

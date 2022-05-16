@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/MainMenu.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/back_button_v2_hover.png" type="Texture" id=18]
 [ext_resource path="res://Assets/MainMenuStuff/credits.png" type="Texture" id=19]
 [ext_resource path="res://Music/Random/button_hover_1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/MusicOnOff/music_button.png" type="Texture" id=21]
 [ext_resource path="res://Assets/MainMenuStuff/help_button_1_hover.png" type="Texture" id=22]
 [ext_resource path="res://Assets/MainMenuStuff/quit_button_1_hover.png" type="Texture" id=23]
 [ext_resource path="res://Assets/MainMenuStuff/play_button_1_hover.png" type="Texture" id=24]
@@ -137,5 +138,9 @@ texture = ExtResource( 19 )
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 volume_db = -10.0
+
+[node name="MusicButton" type="Sprite" parent="."]
+position = Vector2( 323.116, 149.987 )
+texture = ExtResource( 21 )
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

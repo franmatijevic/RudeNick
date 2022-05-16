@@ -1,5 +1,6 @@
 extends Node2D
 
+var music:bool=true
 var can_pause:=false
 
 var player_health:int=4
@@ -27,9 +28,9 @@ var current_time:=0.0
 
 var last_damage:String=" "
 
-var temple:=true
+var temple:=false
 
-var go_to_boss:=true
+var go_to_boss:=false
 
 var boss_level:int=-1
 

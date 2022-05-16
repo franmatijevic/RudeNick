@@ -40,7 +40,6 @@ visible = false
 position = Vector2( 0, -15 )
 z_index = 6
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="DetectPlayer" type="Area2D" parent="."]
@@ -54,6 +53,7 @@ shape = SubResource( 3 )
 scale = Vector2( 0.2, 0.2 )
 
 [node name="price" type="Label" parent="Text"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -68,3 +68,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="body_entered" from="DetectPlayer" to="." method="_on_DetectPlayer_body_entered"]
+[connection signal="body_exited" from="DetectPlayer" to="." method="_on_DetectPlayer_body_exited"]

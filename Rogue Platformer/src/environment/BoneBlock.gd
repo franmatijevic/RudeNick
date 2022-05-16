@@ -11,6 +11,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	destroy()
 
 func destroy()->void:
+	get_node("/root/Game/Bone").play()
 	var blood=preload("res://src/Other/Bones.tscn").instance()
 	blood.global_position=global_position
 	get_parent().get_parent().add_child(blood)

@@ -49,6 +49,11 @@ var rage_music:=false
 func _ready() -> void:
 	randomize()
 	var music=randi()%3
+	if(!get_node("/root/Game").music):
+		get_node("Music1").volume_db=-80
+		get_node("Music2").volume_db=-80
+		get_node("Music3").volume_db=-80
+	
 	if(music==0):
 		get_node("Music1").play()
 	elif(music==1):
@@ -361,6 +366,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if(!get_node("/root/Game").music):
+		get_node("/root/Game/World/Music1").volume_db=-80
+		get_node("/root/Game/World/Music2").volume_db=-80
+		get_node("/root/Game/World/Music3").volume_db=-80
+		get_node("/root/Game/World/Rage").volume_db=-80
+	
 	if(has_node("Player")):
 		current_time=current_time+delta
 		if(get_node("Player").poisoned and int(current_time)!=0 and int(current_time)%30==0 and !get_node("Player").iframes_on and current_time-poison_time>poison_time+1):
