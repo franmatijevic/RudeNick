@@ -359,6 +359,11 @@ func stunned()->void:
 	knock_h=0
 	knock_v=0
 
+func drop()->void:
+	climbing=false
+	using_gravity=1
+	move_horizontal=1
+
 func poison()->void:
 	if(get_parent().poison_time==0.0):
 		get_parent().poison_time=int(get_parent().current_time)
