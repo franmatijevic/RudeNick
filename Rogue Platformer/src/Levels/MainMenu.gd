@@ -144,6 +144,14 @@ func _process(delta: float) -> void:
 		choice-=1
 		if(choice==-1):
 			choice=4
+	if(Input.is_action_just_pressed("move_left") and choice==4):
+		get_node("Click").play()
+		choice=3
+	
+	if(Input.is_action_just_pressed("move_right") and choice==3):
+		get_node("Click").play()
+		choice=4
+	
 	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help):
 		get_node("Click").play()
 		if(choice==0):
