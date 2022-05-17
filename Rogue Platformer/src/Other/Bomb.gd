@@ -12,6 +12,8 @@ var up:=false
 var down:=false
 
 func _ready() -> void:
+	get_node("Sound").play()
+	get_node("AnimatedSprite").frame=0
 	boom=preload("res://src/Other/Expolsion.tscn").instance()
 	#wait()
 
@@ -49,6 +51,7 @@ func _physics_process(delta: float) -> void:
 	if(in_hands):
 		follow_player()
 	else:
+		#get_node("AnimatedSprite").rotation_degrees+=delta*60
 		velocity.y+=gravity*delta
 		if(velocity.y>500):
 			velocity.y=500
@@ -77,10 +80,23 @@ func timer(lenght:float)->void:
 func _on_Wall_body_entered(body):
 	if(!in_hands):
 		if(velocity.x!=0):
-			velocity.x/=-15
+			velocity.x/=-3
 
 
 func _on_Friction_body_entered(body):
 	if(velocity.x!=0):
-		velocity.x/=15
-	velocity.y/=-20
+		velocity.x/=3
+	if(abs(velocity.x)<5.0):
+		velocity.x=0.0
+		return 
+	velocity.y/=-5
+	velocity.y-=45
+
+
+func _on_Whip_area_entered(area: Area2D) -> void:
+	if(!in_hands):
+		velocity.y-=50
+		if(area.get_parent().global_position.x<global_position.x):
+			velocity.x+=40
+		else:
+			velocity.x-=40

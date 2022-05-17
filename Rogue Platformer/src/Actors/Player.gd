@@ -96,6 +96,8 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 		damage(1)
 
 func _on_Boss_area_entered(area: Area2D) -> void:
+	#if(area.get_parent().name=="Troll"):
+	#	return
 	if(!iframes_on):
 		last_damage=area.get_parent().last_damage
 		if(health<3):
@@ -683,6 +685,9 @@ func death(direciton: bool)->void:
 	corpse.spikes=spike_death
 	corpse.get_node("Camera2D").limit_right=get_node("Camera2D").limit_right
 	corpse.get_node("Camera2D").limit_bottom=get_node("Camera2D").limit_bottom
+	corpse.get_node("Camera2D").limit_top=get_node("Camera2D").limit_top
+	corpse.get_node("Camera2D").limit_left=get_node("Camera2D").limit_left
+	
 	if(burned_death):
 		corpse.get_node("Sprite").modulate.r=0.26
 		corpse.get_node("Sprite").modulate.g=0.19

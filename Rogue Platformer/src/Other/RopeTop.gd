@@ -16,6 +16,7 @@ var look_down:=false
 var velocity = Vector2.ZERO
 
 func _ready() -> void:
+	get_node("Sound").play()
 	if(look_down):
 		distance=0.0
 	newx = int(round(global_position.x))/16

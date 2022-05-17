@@ -64,13 +64,14 @@ func _ready() -> void:
 	var transition=preload("res://src/Other/TransitionEffect.tscn").instance()
 	transition.choice=true
 	#Big level or small level
-	if(randi()%9==0):
-		if(randi()%4==0):
-			end_down=8
-			end_right=4
-		else:
-			end_right=5
-			end_down=5
+	if(level>1):
+		if(randi()%9==0):
+			if(randi()%4==0):
+				end_down=8
+				end_right=4
+			else:
+				end_right=5
+				end_down=5
 	
 	randomize()
 	start=randi()%end_right
@@ -172,7 +173,7 @@ func _ready() -> void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%3==0 and !temple and !green and level>5 or level==1):
+	if(randi()%3==0 and !temple and !green and level>5):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
