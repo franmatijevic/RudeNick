@@ -253,7 +253,7 @@ func shoot()->void:
 	get_parent().add_child(bullet)
 	get_parent().add_child(bullet2)
 	get_parent().add_child(bullet3)
-	var time_in_seconds = 0.5
+	var time_in_seconds = 1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	can_shoot=true
 

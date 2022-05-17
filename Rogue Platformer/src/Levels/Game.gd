@@ -14,6 +14,8 @@ var goggles:=false
 
 var shop_angry:int=0
 
+var bomb_in_hands:bool=true
+
 var red_key:=false
 var white_key:=false
 var green_key:=false
@@ -48,6 +50,18 @@ func _ready() -> void:
 	#get_node("PauseLayer/Pause").visible=false
 	OS.window_fullscreen = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func _process(delta: float) -> void:
+	if(has_node("World")):
+		if(Input.is_action_just_pressed("bomb") and get_node("World").has_node("Player")):
+			if(get_node("World/Player").bomb>0):
+				bomb_in_hands=!bomb_in_hands
+			elif(get_node("World/Player").bomb==0):
+				bomb_in_hands=false
+	#if(has_node("World")):
+	#	if(get_node("World").has_node("Player")):
+	#		get_node("World/Player/Label").text=str(bomb_in_hands)
+
 
 func restart()->void:
 	restart_stats()
@@ -115,6 +129,7 @@ func new_complete()->void:
 		get_node("MainMenu").queue_free()
 
 func new_level()->void:
+	bomb_in_hands=true
 	if(has_node("World")):
 		get_node("World").queue_free()
 	

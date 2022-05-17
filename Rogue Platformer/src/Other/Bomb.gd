@@ -11,7 +11,11 @@ var gravity:float=200.0
 var up:=false
 var down:=false
 
+var summoned:=true
+
 func _ready() -> void:
+	#get_node("/root/Game").bomb_in_hands=true
+	get_node("/root/Game/World/Player").bomb_in_hands=true
 	get_node("Sound").play()
 	get_node("AnimatedSprite").frame=0
 	boom=preload("res://src/Other/Expolsion.tscn").instance()
@@ -31,23 +35,28 @@ func _physics_process(delta: float) -> void:
 	if(time>3):
 		wait()
 	
-	if(Input.is_action_just_pressed("bomb") and get_node("/root/Game/World").has_node("Player")):
-		var direction
-		if(get_node("/root/Game/World/Player/AnimatedSprite").is_flipped_h()):
-			direction=-1
-		else:
-			direction=1
-		if(in_hands):
-			if((!down and !up)):
-				velocity.x=100.0*direction
-				velocity.y=-100.0
-			elif(up):
-				velocity.x=60.0*direction
-				velocity.y=-180.0
-			elif(down):
-				pass
-		
-		in_hands=false
+	if(Input.is_action_just_pressed("bomb") and get_node("/root/Game/World").has_node("Player") and in_hands and time>0.5):
+		#if(in_hands):
+		#	get_node("/root/Game/World/Player").bomb_in_hands=false
+		#if(summoned):
+		#	summoned=false
+		if(1==1):
+			var direction
+			if(get_node("/root/Game/World/Player/AnimatedSprite").is_flipped_h()):
+				direction=-1
+			else:
+				direction=1
+			if(in_hands):
+				get_node("/root/Game/World/Player").bomb_in_hands=false
+				#get_node("/root/Game").bomb_in_hands=false
+				if((!down and !up)):
+					velocity.x=100.0*direction
+					velocity.y=-100.0
+				elif(up):
+					velocity.x=60.0*direction
+					velocity.y=-180.0
+			in_hands=false
+			#get_node("/root/Game/World/Player").bomb_in_hands=false
 	if(in_hands):
 		follow_player()
 	else:

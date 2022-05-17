@@ -914,5 +914,5 @@ texture = ExtResource( 11 )
 
 [node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -30.0
+volume_db = -22.0
 autoplay = true

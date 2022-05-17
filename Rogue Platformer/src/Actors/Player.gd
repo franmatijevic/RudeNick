@@ -111,6 +111,7 @@ var high:=999.0
 var sky:=false
 
 func _process(delta: float) -> void:
+	
 	if(!if_stunned and velocity.x!=0 and is_on_floor()):
 		if(!get_node("Walk").is_playing()):
 			get_node("Walk").play()
@@ -163,14 +164,20 @@ func _process(delta: float) -> void:
 		get_parent().add_child(rope)
 	
 	if(Input.is_action_just_pressed("bomb") and !if_stunned):
-		if(!bomb_in_hands and bomb>0):
-			bomb_in_hands=true
+		if(!get_node("/root/Game").bomb_in_hands and bomb>0):
 			bomb=bomb-1
 			var bomba=preload("res://src/Other/Bomb.tscn").instance()
 			bomba.position=position
 			get_parent().add_child(bomba)
-		elif(bomb_in_hands):
-			bomb_in_hands=false
+		
+		#if(bomb_in_hands):
+		#	pass
+		#elif(!bomb_in_hands and bomb>0):
+			#bomb_in_hands=true
+		#	bomb=bomb-1
+		#	var bomba=preload("res://src/Other/Bomb.tscn").instance()
+		#	bomba.position=position
+		#	get_parent().add_child(bomba)
 	
 	if(spider_web): 
 		if(Input.is_action_just_pressed("jump")): 

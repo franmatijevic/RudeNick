@@ -89,15 +89,15 @@ animations = [ {
 "name": "hanging",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 15 ) ],
-"loop": true,
-"name": "climbing_stop",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": false,
 "name": "whiping",
 "speed": 13.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "climbing_stop",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -256,7 +256,7 @@ volume_db = -12.0
 
 [node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -30.0
+volume_db = -22.0
 
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
