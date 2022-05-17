@@ -24,6 +24,7 @@ func _ready() -> void:
 	get_node("BlockDestroy").monitoring=false
 	get_node("AnimatedSprite").animation="default"
 	velocity.x = speed.x
+	get_node("ClubDamage").monitoring=false
 
 
 func _on_ClubDetect_body_entered(body: Node) -> void:
@@ -121,6 +122,8 @@ func _physics_process(delta: float) -> void:
 	if(!idle and !angry):
 		idle()
 	
+	
+	
 	velocity.y = move_and_slide(velocity*can_move, Vector2.UP).y
 
 func damage(value: int)->void:
@@ -168,6 +171,7 @@ func attack()->void:
 		var time_in_seconds = 0.6
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		
+		get_node("ClubDamage").monitoring=true
 		if(ex_speed>0.0):
 			get_node("ClubDamage").position.x=15
 		else:
@@ -177,9 +181,10 @@ func attack()->void:
 		get_node("ClubDamage").monitoring=true
 		get_node("AnimatedSprite").frame=0
 		
-		time_in_seconds = 0.03
+		time_in_seconds = 0.01
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		get_node("ClubDamage").monitoring=false
+		
 		
 		time_in_seconds = 1
 		yield(get_tree().create_timer(time_in_seconds), "timeout")

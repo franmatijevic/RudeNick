@@ -84,7 +84,6 @@ playing = true
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walking"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -37,3 +37,5 @@ func _physics_process(delta: float) -> void:
 func _on_Player_body_entered(body: Node) -> void:
 	shake=true
 
+func destroy()->void:
+	queue_free()

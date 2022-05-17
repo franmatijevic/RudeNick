@@ -172,7 +172,7 @@ func _ready() -> void:
 	
 	
 	#Dungeon spawn rate
-	if(randi()%3==0 and !temple and !green and level>5):
+	if(randi()%3==0 and !temple and !green and level>5 or level==1):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):

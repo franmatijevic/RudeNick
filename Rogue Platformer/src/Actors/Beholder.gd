@@ -160,7 +160,7 @@ func big_laser(more_laser:int)->void:
 		get_node("Charge").visible=false
 		return
 	
-	yield(get_tree().create_timer(0.75), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	var laser=preload("res://src/Other/BigLaser.tscn").instance()
 	get_node("BigLaser").stop()
 	laser.position=position

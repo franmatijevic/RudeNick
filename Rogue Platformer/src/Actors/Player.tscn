@@ -21,17 +21,17 @@ load_path = "res://.import/player_idle1.png-4ee64b5f0dd01e1a4e91fe891e27c0c4.ste
 [sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/player_idle2.png-0aa51c488912ad17001494b6abd0a0c2.stex"
 
-[sub_resource type="StreamTexture" id=10]
-load_path = "res://.import/player_knocked1.png-4c14f7452d9805218ca708d5313fa439.stex"
-
-[sub_resource type="StreamTexture" id=11]
-load_path = "res://.import/player_knocked2.png-a4457170676e2f144933c2a399fdd17f.stex"
-
 [sub_resource type="StreamTexture" id=14]
 load_path = "res://.import/player_climb2.png-a17dd8f18fafb75bf9190c7a32e2768e.stex"
 
 [sub_resource type="StreamTexture" id=15]
 load_path = "res://.import/player_climb1.png-f136f0a6d5a8e6d929168b97cf3f06f3.stex"
+
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/player_knocked1.png-4c14f7452d9805218ca708d5313fa439.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/player_knocked2.png-a4457170676e2f144933c2a399fdd17f.stex"
 
 [sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/player_walk_1.png-480b0eaf8c9685b09cc30ff6b1595e2a.stex"
@@ -69,14 +69,14 @@ animations = [ {
 "name": "default",
 "speed": 3.0
 }, {
-"frames": [ SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "stunned",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "climbing",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "stunned",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ) ],
@@ -138,6 +138,7 @@ smoothing_speed = 7.0
 scale = Vector2( 1.00509, 0.993949 )
 frames = SubResource( 3 )
 animation = "stunned"
+frame = 1
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
