@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 			if(get_node("World/Player").bomb>0):
 				bomb_in_hands=!bomb_in_hands
 			elif(get_node("World/Player").bomb==0):
-				bomb_in_hands=false
+				bomb_in_hands=true
 	#if(has_node("World")):
 	#	if(get_node("World").has_node("Player")):
 	#		get_node("World/Player/Label").text=str(bomb_in_hands)

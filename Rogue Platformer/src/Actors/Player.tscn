@@ -21,18 +21,6 @@ load_path = "res://.import/player_idle1.png-4ee64b5f0dd01e1a4e91fe891e27c0c4.ste
 [sub_resource type="StreamTexture" id=9]
 load_path = "res://.import/player_idle2.png-0aa51c488912ad17001494b6abd0a0c2.stex"
 
-[sub_resource type="StreamTexture" id=10]
-load_path = "res://.import/player_knocked1.png-4c14f7452d9805218ca708d5313fa439.stex"
-
-[sub_resource type="StreamTexture" id=11]
-load_path = "res://.import/player_knocked2.png-a4457170676e2f144933c2a399fdd17f.stex"
-
-[sub_resource type="StreamTexture" id=14]
-load_path = "res://.import/player_climb2.png-a17dd8f18fafb75bf9190c7a32e2768e.stex"
-
-[sub_resource type="StreamTexture" id=15]
-load_path = "res://.import/player_climb1.png-f136f0a6d5a8e6d929168b97cf3f06f3.stex"
-
 [sub_resource type="StreamTexture" id=12]
 load_path = "res://.import/player_walk_1.png-480b0eaf8c9685b09cc30ff6b1595e2a.stex"
 
@@ -41,6 +29,9 @@ load_path = "res://.import/player_walk_2.png-616e5f01006f85b276c72b095750e2a0.st
 
 [sub_resource type="StreamTexture" id=16]
 load_path = "res://.import/player_grab.png-4c5ee118cc46bc737f915d302bb06901.stex"
+
+[sub_resource type="StreamTexture" id=15]
+load_path = "res://.import/player_climb1.png-f136f0a6d5a8e6d929168b97cf3f06f3.stex"
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 1 )
@@ -62,22 +53,21 @@ region = Rect2( 96, 0, 32, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 128, 0, 32, 32 )
 
+[sub_resource type="StreamTexture" id=10]
+load_path = "res://.import/player_knocked1.png-4c14f7452d9805218ca708d5313fa439.stex"
+
+[sub_resource type="StreamTexture" id=11]
+load_path = "res://.import/player_knocked2.png-a4457170676e2f144933c2a399fdd17f.stex"
+
+[sub_resource type="StreamTexture" id=14]
+load_path = "res://.import/player_climb2.png-a17dd8f18fafb75bf9190c7a32e2768e.stex"
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "default",
 "speed": 3.0
-}, {
-"frames": [ SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "stunned",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 14 ), SubResource( 15 ) ],
-"loop": true,
-"name": "climbing",
-"speed": 5.0
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
@@ -89,14 +79,24 @@ animations = [ {
 "name": "hanging",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "climbing_stop",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": false,
 "name": "whiping",
 "speed": 13.0
 }, {
-"frames": [ SubResource( 15 ) ],
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "climbing_stop",
+"name": "stunned",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "climbing",
 "speed": 5.0
 } ]
 

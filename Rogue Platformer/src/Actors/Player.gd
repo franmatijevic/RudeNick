@@ -111,7 +111,6 @@ var high:=999.0
 var sky:=false
 
 func _process(delta: float) -> void:
-	
 	if(!if_stunned and velocity.x!=0 and is_on_floor()):
 		if(!get_node("Walk").is_playing()):
 			get_node("Walk").play()

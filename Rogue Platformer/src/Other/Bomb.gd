@@ -35,11 +35,8 @@ func _physics_process(delta: float) -> void:
 	if(time>3):
 		wait()
 	
-	if(Input.is_action_just_pressed("bomb") and get_node("/root/Game/World").has_node("Player") and in_hands and time>0.5):
-		#if(in_hands):
-		#	get_node("/root/Game/World/Player").bomb_in_hands=false
-		#if(summoned):
-		#	summoned=false
+	#if(Input.is_action_just_pressed("bomb") and get_node("/root/Game/World").has_node("Player") and in_hands and time>0.5):
+	if(Input.is_action_just_pressed("bomb") and in_hands):
 		if(1==1):
 			var direction
 			if(get_node("/root/Game/World/Player/AnimatedSprite").is_flipped_h()):
