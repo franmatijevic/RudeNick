@@ -47,11 +47,11 @@ func _physics_process(delta: float) -> void:
 				get_node("/root/Game/World/Player").bomb_in_hands=false
 				#get_node("/root/Game").bomb_in_hands=false
 				if((!down and !up)):
-					velocity.x=100.0*direction
-					velocity.y=-100.0
-				elif(up):
 					velocity.x=60.0*direction
-					velocity.y=-180.0
+					velocity.y=-60.0
+				elif(up):
+					velocity.x=40.0*direction
+					velocity.y=-160.0
 			in_hands=false
 			#get_node("/root/Game/World/Player").bomb_in_hands=false
 	if(in_hands):

@@ -72,11 +72,6 @@ animations = [ {
 "name": "close",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), null ],
-"loop": false,
-"name": "death",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "bite",
@@ -96,6 +91,11 @@ animations = [ {
 "loop": true,
 "name": "opening",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 19 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), null ],
+"loop": false,
+"name": "death",
+"speed": 20.0
 } ]
 
 [sub_resource type="SpriteFrames" id=9]
@@ -170,7 +170,7 @@ shape = SubResource( 8 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "talking"
-frame = 5
+frame = 3
 playing = true
 
 [node name="Charge" type="AnimatedSprite" parent="."]

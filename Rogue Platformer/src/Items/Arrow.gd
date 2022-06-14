@@ -5,7 +5,7 @@ var gravity:=0.0
 var exit:=false
 
 var velocity: = Vector2.ZERO
-var speed=450.0
+var speed=200.0
 
 func _ready() -> void:
 	get_node("Sound").play()
@@ -27,13 +27,13 @@ func _on_DetectPlayer_body_entered(body: Node) -> void:
 	body.last_damage="arrow"
 	if(body.iframes_on):
 		return
-	if(body.health<3):
+	if(body.health<=1):
 		if(speed>0.0):
 			body.death(true)
 		else:
 			body.death(false)
 	else:
-		body.damage(2)
+		body.damage(1)
 		body.stunned()
 		body.using_gravity=true
 	var chest=preload("res://src/Items/ArrowDrop.tscn").instance()
@@ -80,7 +80,7 @@ func _on_Whip_area_entered(area: Area2D) -> void:
 
 
 func _on_Boss_area_entered(area: Area2D) -> void:
-	area.get_parent().damage(2)
+	area.get_parent().damage(1)
 	var chest=preload("res://src/Items/ArrowDrop.tscn").instance()
 	chest.position=position
 	get_parent().add_child(chest)

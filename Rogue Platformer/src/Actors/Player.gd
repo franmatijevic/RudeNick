@@ -2,10 +2,10 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health :int= 10
+var health :int= 5
 var money:int=0
-var rope:int=4
-var bomb:int=4
+var rope:int=5
+var bomb:int=5
 var shotgun:int=0
 var goggles:=false
 
@@ -26,6 +26,7 @@ var spider_web:=false
 var exits_level:=false
 var collides_w_enemy:=false
 var bomb_in_hands:=false
+var buying = false
 
 var burned_death:=false
 var club_death:=false
@@ -100,12 +101,12 @@ func _on_Boss_area_entered(area: Area2D) -> void:
 	#	return
 	if(!iframes_on):
 		last_damage=area.get_parent().last_damage
-		if(health<3):
+		if(health<2):
 			var knock:=true
 			if(area.get_parent().global_position.x>global_position.x):
 				knock=false
 			death(knock)
-		damage(2)
+		damage(1)
 
 var high:=999.0
 var sky:=false
@@ -261,7 +262,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	if(velocity.x==0 and move_up and !move_left and !move_right and (is_on_floor() or ledge_grab)):
+	if(velocity.x==0 and move_up and !move_left and !move_right and !$BuyIt.is_colliding() and (is_on_floor() or ledge_grab)):
 		get_node("Camera2D").position.y=-55
 		look_down=false
 	elif(velocity.x==0 and move_down and !move_left and !move_right and (is_on_floor() or ledge_grab) ):
@@ -615,7 +616,7 @@ func killed_by()->void:
 		killed.text="The Mole got its revenge"
 	elif(last_damage=="fall"):
 		portret.texture=load("res://Assets/Player/player_dead.png")
-		killed.text="The fall was a bit to long"
+		killed.text="The fall was a bit too long"
 	elif(last_damage=="beholder"):
 		portret.texture=load("res://Assets/GameOver/beholder_portrait.png")
 		killed.text="I was no match for a beholder..."

@@ -3,7 +3,7 @@ extends "res://src/Actors/Actor.gd"
 var direction: = false
 var change: = false
 var can_move=1
-var health:=12
+var health:=15
 
 var music:=false
 

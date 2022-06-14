@@ -10,6 +10,7 @@ var more_big_laser:=0
 var player_near:=false
 
 var dead:=false
+var last_damage:String="beholder"
 
 var burst:=false
 var bite:=false
@@ -371,7 +372,6 @@ func _on_Player_body_exited(body: Node) -> void:
 
 
 func _on_EpicStuff_body_entered(body: Node) -> void:
-	print("sranje")
 	get_node("AnimatedSprite").animation="talking"
 	get_node("EpicStuff").monitoring=false
 	get_node("EpicStuff").queue_free()
