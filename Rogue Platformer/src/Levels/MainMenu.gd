@@ -118,7 +118,7 @@ func _process(delta: float) -> void:
 		if(Input.is_action_just_pressed("up") and help_choice==2):
 			get_node("Click").play()
 			help_choice=0
-		if(Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")):
+		if(Input.is_action_just_pressed("ui_accept")):
 			if(help_choice==0):
 				get_node("Controls1").visible=true
 				get_node("Controls2").visible=false
@@ -152,11 +152,10 @@ func _process(delta: float) -> void:
 		get_node("Click").play()
 		choice=4
 	
-	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help):
+	if((Input.is_action_just_pressed("ui_accept")) and enable and !help):
 		get_node("Click").play()
 		if(choice==0):
 			get_node("/root/Game").can_pause=true
-			get_parent().level=0
 			get_parent().new_level()
 		elif(choice==1):
 			setup_help()

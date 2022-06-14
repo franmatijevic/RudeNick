@@ -168,12 +168,12 @@ func _on_Bite_body_entered(body: Node) -> void:
 	if(!body.iframes_on):
 		body.last_damage=last_damage
 		body.iframes()
-		if(body.health<3):
+		if(body.health<2):
 			if(body.global_position.x>global_position.x):
 				body.death(true)
 			else:
 				body.death(false)
-		body.damage(2)
+		body.damage(1)
 
 func _on_DetectPlayer_body_entered(body: Node) -> void:
 	get_node("/root/Game/World").raging_music()

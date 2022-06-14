@@ -3,7 +3,7 @@ extends "res://src/Actors/Actor.gd"
 var direction: = false
 var change: = false
 var can_move=1
-var health:=20
+var health:=15
 
 var angry:bool=false
 var idle:bool=false
@@ -72,14 +72,14 @@ func _on_ClubDamage_body_entered(body: Node) -> void:
 		#body.treperenje()
 		body.ledge_grab=false
 		body.climbing=false
-		if(body.health<3):
+		if(body.health<=1):
 			get_node("Sound2").play()
 			body.club_death=true
 			if(body.global_position.x>global_position.x):
 				body.death(true)
 			else:
 				body.death(false)
-		body.damage(2)
+		body.damage(1)
 		if(randi()%3==0):
 			body.stunned()
 		if(body.global_position.x>global_position.x):

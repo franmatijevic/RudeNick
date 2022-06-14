@@ -2,7 +2,7 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health :int= 10
+var health :int= 8
 var money:int=0
 var rope:int=4
 var bomb:int=4
@@ -100,12 +100,12 @@ func _on_Boss_area_entered(area: Area2D) -> void:
 	#	return
 	if(!iframes_on):
 		last_damage=area.get_parent().last_damage
-		if(health<3):
+		if(health<2):
 			var knock:=true
 			if(area.get_parent().global_position.x>global_position.x):
 				knock=false
 			death(knock)
-		damage(2)
+		damage(1)
 
 var high:=999.0
 var sky:=false
@@ -615,7 +615,7 @@ func killed_by()->void:
 		killed.text="The Mole got its revenge"
 	elif(last_damage=="fall"):
 		portret.texture=load("res://Assets/Player/player_dead.png")
-		killed.text="The fall was a bit to long"
+		killed.text="The fall was a bit too long"
 	elif(last_damage=="beholder"):
 		portret.texture=load("res://Assets/GameOver/beholder_portrait.png")
 		killed.text="I was no match for a beholder..."

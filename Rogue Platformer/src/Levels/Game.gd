@@ -3,11 +3,11 @@ extends Node2D
 var music:bool=true
 var can_pause:=false
 
-var player_health:int=4
+var player_health:int=5
 var player_money:int=0
-var player_rope:int=4
-var player_bomb:int=4
-var level:=0
+var player_rope:int=5
+var player_bomb:int=5
+var level:int=0
 var poisoned:=false
 var shotgun:int=0
 var goggles:=false
@@ -77,7 +77,7 @@ func back_to_main_menu()->void:
 	restart_stats()
 
 func restart_stats()->void:
-	player_health=int(4)
+	player_health=int(8)
 	player_bomb=4
 	player_money=0
 	player_rope=4

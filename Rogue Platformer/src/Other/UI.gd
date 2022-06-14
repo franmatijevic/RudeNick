@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_hover.png")
 				else:
 					get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted_hover.png")
-			if(Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("action") or Input.is_action_just_pressed("ui_accept")):
+			if(Input.is_action_just_pressed("action") or Input.is_action_just_pressed("ui_accept")):
 				if(choice==0):
 					get_node("/root/Game").restart()
 					get_node("/root/Game").can_pause=true

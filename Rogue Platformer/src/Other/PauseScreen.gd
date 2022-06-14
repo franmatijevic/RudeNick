@@ -99,7 +99,7 @@ func _input(event):
 				help_choose=2
 			set_help()
 	
-	if(event.is_action_pressed("action") or event.is_action_pressed("ui_accept") or event.is_action_pressed("buy")):
+	if(event.is_action_pressed("action") or event.is_action_pressed("ui_accept")):
 		music=get_node("/root/Game").music
 		if(get_tree().paused and !help_menu):
 			if(choose==0):
