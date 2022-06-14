@@ -2,10 +2,10 @@ extends Actor
 
 var climbing_speed: = 50.0
 var stomp_impulse: = 100.0
-var health :int= 8
+var health :int= 5
 var money:int=0
-var rope:int=4
-var bomb:int=4
+var rope:int=5
+var bomb:int=5
 var shotgun:int=0
 var goggles:=false
 
@@ -26,6 +26,7 @@ var spider_web:=false
 var exits_level:=false
 var collides_w_enemy:=false
 var bomb_in_hands:=false
+var buying = false
 
 var burned_death:=false
 var club_death:=false
@@ -261,7 +262,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-	if(velocity.x==0 and move_up and !move_left and !move_right and (is_on_floor() or ledge_grab)):
+	if(velocity.x==0 and move_up and !move_left and !move_right and !$BuyIt.is_colliding() and (is_on_floor() or ledge_grab)):
 		get_node("Camera2D").position.y=-55
 		look_down=false
 	elif(velocity.x==0 and move_down and !move_left and !move_right and (is_on_floor() or ledge_grab) ):
