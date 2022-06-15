@@ -23,6 +23,8 @@ var starting_y
 
 var time:float=0.0
 
+var last_damage:String="beholder"
+
 func _on_BiteMaybe_body_entered(body: Node) -> void:
 	bite()
 
@@ -289,6 +291,9 @@ func damage(value: int)->void:
 
 
 func death():
+	if(dead):
+		return
+	
 	get_node("Camera2D").limit_top=get_node("/root/Game/World/Player/Camera2D").limit_top
 	get_node("Camera2D").limit_right=get_node("/root/Game/World/Player/Camera2D").limit_right
 	get_node("Camera2D").limit_left=get_node("/root/Game/World/Player/Camera2D").limit_left
@@ -371,7 +376,6 @@ func _on_Player_body_exited(body: Node) -> void:
 
 
 func _on_EpicStuff_body_entered(body: Node) -> void:
-	print("sranje")
 	get_node("AnimatedSprite").animation="talking"
 	get_node("EpicStuff").monitoring=false
 	get_node("EpicStuff").queue_free()

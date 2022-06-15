@@ -196,7 +196,7 @@ margin_top = 4034.36
 margin_right = 475.65
 margin_bottom = 4139.36
 custom_fonts/font = SubResource( 1 )
-text = "Total Score:
+text = "Total score:
 "
 align = 1
 

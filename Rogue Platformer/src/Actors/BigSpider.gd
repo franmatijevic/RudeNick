@@ -208,8 +208,6 @@ func _on_DetectPlayer_body_exited(body: Node) -> void:
 
 func _on_ClosePlayer_body_entered(body: Node) -> void:
 	small_range=true
-	if(!get_node("/root/Game/World").has_node("Player") or !is_on_floor()):
-		return
 	var player = get_node("/root/Game/World/Player")
 	if((player.global_position.x>global_position.x and velocity.x<0.0) or (player.global_position.x<global_position.x and velocity.x>0.0)):
 		velocity.x=-(velocity.x)

@@ -615,7 +615,7 @@ func killed_by()->void:
 		killed.text="The Mole got its revenge"
 	elif(last_damage=="fall"):
 		portret.texture=load("res://Assets/Player/player_dead.png")
-		killed.text="The fall was a bit to long"
+		killed.text="The fall was a bit too long"
 	elif(last_damage=="beholder"):
 		portret.texture=load("res://Assets/GameOver/beholder_portrait.png")
 		killed.text="I was no match for a beholder..."
