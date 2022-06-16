@@ -87,15 +87,15 @@ animations = [ {
 "name": "wink",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "opening",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "talking",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "opening",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=9]
@@ -170,7 +170,7 @@ shape = SubResource( 8 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "talking"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Charge" type="AnimatedSprite" parent="."]
@@ -198,33 +198,43 @@ volume_db = -10.0
 
 [node name="iwin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
+volume_db = -5.0
 
 [node name="laugh1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
+volume_db = -5.0
 
 [node name="laugh2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
+volume_db = -5.0
 
 [node name="nomatch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
+volume_db = -5.0
 
 [node name="run_weak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
+volume_db = -5.0
 
 [node name="fool" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
+volume_db = -5.0
 
 [node name="run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
+volume_db = -5.0
 
 [node name="aaa" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )
+volume_db = -5.0
 
 [node name="hope" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 33 )
+volume_db = -5.0
 
 [node name="beware" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 34 )
+volume_db = -5.0
 
 [node name="Death1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 37 )
