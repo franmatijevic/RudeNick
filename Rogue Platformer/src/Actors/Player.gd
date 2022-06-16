@@ -26,7 +26,6 @@ var spider_web:=false
 var exits_level:=false
 var collides_w_enemy:=false
 var bomb_in_hands:=false
-var buying = false
 
 var burned_death:=false
 var club_death:=false
@@ -259,7 +258,6 @@ func _physics_process(delta: float) -> void:
 		$BuyIt.get_collider().e()
 		if(Input.is_action_just_pressed("buy")):
 			$BuyIt.get_collider().buy()
-	
 	
 	
 	if(velocity.x==0 and move_up and !move_left and !move_right and !$BuyIt.is_colliding() and (is_on_floor() or ledge_grab)):
