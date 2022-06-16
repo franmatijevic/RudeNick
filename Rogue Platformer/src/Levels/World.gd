@@ -172,23 +172,8 @@ func _ready() -> void:
 	
 	
 	
-	#Dungeon spawn rate
-	if(randi()%3==0 and !temple and !green and level>5):
-		var n=0
-		for i in range(end_down):
-			for j in range(end_right):
-				if(polje[i][j]==0):
-					n=n+1
-		if(n!=0):
-			var choice=randi()%n
-			var track=0
-			for i in range(end_down):
-				for j in range(end_right):
-					if(polje[i][j]==0):
-						if(track==choice):
-							polje[i][j]=8
-						track=track+1
-	elif(randi()%3==0 and !temple and !red and level>5): #Lair spawn rate
+	#Boss spawn rate
+	if((randi()%3==0 or level>23) and (!temple and !red and level>5)): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -246,6 +231,21 @@ func _ready() -> void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
+	elif(randi()%3==0 and !temple and !green and level>5): #Troll generation
+		var n=0
+		for i in range(end_down):
+			for j in range(end_right):
+				if(polje[i][j]==0):
+					n=n+1
+		if(n!=0):
+			var choice=randi()%n
+			var track=0
+			for i in range(end_down):
+				for j in range(end_right):
+					if(polje[i][j]==0):
+						if(track==choice):
+							polje[i][j]=8
+						track=track+1
 	elif(randi()%3==0 and !temple and !white and level>5): #Create SPIDER NEST
 		var n=0
 		for i in range(end_down):
@@ -650,7 +650,3 @@ func create_decorations()->void:
 					5:
 						polje[i][j].get_node("AnimatedSprite").animation="an6"
 				add_child(polje[i][j])
-
-
-
-

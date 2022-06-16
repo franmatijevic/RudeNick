@@ -7,9 +7,13 @@ var player_health:int=5
 var player_money:int=0
 var player_rope:int=5
 var player_bomb:int=5
+<<<<<<< Updated upstream
 var level:int=4
+=======
+var level:int=3
+>>>>>>> Stashed changes
 var poisoned:=false
-var shotgun:int=0
+var shotgun:int=10
 var goggles:=false
 
 var shop_angry:int=0

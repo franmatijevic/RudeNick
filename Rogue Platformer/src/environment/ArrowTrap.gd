@@ -8,6 +8,7 @@ var goggles=false
 func _ready() -> void:
 	if(dir):
 		$Detect.cast_to.x*=-1
+		$Detect.position.x*=-1
 		get_node("ArrowTrap").set_flip_h(false)
 	wait()
 
@@ -35,9 +36,9 @@ func shoot()->void:
 	arrow.position=position
 	if(!dir):
 		arrow.speed=-arrow.speed
-		arrow.position.x-=9
+		arrow.position.x-=13
 	else:
-		arrow.position.x+=9
+		arrow.position.x+=13
 	get_parent().add_child(arrow)
 
 func wait()->void:

@@ -5,6 +5,7 @@
 [ext_resource path="res://src/environment/block_empty.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/environment/bedrock.tscn" type="PackedScene" id=4]
 
+
 [node name="Frame" type="Node2D"]
 z_index = 300
 z_as_relative = false
