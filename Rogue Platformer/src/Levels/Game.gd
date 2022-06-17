@@ -7,9 +7,9 @@ var player_health:int=5
 var player_money:int=0
 var player_rope:int=5
 var player_bomb:int=5
-var level:int=7
+var level:int=0
 var poisoned:=false
-var shotgun:int=10
+var shotgun:int=0
 var goggles:=false
 
 var shop_angry:int=0

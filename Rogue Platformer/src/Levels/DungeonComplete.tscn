@@ -143,14 +143,6 @@ margin_bottom = 424.0
 custom_fonts/font = SubResource( 5 )
 text = "ropes"
 
-[node name="empty" type="Label" parent="Kanvas"]
-margin_left = 368.0
-margin_top = -64.0
-margin_right = 451.0
-margin_bottom = -28.0
-custom_fonts/font = SubResource( 5 )
-text = "drek"
-
 [node name="Bomba" type="Sprite" parent="Kanvas"]
 position = Vector2( 688, 373 )
 scale = Vector2( 7, 7 )
@@ -181,14 +173,6 @@ margin_bottom = 382.0
 custom_fonts/font = SubResource( 5 )
 text = "Time:"
 
-[node name="time_n" type="Label" parent="Kanvas"]
-margin_left = 1225.0
-margin_top = 388.0
-margin_right = 1345.0
-margin_bottom = 424.0
-custom_fonts/font = SubResource( 5 )
-text = "drek"
-
 [node name="total_time" type="Label" parent="Kanvas"]
 visible = false
 margin_left = 1469.0
@@ -197,14 +181,6 @@ margin_right = 1799.0
 margin_bottom = 365.0
 custom_fonts/font = SubResource( 5 )
 text = "Total time:"
-
-[node name="total_n" type="Label" parent="Kanvas"]
-margin_left = 1541.0
-margin_top = 388.0
-margin_right = 1661.0
-margin_bottom = 424.0
-custom_fonts/font = SubResource( 5 )
-text = "drek"
 
 [node name="Label" type="Label" parent="Kanvas"]
 margin_right = 40.0
@@ -223,7 +199,7 @@ margin_top = 1010.0
 margin_right = 1418.0
 margin_bottom = 1050.0
 custom_fonts/font = SubResource( 7 )
-text = "Press \"E\" to continue"
+text = "Press \"UP\" to continue"
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
 
