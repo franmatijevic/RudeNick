@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/back_button_v2_hover (1).png-5b78e75bebeaf8266d495babb6631703.stex"
+path="res://.import/difficulty_menu3.png-c4ccb293d930aca5b08bec4b12f67d21.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MainMenuStuff/back_button_v2_hover (1).png"
-dest_files=[ "res://.import/back_button_v2_hover (1).png-5b78e75bebeaf8266d495babb6631703.stex" ]
+source_file="res://Assets/Difficulty/difficulty_menu3.png"
+dest_files=[ "res://.import/difficulty_menu3.png-c4ccb293d930aca5b08bec4b12f67d21.stex" ]
 
 [params]
 

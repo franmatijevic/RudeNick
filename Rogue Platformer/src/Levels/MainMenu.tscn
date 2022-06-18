@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/MainMenu.gd" type="Script" id=2]
@@ -24,6 +24,27 @@
 [ext_resource path="res://Assets/MainMenuStuff/help_button_1_hover.png" type="Texture" id=22]
 [ext_resource path="res://Assets/MainMenuStuff/quit_button_1_hover.png" type="Texture" id=23]
 [ext_resource path="res://Assets/MainMenuStuff/play_button_1_hover.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu7.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu3.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu5.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu4.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu6.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Difficulty/normal_button_hover.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu9.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu8.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Difficulty/easy_button_hover.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Difficulty/crazy (1).png" type="Texture" id=36]
+[ext_resource path="res://Assets/Difficulty/normal_icon_hover2.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Difficulty/normal_icon_hover4.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Difficulty/easy_icon_hover1.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Difficulty/easy_icon_hover3.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Difficulty/easy_icon_hover4.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Difficulty/normal_icon_hover1.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Difficulty/easy_icon_hover2.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Difficulty/normal_icon_hover3.png" type="Texture" id=44]
+[ext_resource path="res://pcsenior.ttf" type="DynamicFontData" id=45]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,8 +59,38 @@ animations = [ {
 "speed": 20.0
 } ]
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 31 ), ExtResource( 25 ), ExtResource( 34 ), ExtResource( 33 ) ],
+"loop": false,
+"name": "default",
+"speed": 14.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 42 ), ExtResource( 37 ), ExtResource( 44 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 39 ), ExtResource( 43 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 45 )
+
 [node name="MainMenu" type="Node2D"]
 pause_mode = 1
+position = Vector2( -0.105118, 0.10511 )
 script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -142,5 +193,60 @@ volume_db = -10.0
 [node name="MusicButton" type="Sprite" parent="."]
 position = Vector2( 323.116, 149.987 )
 texture = ExtResource( 21 )
+
+[node name="Diff" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 192, 68 )
+frames = SubResource( 2 )
+frame = 8
+playing = true
+
+[node name="EasyButtonHover" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 98.5 )
+texture = ExtResource( 35 )
+
+[node name="NormalButtonHover" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 68 )
+texture = ExtResource( 32 )
+
+[node name="BackDiff" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 123.5 )
+texture = ExtResource( 36 )
+
+[node name="Chad" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 163.952, 77.2084 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="Baby" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 165.452, 101.286 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[node name="Desc" type="Node2D" parent="."]
+position = Vector2( 232.613, 71.1751 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="Desc" type="Label" parent="Desc"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -487.0
+margin_top = 269.0
+margin_right = 155.0
+margin_bottom = 350.0
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+align = 1
+valign = 2
+autowrap = true
+clip_text = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]

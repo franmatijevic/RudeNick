@@ -1,5 +1,7 @@
 extends Node2D
 
+var easy_mode:bool=false
+
 var music:bool=true
 var can_pause:=false
 
@@ -72,6 +74,8 @@ func restart()->void:
 func back_to_main_menu()->void:
 	if(has_node("World")):
 		get_node("World").queue_free()
+	if(has_node("Intro")):
+		get_node("Intro").queue_free()
 	var main=preload("res://src/Levels/MainMenu.tscn").instance()
 	add_child(main)
 	restart_stats()
@@ -98,6 +102,11 @@ func restart_stats()->void:
 	green_key=false
 	white_key=false
 	go_to_boss=false
+	
+	if(easy_mode==true):
+		player_health=5
+		player_bomb=5
+		player_rope=5
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()
@@ -127,6 +136,11 @@ func new_complete()->void:
 		get_node("World").queue_free()
 	if(has_node("MainMenu")):
 		get_node("MainMenu").queue_free()
+
+func easy_mode_setup()->void:
+	player_health=5
+	player_bomb=5
+	player_rope=5
 
 func new_level()->void:
 	bomb_in_hands=true

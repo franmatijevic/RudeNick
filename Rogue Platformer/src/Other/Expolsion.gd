@@ -18,6 +18,8 @@ func _on_KillBeings_body_entered(body: Node) -> void:
 		else:
 			body.health=body.health-damage
 			body.stunned()
+	elif(body.name=="Mole"):
+		body.damage(5)
 	else:
 		body.death()
 

@@ -36,14 +36,15 @@ func _input(event):
 		if(!music):
 			value=-80
 		if(music==true):
-			if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
-				get_node("/root/Game/World/Music1").set_volume_db(value)
-			elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
-				get_node("/root/Game/World/Music2").set_volume_db(value)
-			elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
-				get_node("/root/Game/World/Music3").set_volume_db(value)
-			elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
-				get_node("/root/Game/World/Rage").set_volume_db(value)
+			if(get_node("/root/Game").has_node("World")):
+				if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
+					get_node("/root/Game/World/Music1").set_volume_db(value)
+				elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
+					get_node("/root/Game/World/Music2").set_volume_db(value)
+				elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
+					get_node("/root/Game/World/Music3").set_volume_db(value)
+				elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
+					get_node("/root/Game/World/Rage").set_volume_db(value)
 		set_buttons()
 		set_visible(!get_tree().paused)
 		get_tree().paused = !get_tree().paused
@@ -207,6 +208,8 @@ func set_buttons()->void:
 			get_node("Buttons/MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted_hover.png")
 
 func set_visible(is_visible):
+	if(get_node("/root").has_node("Intro")):
+		return
 	for node in get_children():
 		if((node.name!="Buttons" and is_visible) or !is_visible):
 			if(node.name!="Click"):

@@ -8,14 +8,17 @@ func _physics_process(delta: float) -> void:
 
 func _on_CollideWall_body_entered(body: Node) -> void:
 	if(body.name=="Player" and !body.iframes_on and !player):
+		var damage=2
+		if(get_node("/root/Game").easy_mode):
+			damage=1
 		body.last_damage="Mole"
-		if(body.health<3):
+		if(body.health<damage+1):
 			if(speed>0.0):
 				body.death(true)
 			else:
 				body.death(false)
 		else:
-			body.damage(2)
+			body.damage(damage)
 	if("last_damage" in body and body.last_damage=="serpant"):
 		pass
 	elif(!player or !body.name=="Player"):

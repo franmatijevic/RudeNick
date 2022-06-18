@@ -21,6 +21,8 @@ var knock_back_h:float=240.0
 var knock_back_v:float=150.0
 
 func _ready() -> void:
+	if(get_node("/root/Game").easy_mode):
+		health=15
 	get_node("BlockDestroy").monitoring=false
 	get_node("AnimatedSprite").animation="default"
 	velocity.x = speed.x
@@ -66,20 +68,24 @@ func _on_DetectWhip_area_entered(area: Area2D) -> void:
 
 
 func _on_ClubDamage_body_entered(body: Node) -> void:
+	var damage=2
+	if(get_node("/root/Game").easy_mode):
+		damage=1
+	
 	if(!body.iframes_on):
 		body.last_damage="Troll"
 		#body.iframes()
 		#body.treperenje()
 		body.ledge_grab=false
 		body.climbing=false
-		if(body.health<3):
+		if(body.health<damage+1):
 			get_node("Sound2").play()
 			body.club_death=true
 			if(body.global_position.x>global_position.x):
 				body.death(true)
 			else:
 				body.death(false)
-		body.damage(2)
+		body.damage(damage)
 		if(randi()%3==0):
 			body.stunned()
 		if(body.global_position.x>global_position.x):

@@ -15,6 +15,12 @@ var help_choice:int=0
 #back 2
 var music:=false
 
+var diff=false
+var diff_choice:int=0
+#easy 0
+#normal 1
+#back 2
+
 func title_animation()->void:
 	get_node("RudeNick").visible=false
 	choice=0
@@ -47,7 +53,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if(enable and !help):
+	if(enable and !help and !diff):
 		if(choice==0):
 			get_node("PlaySprite").texture=load("res://Assets/MainMenuStuff/play_button_1_hover.png")
 			get_node("HelpSprite").texture=load("res://Assets/MainMenuStuff/help_button_1.png")
@@ -93,7 +99,7 @@ func _process(delta: float) -> void:
 				get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_hover.png")
 			else:
 				get_node("MusicButton").texture=load("res://Assets/MusicOnOff/music_button_muted_hover.png")
-	elif(help):
+	elif(help and !diff):
 		if(help_choice==0):
 			get_node("ArrowLeft").visible=true
 			get_node("ArrowRight").visible=false
@@ -133,6 +139,60 @@ func _process(delta: float) -> void:
 				get_node("HelpMenu").visible=false
 				get_node("Back").visible=false
 				title_animation()
+	elif(diff and !help):
+		if(Input.is_action_just_pressed("down")):
+			diff_choice+=1
+			if(diff_choice==3):
+				diff_choice=0
+		if(Input.is_action_just_pressed("up")):
+			diff_choice-=1
+			if(diff_choice==-1):
+				diff_choice=2
+		if(diff_choice==0 and get_node("Diff").frame==8):
+			get_node("EasyButtonHover").visible=false
+			get_node("NormalButtonHover").visible=true
+			get_node("BackDiff").visible=false
+			get_node("Chad").visible=true
+			get_node("Baby").visible=false
+			get_node("Desc/Desc").text="*This mode is the prefered way of playing."
+		elif(diff_choice==1 and get_node("Diff").frame==8):
+			get_node("EasyButtonHover").visible=true
+			get_node("NormalButtonHover").visible=false
+			get_node("BackDiff").visible=false
+			get_node("Chad").visible=false
+			get_node("Baby").visible=true
+			get_node("Desc/Desc").text="*In this mode, you start with more resurses and enemies do less damage."
+		elif(get_node("Diff").frame==8):
+			get_node("EasyButtonHover").visible=false
+			get_node("NormalButtonHover").visible=false
+			get_node("BackDiff").visible=true
+			get_node("Chad").visible=false
+			get_node("Baby").visible=false
+			get_node("Desc/Desc").text=" "
+			#title_animation()
+	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help and diff):
+		if(diff_choice==0):
+			get_node("/root/Game").easy_mode=false
+			get_node("/root/Game").can_pause=true
+			get_parent().level=0
+			get_parent().new_level()
+		elif(diff_choice==1):
+			get_node("/root/Game").easy_mode_setup()
+			get_node("/root/Game").easy_mode=true
+			get_node("/root/Game").can_pause=true
+			get_parent().level=0
+			get_parent().new_level()
+		else:
+			enable=false
+			get_node("credits").visible=true
+			get_node("MusicButton").visible=true
+			title_animation()
+			get_node("Diff").visible=false
+			get_node("EasyButtonHover").visible=false
+			get_node("NormalButtonHover").visible=false
+			get_node("BackDiff").visible=false
+			get_node("Desc/Desc").visible=false
+			diff=false
 	
 	if(Input.is_action_just_pressed("down")):
 		get_node("Click").play()
@@ -152,12 +212,13 @@ func _process(delta: float) -> void:
 		get_node("Click").play()
 		choice=4
 	
-	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help):
+	if((Input.is_action_just_pressed("buy") or Input.is_action_just_pressed("ui_accept")) and enable and !help and !diff):
 		get_node("Click").play()
 		if(choice==0):
-			get_node("/root/Game").can_pause=true
-			get_parent().level=0
-			get_parent().new_level()
+			setup_diff()
+			#get_node("/root/Game").can_pause=true
+			#get_parent().level=0
+			#get_parent().new_level()
 		elif(choice==1):
 			setup_help()
 		elif(choice==2):
@@ -180,6 +241,19 @@ func _process(delta: float) -> void:
 	get_node("Background1").position.y-=delta*15
 	if(get_node("Background1").position.y<0):
 		get_node("Background1").position.y=192
+
+func setup_diff()->void:
+	diff=true
+	diff_choice=0
+	get_node("PlaySprite").visible=false
+	get_node("PlaySprite").visible=false
+	get_node("HelpSprite").visible=false
+	get_node("QuitSprite").visible=false
+	get_node("Diff").frame=0
+	get_node("Diff").visible=true
+	get_node("credits").visible=false
+	get_node("MusicButton").visible=false
+	get_node("Desc/Desc").visible=true
 
 func setup_help()->void:
 	help=true

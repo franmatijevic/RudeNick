@@ -98,14 +98,18 @@ func _on_EnemyDetector_body_entered(body: PhysicsBody2D) -> void:
 func _on_Boss_area_entered(area: Area2D) -> void:
 	#if(area.get_parent().name=="Troll"):
 	#	return
+	var damage=2
+	if(get_node("/root/Game").easy_mode):
+		damage=1
+	
 	if(!iframes_on):
 		last_damage=area.get_parent().last_damage
-		if(health<3):
+		if(health<damage+1):
 			var knock:=true
 			if(area.get_parent().global_position.x>global_position.x):
 				knock=false
 			death(knock)
-		damage(2)
+		damage(damage)
 
 var high:=999.0
 var sky:=false
