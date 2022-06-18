@@ -65,17 +65,13 @@ func _process(delta: float) -> void:
 		down=true
 	if(Input.is_action_just_released("down")):
 		down=false
-	
+
+var time_bomb:float=0.0
+
+func _physics_process(delta: float) -> void:
 	if(has_node("World")):
 		if(Input.is_action_just_pressed("bomb") and get_node("World").has_node("Player")):
 			check_for_bomb()
-			#if(get_node("World/Player").bomb>0):
-			#	bomb_in_hands=!bomb_in_hands
-			#elif(get_node("World/Player").bomb==0):
-			#	bomb_in_hands=true
-	#if(has_node("World")):
-	#	if(get_node("World").has_node("Player")):
-	#		get_node("World/Player/Label").text=str(bomb_in_hands)
 
 func check_for_bomb()->void:
 	var player = get_node("World/Player")
