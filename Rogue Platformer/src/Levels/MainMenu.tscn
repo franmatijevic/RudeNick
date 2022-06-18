@@ -139,12 +139,12 @@ texture = ExtResource( 24 )
 
 [node name="QuitSprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 192, 121 )
+position = Vector2( 192, 122.5 )
 texture = ExtResource( 23 )
 
 [node name="HelpSprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( 192, 96 )
+position = Vector2( 192, 97.5 )
 texture = ExtResource( 22 )
 
 [node name="HelpMenu" type="Sprite" parent="."]

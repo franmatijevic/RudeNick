@@ -59,41 +59,6 @@ animations = [ {
 "name": "hat5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "hat6",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "hat4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "hat2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "hat0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "hat9",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "hat1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "hat3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "hat8",
@@ -102,6 +67,41 @@ animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "hat7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "hat2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "hat4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "hat1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "hat9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "hat3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hat0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "hat6",
 "speed": 5.0
 } ]
 
@@ -138,38 +138,28 @@ gravity = 400.0
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
 playing = true
 flip_h = true
 
-[node name="MoleHat4" type="Sprite" parent="AnimatedSprite"]
-visible = false
-position = Vector2( 0.5, -1.5 )
-z_index = 9
-texture = ExtResource( 5 )
-flip_h = true
-
 [node name="Hats" type="AnimatedSprite" parent="AnimatedSprite"]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -4 )
 frames = SubResource( 3 )
 animation = "hat9"
 playing = true
 
-[node name="Mole" type="Sprite" parent="AnimatedSprite"]
-visible = false
-position = Vector2( -18, 0 )
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
 
 [node name="Shotgun" type="Sprite" parent="."]
 visible = false
 position = Vector2( -2.95902, 1.79109 )
+z_index = 2
 texture = ExtResource( 14 )
 flip_h = true
 
 [node name="DetectPlayer" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 collision_layer = 0
 monitoring = false
@@ -180,6 +170,7 @@ modulate = Color( 0.109804, 0.227451, 0.764706, 1 )
 shape = SubResource( 8 )
 
 [node name="DamagePlayer" type="Area2D" parent="."]
+visible = false
 modulate = Color( 0.384314, 0.835294, 0.0784314, 1 )
 position = Vector2( 0, 2 )
 collision_layer = 0
@@ -190,9 +181,11 @@ monitorable = false
 shape = SubResource( 9 )
 
 [node name="GunSight" type="RayCast2D" parent="."]
+visible = false
 cast_to = Vector2( -88, 0 )
 
 [node name="Whip" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 16
 monitorable = false
@@ -201,6 +194,7 @@ monitorable = false
 shape = SubResource( 10 )
 
 [node name="IdlePlayer" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0, 20 )
 collision_layer = 0
 monitoring = false
@@ -210,6 +204,7 @@ monitorable = false
 shape = SubResource( 11 )
 
 [node name="Web" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 64
 monitorable = false

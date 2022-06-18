@@ -5,6 +5,7 @@ export var max_jump:=200
 var angry:=false
 export var idle_angry:=false
 
+var hatx=0.0
 var haty_down:=0.0
 var haty_up:=0.0
 var haty_down_later=0.0
@@ -98,95 +99,93 @@ func _ready() -> void:
 		if(get_parent().name=="Shop"):
 			get_parent().get_node("Welcome").monitoring=false
 	
-	var pickhat=randi()%2
+	var pickhat=randi()%10
 	var hat = get_node("AnimatedSprite/Hats")
 	match pickhat:
 		0:
 			hat.animation="hat0"
-			hat.position.x=-0.5
 			haty_up=-4.5
-			haty_down=haty_up+1
-			haty_down_later=-5.5
-			hat_n=false
+			hatx=-0.5
 		1:
 			hat.animation="hat1"
-			hat.position.x=-0.5
+			hatx=-0.5
 			haty_up=-0.5
-			haty_down=haty_up+1
-			haty_down_later=-1.5
-			hat_n=true
 		2:
 			get_node("AnimatedSprite/Hats").animation="hat2"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			hatx=-1
+			haty_up=-4
 		3:
 			get_node("AnimatedSprite/Hats").animation="hat3"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-4
+			hatx=-0.5
 		4:
 			get_node("AnimatedSprite/Hats").animation="hat4"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-1.5
+			hatx=0.5
 		5:
 			get_node("AnimatedSprite/Hats").animation="hat5"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-4
+			hatx=0
 		6:
 			get_node("AnimatedSprite/Hats").animation="hat6"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-4.5
+			hatx=-0.5
 		7:
 			get_node("AnimatedSprite/Hats").animation="hat7"
-			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-0.5
+			hatx=0
 		8:
 			get_node("AnimatedSprite/Hats").animation="hat8"
 			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-5.5
+			hatx=-0.5
 		9:
 			get_node("AnimatedSprite/Hats").animation="hat9"
 			hat.position.x=-0.5
-			haty_up=-5
-			haty_down=-4
+			haty_up=-4
+			hatx=-0.5
 	haty_down=haty_up+1
+	haty_down_later=haty_up-1
+	if(get_node("AnimatedSprite").is_flipped_h()):
+		get_node("AnimatedSprite/Hats").position.x=-hatx
+		get_node("AnimatedSprite/Hats").set_flip_h(true)
+	else:
+		get_node("AnimatedSprite").position.x=hatx
+		get_node("AnimatedSprite/Hats").set_flip_h(false)
 
 func _process(delta: float) -> void:
-	if(hat_n):
-		get_node("AnimatedSprite/Hats").set_flip_h(get_node("AnimatedSprite").is_flipped_h())
-		get_node("AnimatedSprite/Hats").position.x=abs(get_node("AnimatedSprite/Hats").position.x)
-	else:
-		get_node("AnimatedSprite/Hats").position.x=-abs(get_node("AnimatedSprite/Hats").position.x)
-		get_node("AnimatedSprite/Hats").set_flip_h(!get_node("AnimatedSprite").is_flipped_h())
-	
 	if(!angry):
 		if(get_node("AnimatedSprite").frame==0):
 			get_node("AnimatedSprite/Hats").position.y=haty_up
 		else:
-			get_node("AnimatedSprite/Hats").position.y=haty_down
+			get_node("AnimatedSprite/Hats").position.y=haty_up+1
 	elif(idle_angry):
 		idle_look_around()
+		if(get_node("AnimatedSprite").frame==0):
+			get_node("AnimatedSprite/Hats").position.y=haty_up-1
+		else:
+			get_node("AnimatedSprite/Hats").position.y=haty_up-2
 	else:
 		if(get_node("AnimatedSprite").frame==0):
-			get_node("AnimatedSprite/Hats").position.y=haty_down_later+1
+			get_node("AnimatedSprite/Hats").position.y=haty_up-1
 		else:
-			get_node("AnimatedSprite/Hats").position.y=haty_down_later
+			get_node("AnimatedSprite/Hats").position.y=haty_up-2
 		if(!turn_to_player):
 			look_for_player()
 		if(velocity.x>0.0):
 			get_node("AnimatedSprite").set_flip_h(false)
 			get_node("Shotgun").set_flip_h(false)
 			$GunSight.cast_to.x=88
+			get_node("AnimatedSprite/Hats").position.x=-hatx
+			get_node("AnimatedSprite/Hats").set_flip_h(false)
+			get_node("Shotgun").position.x=abs(get_node("Shotgun").position.x)
 		else:
 			$GunSight.cast_to.x=-88
 			get_node("AnimatedSprite").set_flip_h(true)
 			get_node("Shotgun").set_flip_h(true)
+			get_node("AnimatedSprite/Hats").position.x=hatx
+			get_node("AnimatedSprite/Hats").set_flip_h(true)
+			get_node("Shotgun").position.x=-abs(get_node("Shotgun").position.x)
 
 func _physics_process(delta: float) -> void:
 	if(angry and !idle_angry):

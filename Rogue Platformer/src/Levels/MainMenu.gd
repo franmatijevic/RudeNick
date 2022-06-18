@@ -246,7 +246,7 @@ func setup_diff()->void:
 	diff=true
 	diff_choice=0
 	get_node("PlaySprite").visible=false
-	get_node("PlaySprite").visible=false
+	get_node("RudeNick").visible=false
 	get_node("HelpSprite").visible=false
 	get_node("QuitSprite").visible=false
 	get_node("Diff").frame=0
@@ -259,7 +259,7 @@ func setup_help()->void:
 	help=true
 	help_choice=0
 	get_node("PlaySprite").visible=false
-	get_node("PlaySprite").visible=false
+	get_node("RudeNick").visible=false
 	get_node("HelpSprite").visible=false
 	get_node("QuitSprite").visible=false
 	
