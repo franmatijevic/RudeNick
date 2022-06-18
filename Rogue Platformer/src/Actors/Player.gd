@@ -164,7 +164,10 @@ func _process(delta: float) -> void:
 		rope=rope-1
 		var rope=preload("res://src/Other/RopeTop.tscn").instance()
 		rope.global_position=global_position
-		if(look_down):
+		var newx = int(round(global_position.x))/16
+		newx = newx * 16 + 8
+		rope.global_position.x=newx
+		if(look_down and !ledge_grab):
 			rope.look_down=true
 			if(smjer):
 				rope.global_position.x=rope.global_position.x-16

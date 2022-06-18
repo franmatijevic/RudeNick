@@ -17,6 +17,12 @@ var velocity = Vector2.ZERO
 
 func _ready() -> void:
 	get_node("Sound").play()
+	if($INWALL.is_colliding()):
+		if(get_node("/root/Game/World").has_node("Player")):
+			global_position.x=get_node("/root/Game/World/Player").global_position.x
+	start()
+
+func start()->void:
 	if(look_down):
 		distance=0.0
 	newx = int(round(global_position.x))/16

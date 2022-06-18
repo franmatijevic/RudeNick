@@ -373,14 +373,13 @@ func build_thing()->void:
 	blok.position.y=position.y
 	
 	if(!up):
-		var grass=randi()%20
-		if(get_node("/root/Game/World").temple or 1==1):
-			if(randi()%75==0 and can_be_spikes and level>4):
-				var trava=preload("res://src/environment/Spikes.tscn").instance()
-				trava.position=position
-				trava.position.y-=16
-				get_parent().add_child(trava)
-		elif(grass==0):
+		var grass=randi()%15
+		if(randi()%75==0 and can_be_spikes and level>4):
+			var trava=preload("res://src/environment/Spikes.tscn").instance()
+			trava.position=position
+			trava.position.y-=16
+			get_parent().add_child(trava)
+		elif(grass==0 and !get_node("/root/Game/World").temple):
 			var trava=preload("res://src/Other/Grass.tscn").instance()
 			trava.position=position
 			trava.position.y-=16
