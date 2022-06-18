@@ -38,6 +38,9 @@ var go_to_boss:=false
 
 var boss_level:int=-1
 
+var up:bool=false
+var down:bool=false
+
 func set_health()->void:
 	if(get_node("World").has_node("Player")):
 		get_node("World").get_node("Player").health=player_health
@@ -54,16 +57,33 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("up")):
+		up=true
+	if(Input.is_action_just_released("up")):
+		up=false
+	if(Input.is_action_just_pressed("down")):
+		down=true
+	if(Input.is_action_just_released("down")):
+		down=false
+	
 	if(has_node("World")):
 		if(Input.is_action_just_pressed("bomb") and get_node("World").has_node("Player")):
-			if(get_node("World/Player").bomb>0):
-				bomb_in_hands=!bomb_in_hands
-			elif(get_node("World/Player").bomb==0):
-				bomb_in_hands=true
+			check_for_bomb()
+			#if(get_node("World/Player").bomb>0):
+			#	bomb_in_hands=!bomb_in_hands
+			#elif(get_node("World/Player").bomb==0):
+			#	bomb_in_hands=true
 	#if(has_node("World")):
 	#	if(get_node("World").has_node("Player")):
 	#		get_node("World/Player/Label").text=str(bomb_in_hands)
 
+func check_for_bomb()->void:
+	var player = get_node("World/Player")
+	if(bomb_in_hands and player.bomb>0):
+		player.summon_bomb()
+	bomb_in_hands=!bomb_in_hands
+	if(!bomb_in_hands and player.bomb==0):
+		bomb_in_hands=true
 
 func restart()->void:
 	restart_stats()

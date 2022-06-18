@@ -106,7 +106,8 @@ func _input(event):
 			if(choose==0):
 				set_visible(false)
 				get_tree().paused = false
-				get_tree().reload_current_scene()
+				get_node("/root/Game").back_to_main_menu()
+				#get_tree().reload_current_scene()
 			elif(choose==2):
 				get_tree().paused = false
 				set_visible(false)

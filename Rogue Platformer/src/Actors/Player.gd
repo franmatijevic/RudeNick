@@ -114,6 +114,12 @@ func _on_Boss_area_entered(area: Area2D) -> void:
 var high:=999.0
 var sky:=false
 
+func summon_bomb()->void:
+	bomb=bomb-1
+	var bomba=preload("res://src/Other/Bomb.tscn").instance()
+	bomba.position=position
+	get_parent().add_child(bomba)
+
 func _process(delta: float) -> void:
 	if(!if_stunned and velocity.x!=0 and is_on_floor()):
 		if(!get_node("Walk").is_playing()):
@@ -166,12 +172,9 @@ func _process(delta: float) -> void:
 				rope.global_position.x=rope.global_position.x+16
 		get_parent().add_child(rope)
 	
-	if(Input.is_action_just_pressed("bomb") and !if_stunned):
-		if(!get_node("/root/Game").bomb_in_hands and bomb>0):
-			bomb=bomb-1
-			var bomba=preload("res://src/Other/Bomb.tscn").instance()
-			bomba.position=position
-			get_parent().add_child(bomba)
+	#if(Input.is_action_just_pressed("bomb") and !if_stunned):
+	#	if(!get_node("/root/Game").bomb_in_hands and bomb>0):
+		#	summon_bomb()
 		
 		#if(bomb_in_hands):
 		#	pass

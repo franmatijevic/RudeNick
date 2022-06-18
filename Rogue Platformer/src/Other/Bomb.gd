@@ -22,14 +22,14 @@ func _ready() -> void:
 	#wait()
 
 func _physics_process(delta: float) -> void:
-	if(Input.is_action_just_pressed("up")):
-		up=true
-	if(Input.is_action_just_released("up")):
-		up=false
-	if(Input.is_action_just_pressed("down")):
-		down=true
-	if(Input.is_action_just_released("down")):
-		down=false
+	#if(Input.is_action_just_pressed("up")):
+	#	up=true
+	#if(Input.is_action_just_released("up")):
+	#	up=false
+	#if(Input.is_action_just_pressed("down")):
+	#	down=true
+	#if(Input.is_action_just_released("down")):
+	#	down=false
 	
 	time+=delta
 	if(time>3):
@@ -37,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	
 	#if(Input.is_action_just_pressed("bomb") and get_node("/root/Game/World").has_node("Player") and in_hands and time>0.5):
 	if(Input.is_action_just_pressed("bomb") and in_hands):
+		up=get_node("/root/Game").up
+		down=get_node("/root/Game").down
 		if(1==1):
 			var direction
 			if(get_node("/root/Game/World/Player/AnimatedSprite").is_flipped_h()):

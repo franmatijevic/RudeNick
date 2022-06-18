@@ -83,8 +83,8 @@ func _process(delta: float) -> void:
 				elif(choice==1):
 					help_setup()
 				elif(choice==2):
-					#get_node("/root/Game").back_to_main_menu()
-					get_tree().reload_current_scene()
+					get_node("/root/Game").back_to_main_menu()
+					#get_tree().reload_current_scene()
 				else:
 					get_node("/root/Game").music=false
 		else:
