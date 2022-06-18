@@ -1,5 +1,6 @@
 extends Node2D
 
+var sound:bool=true
 
 func _ready() -> void:
 	get_node("AnimatedSprite").frame=0
@@ -13,4 +14,11 @@ func _process(delta: float) -> void:
 	if(get_node("AnimatedSprite").frame==4):
 		get_node("Peek").playing=true
 	if(get_node("AnimatedSprite").frame==10):
-		get_node("Jump").playing=true
+		sound()
+		#get_node("Jump").playing=true
+
+func sound()->void:
+	if(sound==false):
+		return
+	sound=false
+	get_node("Jump").playing=true

@@ -119,13 +119,15 @@ limit_left = 0
 limit_top = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 96, 64 )
+position = Vector2( 96, 72 )
 frames = SubResource( 22 )
 frame = 29
 playing = true
 
 [node name="Peek" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -5.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -5.0
