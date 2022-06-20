@@ -15,7 +15,7 @@ var add:int=0
 
 func _ready() -> void:
 	if(get_node("/root/Game").easy_mode):
-		get_node("Thank2").text="Good job, now try on normal mode!"
+		get_node("Text/Thank2").text="Good job, now try on normal mode!"
 	#else:
 	#	get_node("Thank2").text="Congrats!"
 	get_node("Music").play()

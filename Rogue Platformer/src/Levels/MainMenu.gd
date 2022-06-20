@@ -46,6 +46,7 @@ func title_animation()->void:
 
 
 func _ready() -> void:
+	get_node("/root/Game").can_pause=false
 	title_animation()
 	#get_node("Help/Controls").animation="an1"
 	if(!get_node("/root/Game").music):
