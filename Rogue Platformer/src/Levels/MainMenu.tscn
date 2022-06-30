@@ -220,13 +220,14 @@ texture = ExtResource( 36 )
 visible = false
 position = Vector2( 163.952, 77.2084 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Baby" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 165.452, 101.286 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Desc" type="Node2D" parent="."]

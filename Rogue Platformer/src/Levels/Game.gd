@@ -118,11 +118,6 @@ func restart_stats()->void:
 	green_key=false
 	white_key=false
 	go_to_boss=false
-	
-	if(easy_mode==true):
-		player_health=5
-		player_bomb=5
-		player_rope=5
 
 func _get_viewport_center() -> Vector2:
 	var transform : Transform2D = get_viewport_transform()
