@@ -43,8 +43,8 @@ func enter_dungeon()->void:
 	get_node("/root/Game").green_key=false
 	get_node("/root/Game").white_key=false
 	get_node("/root/Game/World").temple=true
-	var boss_level=get_node("/root/Game").level
-	if(boss_level%2!=0):
-		boss_level+=1
-	boss_level=boss_level+int(boss_level/2)
-	get_node("/root/Game").boss_level=boss_level
+	if(get_node("/root/Game").level_keys_collected==0):
+		get_node("/root/Game").level_keys_collected=get_node("/root/Game").level
+		get_node("/root/Game").boss_level=get_node("/root/Game").level+5
+	else:
+		get_node("/root/Game").boss_level=get_node("/root/Game").level+4+(get_node("/root/Game").level-get_node("/root/Game").level_keys_collected) 

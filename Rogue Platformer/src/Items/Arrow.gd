@@ -5,7 +5,7 @@ var gravity:=0.0
 var exit:=false
 
 var velocity: = Vector2.ZERO
-var speed=200.0
+var speed=450.0
 
 func _ready() -> void:
 	get_node("Sound").play()

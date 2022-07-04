@@ -7,7 +7,7 @@ var player_health:int=5
 var player_money:int=0
 var player_rope:int=5
 var player_bomb:int=5
-var level:int=0
+var level:int=14
 var poisoned:=false
 var shotgun:int=0
 var goggles:=false
@@ -16,8 +16,8 @@ var shop_angry:int=0
 
 var bomb_in_hands:bool=true
 
-var red_key:=false
-var white_key:=false
+var red_key:=true
+var white_key:=true
 var green_key:=false
 
 var old_health:int=0
@@ -34,6 +34,7 @@ var temple:=false
 
 var go_to_boss:=false
 
+var level_keys_collected:int=0
 var boss_level:int=-1
 
 func set_health()->void:

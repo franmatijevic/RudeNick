@@ -121,14 +121,12 @@ func _ready() -> void:
 					polje[i+1][j]=6
 	
 	
-	var shop=randi()%5
 	var all_shops_i=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var all_shops_j=[0,0,0,0,0,0,0,0,0,0,0,0,0]
 	var dir_shops=[false,false,false,false,false,false,false,false,false,false,false,false]
 	var n_of_shops:int=0
 	var where_shop
-	shop=0
-	if((shop==0 and shop_angry<1 and !temple and level>3) or level==4 or level==10):
+	if(level%4==0 and shop_angry<1 and !temple):
 		for i in range(end_down):
 			for j in range(end_right):
 				if(polje[i][j]==0):
@@ -153,8 +151,10 @@ func _ready() -> void:
 		gate_generate+=1
 	if(white):
 		gate_generate+=1
+	if(gate_generate==3 and get_node("/root/Game").level_keys_collected==0):
+		get_node("/root/Game").level_keys_collected=level-1
 	
-	if((randi()%8-gate_generate*2<1 and level>2) or level==3 or gate_generate==3):
+	if(level%3==0 or gate_generate==3):
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -171,9 +171,25 @@ func _ready() -> void:
 						track=track+1
 	
 	
-	
+	var boss=0
+	if((level>15 or level%5==0) and !temple):
+		boss=randi()%3+1
+		if(red and green and white):
+			boss=0
+		elif(red and green):
+			boss=3
+		elif(red and white):
+			boss=2
+		elif(green and white):
+			boss=1
+		elif(red and boss==1):
+			boss=2
+		elif(green and boss==2):
+			boss=3
+		elif(white and boss==3):
+			boss=1
 	#Boss spawn rate
-	if((randi()%3==0 or level>23) and (!temple and !red and level>5)): #Lair spawn rate
+	if(boss==1): #Lair spawn rate
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right-1):
@@ -231,7 +247,7 @@ func _ready() -> void:
 									polje[i-1][j+1]=2
 									lair_dir=true
 							track=track+1
-	elif(randi()%3==0 and !temple and !green and level>5): #Troll generation
+	elif(boss==2): #Troll generation
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
@@ -246,7 +262,7 @@ func _ready() -> void:
 						if(track==choice):
 							polje[i][j]=8
 						track=track+1
-	elif(randi()%3==0 and !temple and !white and level>5): #Create SPIDER NEST
+	elif(boss==3): #Create SPIDER NEST
 		var n=0
 		for i in range(end_down):
 			for j in range(end_right):
