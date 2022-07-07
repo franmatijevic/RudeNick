@@ -46,23 +46,9 @@ func _on_BlockDestroy_body_entered(body):
 func _on_BlockDestroy_area_entered(area: Area2D) -> void:
 	area.get_parent().destroy()
 
-func _on_Head_body_entered(body: Node) -> void:
-	pass
-	body.enemy_jump()
-	#health=health-1
-	#var blood=preload("res://src/Other/Blood.tscn").instance()
-	#blood.position=position
-	#blood.position.y=blood.position.y-10
-	#get_parent().add_child(blood)
 
 func _on_DetectWhip_area_entered(area: Area2D) -> void:
-	flash_damage()
-	health=health-1
-	var blood=preload("res://src/Other/Blood.tscn").instance()
-	blood.position=position
-	blood.position.y=blood.position.y-10
-	get_parent().add_child(blood)
-
+	damage(1)
 
 
 func _on_ClubDamage_body_entered(body: Node) -> void:
@@ -158,12 +144,16 @@ func play_random_sound()->void:
 		3:
 			get_node("Sound4").play()
 	play_sound=false
+	
+func _on_Head_body_entered(body: Node) -> void:
+	pass
+	body.enemy_jump()
 
 func attack()->void:
 	if(!try_to_attack):
 		try_to_attack=true
 		var ex_speed=velocity.x
-		velocity.x=0.0
+		velocity.x=0
 		
 		get_node("TrollStand").visible=true
 		get_node("AnimatedSprite2").visible=false
@@ -181,13 +171,9 @@ func attack()->void:
 		get_node("ClubDamage").monitoring=true
 		get_node("AnimatedSprite").frame=0
 		
-		time_in_seconds = 0.01
+		time_in_seconds = 0.6
 		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		get_node("ClubDamage").monitoring=false
-		
-		
-		time_in_seconds = 1
-		yield(get_tree().create_timer(time_in_seconds), "timeout")
 		
 		get_node("AnimatedSprite").visible=false
 		get_node("AnimatedSprite2").visible=true
