@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://src/Levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
@@ -11,6 +11,52 @@
 [ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Prepare for Battle! .wav" type="AudioStream" id=9]
 [ext_resource path="res://Music/Mole/mole_death.wav" type="AudioStream" id=10]
 [ext_resource path="res://Music/Random/no_money.wav" type="AudioStream" id=11]
+[ext_resource path="res://Music/Random/button_hover_1.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation7.png" type="Texture" id=15]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation6.png" type="Texture" id=16]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation5.png" type="Texture" id=17]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation9.png" type="Texture" id=18]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation3.png" type="Texture" id=21]
+[ext_resource path="res://Assets/MainMenuStuff/pause_menu_animation8.png" type="Texture" id=22]
+[ext_resource path="res://Assets/MainMenuStuff/help_button_1.png" type="Texture" id=23]
+[ext_resource path="res://Assets/MainMenuStuff/quit_button_1.png" type="Texture" id=24]
+[ext_resource path="res://Assets/HelpMenu/help_menu_1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover.png" type="Texture" id=26]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2_hover (1).png" type="Texture" id=27]
+[ext_resource path="res://Assets/HelpMenu/help_menu_2.png" type="Texture" id=28]
+[ext_resource path="res://Assets/HelpMenu/help_menu.png" type="Texture" id=29]
+[ext_resource path="res://Assets/HelpMenu/next_page_button.png" type="Texture" id=30]
+[ext_resource path="res://Assets/MobileControlls/pause_button1.png" type="Texture" id=31]
+[ext_resource path="res://Assets/MobileControlls/pause_button2.png" type="Texture" id=32]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_cum.png" type="Texture" id=33]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover_cum.png" type="Texture" id=34]
+[ext_resource path="res://Assets/MainMenuStuff/back_button_hover (1).png" type="Texture" id=35]
+[ext_resource path="res://Assets/HelpMenu/back_button (1).png" type="Texture" id=36]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "an1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "an2",
+"speed": 5.0
+} ]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -52,6 +98,86 @@ pause_mode = 1
 layer = 2
 
 [node name="UI" parent="Kanvas" instance=ExtResource( 6 )]
+
+[node name="PauseButton" type="TouchScreenButton" parent="Kanvas"]
+position = Vector2( 1464, 28 )
+scale = Vector2( 8, 8 )
+normal = ExtResource( 31 )
+pressed = ExtResource( 32 )
+
+[node name="Resume" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 782, 331 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 36 )
+pressed = ExtResource( 35 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 960, 450 )
+scale = Vector2( 6.6, 6.6 )
+frames = SubResource( 3 )
+frame = 8
+playing = true
+
+[node name="Help" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 782.2, 568.75 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 23 )
+
+[node name="Quit" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 782, 733.795 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 24 )
+
+[node name="Left" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 1125, 640 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 30 )
+pressed = ExtResource( 26 )
+
+[node name="Right" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 1312, 640 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 33 )
+pressed = ExtResource( 34 )
+
+[node name="Back" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 1128, 768 )
+scale = Vector2( 6.6, 6.6 )
+z_index = 1
+normal = ExtResource( 13 )
+pressed = ExtResource( 27 )
+
+[node name="HelpMenuStuff" type="Node2D" parent="Kanvas"]
+visible = false
+position = Vector2( 960, 452 )
+scale = Vector2( 6.6, 6.6 )
+
+[node name="HelpMenu" type="Sprite" parent="Kanvas/HelpMenuStuff"]
+texture = ExtResource( 29 )
+
+[node name="Controls" type="AnimatedSprite" parent="Kanvas/HelpMenuStuff"]
+position = Vector2( -26.5, 15 )
+frames = SubResource( 4 )
+animation = "an2"
 
 [node name="BlackScreen2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 56 )
@@ -145,3 +271,16 @@ stream = ExtResource( 10 )
 [node name="BuyItemFail" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -5.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 12 )
+volume_db = -10.0
+
+[connection signal="pressed" from="Kanvas/PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="pressed" from="Kanvas/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Kanvas/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="Kanvas/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="Kanvas/Left" to="." method="_on_Left_pressed"]
+[connection signal="pressed" from="Kanvas/Right" to="." method="_on_Right_pressed"]
+[connection signal="pressed" from="Kanvas/Back" to="." method="_on_Back_pressed"]

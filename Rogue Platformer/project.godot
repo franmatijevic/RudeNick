@@ -23,6 +23,7 @@ _global_script_class_icons={
 config/name="Rude Nick"
 run/main_scene="res://src/Levels/Game.tscn"
 config/icon="res://app_icon_test.png"
+config/windows_native_icon="res://app_icon_test.ico"
 
 [autoload]
 
