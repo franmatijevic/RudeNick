@@ -25,10 +25,6 @@ run/main_scene="res://src/Levels/Game.tscn"
 config/icon="res://app_icon_test.png"
 config/windows_native_icon="res://app_icon_test.ico"
 
-[autoload]
-
-PauseScreen="*res://src/Other/PauseScreen.tscn"
-
 [display]
 
 window/size/width=1920
