@@ -489,7 +489,7 @@ texture = ExtResource( 43 )
 visible = false
 position = Vector2( 760.5, 323 )
 scale = Vector2( 6.5, 6.5 )
-z_index = 1
+z_index = 5
 normal = ExtResource( 45 )
 pressed = ExtResource( 21 )
 
@@ -505,7 +505,7 @@ pressed = ExtResource( 14 )
 visible = false
 position = Vector2( 760.5, 719.5 )
 scale = Vector2( 6.5, 6.5 )
-z_index = 1
+z_index = 5
 normal = ExtResource( 44 )
 pressed = ExtResource( 13 )
 

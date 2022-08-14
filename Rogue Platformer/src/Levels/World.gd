@@ -651,6 +651,109 @@ func create_decorations()->void:
 						polje[i][j].get_node("AnimatedSprite").animation="an6"
 				add_child(polje[i][j])
 
+func set_up_pause_menu()->void:
+	if(!get_node("/root/Game").can_pause):
+		return
+	
+	get_tree().paused = true
+	
+	get_node("Kanvas/HelpMenuStuff").visible=false
+	get_node("Kanvas/Left").visible=false
+	get_node("Kanvas/Right").visible=false
+	get_node("Kanvas/Back").visible=false
+	
+	get_node("Kanvas/AnimatedSprite").visible=true
+	get_node("Kanvas/AnimatedSprite").frame=0
+	yield(get_tree().create_timer(0.4), "timeout")
+	
+	get_node("Kanvas/Resume").visible=true
+	get_node("Kanvas/Help").visible=true
+	get_node("Kanvas/Quit").visible=true
 
 
 
+func _on_PauseButton_pressed() -> void:
+	get_node("Kanvas/PauseButton").visible=false
+	var music = get_node("/root/Game").music
+	var value
+	if(music==true):
+		value=-30
+	else:
+		value=-80
+	if(get_node("/root/Game").has_node("World")):
+		if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
+			get_node("/root/Game/World/Music1").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
+			get_node("/root/Game/World/Music2").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
+			get_node("/root/Game/World/Music3").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
+			get_node("/root/Game/World/Rage").set_volume_db(value)
+	
+	get_node("Kanvas/UI/Dim").visible=true
+	
+	set_up_pause_menu()
+	get_node("Click").play()
+
+
+
+func _on_Resume_pressed() -> void:
+	get_node("Kanvas/PauseButton").visible=true
+	get_node("Kanvas/UI/Dim").visible=false
+	get_node("Click").play()
+	get_tree().paused = false
+	get_node("Kanvas/Resume").visible=false
+	get_node("Kanvas/Help").visible=false
+	get_node("Kanvas/Quit").visible=false
+	get_node("Kanvas/AnimatedSprite").visible=false
+	var music = get_node("/root/Game").music
+	var value
+	if(music==true):
+		value=-15
+	else:
+		value=-80
+	if(get_node("/root/Game").has_node("World")):
+		if(get_node("/root/Game/World").has_node("Music1") and get_node("/root/Game/World/Music1").is_playing()):
+			get_node("/root/Game/World/Music1").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Music2") and get_node("/root/Game/World/Music2").is_playing()):
+			get_node("/root/Game/World/Music2").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Music3") and get_node("/root/Game/World/Music3").is_playing()):
+			get_node("/root/Game/World/Music3").set_volume_db(value)
+		elif(get_node("/root/Game/World").has_node("Rage") and get_node("/root/Game/World/Rage").is_playing()):
+			get_node("/root/Game/World/Rage").set_volume_db(value)
+
+
+func _on_Help_pressed() -> void:
+	get_node("Click").play()
+	get_node("Kanvas/Resume").visible=false
+	get_node("Kanvas/Help").visible=false
+	get_node("Kanvas/Quit").visible=false
+	get_node("Kanvas/AnimatedSprite").visible=false
+	
+	get_node("Kanvas/HelpMenuStuff").visible=true
+	get_node("Kanvas/HelpMenuStuff/Controls").animation="an1"
+	
+	get_node("Kanvas/Left").visible=true
+	get_node("Kanvas/Right").visible=true
+	get_node("Kanvas/Back").visible=true
+
+
+func _on_Quit_pressed() -> void:
+	get_node("Click").play()
+	get_tree().paused = false
+	get_node("/root/Game").back_to_main_menu()
+
+
+func _on_Left_pressed() -> void:
+	get_node("Click").play()
+	get_node("Kanvas/HelpMenuStuff/Controls").animation="an1"
+
+
+func _on_Right_pressed() -> void:
+	get_node("Click").play()
+	get_node("Kanvas/HelpMenuStuff/Controls").animation="an2"
+
+
+func _on_Back_pressed() -> void:
+	set_up_pause_menu()
+	get_node("Click").play()

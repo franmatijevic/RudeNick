@@ -54,7 +54,7 @@ func _ready() -> void:
 	shop_angry=0
 	#get_node("PauseLayer/Pause").visible=false
 	OS.window_fullscreen = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("up")):
@@ -93,6 +93,7 @@ func back_to_main_menu()->void:
 	if(has_node("Intro")):
 		get_node("Intro").queue_free()
 	var main=preload("res://src/Levels/MainMenu.tscn").instance()
+	main=preload("res://src/Levels/AndroidMenu.tscn").instance()
 	add_child(main)
 	restart_stats()
 
@@ -158,10 +159,20 @@ func easy_mode_setup()->void:
 	player_bomb=5
 	player_rope=5
 
+func new_level_from_menu(easy:bool)->void:
+	restart_stats()
+	if(easy==true):
+		easy_mode=true
+		easy_mode_setup()
+	else:
+		easy_mode=false
+	new_level()
+
 func new_level()->void:
 	bomb_in_hands=true
 	if(has_node("World")):
 		get_node("World").queue_free()
+	
 	
 	
 	if(has_node("RestartScreen")):

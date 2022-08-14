@@ -27,6 +27,7 @@ func title_animation()->void:
 	var time_in_seconds = 0.5
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
 	get_node("AnimatedSprite").animation="playing"
+	get_node("AnimatedSprite").frame=0
 	enable=true
 	time_in_seconds=0.1
 	yield(get_tree().create_timer(time_in_seconds), "timeout")
@@ -34,11 +35,15 @@ func title_animation()->void:
 	#get_node("PlayButton").visible=true
 	#get_node("HelpButton").visible=true
 	#get_node("QuitButton").visible=true
-	get_node("PlaySprite").visible=true
-	get_node("HelpSprite").visible=true
-	get_node("QuitSprite").visible=true
+	#get_node("PlaySprite").visible=true
+	#get_node("HelpSprite").visible=true
+	#get_node("QuitSprite").visible=true
 	
 	get_node("AnimatedSprite").animation="default"
+	
+	get_node("PlayButton").visible=true
+	get_node("HelpButton").visible=true
+	get_node("QuitButton").visible=true
 	
 	if(music==false):
 		music=true
@@ -266,3 +271,75 @@ func setup_help()->void:
 	
 	get_node("HelpMenu").visible=true
 	get_node("Controls1").visible=true
+
+
+func _on_QuitButton_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_PlayButton_pressed() -> void:
+	setup_diff()
+	get_node("AnimatedSprite").visible=false
+	yield(get_tree().create_timer(0.56), "timeout")
+	
+	get_node("PlayButton").visible=false
+	get_node("HelpButton").visible=false
+	get_node("QuitButton").visible=false
+	get_node("RudeNick").visible=false
+	
+	get_node("NormalButton").visible=true
+	get_node("EasyButton").visible=true
+	get_node("BackButton").visible=true
+	get_node("Chad").visible=true
+	get_node("Baby").visible=true
+
+
+func _on_HelpButton_pressed() -> void:
+	setup_help()
+	get_node("LeftButton").visible=true
+	get_node("RightButton").visible=true
+	get_node("BackHelpButton").visible=true
+	
+	get_node("PlayButton").visible=false
+	get_node("HelpButton").visible=false
+	get_node("QuitButton").visible=false
+
+
+func _on_LeftButton_pressed() -> void:
+	get_node("Controls1").visible=true
+	get_node("Controls2").visible=false
+
+
+func _on_RightButton_pressed() -> void:
+	get_node("Controls1").visible=false
+	get_node("Controls2").visible=true
+
+func _on_BackHelpButton_pressed() -> void:
+	title_animation()
+	get_node("LeftButton").visible=false
+	get_node("RightButton").visible=false
+	get_node("BackHelpButton").visible=false
+	get_node("Controls1").visible=false
+	get_node("Controls2").visible=false
+	get_node("HelpMenu").visible=false
+	
+	get_node("ArrowLeft").visible=false
+
+
+func _on_BackButton_pressed() -> void:
+	title_animation()
+	get_node("LeftButton").visible=false
+	get_node("RightButton").visible=false
+	get_node("BackHelpButton").visible=false
+	get_node("Controls1").visible=false
+	get_node("Controls2").visible=false
+	get_node("HelpMenu").visible=false
+	get_node("ArrowLeft").visible=false
+	
+	get_node("NormalButton").visible=false
+	get_node("EasyButton").visible=false
+	get_node("BackButton").visible=false
+	get_node("Diff").visible=false
+	
+	get_node("Chad").visible=false
+	get_node("Baby").visible=false

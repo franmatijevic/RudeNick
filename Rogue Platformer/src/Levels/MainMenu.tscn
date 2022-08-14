@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=1]
 [ext_resource path="res://src/Levels/MainMenu.gd" type="Script" id=2]
@@ -45,6 +45,18 @@
 [ext_resource path="res://Assets/Difficulty/easy_icon_hover2.png" type="Texture" id=43]
 [ext_resource path="res://Assets/Difficulty/normal_icon_hover3.png" type="Texture" id=44]
 [ext_resource path="res://pcsenior.ttf" type="DynamicFontData" id=45]
+[ext_resource path="res://Assets/MainMenuStuff/play_button_1.png" type="Texture" id=46]
+[ext_resource path="res://Assets/MainMenuStuff/quit_button_1.png" type="Texture" id=47]
+[ext_resource path="res://Assets/MainMenuStuff/help_button_1.png" type="Texture" id=48]
+[ext_resource path="res://Assets/HelpMenu/back_button (1).png" type="Texture" id=49]
+[ext_resource path="res://Assets/Difficulty/easy_button.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Difficulty/normal_button.png" type="Texture" id=51]
+[ext_resource path="res://Assets/MainMenuStuff/back_button_hover (1).png" type="Texture" id=52]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_cum.png" type="Texture" id=53]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover_cum.png" type="Texture" id=54]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2.png" type="Texture" id=55]
+[ext_resource path="res://Assets/HelpMenu/next_page_button.png" type="Texture" id=56]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2_hover (1).png" type="Texture" id=57]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -191,7 +203,7 @@ stream = ExtResource( 20 )
 volume_db = -10.0
 
 [node name="MusicButton" type="Sprite" parent="."]
-position = Vector2( 323.116, 149.987 )
+position = Vector2( 323, 150 )
 texture = ExtResource( 21 )
 
 [node name="Diff" type="AnimatedSprite" parent="."]
@@ -219,21 +231,26 @@ texture = ExtResource( 36 )
 [node name="Chad" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 163.952, 77.2084 )
+z_index = 10
 frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="Baby" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 165.452, 101.286 )
+z_index = 10
 frames = SubResource( 4 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Desc" type="Node2D" parent="."]
+visible = false
 position = Vector2( 232.613, 71.1751 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Desc" type="Label" parent="Desc"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -249,4 +266,66 @@ valign = 2
 autowrap = true
 clip_text = true
 
+[node name="PlayButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 49 )
+normal = ExtResource( 46 )
+pressed = ExtResource( 24 )
+
+[node name="HelpButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 85 )
+normal = ExtResource( 48 )
+pressed = ExtResource( 22 )
+
+[node name="QuitButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 110 )
+normal = ExtResource( 47 )
+pressed = ExtResource( 23 )
+
+[node name="NormalButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 50 )
+normal = ExtResource( 51 )
+pressed = ExtResource( 32 )
+
+[node name="EasyButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 86 )
+z_index = 8
+normal = ExtResource( 50 )
+pressed = ExtResource( 35 )
+
+[node name="BackButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 100 )
+normal = ExtResource( 49 )
+pressed = ExtResource( 52 )
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 217, 97 )
+normal = ExtResource( 56 )
+pressed = ExtResource( 13 )
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 245, 97 )
+normal = ExtResource( 53 )
+pressed = ExtResource( 54 )
+
+[node name="BackHelpButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 217, 116 )
+normal = ExtResource( 55 )
+pressed = ExtResource( 57 )
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="BackHelpButton" to="." method="_on_BackHelpButton_pressed"]

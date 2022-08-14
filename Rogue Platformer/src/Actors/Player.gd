@@ -302,7 +302,7 @@ func _physics_process(delta: float) -> void:
 			using_gravity=1
 			move_horizontal=1
 	
-	if($LedgeX.is_colliding() && !is_attacking && !climbing && !is_running): hold_ledge()
+	if($LedgeX.is_colliding() && !is_attacking && !climbing): hold_ledge()
 	if(ledge_grab):
 		if(Input.is_action_just_pressed("jump")):
 			if(!move_down): velocity.y-=speed.y

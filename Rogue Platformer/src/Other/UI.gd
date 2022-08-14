@@ -27,10 +27,11 @@ func _process(delta: float) -> void:
 			setup()
 		elif(!help):
 			if(get_node("GameOver").frame==8):
-				get_node("Time_whole").visible=true
-				get_node("Killed").visible=true
-				get_node("LevelDead").visible=true
-				get_node("Portrait").visible=true
+				pass
+				#get_node("Time_whole").visible=true
+				#get_node("Killed").visible=true
+				#get_node("LevelDead").visible=true
+				#get_node("Portrait").visible=true
 			
 			if(Input.is_action_just_pressed("down")):
 				if(get_node("GameOver").visible==true):
@@ -158,8 +159,16 @@ func setup()->void:
 	choice=0
 	get_node("GameOver").visible=true
 	get_node("GameOver").frame=0
-	yield(get_tree().create_timer(0.7), "timeout")
+	yield(get_tree().create_timer(0.65), "timeout")
 	dead_setup=true
+	#yield(get_tree().create_timer(0.1), "timeout")
+	get_node("Time_whole").visible=true
+	get_node("Killed").visible=true
+	get_node("LevelDead").visible=true
+	get_node("ResetButton").visible=true
+	get_node("HelpButton").visible=true
+	get_node("QuitButton").visible=true
+	get_node("Portrait").visible=true
 	#yield(get_tree().create_timer(0.05), "timeout")
 	#get_node("Time_whole").visible=true
 	#get_node("Killed").visible=true
@@ -184,3 +193,48 @@ func print_something(text: String)->void:
 	if(last==text):
 		get_node("DialogBox").visible=false
 		get_node("DialogText").visible=false
+
+
+func _on_ResetButton_pressed() -> void:
+	get_node("/root/Game").restart()
+	get_node("/root/Game").can_pause=true
+
+
+func _on_QuitButton_pressed() -> void:
+	get_node("/root/Game").back_to_main_menu()
+
+
+func _on_HelpButton_pressed() -> void:
+	get_node("ResetButton").visible=false
+	get_node("HelpButton").visible=false
+	get_node("QuitButton").visible=false
+	get_node("Time_whole").visible=false
+	get_node("Killed").visible=false
+	get_node("LevelDead").visible=false
+	get_node("Portrait").visible=false
+	
+	get_node("Controls1").visible=true
+	get_node("HelpMenu").visible=true
+	get_node("LeftButton").visible=true
+	get_node("RightButton").visible=true
+	get_node("BackButton").visible=true
+
+
+func _on_LeftButton_pressed() -> void:
+	get_node("Controls1").visible=true
+	get_node("Controls2").visible=false
+
+
+func _on_RightButton_pressed() -> void:
+	get_node("Controls1").visible=false
+	get_node("Controls2").visible=true
+
+
+func _on_BackButton_pressed() -> void:
+	get_node("Controls1").visible=false
+	get_node("Controls2").visible=false
+	get_node("HelpMenu").visible=false
+	get_node("LeftButton").visible=false
+	get_node("RightButton").visible=false
+	get_node("BackButton").visible=false
+	setup()

@@ -213,3 +213,11 @@ margin_bottom = 4373.75
 custom_fonts/font = SubResource( 1 )
 text = "Congrats!"
 align = 1
+
+[node name="SkipButton" type="TouchScreenButton" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -1472.44, -615.406 )
+scale = Vector2( 3000, 1500 )
+normal = ExtResource( 1 )
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_SkipButton_pressed"]

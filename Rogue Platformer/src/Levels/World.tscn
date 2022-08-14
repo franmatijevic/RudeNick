@@ -100,6 +100,8 @@ layer = 2
 [node name="UI" parent="Kanvas" instance=ExtResource( 6 )]
 
 [node name="PauseButton" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 1464, 28 )
 scale = Vector2( 8, 8 )
 normal = ExtResource( 31 )

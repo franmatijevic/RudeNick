@@ -1,0 +1,205 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://Assets/HelpMenu/next_page_button_cum.png" type="Texture" id=1]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover_cum.png" type="Texture" id=2]
+[ext_resource path="res://Assets/MainMenuStuff/back_button_for_mathiyevic.png" type="Texture" id=3]
+[ext_resource path="res://Assets/MainMenuStuff/play_button_1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Difficulty/easy_button_hover.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Difficulty/normal_button_hover.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Difficulty/easy_button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Difficulty/normal_button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/MainMenuStuff/quit_button_1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/MainMenuStuff/help_button_1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/HelpMenu/next_page_button.png" type="Texture" id=12]
+[ext_resource path="res://Assets/HelpMenu/back_button_v2_hover (1).png" type="Texture" id=13]
+[ext_resource path="res://Assets/HelpMenu/next_page_button_hover.png" type="Texture" id=14]
+[ext_resource path="res://Assets/MainMenuStuff/help_button_1_hover.png" type="Texture" id=15]
+[ext_resource path="res://Assets/MainMenuStuff/back_button_hover (1).png" type="Texture" id=16]
+[ext_resource path="res://Assets/MainMenuStuff/quit_button_1_hover.png" type="Texture" id=17]
+[ext_resource path="res://Assets/MainMenuStuff/play_button_1_hover.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu6.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu9.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu8.png" type="Texture" id=21]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation7.png" type="Texture" id=22]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation4.png" type="Texture" id=23]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation5.png" type="Texture" id=24]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Backgrounds/background_2.png" type="Texture" id=26]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation6.png" type="Texture" id=27]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation2.png" type="Texture" id=28]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation3.png" type="Texture" id=29]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation9.png" type="Texture" id=30]
+[ext_resource path="res://Assets/MainMenuStuff/main_menu_animation8.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu4.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu7.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu3.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu1.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu2.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Difficulty/difficulty_menu5.png" type="Texture" id=37]
+[ext_resource path="res://Music/Random/button_hover_1.wav" type="AudioStream" id=38]
+[ext_resource path="res://Music/xDeviruchi - 8-bit Fantasy  & Adventure Music (2021)/xDeviruchi - Title Theme .wav" type="AudioStream" id=39]
+[ext_resource path="res://src/Levels/AndroidMenu.gd" type="Script" id=40]
+[ext_resource path="res://Assets/HelpMenu/help_menu_2.png" type="Texture" id=41]
+[ext_resource path="res://Assets/HelpMenu/help_menu_1.png" type="Texture" id=42]
+[ext_resource path="res://Assets/HelpMenu/help_menu.png" type="Texture" id=43]
+[ext_resource path="res://Assets/MusicOnOff/music_button.png" type="Texture" id=44]
+[ext_resource path="res://Assets/MainMenuStuff/credits.png" type="Texture" id=45]
+[ext_resource path="res://Assets/MainMenuStuff/credits_hover.png" type="Texture" id=46]
+[ext_resource path="res://Assets/MusicOnOff/music_button_hover.png" type="Texture" id=47]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "playing",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 19 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "default",
+"speed": 14.0
+} ]
+
+[node name="AndroidMenu" type="Node2D"]
+script = ExtResource( 40 )
+
+[node name="PlayButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 50 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 18 )
+
+[node name="HelpButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 86 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 15 )
+
+[node name="QuitButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 111 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 17 )
+
+[node name="NormalButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 50 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 6 )
+
+[node name="EasyButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 86 )
+z_index = 8
+normal = ExtResource( 7 )
+pressed = ExtResource( 5 )
+
+[node name="BackButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 165, 111 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 16 )
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 217, 97 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 14 )
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 245, 97 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+
+[node name="BackHelpButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 217, 116 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 13 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 192, 56 )
+current = true
+zoom = Vector2( 0.15, 0.15 )
+limit_left = 0
+limit_top = 0
+
+[node name="Background1" type="Sprite" parent="."]
+position = Vector2( 192, 192 )
+z_index = -10
+texture = ExtResource( 26 )
+
+[node name="Background2" type="Sprite" parent="."]
+position = Vector2( 192, 576 )
+z_index = -10
+texture = ExtResource( 26 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 192, 68 )
+z_index = 100
+frames = SubResource( 1 )
+playing = true
+
+[node name="Diff" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 192, 68 )
+z_index = -1
+frames = SubResource( 2 )
+frame = 8
+playing = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+volume_db = -15.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+volume_db = -10.0
+
+[node name="HelpMenu" type="Sprite" parent="."]
+visible = false
+position = Vector2( 192, 68.5 )
+texture = ExtResource( 43 )
+
+[node name="Controls1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 165.5, 84 )
+texture = ExtResource( 42 )
+
+[node name="Controls2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 165.5, 84 )
+texture = ExtResource( 41 )
+
+[node name="Credits" type="TouchScreenButton" parent="."]
+position = Vector2( 51.5, 139 )
+normal = ExtResource( 45 )
+pressed = ExtResource( 46 )
+
+[node name="MusicOn" type="TouchScreenButton" parent="."]
+position = Vector2( 314.5, 139 )
+normal = ExtResource( 44 )
+pressed = ExtResource( 47 )
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="NormalButton" to="." method="_on_NormalButton_pressed"]
+[connection signal="pressed" from="EasyButton" to="." method="_on_EasyButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="BackHelpButton" to="." method="_on_BackHelpButton_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="MusicOn" to="." method="_on_MusicOn_pressed"]

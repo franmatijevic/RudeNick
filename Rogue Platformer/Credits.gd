@@ -57,3 +57,10 @@ func skip()->void:
 	get_node("Music").stop()
 	yield(get_tree().create_timer(1), "timeout")
 	get_node("/root/Game").credits()
+
+
+func _on_SkipButton_pressed() -> void:
+	if(click==true):
+		skip()
+	else:
+		click=true
