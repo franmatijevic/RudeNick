@@ -12,6 +12,7 @@ func _ready() -> void:
 func title_animation()->void:
 	get_node("Credits").visible=true
 	get_node("MusicOn").visible=true
+	get_node("FlipMega").visible=false
 	get_node("AnimatedSprite").animation="playing"
 	get_node("AnimatedSprite").frame=0
 	
@@ -61,6 +62,7 @@ func _on_HelpButton_pressed() -> void:
 	get_node("LeftButton").visible=true
 	get_node("RightButton").visible=true
 	get_node("BackHelpButton").visible=true
+	get_node("FlipMega").visible=true
 
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()
@@ -85,6 +87,7 @@ func _on_BackButton_pressed() -> void:
 	get_node("NormalButton").visible=false
 	get_node("EasyButton").visible=false
 	get_node("BackButton").visible=false
+	get_node("FlipMega").visible=false
 
 
 func _on_LeftButton_pressed() -> void:
@@ -125,3 +128,7 @@ func _on_MusicOn_pressed() -> void:
 		get_node("Music").volume_db=-15
 		get_node("MusicOn").set_texture_pressed(load("res://Assets/MusicOnOff/music_button_hover.png"))
 		get_node("MusicOn").set_texture(load("res://Assets/MusicOnOff/music_button.png"))
+
+
+func _on_FlipMega_pressed() -> void:
+	get_node("/root/Game").control_flip=!get_node("/root/Game").control_flip

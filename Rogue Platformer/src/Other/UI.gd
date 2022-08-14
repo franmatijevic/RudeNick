@@ -238,3 +238,7 @@ func _on_BackButton_pressed() -> void:
 	get_node("RightButton").visible=false
 	get_node("BackButton").visible=false
 	setup()
+
+
+func _on_FlipMega_pressed() -> void:
+	get_node("/root/Game").control_flip=!get_node("/root/Game").control_flip

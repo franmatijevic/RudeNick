@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/MobileControlls/Up1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/MobileControlls/Right1.png" type="Texture" id=2]
@@ -20,12 +20,14 @@
 [ext_resource path="res://Assets/MobileControlls/Down2.png" type="Texture" id=18]
 [ext_resource path="res://Assets/MobileControlls/Attack2.png" type="Texture" id=19]
 [ext_resource path="res://Assets/MobileControlls/Interact2 (1).png" type="Texture" id=20]
+[ext_resource path="res://src/Other/MobileControlls.gd" type="Script" id=21]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Mobile" type="CanvasLayer"]
+script = ExtResource( 21 )
 
 [node name="Left" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 1451, 766 )
+position = Vector2( 53.9498, 766 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 11 )
@@ -33,7 +35,7 @@ action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 1708, 766 )
+position = Vector2( 310.95, 766 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 2 )
 pressed = ExtResource( 12 )
@@ -41,7 +43,7 @@ action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 387, 684 )
+position = Vector2( 1710.63, 684 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 5 )
 pressed = ExtResource( 14 )
@@ -49,7 +51,7 @@ action = "jump"
 
 [node name="Attack" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 387, 887 )
+position = Vector2( 1710.63, 887 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 6 )
 pressed = ExtResource( 19 )
@@ -57,7 +59,7 @@ action = "action"
 
 [node name="Rope" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 54, 684 )
+position = Vector2( 1377.63, 684 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 17 )
@@ -65,7 +67,7 @@ action = "rope"
 
 [node name="Bomb" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 54, 886 )
+position = Vector2( 1377.63, 886 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 7 )
 pressed = ExtResource( 13 )
@@ -73,7 +75,7 @@ action = "bomb"
 
 [node name="Up" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 1577, 643 )
+position = Vector2( 179.95, 643 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 1 )
 pressed = ExtResource( 15 )
@@ -81,7 +83,7 @@ action = "up"
 
 [node name="Down" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 1577, 886 )
+position = Vector2( 179.95, 886 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 9 )
 pressed = ExtResource( 18 )
@@ -89,7 +91,7 @@ action = "down"
 
 [node name="Interact" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 222, 783 )
+position = Vector2( 1545.63, 783 )
 scale = Vector2( 10, 10 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 20 )

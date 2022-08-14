@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://src/Levels/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_1.png" type="Texture" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://Assets/HelpMenu/next_page_button_hover_cum.png" type="Texture" id=34]
 [ext_resource path="res://Assets/MainMenuStuff/back_button_hover (1).png" type="Texture" id=35]
 [ext_resource path="res://Assets/HelpMenu/back_button (1).png" type="Texture" id=36]
+[ext_resource path="res://Assets/invert_controls.png" type="Texture" id=37]
+[ext_resource path="res://Assets/invert_controls_press.png" type="Texture" id=38]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -181,6 +183,14 @@ position = Vector2( -26.5, 15 )
 frames = SubResource( 4 )
 animation = "an2"
 
+[node name="FlipMega" type="TouchScreenButton" parent="Kanvas"]
+pause_mode = 2
+visible = false
+position = Vector2( 1128.01, 460 )
+scale = Vector2( 6.5, 6.5 )
+normal = ExtResource( 37 )
+pressed = ExtResource( 38 )
+
 [node name="BlackScreen2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 24, 56 )
 
@@ -286,3 +296,4 @@ volume_db = -10.0
 [connection signal="pressed" from="Kanvas/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Kanvas/Right" to="." method="_on_Right_pressed"]
 [connection signal="pressed" from="Kanvas/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Kanvas/FlipMega" to="." method="_on_FlipMega_pressed"]

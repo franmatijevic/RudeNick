@@ -41,6 +41,8 @@ var boss_level:int=-1
 var up:bool=false
 var down:bool=false
 
+var control_flip:bool=false
+
 func set_health()->void:
 	if(get_node("World").has_node("Player")):
 		get_node("World").get_node("Player").health=player_health

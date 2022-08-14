@@ -661,6 +661,7 @@ func set_up_pause_menu()->void:
 	get_node("Kanvas/Left").visible=false
 	get_node("Kanvas/Right").visible=false
 	get_node("Kanvas/Back").visible=false
+	get_node("Kanvas/FlipMega").visible=false
 	
 	get_node("Kanvas/AnimatedSprite").visible=true
 	get_node("Kanvas/AnimatedSprite").frame=0
@@ -736,6 +737,7 @@ func _on_Help_pressed() -> void:
 	get_node("Kanvas/Left").visible=true
 	get_node("Kanvas/Right").visible=true
 	get_node("Kanvas/Back").visible=true
+	get_node("Kanvas/FlipMega").visible=true
 
 
 func _on_Quit_pressed() -> void:
@@ -757,3 +759,8 @@ func _on_Right_pressed() -> void:
 func _on_Back_pressed() -> void:
 	set_up_pause_menu()
 	get_node("Click").play()
+
+
+func _on_FlipMega_pressed() -> void:
+	get_node("/root/Game").control_flip=!get_node("/root/Game").control_flip
+	get_node("Kanvas/UI/Mobile").flip(get_node("/root/Game").control_flip)

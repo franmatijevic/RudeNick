@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Decoration/interact1.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Decoration/interact2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Decoration/interact1 (1).png" type="Texture" id=1]
+[ext_resource path="res://Assets/Decoration/interact2 (1).png" type="Texture" id=2]
 [ext_resource path="res://Assets/Doors/boss_gate2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Doors/boss_gate1.png" type="Texture" id=4]
 [ext_resource path="res://BossGate.gd" type="Script" id=5]
